@@ -2,9 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import TeamCard from '../components/TeamCard.astro';
 import { SITE } from '../config';
+import { Image } from 'astro:assets';
 
 import aurelieImg from '../assets/team/aurelie.jpg';
 import alexandreImg from '../assets/team/alexandre.jpg';
+import outilsImg from '../assets/metiers/outils-generiques.jpg';
 ---
 
 <Layout
@@ -19,9 +21,22 @@ import alexandreImg from '../assets/team/alexandre.jpg';
     class="relative overflow-hidden"
     style="background-color: var(--color-navy);"
   >
+    <!-- Photo outils en fond : floutée + overlay navy -->
+    <Image
+      src={outilsImg}
+      alt=""
+      aria-hidden="true"
+      width={1600}
+      height={900}
+      class="absolute inset-0 w-full h-full object-cover"
+      style="filter: blur(3px) saturate(0.7); transform: scale(1.05);"
+      loading="eager"
+      quality={60}
+    />
+    <!-- Overlay navy fort pour lisibilité du texte blanc -->
     <div
-      class="absolute inset-0 opacity-5"
-      style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"
+      class="absolute inset-0"
+      style="background: linear-gradient(135deg, rgba(15,30,61,0.88) 0%, rgba(15,30,61,0.78) 60%, rgba(15,30,61,0.85) 100%);"
       aria-hidden="true"
     ></div>
 
