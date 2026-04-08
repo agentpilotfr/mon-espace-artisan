@@ -3,9 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import { SITE } from '../config';
 
-import plombierImg    from '../assets/metiers/plombier.jpg';
-import outilsImg      from '../assets/metiers/outils-generiques.jpg'; // fallback électricien
-import peintreImg     from '../assets/metiers/peintre.jpg';
+import plombierImg      from '../assets/metiers/plombier.jpg';
+import electricienImg  from '../assets/metiers/electricien.jpg';
+import peintreImg      from '../assets/metiers/peintre.jpg';
 import menuiserieImg  from '../assets/metiers/menuiserie.jpg';
 import maconImg       from '../assets/metiers/macon.jpg';
 import paysagisteImg  from '../assets/metiers/paysagiste.jpg';
@@ -50,8 +50,8 @@ const metiers: Metier[] = [
       'Formulaire de devis pour les travaux importants',
       'Référencement local sur les communes du 44',
     ],
-    image: outilsImg,
-    imageAlt: 'Outillage professionnel électricien',
+    image: electricienImg,
+    imageAlt: 'Électricien au travail',
   },
   {
     id: 'peintre',

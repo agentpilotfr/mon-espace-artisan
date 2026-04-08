@@ -21,22 +21,22 @@ import outilsImg from '../assets/metiers/outils-generiques.jpg';
     class="relative overflow-hidden"
     style="background-color: var(--color-navy);"
   >
-    <!-- Photo outils en fond : floutée + overlay navy -->
+    <!-- Photo outils en fond -->
     <Image
       src={outilsImg}
       alt=""
       aria-hidden="true"
       width={1600}
       height={900}
-      class="absolute inset-0 w-full h-full object-cover"
-      style="filter: blur(3px) saturate(0.7); transform: scale(1.05);"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      style="filter: saturate(0.5) brightness(0.55);"
       loading="eager"
-      quality={60}
+      quality={75}
     />
-    <!-- Overlay navy fort pour lisibilité du texte blanc -->
+    <!-- Dégradé bas pour fondre vers la section suivante -->
     <div
-      class="absolute inset-0"
-      style="background: linear-gradient(135deg, rgba(15,30,61,0.88) 0%, rgba(15,30,61,0.78) 60%, rgba(15,30,61,0.85) 100%);"
+      class="absolute bottom-0 left-0 right-0 h-24"
+      style="background: linear-gradient(to bottom, transparent, var(--color-navy));"
       aria-hidden="true"
     ></div>
 
