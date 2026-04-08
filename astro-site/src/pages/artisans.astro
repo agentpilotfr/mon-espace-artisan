@@ -1,0 +1,228 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import { SITE } from '../config';
+
+import plombierImg    from '../assets/metiers/plombier.jpg';
+import outilsImg      from '../assets/metiers/outils-generiques.jpg'; // fallback électricien
+import peintreImg     from '../assets/metiers/peintre.jpg';
+import menuiserieImg  from '../assets/metiers/menuiserie.jpg';
+import maconImg       from '../assets/metiers/macon.jpg';
+import paysagisteImg  from '../assets/metiers/paysagiste.jpg';
+import couvreurImg    from '../assets/metiers/couvreur.jpg';
+import chauffagisteImg from '../assets/metiers/chauffagiste.jpg';
+
+import type { ImageMetadata } from 'astro';
+
+interface Metier {
+  id: string;
+  title: string;
+  seoTitle: string;
+  desc: string;
+  avantages: string[];
+  image: ImageMetadata;
+  imageAlt: string;
+}
+
+const metiers: Metier[] = [
+  {
+    id: 'plombier',
+    title: 'Plombier',
+    seoTitle: 'Site internet pour plombier à Saint-Nazaire',
+    desc: "En Loire-Atlantique, un plombier qui n'a pas de site web perd des clients chaque jour. Quand un robinet fuit à 21h, le premier réflexe c'est Google. Si vous n'êtes pas là, c'est votre concurrent qui décroche le téléphone.",
+    avantages: [
+      'Votre numéro en grand sur mobile — les urgences appellent',
+      'Vos interventions listées clairement : dépannage, remplacement, installation',
+      "Zone d'intervention visible (Saint-Nazaire, Montoir, Trignac…)",
+      'Formulaire de devis rapide',
+    ],
+    image: plombierImg,
+    imageAlt: 'Plombier au travail',
+  },
+  {
+    id: 'electricien',
+    title: 'Électricien',
+    seoTitle: 'Site internet pour électricien à Saint-Nazaire',
+    desc: "Les particuliers et entreprises de Saint-Nazaire cherchent un électricien qualifié RGE sur Google, pas dans les Pages Jaunes. Un site pro renforce la confiance et vous permet de montrer vos certifications.",
+    avantages: [
+      'Mise en avant de vos certifications (RGE, Qualifelec…)',
+      'Page dédiée à vos services : tableau électrique, mise aux normes, domotique',
+      'Formulaire de devis pour les travaux importants',
+      'Référencement local sur les communes du 44',
+    ],
+    image: outilsImg,
+    imageAlt: 'Outillage professionnel électricien',
+  },
+  {
+    id: 'peintre',
+    title: 'Peintre',
+    seoTitle: 'Site internet pour peintre à Saint-Nazaire',
+    desc: "En peinture, les photos parlent plus que les mots. Un site avec votre book de réalisations convainc immédiatement les clients hésitants. Montrez vos chantiers, vos finitions, votre soin du travail.",
+    avantages: [
+      'Galerie photos de vos réalisations',
+      'Description de vos spécialités : intérieur, extérieur, ravalement',
+      "Devis en ligne pour réduire les déplacements inutiles",
+      'Avis clients visibles directement sur votre site',
+    ],
+    image: peintreImg,
+    imageAlt: 'Peintre en train de peindre un mur',
+  },
+  {
+    id: 'menuisier',
+    title: 'Menuisier',
+    seoTitle: 'Site internet pour menuisier à Saint-Nazaire',
+    desc: "Fenêtres, portes, escaliers, agencement sur mesure — la menuiserie c'est du beau travail. Autant que les clients le voient avant même d'appeler. Un site bien fait valorise votre savoir-faire artisanal.",
+    avantages: [
+      'Portfolio de vos créations sur mesure',
+      'Pages par spécialité : fenêtres, portes, escaliers, dressing…',
+      'Formulaire de demande de devis détaillé',
+      'Mise en avant du fait main et du local',
+    ],
+    image: menuiserieImg,
+    imageAlt: 'Atelier de menuiserie',
+  },
+  {
+    id: 'macon',
+    title: 'Maçon',
+    seoTitle: 'Site internet pour maçon à Saint-Nazaire',
+    desc: "Un chantier de maçonnerie ou d'extension, c'est souvent un gros budget. Les clients cherchent longtemps avant de choisir. Un site professionnel avec vos réalisations et vos références les rassure avant même le premier appel.",
+    avantages: [
+      'Galerie avant/après de vos chantiers',
+      'Description de vos spécialités : construction, extension, rénovation',
+      "Zone d'intervention dans tout le 44",
+      'Formulaire de prise de contact pour grands projets',
+    ],
+    image: maconImg,
+    imageAlt: 'Maçon posant des briques',
+  },
+  {
+    id: 'paysagiste',
+    title: 'Paysagiste',
+    seoTitle: 'Site internet pour paysagiste à Saint-Nazaire',
+    desc: "Un jardin réussi, ça se voit. Publiez vos plus beaux aménagements, vos créations d'espaces verts, vos tailles et entretiens. Les particuliers du bord de Loire cherchent un paysagiste de confiance sur Google.",
+    avantages: [
+      'Galerie de créations et aménagements paysagers',
+      'Services listés : création, entretien, arrosage automatique',
+      'Calendrier de devis en ligne (par saison)',
+      'SEO sur les communes côtières du 44',
+    ],
+    image: paysagisteImg,
+    imageAlt: 'Jardin aménagé par un paysagiste',
+  },
+  {
+    id: 'couvreur',
+    title: 'Couvreur',
+    seoTitle: 'Site internet pour couvreur à Saint-Nazaire',
+    desc: "Après une tempête ou une infiltration, les gens cherchent un couvreur en urgence. Si votre site est bien référencé, c'est vous qu'ils appellent. La couverture, ça ne pardonne pas l'improvisation — votre site non plus.",
+    avantages: [
+      "Numéro d'urgence visible immédiatement",
+      'Photos de vos réparations et toitures neuves',
+      'Types de toiture pris en charge : ardoise, tuile, zinc…',
+      'Intervention rapide mise en avant',
+    ],
+    image: couvreurImg,
+    imageAlt: 'Couvreur travaillant sur une toiture',
+  },
+  {
+    id: 'chauffagiste',
+    title: 'Chauffagiste',
+    seoTitle: 'Site internet pour chauffagiste à Saint-Nazaire',
+    desc: "Chaudière en panne en plein hiver, installation de pompe à chaleur, entretien annuel — les clients cherchent un chauffagiste RGE qualifié rapidement. Votre site est votre meilleure carte de visite.",
+    avantages: [
+      "Certifications RGE mises en avant (aides de l'État)",
+      'Services détaillés : chaudière, PAC, climatisation, entretien',
+      "Formulaire d'urgence disponible 24h/24",
+      "Explication des aides MaPrimeRénov pour vos clients",
+    ],
+    image: chauffagisteImg,
+    imageAlt: 'Chauffagiste inspectant une chaudière',
+  },
+];
+---
+
+<Layout
+  title="Sites internet pour artisans en Loire-Atlantique — Plombier, Électricien, Peintre…"
+  description="Mon Espace Artisan crée des sites internet pour tous les artisans de Loire-Atlantique (44) : plombiers, électriciens, peintres, menuisiers, couvreurs, chauffagistes et plus. En 24h, à partir de 290€."
+>
+
+  <!-- En-tête -->
+  <section class="section-padding" style="background-color: var(--color-navy);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4" style="font-family: var(--font-fraunces);">
+        Un site pour chaque artisan
+      </h1>
+      <p class="text-lg" style="color: rgba(250,247,242,0.7);">
+        Plombier, électricien, peintre, couvreur… Chaque métier a ses besoins. On s'adapte à vous.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sections par métier -->
+  <div>
+    {metiers.map(({ id, title, seoTitle, desc, avantages, image, imageAlt }, index) => (
+      <section
+        id={id}
+        class="section-padding"
+        style={index % 2 === 0 ? 'background-color: var(--color-cream);' : 'background-color: var(--color-cream-dark);'}
+      >
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+          <div class="grid md:grid-cols-2 gap-10 items-center">
+
+            <!-- Texte -->
+            <div class={index % 2 !== 0 ? 'md:order-2' : ''}>
+              <h2 class="text-3xl font-bold mb-3" style="font-family: var(--font-fraunces); color: var(--color-navy);">
+                {seoTitle}
+              </h2>
+              <p class="text-base leading-relaxed mb-6" style="color: var(--color-gray-soft);">{desc}</p>
+
+              <!-- Avantages -->
+              <div class="rounded-2xl p-6 mb-6" style="background: white; box-shadow: var(--shadow-card);">
+                <h3 class="text-sm font-semibold mb-3" style="color: var(--color-navy);">Ce que votre site inclura :</h3>
+                <ul class="flex flex-col gap-2.5">
+                  {avantages.map((av) => (
+                    <li class="flex items-start gap-3 text-sm" style="color: var(--color-navy);">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0" style="color: var(--color-terra);" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                      {av}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <a href={SITE.calendly} class="btn-primary">Créer mon site {title.toLowerCase()}</a>
+            </div>
+
+            <!-- Photo -->
+            <div class={index % 2 !== 0 ? 'md:order-1' : ''}>
+              <div class="rounded-2xl overflow-hidden" style="box-shadow: var(--shadow-hover);">
+                <Image
+                  src={image}
+                  alt={imageAlt}
+                  width={640}
+                  height={420}
+                  class="w-full h-full object-cover"
+                  style="aspect-ratio: 16/10; display: block;"
+                  loading="lazy"
+                  quality={80}
+                />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <!-- CTA -->
+  <section class="section-padding" style="background-color: var(--color-terra);">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4" style="font-family: var(--font-fraunces);">Votre métier n'est pas dans la liste ?</h2>
+      <p class="text-base mb-8" style="color: rgba(255,255,255,0.85);">On intervient pour tous les artisans du bâtiment et des services. Appelez-nous, on s'adapte.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={SITE.calendly} class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-base transition-all hover:-translate-y-0.5" style="background-color: var(--color-navy); color: white;">Prendre RDV gratuit</a>
+        <a href={`tel:${SITE.phone}`} class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-base border-2 border-white text-white hover:bg-white hover:text-orange-700 transition-all">{SITE.phoneDisplay}</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
