@@ -1,0 +1,162 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TeamCard from '../components/TeamCard.astro';
+import { SITE } from '../config';
+
+import aurelieImg from '../assets/team/aurelie.jpg';
+import alexandreImg from '../assets/team/alexandre.jpg';
+---
+
+<Layout
+  title="À propos — L'histoire de Mon Espace Artisan"
+  description="Mon Espace Artisan, c'est Aurélie Jarnet et Alexandre Denel — deux personnes de Loire-Atlantique qui aident les artisans à exister en ligne. Site en 24h, humain, local, sans engagement."
+>
+
+  <!-- ─── 1. HERO ─── -->
+  <section class="section-padding" style="background-color: var(--color-navy);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4" style="font-family: var(--font-fraunces);">
+        L'histoire derrière<br />Mon Espace Artisan
+      </h1>
+      <p class="text-lg" style="color: rgba(250,247,242,0.7);">
+        Deux personnes de Loire-Atlantique. Une conviction : un artisan sérieux mérite d'être trouvé.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── 2. NOTRE MISSION ─── -->
+  <section class="section-padding" style="background-color: var(--color-cream);">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center" style="font-family: var(--font-fraunces); color: var(--color-navy);">
+        Notre mission
+      </h2>
+      <div class="rounded-2xl p-8 md:p-10" style="background: white; box-shadow: var(--shadow-card);">
+        <p class="text-base leading-relaxed mb-5" style="color: var(--color-navy);">
+          En France, des dizaines de milliers d'artisans talentueux n'ont pas de site internet — ou pire, ont un site qui date de 2012 et n'apparaît plus sur Google. Ils dépendent du bouche-à-oreille, des plateformes type Leboncoin, ou d'une page Facebook que personne ne visite.
+        </p>
+        <p class="text-base leading-relaxed mb-5" style="color: var(--color-navy);">
+          Pendant ce temps, les grandes agences web proposent des prestations à 3 000€ minimum, des contrats d'un an, et des interlocuteurs à Paris qui n'ont jamais mis les pieds en Loire-Atlantique.
+        </p>
+        <p class="text-base leading-relaxed" style="color: var(--color-navy);">
+          Notre réponse : un site professionnel livré en <strong>24h</strong>, à un tarif juste, par des gens du coin — avec un numéro de téléphone réel et une vraie disponibilité.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 3. NOTRE ÉQUIPE ─── -->
+  <section class="section-padding" style="background-color: var(--color-cream-dark);" id="equipe">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center" style="font-family: var(--font-fraunces); color: var(--color-navy);">
+        Notre équipe
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <TeamCard
+          name="Aurélie Jarnet"
+          role="Commerciale · Visibilité locale"
+          description="Après plusieurs années dans la communication digitale, j'ai rejoint Alexandre pour créer Mon Espace Artisan. En parallèle, je suis agent immobilier — un métier qui m'a appris l'importance du terrain, du contact humain, et de la confiance durable.
+
+Ce qui me motive ? Voir un plombier, un peintre, ou un couvreur sérieux enfin trouvé sur Google quand un prospect cherche leurs services. Trop d'artisans talentueux sont invisibles en ligne parce que le web leur semble compliqué, cher, ou réservé aux agences parisiennes. Mon job : casser ce mur.
+
+Quand vous m'appelez, vous ne tombez pas sur un call center. Vous tombez sur moi, basée à Saint-Nazaire, qui connaît votre région et qui comprend votre métier."
+          imagePath={aurelieImg}
+          size="large"
+        />
+        <TeamCard
+          name="Alexandre Denel"
+          role="Développeur · Systèmes IA"
+          description="J'ai grandi avec internet comme terrain de jeu. La technologie m'a toujours fasciné — pas pour ce qu'elle est, mais pour ce qu'elle libère : du temps, de l'énergie, de la clarté.
+
+Après trois ans comme créateur de contenu et community manager, j'ai compris une chose : les outils modernes ne devraient pas rester un privilège d'ingénieur. C'est devenu ma mission — rendre accessible aux indépendants et aux artisans ce que les grandes boîtes payent des fortunes.
+
+Ce sont des proches artisans qui m'ont vraiment ouvert les yeux. Des professionnels reconnus, sérieux, compétents, et pourtant engloutis chaque semaine par des tâches chronophages à faible valeur ajoutée. Un site bien conçu, c'est quelques heures économisées par semaine et des clients qui arrivent tout seuls. Mon rôle chez Mon Espace Artisan : coder ces sites vite, bien, et pour pas cher."
+          imagePath={alexandreImg}
+          size="large"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 4. NOS VALEURS ─── -->
+  <section class="section-padding" style="background-color: var(--color-cream);">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center" style="font-family: var(--font-fraunces); color: var(--color-navy);">
+        Ce qui nous guide
+      </h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          {
+            icon: '📍',
+            title: 'Local',
+            desc: "On est de Loire-Atlantique. On connaît Saint-Nazaire, ses artisans, son tissu économique. Pas une agence nationale qui vous traite comme un ticket de support.",
+          },
+          {
+            icon: '🤝',
+            title: 'Humain',
+            desc: "Pas de chatbot, pas de formulaire kafkaïen. Un numéro, des vraies personnes qui décrochent et qui comprennent ce que vous faites.",
+          },
+          {
+            icon: '⚡',
+            title: 'Rapide',
+            desc: "On s'engage sur 24h. Pas une promesse floue : si vous nous donnez vos infos le matin, votre site peut être en ligne le lendemain.",
+          },
+          {
+            icon: '💬',
+            title: 'Honnête',
+            desc: "Les tarifs affichés sont les tarifs facturés. Pas d'options cachées, pas de contrat surprise. On préfère perdre un client que lui vendre quelque chose qui ne lui convient pas.",
+          },
+        ].map(({ icon, title, desc }) => (
+          <div class="rounded-xl p-6 text-center" style="background: white; box-shadow: var(--shadow-card);">
+            <div class="text-4xl mb-4" aria-hidden="true">{icon}</div>
+            <h3 class="text-lg font-bold mb-3" style="font-family: var(--font-fraunces); color: var(--color-navy);">{title}</h3>
+            <p class="text-sm leading-relaxed" style="color: var(--color-gray-soft);">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 5. POURQUOI ON A CRÉÉ ÇA ─── -->
+  <section class="section-padding" style="background-color: var(--color-navy);">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-8" style="font-family: var(--font-fraunces);">
+        Pourquoi on a créé Mon Espace Artisan
+      </h2>
+      <div class="text-left rounded-2xl p-8" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(250,247,242,0.1);">
+        <p class="text-base leading-relaxed mb-5" style="color: rgba(250,247,242,0.8);">
+          Tout part d'un constat simple : en France, des artisans excellents dans leur métier perdent des chantiers chaque semaine faute d'une présence en ligne digne de ce nom. Google est devenu le premier réflexe de vos futurs clients — avant même de demander à un voisin.
+        </p>
+        <p class="text-base leading-relaxed mb-5" style="color: rgba(250,247,242,0.8);">
+          Les solutions existantes sont soit trop chères, soit trop complexes, soit trop génériques. Les "constructeurs de sites" en libre-service exigent du temps et des compétences que vous n'avez pas — et pour cause : vous avez un métier à exercer, des chantiers à gérer.
+        </p>
+        <p class="text-base leading-relaxed" style="color: rgba(250,247,242,0.8);">
+          Mon Espace Artisan, c'est la réponse directe à ce problème : un service pensé pour vous, pas pour un profil imaginaire. Clé en main, livré vite, à un prix que vous pouvez vous permettre, avec des gens joignables en cas de question.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 6. CTA FINAL ─── -->
+  <section class="py-16" style="background-color: var(--color-terra);">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4" style="font-family: var(--font-fraunces);">Parlons de votre projet</h2>
+      <p class="text-base mb-8" style="color: rgba(255,255,255,0.85);">15 minutes, un café (virtuel), et on voit si on peut vous aider.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href={SITE.calendly}
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-base transition-all hover:-translate-y-0.5 w-full sm:w-auto"
+          style="background-color: var(--color-navy); color: white;"
+        >
+          Réserver un créneau gratuit
+        </a>
+        <a
+          href={`tel:${SITE.phone}`}
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-base border-2 border-white text-white hover:bg-white hover:text-orange-700 transition-all w-full sm:w-auto"
+        >
+          {SITE.phoneDisplay}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
