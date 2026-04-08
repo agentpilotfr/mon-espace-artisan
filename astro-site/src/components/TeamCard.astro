@@ -9,9 +9,11 @@ interface Props {
   imagePath: ImageMetadata;
   /** "small" = home page (~80 mots), "large" = /a-propos (~150 mots) */
   size?: 'small' | 'large';
+  /** CSS object-position pour cadrer la tête dans la bulle, ex. "center 20%" */
+  imagePosition?: string;
 }
 
-const { name, role, description, imagePath, size = 'small' } = Astro.props;
+const { name, role, description, imagePath, size = 'small', imagePosition = 'center center' } = Astro.props;
 ---
 
 <div
@@ -19,14 +21,17 @@ const { name, role, description, imagePath, size = 'small' } = Astro.props;
   style="background: white; box-shadow: var(--shadow-card);"
 >
   <!-- Photo ronde -->
-  <div class="mb-5 flex-shrink-0">
+  <div
+    class="mb-5 flex-shrink-0 rounded-full overflow-hidden"
+    style="width: 160px; height: 160px;"
+  >
     <Image
       src={imagePath}
       alt={`Photo de ${name}`}
       width={200}
       height={200}
-      class="rounded-full object-cover"
-      style="width: 160px; height: 160px;"
+      class="w-full h-full object-cover"
+      style={`object-position: ${imagePosition};`}
       loading="lazy"
     />
   </div>
