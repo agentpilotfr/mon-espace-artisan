@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE } from '../config';
+---
+
+<Layout
+  title="Tarifs — Packs site internet pour artisans à Saint-Nazaire"
+  description="Nos 3 packs clairs : Essentiel 290€, Pro 490€, Premium 790€. Site internet pour artisans en Loire-Atlantique. Sans engagement, livraison en 24h."
+>
+
+  <!-- En-tête page -->
+  <section class="section-padding" style="background-color: var(--color-navy);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4" style="font-family: var(--font-fraunces);">
+        Des tarifs nets, sans surprise
+      </h1>
+      <p class="text-lg" style="color: rgba(250,247,242,0.7);">
+        Trois packs pensés pour les artisans. Un tarif de création unique + une mensualité tout inclus.
+      </p>
+    </div>
+  </section>
+
+  <!-- Tableau comparatif -->
+  <section class="section-padding" style="background-color: var(--color-cream);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8 mb-16">
+
+        <!-- Essentiel -->
+        <div class="card-tarif">
+          <h2 class="text-2xl font-bold mb-1" style="font-family: var(--font-fraunces); color: var(--color-navy);">Essentiel</h2>
+          <p class="text-sm mb-6" style="color: var(--color-gray-soft);">Idéal pour se lancer</p>
+          <div class="mb-8 pb-8" style="border-bottom: 1px solid rgba(15,30,61,0.08);">
+            <div class="text-5xl font-bold mb-1" style="font-family: var(--font-fraunces); color: var(--color-navy);">290€</div>
+            <div class="text-sm" style="color: var(--color-gray-soft);">création unique</div>
+            <div class="text-2xl font-semibold mt-3" style="color: var(--color-navy);">+ 19€<span class="text-sm font-normal">/mois</span></div>
+            <div class="text-xs mt-1" style="color: var(--color-gray-soft);">hébergement + maintenance + support</div>
+          </div>
+          <ul class="flex flex-col gap-3 mb-8">
+            {[
+              { ok: true, text: '1 page vitrine' },
+              { ok: true, text: 'Formulaire de contact' },
+              { ok: true, text: 'Numéro cliquable (mobile)' },
+              { ok: true, text: 'Design adapté mobile/tablette' },
+              { ok: true, text: 'Livraison en 24h' },
+              { ok: true, text: 'Hébergement inclus' },
+              { ok: true, text: 'Certificat SSL (HTTPS)' },
+              { ok: true, text: 'Sans engagement' },
+              { ok: false, text: 'SEO local avancé' },
+              { ok: false, text: 'Google Business Profile' },
+              { ok: false, text: 'Formulaire de devis' },
+              { ok: false, text: 'Blog' },
+            ].map(({ ok, text }) => (
+              <li class="flex items-center gap-2.5 text-sm" style={ok ? 'color: var(--color-navy);' : 'color: #9CA3AF;'}>
+                {ok
+                  ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: #10B981; flex-shrink: 0;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #D1D5DB; flex-shrink: 0;" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                }
+                {text}
+              </li>
+            ))}
+          </ul>
+          <a href={SITE.calendly} class="btn-secondary w-full justify-center">Choisir l'Essentiel</a>
+        </div>
+
+        <!-- Pro -->
+        <div class="card-tarif popular" style="transform: scale(1.03);">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+            <span class="px-4 py-1.5 rounded-full text-xs font-bold text-white" style="background-color: var(--color-terra);">⭐ LE PLUS POPULAIRE</span>
+          </div>
+          <h2 class="text-2xl font-bold mb-1 mt-2" style="font-family: var(--font-fraunces); color: var(--color-navy);">Pro</h2>
+          <p class="text-sm mb-6" style="color: var(--color-gray-soft);">Pour décrocher plus de chantiers</p>
+          <div class="mb-8 pb-8" style="border-bottom: 1px solid rgba(15,30,61,0.08);">
+            <div class="text-5xl font-bold mb-1" style="font-family: var(--font-fraunces); color: var(--color-navy);">490€</div>
+            <div class="text-sm" style="color: var(--color-gray-soft);">création unique</div>
+            <div class="text-2xl font-semibold mt-3" style="color: var(--color-navy);">+ 29€<span class="text-sm font-normal">/mois</span></div>
+            <div class="text-xs mt-1" style="color: var(--color-gray-soft);">hébergement + maintenance + support</div>
+          </div>
+          <ul class="flex flex-col gap-3 mb-8">
+            {[
+              '5 pages sur mesure',
+              'Formulaire de contact',
+              'Numéro cliquable (mobile)',
+              'Design adapté mobile/tablette',
+              'Livraison en 24h',
+              'Hébergement inclus',
+              'Certificat SSL (HTTPS)',
+              'Sans engagement',
+              'SEO local optimisé (44)',
+              'Google Business Profile',
+              'Formulaire de devis en ligne',
+              'Photos de vos réalisations',
+            ].map((text) => (
+              <li class="flex items-center gap-2.5 text-sm" style="color: var(--color-navy);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-terra); flex-shrink: 0;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                {text}
+              </li>
+            ))}
+          </ul>
+          <a href={SITE.calendly} class="btn-primary w-full justify-center">Choisir le Pro</a>
+        </div>
+
+        <!-- Premium -->
+        <div class="card-tarif">
+          <h2 class="text-2xl font-bold mb-1" style="font-family: var(--font-fraunces); color: var(--color-navy);">Premium</h2>
+          <p class="text-sm mb-6" style="color: var(--color-gray-soft);">Pour dominer votre secteur</p>
+          <div class="mb-8 pb-8" style="border-bottom: 1px solid rgba(15,30,61,0.08);">
+            <div class="text-5xl font-bold mb-1" style="font-family: var(--font-fraunces); color: var(--color-navy);">790€</div>
+            <div class="text-sm" style="color: var(--color-gray-soft);">création unique</div>
+            <div class="text-2xl font-semibold mt-3" style="color: var(--color-navy);">+ 49€<span class="text-sm font-normal">/mois</span></div>
+            <div class="text-xs mt-1" style="color: var(--color-gray-soft);">hébergement + maintenance + support</div>
+          </div>
+          <ul class="flex flex-col gap-3 mb-8">
+            {[
+              "Jusqu'à 10 pages sur mesure",
+              'Formulaire de contact',
+              'Numéro cliquable (mobile)',
+              'Design adapté mobile/tablette',
+              'Livraison en 24h',
+              'Hébergement inclus',
+              'Certificat SSL (HTTPS)',
+              'Sans engagement',
+              'SEO local optimisé (44)',
+              'Google Business Profile',
+              'Formulaire de devis interactif',
+              'Blog intégré',
+              'Suivi SEO mensuel',
+              'Mises à jour prioritaires',
+            ].map((text) => (
+              <li class="flex items-center gap-2.5 text-sm" style="color: var(--color-navy);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: #10B981; flex-shrink: 0;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                {text}
+              </li>
+            ))}
+          </ul>
+          <a href={SITE.calendly} class="btn-secondary w-full justify-center">Choisir le Premium</a>
+        </div>
+      </div>
+
+      <!-- FAQ rétractation inline -->
+      <div class="rounded-2xl p-7 mb-8" style="background: white; border: 1px solid rgba(15,30,61,0.08);">
+        <h3 class="text-base font-semibold mb-2" style="color: var(--color-navy);">Ai-je un droit de rétractation ?</h3>
+        <p class="text-sm leading-relaxed" style="color: var(--color-gray-soft);">
+          Oui, absolument. Conformément à la loi française, vous disposez d'un délai de rétractation de 14 jours à compter de la signature du devis, durant lequel vous pouvez annuler sans frais. Nous n'engageons aucun développement avant la fin de ce délai si vous le souhaitez, ou nous pouvons commencer immédiatement avec votre accord explicite (renonciation au délai).
+        </p>
+      </div>
+
+      <!-- Note globale -->
+      <div class="rounded-2xl p-8 text-center" style="background-color: var(--color-navy); color: rgba(250,247,242,0.8);">
+        <p class="text-base mb-2 text-white font-semibold">Pas de contrat. Pas de frais cachés.</p>
+        <p class="text-sm">Résiliation possible à tout moment avec 1 mois de préavis. Le nom de domaine vous appartient. Vous repartez avec votre site si vous souhaitez changer d'hébergeur.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16" style="background-color: var(--color-cream-dark);">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4" style="font-family: var(--font-fraunces); color: var(--color-navy);">Un doute sur quel pack choisir ?</h2>
+      <p class="text-base mb-8" style="color: var(--color-gray-soft);">Appelez-nous, on vous guide en 5 minutes. Gratuit et sans engagement.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href={SITE.calendly} class="btn-primary">Réserver un RDV gratuit</a>
+        <a href={`tel:${SITE.phone}`} class="btn-secondary">{SITE.phoneDisplay}</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

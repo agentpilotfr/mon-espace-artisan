@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE } from '../config';
+---
+
+<Layout
+  title="Contact — Prendre RDV ou appeler Mon Espace Artisan"
+  description="Contactez Mon Espace Artisan à Saint-Nazaire. Prenez rendez-vous en ligne ou appelez le 07 81 07 89 63. Artisans en Loire-Atlantique, réponse sous 24h."
+>
+
+  <!-- En-tête -->
+  <section class="section-padding" style="background-color: var(--color-navy);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4" style="font-family: var(--font-fraunces);">
+        On vous répond vite
+      </h1>
+      <p class="text-lg" style="color: rgba(250,247,242,0.7);">
+        Choisissez comment vous préférez qu'on se parle.
+      </p>
+    </div>
+  </section>
+
+  <!-- Options de contact -->
+  <section class="section-padding" style="background-color: var(--color-cream);">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+
+      <div class="grid md:grid-cols-2 gap-8 mb-14">
+
+        <!-- Calendly -->
+        <div class="rounded-2xl p-8 flex flex-col" style="background: white; box-shadow: var(--shadow-card);">
+          <div class="text-4xl mb-4" aria-hidden="true">📅</div>
+          <h2 class="text-xl font-bold mb-2" style="font-family: var(--font-fraunces); color: var(--color-navy);">Réserver un créneau</h2>
+          <p class="text-sm leading-relaxed mb-6 flex-1" style="color: var(--color-gray-soft);">
+            15 minutes par téléphone ou visio. On parle de votre métier, de votre zone, et on vous dit exactement ce qu'on peut faire pour vous. Sans engagement.
+          </p>
+          <a href={SITE.calendly} class="btn-primary w-full justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Choisir un créneau
+          </a>
+          <p class="text-xs text-center mt-3" style="color: var(--color-gray-soft);">{SITE.hours}</p>
+        </div>
+
+        <!-- Téléphone -->
+        <div class="rounded-2xl p-8 flex flex-col" style="background: white; box-shadow: var(--shadow-card);">
+          <div class="text-4xl mb-4" aria-hidden="true">📞</div>
+          <h2 class="text-xl font-bold mb-2" style="font-family: var(--font-fraunces); color: var(--color-navy);">Appeler directement</h2>
+          <p class="text-sm leading-relaxed mb-6 flex-1" style="color: var(--color-gray-soft);">
+            Vous préférez parler tout de suite ? On est joignables en direct pendant les heures de bureau. Si on ne décroche pas, on vous rappelle dans la journée.
+          </p>
+          <a href={`tel:${SITE.phone}`} class="btn-secondary w-full justify-center text-lg font-bold">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.9 1.17h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.99 5.99l1.07-1.07a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            {SITE.phoneDisplay}
+          </a>
+          <p class="text-xs text-center mt-3" style="color: var(--color-gray-soft);">{SITE.hours}</p>
+        </div>
+      </div>
+
+      <!-- Formulaire de contact simple -->
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-2xl font-bold mb-2 text-center" style="font-family: var(--font-fraunces); color: var(--color-navy);">Ou envoyez-nous un message</h2>
+        <p class="text-sm text-center mb-8" style="color: var(--color-gray-soft);">On vous répond sous 24h ouvrées.</p>
+
+        <form
+          class="rounded-2xl p-8"
+          style="background: white; box-shadow: var(--shadow-card);"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          action="/contact?merci"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+
+          <div class="grid sm:grid-cols-2 gap-5 mb-5">
+            <div>
+              <label for="prenom" class="block text-sm font-medium mb-1.5" style="color: var(--color-navy);">Prénom *</label>
+              <input
+                type="text"
+                id="prenom"
+                name="prenom"
+                required
+                autocomplete="given-name"
+                class="w-full px-4 py-3 rounded-lg text-sm outline-none transition-all"
+                style="border: 1.5px solid rgba(15,30,61,0.15); color: var(--color-navy); background: var(--color-cream);"
+                placeholder="Jean"
+              />
+            </div>
+            <div>
+              <label for="nom" class="block text-sm font-medium mb-1.5" style="color: var(--color-navy);">Nom *</label>
+              <input
+                type="text"
+                id="nom"
+                name="nom"
+                required
+                autocomplete="family-name"
+                class="w-full px-4 py-3 rounded-lg text-sm outline-none transition-all"
+                style="border: 1.5px solid rgba(15,30,61,0.15); color: var(--color-navy); background: var(--color-cream);"
+                placeholder="Dupont"
+              />
+            </div>
+          </div>
+
+          <div class="mb-5">
+            <label for="telephone" class="block text-sm font-medium mb-1.5" style="color: var(--color-navy);">Téléphone *</label>
+            <input
+              type="tel"
+              id="telephone"
+              name="telephone"
+              required
+              autocomplete="tel"
+              class="w-full px-4 py-3 rounded-lg text-sm outline-none transition-all"
+              style="border: 1.5px solid rgba(15,30,61,0.15); color: var(--color-navy); background: var(--color-cream);"
+              placeholder={SITE.phoneDisplay}
+            />
+          </div>
+
+          <div class="mb-5">
+            <label for="metier" class="block text-sm font-medium mb-1.5" style="color: var(--color-navy);">Votre métier</label>
+            <select
+              id="metier"
+              name="metier"
+              class="w-full px-4 py-3 rounded-lg text-sm outline-none transition-all"
+              style="border: 1.5px solid rgba(15,30,61,0.15); color: var(--color-navy); background: var(--color-cream);"
+            >
+              <option value="">Sélectionnez votre métier</option>
+              <option>Plombier</option>
+              <option>Électricien</option>
+              <option>Peintre</option>
+              <option>Menuisier</option>
+              <option>Maçon</option>
+              <option>Couvreur</option>
+              <option>Paysagiste</option>
+              <option>Chauffagiste</option>
+              <option>Autre</option>
+            </select>
+          </div>
+
+          <div class="mb-7">
+            <label for="message" class="block text-sm font-medium mb-1.5" style="color: var(--color-navy);">Votre message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              class="w-full px-4 py-3 rounded-lg text-sm outline-none transition-all resize-none"
+              style="border: 1.5px solid rgba(15,30,61,0.15); color: var(--color-navy); background: var(--color-cream);"
+              placeholder="Dites-nous en quelques mots ce que vous cherchez..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary w-full justify-center text-base">
+            Envoyer ma demande
+          </button>
+          <p class="text-xs text-center mt-3" style="color: var(--color-gray-soft);">
+            Vos données ne sont jamais revendues. <a href="/confidentialite" class="underline">En savoir plus</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</Layout>
