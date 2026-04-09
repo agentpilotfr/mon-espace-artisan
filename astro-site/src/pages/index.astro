@@ -33,14 +33,8 @@ import outilsImg from '../assets/metiers/outils-generiques.jpg';
       loading="eager"
       quality={75}
     />
-    <!-- Dégradé bas pour fondre vers la section suivante -->
-    <div
-      class="absolute bottom-0 left-0 right-0 h-24"
-      style="background: linear-gradient(to bottom, transparent, var(--color-navy));"
-      aria-hidden="true"
-    ></div>
 
-    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-20 md:pt-24 md:pb-28 text-center">
+<div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-20 md:pt-24 md:pb-28 text-center">
 
       <!-- Badge -->
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-8" style="background-color: rgba(217,116,67,0.15); color: var(--color-terra);">
@@ -64,7 +58,7 @@ import outilsImg from '../assets/metiers/outils-generiques.jpg';
 
       <!-- Pitch -->
       <p class="text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed" style="color: rgba(250,247,242,0.7);">
-        À partir de <strong class="text-white">290&nbsp;€</strong>, créé en local par un humain.
+        À partir de <strong class="text-white">290&nbsp;€&nbsp;HT</strong>, créé en local par un humain.
         Rejoignez des centaines de professionnels de Saint-Nazaire et de Loire-Atlantique
         qui ont créé et mis en ligne leur site en 24h.
       </p>
@@ -85,7 +79,7 @@ import outilsImg from '../assets/metiers/outils-generiques.jpg';
       <div class="grid grid-cols-3 gap-4 md:gap-8 max-w-lg mx-auto">
         {[
           { val: '24h', label: 'Livraison' },
-          { val: '290€', label: 'À partir de' },
+          { val: '290€ HT', label: 'À partir de' },
           { val: '100%', label: 'Local & humain' },
         ].map(({ val, label }) => (
           <div class="text-center">
@@ -192,6 +186,91 @@ import outilsImg from '../assets/metiers/outils-generiques.jpg';
   </section>
 
   <!-- ═══════════════════════════════════════════
+       VOS DEMANDES DE DEVIS SONT À VOUS
+       ═══════════════════════════════════════════ -->
+  <section class="section-padding" style="background-color: var(--color-navy);" id="leads-directs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white" style="font-family: var(--font-fraunces);">
+          Vos demandes de devis arrivent directement chez vous
+        </h2>
+        <p class="text-base md:text-lg" style="color: rgba(250,247,242,0.6);">
+          Pas d'intermédiaire. Pas de commission. Pas de surprise.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 mb-10">
+
+        <!-- Négatif — plateformes -->
+        <div class="rounded-2xl p-8" style="background-color: rgba(127,29,29,0.4); border: 1px solid rgba(239,68,68,0.3);">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-2xl" aria-hidden="true">⚠️</span>
+            <h3 class="text-lg font-semibold text-white" style="font-family: var(--font-fraunces);">
+              Les plateformes de mise en relation
+            </h3>
+          </div>
+          <ul class="flex flex-col gap-3 mb-6">
+            {[
+              "Vous payez pour OBTENIR le contact d'un prospect",
+              "Plusieurs artisans reçoivent la même demande = concurrence féroce",
+              "Aucune garantie que le prospect vous rappelle",
+              "Commissions sur chaque chantier signé",
+              "Votre visibilité dépend de votre abonnement",
+              "Vous dépendez de la plateforme pour exister",
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-sm" style="color: rgba(250,247,242,0.8);">
+                <span class="mt-0.5 flex-shrink-0 font-bold" style="color: #EF4444;">✗</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div class="rounded-xl p-4" style="background-color: rgba(0,0,0,0.3); border: 1px solid rgba(239,68,68,0.2);">
+            <p class="text-xs leading-relaxed" style="color: rgba(250,247,242,0.6);">
+              <strong style="color: rgba(250,247,242,0.85);">Exemple :</strong> Travaux.com facture entre 10€ et 40€ par contact sans garantie de résultat. Une campagne classique = 500€ pour quelques contacts froids.
+            </p>
+          </div>
+        </div>
+
+        <!-- Positif — Mon Espace Artisan -->
+        <div class="rounded-2xl p-8" style="background-color: rgba(6,78,59,0.4); border: 1px solid rgba(16,185,129,0.3);">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-2xl" aria-hidden="true">✅</span>
+            <h3 class="text-lg font-semibold text-white" style="font-family: var(--font-fraunces);">
+              Avec Mon Espace Artisan
+            </h3>
+          </div>
+          <ul class="flex flex-col gap-3 mb-6">
+            {[
+              "Les demandes arrivent directement sur VOTRE site",
+              "Vous êtes le seul destinataire du message",
+              "Zéro commission sur vos chantiers — jamais",
+              "Vos prospects vous cherchent VOUS, pas une plateforme",
+              "Votre visibilité Google vous appartient pour toujours",
+              "Votre site = votre actif, pas votre location",
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-sm" style="color: rgba(250,247,242,0.8);">
+                <span class="mt-0.5 flex-shrink-0 font-bold" style="color: #10B981;">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p class="text-base font-semibold leading-snug" style="color: var(--color-terra);">
+            Vous payez UNE fois la création de votre site.<br />
+            Ensuite, chaque client qui vous appelle est 100% à vous.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href={SITE.calendly} class="btn-primary text-base px-8 py-4">
+          Je veux mes propres leads →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
        TARIFS
        ═══════════════════════════════════════════ -->
   <section class="section-padding" style="background-color: var(--color-navy);" id="tarifs">
@@ -215,9 +294,10 @@ import outilsImg from '../assets/metiers/outils-generiques.jpg';
             <p class="text-sm" style="color: var(--color-gray-soft);">Pour démarrer sur le web</p>
           </div>
           <div class="mb-6">
-            <span class="text-4xl font-bold" style="font-family: var(--font-fraunces); color: var(--color-navy);">290€</span>
+            <span class="text-4xl font-bold" style="font-family: var(--font-fraunces); color: var(--color-navy);">290€ HT</span>
             <span class="text-sm" style="color: var(--color-gray-soft);"> création +&nbsp;</span>
-            <span class="text-lg font-semibold" style="color: var(--color-navy);">19€/mois</span>
+            <span class="text-lg font-semibold" style="color: var(--color-navy);">19€&nbsp;HT/mois</span>
+            <p class="text-xs mt-2" style="color: #9CA3AF;">TVA non applicable — art. 293 B du CGI</p>
           </div>
           <ul class="flex flex-col gap-2.5 mb-8">
             {[
@@ -250,9 +330,10 @@ import outilsImg from '../assets/metiers/outils-generiques.jpg';
             <p class="text-sm" style="color: var(--color-gray-soft);">Pour décrocher plus de chantiers</p>
           </div>
           <div class="mb-6">
-            <span class="text-4xl font-bold" style="font-family: var(--font-fraunces); color: var(--color-navy);">490€</span>
+            <span class="text-4xl font-bold" style="font-family: var(--font-fraunces); color: var(--color-navy);">490€ HT</span>
             <span class="text-sm" style="color: var(--color-gray-soft);"> création +&nbsp;</span>
-            <span class="text-lg font-semibold" style="color: var(--color-navy);">29€/mois</span>
+            <span class="text-lg font-semibold" style="color: var(--color-navy);">29€&nbsp;HT/mois</span>
+            <p class="text-xs mt-2" style="color: #9CA3AF;">TVA non applicable — art. 293 B du CGI</p>
           </div>
           <ul class="flex flex-col gap-2.5 mb-8">
             {[
@@ -282,9 +363,10 @@ import outilsImg from '../assets/metiers/outils-generiques.jpg';
             <p class="text-sm" style="color: var(--color-gray-soft);">Pour dominer votre secteur</p>
           </div>
           <div class="mb-6">
-            <span class="text-4xl font-bold" style="font-family: var(--font-fraunces); color: var(--color-navy);">790€</span>
+            <span class="text-4xl font-bold" style="font-family: var(--font-fraunces); color: var(--color-navy);">790€ HT</span>
             <span class="text-sm" style="color: var(--color-gray-soft);"> création +&nbsp;</span>
-            <span class="text-lg font-semibold" style="color: var(--color-navy);">49€/mois</span>
+            <span class="text-lg font-semibold" style="color: var(--color-navy);">49€&nbsp;HT/mois</span>
+            <p class="text-xs mt-2" style="color: #9CA3AF;">TVA non applicable — art. 293 B du CGI</p>
           </div>
           <ul class="flex flex-col gap-2.5 mb-8">
             {[
@@ -417,7 +499,7 @@ import outilsImg from '../assets/metiers/outils-generiques.jpg';
           Ce qu'en pensent nos artisans
         </h2>
         <p class="text-base" style="color: var(--color-gray-soft);">
-          Des vrais gens, des vrais chantiers, de vrais clients en plus.
+          Par des vrais artisans.
         </p>
       </div>
 
