@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────
+   Thème personnalisé Mon Espace Artisan
+   ───────────────────────────────────────── */
+@theme {
+  /* Palette */
+  --color-navy:       #0F1E3D;
+  --color-navy-light: #1A2F5A;
+  --color-terra:      #D97443;
+  --color-terra-dark: #C0622F;
+  --color-cream:      #FAF7F2;
+  --color-cream-dark: #F0EBE1;
+  --color-gray-soft:  #6B7280;
+
+  /* Typographie */
+  --font-fraunces: 'Fraunces', Georgia, serif;
+  --font-inter:    'Inter', system-ui, sans-serif;
+
+  /* Ombres */
+  --shadow-card: 0 4px 24px rgba(15, 30, 61, 0.08);
+  --shadow-hover: 0 8px 40px rgba(15, 30, 61, 0.14);
+}
+
+/* ─────────────────────────────────────────
+   Base
+   ───────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter);
+  background-color: var(--color-cream);
+  color: var(--color-navy);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-fraunces);
+}
+
+/* ─────────────────────────────────────────
+   Utilitaires custom
+   ───────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-terra);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+.btn-primary:hover {
+  background-color: var(--color-terra-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(217, 116, 67, 0.35);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--color-navy);
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--color-navy);
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.btn-secondary:hover {
+  background-color: var(--color-navy);
+  color: #fff;
+}
+
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  border: 2px solid rgba(255,255,255,0.6);
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.btn-outline-white:hover {
+  background-color: rgba(255,255,255,0.1);
+  border-color: #fff;
+}
+
+/* ─────────────────────────────────────────
+   Carte tarif
+   ───────────────────────────────────────── */
+.card-tarif {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  position: relative;
+}
+.card-tarif:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+.card-tarif.popular {
+  border: 2px solid var(--color-terra);
+}
+
+/* ─────────────────────────────────────────
+   Section
+   ───────────────────────────────────────── */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}

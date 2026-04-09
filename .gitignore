@@ -1,0 +1,7 @@
+# Dossier outils/plugins internes — ne pas versionner dans ce repo
+marketplaces/
+
+# Dépendances et artefacts de build
+node_modules/
+dist/
+.astro/
