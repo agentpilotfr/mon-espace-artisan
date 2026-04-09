@@ -1,0 +1,423 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE } from '../config';
+
+export function getStaticPaths() {
+  const villes = [
+    {
+      slug: 'saint-nazaire',
+      name: 'Saint-Nazaire',
+      population: 68000,
+      context: `Saint-Nazaire est la capitale industrielle de la Loire-Atlantique, connue pour ses chantiers navals et son port autonome. Avec près de 68 000 habitants et un tissu économique dense mêlant industrie lourde, BTP et services, la demande en artisans qualifiés est permanente. Plombiers, électriciens, peintres et maçons interviennent au quotidien dans les quartiers résidentiels de Méan-Penhoët, Porcé et Trébalen — autant de clients potentiels qui cherchent sur Google avant de décrocher leur téléphone.`,
+      metiers: ['Plombier', 'Électricien', 'Peintre', 'Maçon', 'Menuisier', 'Couvreur'],
+      neighbors: [
+        { slug: 'trignac', name: 'Trignac' },
+        { slug: 'montoir-de-bretagne', name: 'Montoir-de-Bretagne' },
+        { slug: 'saint-brevin-les-pins', name: 'Saint-Brevin-les-Pins' },
+      ],
+    },
+    {
+      slug: 'pornichet',
+      name: 'Pornichet',
+      population: 11000,
+      context: `Pornichet, station balnéaire prisée de la côte de Jade, attire chaque été une clientèle aisée soucieuse de l'entretien de leurs résidences secondaires et villas en bord de mer. Les artisans locaux — carreleurs, peintres, électriciens — y travaillent toute l'année pour rénover et maintenir ce parc immobilier de standing. Être visible sur Google à Pornichet, c'est capter à la fois les résidents permanents et les propriétaires de résidences secondaires.`,
+      metiers: ['Peintre', 'Électricien', 'Carreleur', 'Plombier', 'Menuisier'],
+      neighbors: [
+        { slug: 'saint-nazaire', name: 'Saint-Nazaire' },
+        { slug: 'la-baule', name: 'La Baule' },
+        { slug: 'le-pouliguen', name: 'Le Pouliguen' },
+      ],
+    },
+    {
+      slug: 'la-baule',
+      name: 'La Baule',
+      population: 16000,
+      context: `La Baule-Escoublac est l'une des stations balnéaires les plus réputées de la côte Atlantique, avec ses villas Belle Époque et son marché immobilier dynamique. Les artisans du bâtiment y trouvent un gisement de travaux de rénovation, d'entretien et d'aménagement haut de gamme. La clientèle locale et touristique recherche des professionnels de confiance et bien référencés — un site internet professionnel est indispensable pour se démarquer dans ce secteur concurrentiel.`,
+      metiers: ['Peintre', 'Couvreur', 'Électricien', 'Menuisier', 'Plombier'],
+      neighbors: [
+        { slug: 'pornichet', name: 'Pornichet' },
+        { slug: 'le-pouliguen', name: 'Le Pouliguen' },
+        { slug: 'guerande', name: 'Guérande' },
+      ],
+    },
+    {
+      slug: 'guerande',
+      name: 'Guérande',
+      population: 16000,
+      context: `Guérande, cité médiévale classée au patrimoine, est un pôle touristique et résidentiel majeur du pays de la Loire. Son territoire englobe les marais salants, des zones pavillonnaires récentes et un centre historique qui réclame des artisans spécialisés en rénovation du bâti ancien. Maçons, couvreurs et charpentiers y ont un rôle essentiel — et la plupart des clients commencent leur recherche par une requête Google avant de demander un devis.`,
+      metiers: ['Maçon', 'Couvreur', 'Charpentier', 'Électricien', 'Plombier'],
+      neighbors: [
+        { slug: 'la-baule', name: 'La Baule' },
+        { slug: 'herbignac', name: 'Herbignac' },
+        { slug: 'saint-andre-des-eaux', name: 'Saint-André-des-Eaux' },
+      ],
+    },
+    {
+      slug: 'trignac',
+      name: 'Trignac',
+      population: 6500,
+      context: `Trignac est une commune industrielle de l'agglomération nazairienne, limitrophe de Saint-Nazaire et Montoir-de-Bretagne. Son tissu résidentiel pavillonnaire génère une demande régulière en travaux d'entretien et de rénovation. Les artisans locaux — plombiers, électriciens, peintres — interviennent dans un secteur où les propriétaires sont souvent des familles d'ouvriers et de techniciens qui recherchent des professionnels de proximité et fiables.`,
+      metiers: ['Plombier', 'Électricien', 'Peintre', 'Chauffagiste'],
+      neighbors: [
+        { slug: 'saint-nazaire', name: 'Saint-Nazaire' },
+        { slug: 'montoir-de-bretagne', name: 'Montoir-de-Bretagne' },
+        { slug: 'donges', name: 'Donges' },
+      ],
+    },
+    {
+      slug: 'montoir-de-bretagne',
+      name: 'Montoir-de-Bretagne',
+      population: 7200,
+      context: `Montoir-de-Bretagne abrite un des terminaux méthaniers les plus importants d'Europe et des zones industrielles majeures de l'estuaire de la Loire. Malgré son caractère industriel, la commune dispose d'un quartier résidentiel actif où plombiers, électriciens et chauffagistes sont très sollicités. La proximité de Saint-Nazaire en fait un territoire stratégique pour les artisans qui souhaitent couvrir toute l'agglomération.`,
+      metiers: ['Électricien', 'Chauffagiste', 'Plombier', 'Peintre'],
+      neighbors: [
+        { slug: 'saint-nazaire', name: 'Saint-Nazaire' },
+        { slug: 'trignac', name: 'Trignac' },
+        { slug: 'donges', name: 'Donges' },
+      ],
+    },
+    {
+      slug: 'pontchateau',
+      name: 'Pontchâteau',
+      population: 10000,
+      context: `Pontchâteau est le chef-lieu de canton du nord de la Loire-Atlantique, à mi-chemin entre Saint-Nazaire et Nantes. Ville-centre d'un bassin de vie rural et péri-urbain, elle attire des artisans qui desservent aussi les communes environnantes. Son marché résidentiel mixte — maisons anciennes à rénover et constructions récentes — génère une demande continue en plomberie, couverture, maçonnerie et peinture.`,
+      metiers: ['Maçon', 'Couvreur', 'Plombier', 'Peintre', 'Menuisier'],
+      neighbors: [
+        { slug: 'savenay', name: 'Savenay' },
+        { slug: 'herbignac', name: 'Herbignac' },
+        { slug: 'besne', name: 'Besné' },
+      ],
+    },
+    {
+      slug: 'savenay',
+      name: 'Savenay',
+      population: 8500,
+      context: `Savenay est une commune dynamique de l'estuaire de la Loire, bien reliée à Saint-Nazaire et Nantes par l'axe ferroviaire et autoroutier. Ses quartiers pavillonnaires récents et son centre-bourg rénové génèrent une activité soutenue pour les artisans du bâtiment. Ville de marché hebdomadaire, Savenay est le point d'ancrage naturel pour les artisans qui souhaitent rayonner sur l'ensemble du pays de Pont-Château–Saint-Gildas.`,
+      metiers: ['Plombier', 'Électricien', 'Peintre', 'Paysagiste', 'Couvreur'],
+      neighbors: [
+        { slug: 'pontchateau', name: 'Pontchâteau' },
+        { slug: 'besne', name: 'Besné' },
+        { slug: 'donges', name: 'Donges' },
+      ],
+    },
+    {
+      slug: 'saint-joachim',
+      name: 'Saint-Joachim',
+      population: 4200,
+      context: `Saint-Joachim est une commune du parc naturel régional de Brière, composée d'îles et de presqu'îles au milieu des marais. Son architecture traditionnelle en chaume et son bâti rural ancien nécessitent des artisans spécialisés — chaumiers, maçons, couvreurs — qui savent travailler dans cet environnement protégé. La demande locale pour des professionnels connaissant le bâti briéron est forte et peu de prestataires sont bien référencés sur ce territoire.`,
+      metiers: ['Couvreur', 'Maçon', 'Électricien', 'Plombier'],
+      neighbors: [
+        { slug: 'saint-malo-de-guersac', name: 'Saint-Malo-de-Guersac' },
+        { slug: 'la-chapelle-des-marais', name: 'La Chapelle-des-Marais' },
+        { slug: 'herbignac', name: 'Herbignac' },
+      ],
+    },
+    {
+      slug: 'saint-brevin-les-pins',
+      name: 'Saint-Brevin-les-Pins',
+      population: 14000,
+      context: `Saint-Brevin-les-Pins est une station balnéaire de la rive sud de l'estuaire, en plein développement résidentiel. Son littoral attire des familles qui construisent ou rénovent leurs maisons, et son parc de résidences secondaires important génère une demande constante en travaux d'entretien. Séparé de Saint-Nazaire par l'estuaire mais relié par le pont de Saint-Nazaire, le marché de Saint-Brevin mérite une présence Google dédiée pour les artisans locaux.`,
+      metiers: ['Peintre', 'Électricien', 'Plombier', 'Paysagiste', 'Couvreur'],
+      neighbors: [
+        { slug: 'saint-nazaire', name: 'Saint-Nazaire' },
+        { slug: 'paimboeuf', name: 'Paimboeuf' },
+      ],
+    },
+    {
+      slug: 'saint-malo-de-guersac',
+      name: 'Saint-Malo-de-Guersac',
+      population: 3500,
+      context: `Saint-Malo-de-Guersac est une commune de la Grande Brière, connue pour ses paysages de marais et ses villages perchés sur des buttes. Le bâti ancien de ce territoire demande un entretien régulier par des artisans qui connaissent les contraintes locales — humidité, accès parfois difficile, matériaux traditionnels. Les propriétaires de maisons en Brière sont souvent des passionnés du patrimoine prêts à faire appel aux meilleurs artisans du secteur.`,
+      metiers: ['Maçon', 'Couvreur', 'Électricien', 'Plombier'],
+      neighbors: [
+        { slug: 'saint-joachim', name: 'Saint-Joachim' },
+        { slug: 'trignac', name: 'Trignac' },
+        { slug: 'saint-nazaire', name: 'Saint-Nazaire' },
+      ],
+    },
+    {
+      slug: 'donges',
+      name: 'Donges',
+      population: 6800,
+      context: `Donges abrite l'une des plus grandes raffineries pétrolières de France, ce qui lui confère un tissu économique industriel unique. Au-delà de l'activité industrielle, la commune dispose d'un parc résidentiel important avec des familles d'ouvriers et de techniciens qui font régulièrement appel à des artisans locaux. La position de Donges sur la RN171 en fait un nœud stratégique pour les artisans couvrant l'estuaire de la Loire.`,
+      metiers: ['Électricien', 'Plombier', 'Peintre', 'Chauffagiste'],
+      neighbors: [
+        { slug: 'montoir-de-bretagne', name: 'Montoir-de-Bretagne' },
+        { slug: 'savenay', name: 'Savenay' },
+        { slug: 'besne', name: 'Besné' },
+      ],
+    },
+    {
+      slug: 'herbignac',
+      name: 'Herbignac',
+      population: 6000,
+      context: `Herbignac est la principale commune rurale au nord de la Presqu'île de Guérande, carrefour entre la Brière, la côte et le pays de Pontchâteau. Son territoire à dominante pavillonnaire et agricole génère une demande régulière en travaux de construction, de rénovation et d'entretien. Les artisans qui couvrent Herbignac servent aussi une vaste zone périurbaine où les alternatives en ligne sont encore peu nombreuses.`,
+      metiers: ['Maçon', 'Couvreur', 'Paysagiste', 'Plombier', 'Électricien'],
+      neighbors: [
+        { slug: 'pontchateau', name: 'Pontchâteau' },
+        { slug: 'guerande', name: 'Guérande' },
+        { slug: 'saint-joachim', name: 'Saint-Joachim' },
+      ],
+    },
+    {
+      slug: 'besne',
+      name: 'Besné',
+      population: 3000,
+      context: `Besné est une commune rurale de l'estuaire de la Loire, entre Savenay et Donges. Son territoire agricole et résidentiel discret cache une demande réelle en artisanat local : renovation de corps de ferme, maisons de bourg à remettre aux normes, extensions pavillonnaires. Les artisans qui se positionnent sur Besné captent souvent aussi la clientèle des communes voisines peu desservies.`,
+      metiers: ['Maçon', 'Couvreur', 'Électricien', 'Plombier'],
+      neighbors: [
+        { slug: 'savenay', name: 'Savenay' },
+        { slug: 'pontchateau', name: 'Pontchâteau' },
+        { slug: 'donges', name: 'Donges' },
+      ],
+    },
+    {
+      slug: 'la-chapelle-des-marais',
+      name: 'La Chapelle-des-Marais',
+      population: 4500,
+      context: `La Chapelle-des-Marais est la commune-centre de la Brière occidentale, à la croisée des routes entre Saint-Nazaire, Guérande et Pontchâteau. Son territoire mêle zones pavillonnaires récentes et maisons briéronnes traditionnelles qui nécessitent des artisans polyvalents. Commune en croissance démographique depuis 10 ans, elle représente un bassin d'activité en plein développement pour les artisans du bâtiment.`,
+      metiers: ['Maçon', 'Plombier', 'Électricien', 'Couvreur', 'Paysagiste'],
+      neighbors: [
+        { slug: 'saint-joachim', name: 'Saint-Joachim' },
+        { slug: 'saint-malo-de-guersac', name: 'Saint-Malo-de-Guersac' },
+        { slug: 'guerande', name: 'Guérande' },
+      ],
+    },
+    {
+      slug: 'paimboeuf',
+      name: 'Paimboeuf',
+      population: 3200,
+      context: `Paimboeuf est une ancienne cité portuaire de l'estuaire de la Loire, riche d'un patrimoine architectural du XVIIIe siècle lié à son passé de port de relâche. La rénovation de ses maisons de maître et de son tissu urbain historique représente un marché de niche pour des artisans qualifiés — maçons en rénovation, couvreurs, menuisiers. La commune, bien que modeste en taille, attire des acheteurs souhaitant redonner vie à ce patrimoine remarquable.`,
+      metiers: ['Maçon', 'Couvreur', 'Menuisier', 'Peintre'],
+      neighbors: [
+        { slug: 'saint-brevin-les-pins', name: 'Saint-Brevin-les-Pins' },
+        { slug: 'savenay', name: 'Savenay' },
+      ],
+    },
+    {
+      slug: 'saint-andre-des-eaux',
+      name: 'Saint-André-des-Eaux',
+      population: 3800,
+      context: `Saint-André-des-Eaux est une commune résidentielle prisée entre La Baule et Guérande, dont la population a fortement augmenté grâce aux lotissements pavillonnaires récents. Ses habitants, souvent actifs de l'agglomération nazairienne, cherchent des artisans de confiance pour entretenir leurs maisons. La demande y est forte en plomberie, électricité et jardinage — et la concurrence entre artisans sur Google reste encore limitée.`,
+      metiers: ['Plombier', 'Électricien', 'Paysagiste', 'Peintre'],
+      neighbors: [
+        { slug: 'guerande', name: 'Guérande' },
+        { slug: 'la-baule', name: 'La Baule' },
+        { slug: 'saint-nazaire', name: 'Saint-Nazaire' },
+      ],
+    },
+    {
+      slug: 'le-pouliguen',
+      name: 'Le Pouliguen',
+      population: 5500,
+      context: `Le Pouliguen est une station balnéaire de charme à l'entrée de la Presqu'île de Guérande, connue pour ses villas de bord de mer et son port de plaisance. Son parc immobilier varié — maisons cossues, appartements en résidence — nécessite un entretien régulier par des artisans spécialisés. Les résidents permanents et les propriétaires de résidences secondaires recherchent activement des professionnels fiables et disponibles via Internet.`,
+      metiers: ['Peintre', 'Plombier', 'Électricien', 'Menuisier'],
+      neighbors: [
+        { slug: 'la-baule', name: 'La Baule' },
+        { slug: 'batz-sur-mer', name: 'Batz-sur-Mer' },
+        { slug: 'pornichet', name: 'Pornichet' },
+      ],
+    },
+    {
+      slug: 'batz-sur-mer',
+      name: 'Batz-sur-Mer',
+      population: 3200,
+      context: `Batz-sur-Mer est une commune de la Presqu'île de Guérande dont le bâti traditionnel en granit et le cadre protégé des marais salants en font un territoire unique. Les propriétaires de maisons batzéennes font appel à des artisans soucieux du respect du cachet local — couvreurs en tuiles ou ardoises, maçons en pierres, menuisiers en bois. Un artisan présent sur Google capte une clientèle aisée souvent à la recherche de prestataires sérieux et recommandés.`,
+      metiers: ['Couvreur', 'Maçon', 'Menuisier', 'Électricien'],
+      neighbors: [
+        { slug: 'le-pouliguen', name: 'Le Pouliguen' },
+        { slug: 'le-croisic', name: 'Le Croisic' },
+        { slug: 'la-baule', name: 'La Baule' },
+      ],
+    },
+    {
+      slug: 'le-croisic',
+      name: 'Le Croisic',
+      population: 4200,
+      context: `Le Croisic est un port de pêche et de plaisance emblématique de la Presqu'île de Guérande, prisé des Français comme destination touristique et résidentielle. Ses maisons de pêcheurs rénovées, ses résidences secondaires et ses hôtels particuliers concentrent une demande soutenue en travaux d'entretien et de rénovation. Les artisans du Croisic interviennent dans un marché à haute valeur ajoutée où la réputation et la présence en ligne font toute la différence.`,
+      metiers: ['Peintre', 'Électricien', 'Plombier', 'Couvreur', 'Menuisier'],
+      neighbors: [
+        { slug: 'batz-sur-mer', name: 'Batz-sur-Mer' },
+        { slug: 'le-pouliguen', name: 'Le Pouliguen' },
+      ],
+    },
+  ];
+
+  return villes.map((ville) => ({
+    params: { ville: ville.slug },
+    props: { ville },
+  }));
+}
+
+const { ville } = Astro.props;
+const { name, population, context, metiers, neighbors } = ville;
+
+const title = `Site internet artisan ${name} (44) — 24h — Mon Espace Artisan`;
+const description = `Création de site web professionnel pour artisans à ${name} en Loire-Atlantique. Livré en 24h, à partir de 290€ HT, sans engagement. Créé par un humain local.`;
+
+---
+
+<Layout title={title} description={description}>
+
+  <!-- Hero ville -->
+  <section class="section-padding" style="background-color: var(--color-navy);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6" style="background-color: rgba(217,116,67,0.15); color: var(--color-terra);">
+        Loire-Atlantique (44) · Livraison en 24h
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-6" style="font-family: var(--font-fraunces);">
+        Création de site internet<br />pour artisans à <span style="color: var(--color-terra);">{name}</span>
+      </h1>
+      <p class="text-lg mb-8 max-w-2xl mx-auto" style="color: rgba(250,247,242,0.75);">
+        Site professionnel livré en 24h, à partir de <strong class="text-white">290€ HT</strong>, sans engagement.
+        Conçu par un humain local qui connaît la Loire-Atlantique.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href={SITE.calendly} class="btn-primary text-base px-8 py-4 w-full sm:w-auto">
+          Prendre RDV gratuit (15 min)
+        </a>
+        <a href={`tel:${SITE.phone}`} class="btn-outline-white text-base px-8 py-4 w-full sm:w-auto">
+          Appeler {SITE.phoneDisplay}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contexte local -->
+  <section class="section-padding" style="background-color: var(--color-cream);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold mb-4" style="font-family: var(--font-fraunces); color: var(--color-navy);">
+            Le marché artisanal à {name}
+          </h2>
+          <p class="text-base leading-relaxed mb-6" style="color: var(--color-gray-soft);">
+            {context}
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {metiers.map((m) => (
+              <span class="px-3 py-1.5 rounded-full text-sm font-medium" style="background-color: white; color: var(--color-navy); border: 1px solid rgba(15,30,61,0.12);">
+                {m}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div class="rounded-2xl p-7" style="background: white; box-shadow: var(--shadow-card);">
+          <h3 class="text-lg font-bold mb-4" style="font-family: var(--font-fraunces); color: var(--color-navy);">
+            Pourquoi être visible sur Google à {name} ?
+          </h3>
+          <ul class="flex flex-col gap-3">
+            {[
+              `${population.toLocaleString('fr-FR')} habitants = autant de clients potentiels`,
+              'Vos concurrents sont déjà sur Google — soyez-y aussi',
+              'Les artisans sans site perdent des chantiers chaque semaine',
+              'Un site local bien optimisé génère des appels en 2-3 mois',
+              'Votre site vous appartient — aucune commission, jamais',
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-sm" style="color: var(--color-navy);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-terra); flex-shrink: 0; margin-top: 2px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tarifs -->
+  <section class="section-padding" style="background-color: var(--color-navy);">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4 text-white" style="font-family: var(--font-fraunces);">
+          Tarifs pour artisans à {name}
+        </h2>
+        <p style="color: rgba(250,247,242,0.65);">
+          Trois packs clairs. Livraison en 24h. Sans engagement.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          { name: 'Essentiel', price: '290€ HT', monthly: '19€ HT/mois', desc: 'Pour démarrer sur le web', features: ['1 page vitrine', 'Formulaire de contact', 'Mobile optimisé', 'Livraison 24h'] },
+          { name: 'Pro', price: '490€ HT', monthly: '29€ HT/mois', desc: 'Pour décrocher plus de chantiers', features: ['5 pages sur mesure', 'SEO local optimisé', 'Google Business Profile', 'Livraison 24h'], popular: true },
+          { name: 'Premium', price: '790€ HT', monthly: '49€ HT/mois', desc: 'Pour dominer votre secteur', features: ["Jusqu'à 10 pages", 'Blog SEO', 'Suivi mensuel', 'Livraison 24h'] },
+        ].map(({ name: packName, price, monthly, desc, features, popular }) => (
+          <div class="rounded-2xl p-6 relative" style={`background: white; ${popular ? 'outline: 2px solid var(--color-terra);' : ''}`}>
+            {popular && (
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span class="px-3 py-1 rounded-full text-xs font-bold text-white" style="background-color: var(--color-terra);">⭐ POPULAIRE</span>
+              </div>
+            )}
+            <h3 class="text-lg font-bold mb-1 mt-2" style="font-family: var(--font-fraunces); color: var(--color-navy);">{packName}</h3>
+            <p class="text-xs mb-4" style="color: var(--color-gray-soft);">{desc}</p>
+            <div class="mb-1">
+              <span class="text-3xl font-bold" style="font-family: var(--font-fraunces); color: var(--color-navy);">{price}</span>
+            </div>
+            <div class="text-sm font-medium mb-1" style="color: var(--color-navy);">+ {monthly}</div>
+            <div class="text-xs mb-4" style="color: #9CA3AF;">TVA non applicable — art. 293 B du CGI</div>
+            <ul class="flex flex-col gap-2 mb-6">
+              {features.map((f) => (
+                <li class="flex items-center gap-2 text-sm" style="color: var(--color-navy);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style={`color: ${popular ? 'var(--color-terra)' : '#10B981'}; flex-shrink: 0;`} aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <a href={SITE.calendly} class={popular ? 'btn-primary text-sm w-full justify-center' : 'btn-secondary text-sm w-full justify-center'}>
+              Choisir {packName}
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Villes voisines (maillage interne) -->
+  <section class="section-padding" style="background-color: var(--color-cream-dark);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-bold mb-4" style="font-family: var(--font-fraunces); color: var(--color-navy);">
+        Nous intervenons aussi dans les communes voisines
+      </h2>
+      <p class="text-sm mb-6" style="color: var(--color-gray-soft);">
+        Artisan basé près de {name} ? Nous créons des sites pour les professionnels de toute la Loire-Atlantique.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        {neighbors.map(({ slug: nSlug, name: nName }) => (
+          <a
+            href={`/creation-site-web-${nSlug}`}
+            class="px-4 py-2 rounded-full text-sm font-medium transition-colors hover:text-white"
+            style="background-color: white; color: var(--color-navy); border: 1px solid rgba(15,30,61,0.1);"
+          >
+            Création de site web {nName}
+          </a>
+        ))}
+        <a
+          href="/"
+          class="px-4 py-2 rounded-full text-sm font-medium transition-colors hover:text-white"
+          style="background-color: white; color: var(--color-navy); border: 1px solid rgba(15,30,61,0.1);"
+        >
+          Voir toutes nos zones →
+        </a>
+      </div>
+
+      <!-- CTA final -->
+      <div class="rounded-2xl p-8" style="background-color: var(--color-terra);">
+        <h3 class="text-xl font-bold text-white mb-3" style="font-family: var(--font-fraunces);">
+          Artisan à {name} ? Parlons de votre site.
+        </h3>
+        <p class="text-sm mb-6" style="color: rgba(255,255,255,0.85);">
+          Un appel de 15 minutes, gratuit, sans engagement. On vous explique tout.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href={SITE.calendly} class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm" style="background-color: var(--color-navy); color: white;">
+            Réserver mon RDV gratuit
+          </a>
+          <a href={`tel:${SITE.phone}`} class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm border-2 border-white text-white">
+            {SITE.phoneDisplay}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
