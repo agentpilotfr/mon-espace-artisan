@@ -22,7 +22,7 @@ export const templates: Template[] = [
     tags: ['Sur mesure', 'Galerie', 'Devis'],
     urgency: false,
     sections: 9,
-    previewUrl: '/templates/preview/menuisier',
+    previewUrl: '/templates/preview/menuisier',  // page dédiée
   },
   {
     slug: 'plombier',

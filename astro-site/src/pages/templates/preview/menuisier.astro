@@ -1,0 +1,760 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { SITE } from '../../../config';
+
+const PRIMARY   = '#3D2B1F';
+const ACCENT    = '#C8A96E';
+const BG_WARM   = '#F5EFE6';
+
+const features = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>`,
+    title: 'Header sticky avec téléphone cliquable',
+    desc: 'Votre numéro toujours visible, accessible en un tap depuis mobile.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>`,
+    title: '8 services détaillés avec icônes',
+    desc: 'Escaliers, cuisines, parquets, portes — chaque prestation mise en valeur.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>`,
+    title: 'Galerie réalisations filtrée',
+    desc: 'Vos photos classées par type : cuisines, escaliers, parquets, agencement.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
+    title: 'Formulaire devis personnalisé',
+    desc: 'Type de projet, dimensions, budget — votre prospect qualifie sa demande avant même de vous appeler.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+    title: 'SEO local optimisé ville + département',
+    desc: 'Votre site pensé pour apparaître sur "menuisier Saint-Nazaire" et les communes voisines.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    title: 'Schema.org LocalBusiness intégré',
+    desc: 'Données structurées pour Google : nom, adresse, horaires, avis — visibilité maximale.',
+  },
+];
+
+const sections = [
+  {
+    title: 'Vos services mis en valeur',
+    img: '/images/previews/menuisier/menuisier-escalier.jpg',
+    imgAlt: "Section services du site menuisier — escaliers en bois sur mesure",
+    desc: "Grille de 8 prestations avec icônes SVG, descriptions courtes et badge «\u00a0Populaire\u00a0».",
+  },
+  {
+    title: 'Une galerie qui rassure',
+    img: '/images/previews/menuisier/menuisier-cuisine.jpg',
+    imgAlt: "Section galerie du site menuisier — cuisine en bois sur mesure",
+    desc: "Galerie filtrée par type de réalisation. Vos clients voient exactement ce que vous savez faire.",
+  },
+  {
+    title: 'Un formulaire qui génère des devis',
+    img: '/images/previews/menuisier/menuisier-atelier.jpg',
+    imgAlt: "Section formulaire devis du site menuisier — atelier de menuiserie",
+    desc: "Formulaire avec type de projet, validation JS et confirmation automatique.",
+  },
+];
+
+const mobileFeatures = [
+  'Menu hamburger fluide',
+  'Bouton appel en un tap',
+  'Formulaire adapté au clavier mobile',
+  'Images optimisées (lazy loading)',
+  'Score PageSpeed 90+',
+];
+
+const stats = [
+  { val: '48h',  label: 'Délai de livraison' },
+  { val: '9',    label: 'Sections optimisées' },
+  { val: '100%', label: 'Mobile-first' },
+  { val: '0€',   label: 'Devis gratuit' },
+];
+---
+
+<Layout
+  title="Exemple site menuisier — Mon Espace Artisan"
+  description="Découvrez notre exemple de site internet pour menuisier artisan. Design sur mesure, SEO local, mobile-first. Livré en 48h à partir de 290€ HT."
+>
+
+  <!-- ── Fil d'Ariane ───────────────────────── -->
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="breadcrumb-inner">
+      <a href="/" class="bc-link">Accueil</a>
+      <span class="bc-sep" aria-hidden="true">›</span>
+      <a href="/templates" class="bc-link">Exemples de sites</a>
+      <span class="bc-sep" aria-hidden="true">›</span>
+      <span class="bc-current" aria-current="page">Menuisier</span>
+    </div>
+  </nav>
+
+  <!-- ── Hero ──────────────────────────────────── -->
+  <section class="hero-section" style={`background-color: ${PRIMARY};`}>
+    <div class="hero-bg" aria-hidden="true">
+      <img
+        src="/images/previews/menuisier/menuisier-hero.jpg"
+        alt=""
+        class="hero-bg-img"
+        loading="eager"
+      />
+      <div class="hero-overlay" style={`background-color: ${PRIMARY};`}></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="badge" style={`background-color: ${ACCENT}22; color: ${ACCENT}; border: 1px solid ${ACCENT}55;`}>
+        🪚 Exemple de site · Menuisier
+      </div>
+
+      <h1 class="hero-h1">
+        Un site pro pour votre menuiserie,<br class="hidden md:block" />
+        <span style={`color: ${ACCENT};`}>livré en 48h</span>
+      </h1>
+
+      <p class="hero-sub">
+        Design sur mesure, SEO local, mobile-first.<br />
+        Exactement ce dont un menuisier artisan a besoin.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="/tarifs?template=menuisier" class="btn-accent">
+          Je veux ce site
+        </a>
+        <a href="/templates" class="btn-ghost">
+          Voir tous les exemples
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Aperçu desktop simulé ─────────────────── -->
+  <section class="section-gap" style="background-color: var(--color-cream);">
+    <div class="container-md">
+      <div class="browser-frame" role="img" aria-label="Aperçu desktop du site menuisier">
+        <div class="browser-bar">
+          <span class="dot" style="background:#FF5F57;"></span>
+          <span class="dot" style="background:#FFBD2E;"></span>
+          <span class="dot" style="background:#28C840;"></span>
+          <div class="browser-url">
+            <span>mon-menuisier.fr</span>
+          </div>
+        </div>
+        <div class="browser-screen">
+          <img
+            src="/images/previews/menuisier/menuisier-hero.jpg"
+            alt="Aperçu de la page d'accueil du template menuisier"
+            loading="lazy"
+            class="browser-img"
+          />
+          <div class="browser-img-fallback" style={`background: ${PRIMARY}; background-image: repeating-linear-gradient(45deg, ${ACCENT}0a 0px, ${ACCENT}0a 1px, transparent 0px, transparent 50%); background-size: 12px 12px;`}>
+            <span class="fallback-emoji" aria-hidden="true">🪚</span>
+            <span class="fallback-label" style={`color: ${ACCENT};`}>menuisier-hero.jpg</span>
+          </div>
+        </div>
+      </div>
+      <p class="frame-label">Vue desktop — 1440px</p>
+    </div>
+  </section>
+
+  <!-- ── Ce qui est inclus ─────────────────────── -->
+  <section class="section-gap" style="background-color: var(--color-cream-dark);">
+    <div class="container-lg">
+      <div class="section-header">
+        <h2 class="section-title" style="color: var(--color-navy);">
+          Tout ce qu'il faut pour trouver des clients
+        </h2>
+      </div>
+
+      <div class="features-grid">
+        {features.map(({ icon, title, desc }) => (
+          <div class="feature-card">
+            <div class="feature-icon" style={`color: ${ACCENT}; background: ${ACCENT}15;`} set:html={icon} />
+            <div>
+              <h3 class="feature-title">{title}</h3>
+              <p class="feature-desc">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Screenshots sections ──────────────────── -->
+  <section class="section-gap" style="background-color: var(--color-cream);">
+    <div class="container-lg">
+      <div class="section-header">
+        <h2 class="section-title" style="color: var(--color-navy);">
+          Chaque section pensée pour convertir
+        </h2>
+      </div>
+
+      <div class="screens-grid">
+        {sections.map(({ title, img, imgAlt, desc }) => (
+          <div class="screen-card">
+            <div class="screen-img-wrap" style={`background: ${PRIMARY}18;`}>
+              <img
+                src={img}
+                alt={imgAlt}
+                loading="lazy"
+                class="screen-img"
+              />
+              <div class="screen-img-fallback" style={`background: ${PRIMARY}; background-image: repeating-linear-gradient(45deg, ${ACCENT}0a 0px, ${ACCENT}0a 1px, transparent 0px, transparent 50%); background-size: 10px 10px;`}>
+                <span aria-hidden="true">🪚</span>
+              </div>
+            </div>
+            <div class="screen-body">
+              <h3 class="screen-title" style={`color: ${PRIMARY};`}>{title}</h3>
+              <p class="screen-desc">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Mobile preview ────────────────────────── -->
+  <section class="section-gap" style={`background-color: ${BG_WARM};`}>
+    <div class="container-lg">
+      <div class="mobile-layout">
+
+        <!-- Téléphone -->
+        <div class="phone-wrap">
+          <div class="phone-frame" role="img" aria-label="Aperçu mobile du site menuisier">
+            <div class="phone-notch" aria-hidden="true"></div>
+            <div class="phone-screen">
+              <img
+                src="/images/previews/menuisier/menuisier-parquet.jpg"
+                alt="Aperçu mobile du site menuisier"
+                loading="lazy"
+                class="phone-img"
+              />
+              <div class="phone-img-fallback" style={`background: ${PRIMARY};`}>
+                <span aria-hidden="true">🪚</span>
+              </div>
+            </div>
+          </div>
+          <p class="frame-label">Vue mobile — 390px</p>
+        </div>
+
+        <!-- Liste mobile -->
+        <div class="mobile-content">
+          <h2 class="section-title" style={`color: ${PRIMARY};`}>
+            Parfait sur mobile aussi
+          </h2>
+          <p class="mobile-sub">
+            70% de vos futurs clients vous trouveront sur téléphone.
+          </p>
+          <ul class="mobile-list">
+            {mobileFeatures.map((item) => (
+              <li class="mobile-item">
+                <span class="mobile-check" style={`color: ${ACCENT};`} aria-hidden="true">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a href="/tarifs?template=menuisier" class="btn-primary-wood" style={`background: ${PRIMARY}; color: ${ACCENT};`}>
+            Je veux ce site mobile-first →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Chiffres clés ─────────────────────────── -->
+  <section class="section-gap" style={`background-color: ${BG_WARM}; border-top: 1px solid ${ACCENT}33; border-bottom: 1px solid ${ACCENT}33;`}>
+    <div class="container-lg">
+      <div class="stats-grid">
+        {stats.map(({ val, label }) => (
+          <div class="stat-item">
+            <div class="stat-val" style={`color: ${PRIMARY};`}>{val}</div>
+            <div class="stat-label">{label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA final ─────────────────────────────── -->
+  <section class="section-gap cta-section" style={`background-color: ${PRIMARY};`}>
+    <div class="container-sm cta-inner">
+      <h2 class="cta-title">
+        Prêt à avoir votre site menuisier ?
+      </h2>
+      <p class="cta-sub">
+        Commandez aujourd'hui, site en ligne sous 48h.
+      </p>
+      <div class="cta-price">
+        À partir de <strong>290€ HT</strong>
+        <span class="cta-tva">TVA non applicable — art. 293 B du CGI</span>
+      </div>
+      <a href="/tarifs?template=menuisier" class="btn-cta-main">
+        Commander ce site
+      </a>
+      <a href="/templates" class="cta-back">
+        ← Voir tous les exemples
+      </a>
+    </div>
+  </section>
+
+</Layout>
+
+<style define:vars={{ PRIMARY, ACCENT, BG_WARM }}>
+
+/* ── Fil d'Ariane ─────────────────────────── */
+.breadcrumb {
+  background-color: var(--color-cream-dark);
+  border-bottom: 1px solid rgba(15,30,61,0.06);
+}
+.breadcrumb-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0.625rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.bc-link {
+  font-size: 0.75rem;
+  color: var(--color-gray-soft);
+  text-decoration: none;
+  transition: color 150ms;
+}
+.bc-link:hover { color: var(--color-navy); }
+.bc-sep { font-size: 0.75rem; color: var(--color-gray-soft); }
+.bc-current { font-size: 0.75rem; color: var(--color-navy); font-weight: 500; }
+
+/* ── Hero ─────────────────────────────────── */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 1.5rem;
+  text-align: center;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+}
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.6;
+}
+.hero-content {
+  position: relative;
+  max-width: 52rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.hero-h1 {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  font-family: var(--font-fraunces);
+  margin: 0;
+}
+.hero-sub {
+  font-size: 1.0625rem;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.6;
+  margin: 0;
+}
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  background-color: var(--color-terra);
+  color: #fff;
+  transition: background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+.btn-accent:hover {
+  background-color: var(--color-terra-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(217,116,67,0.35);
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  border: 2px solid rgba(255,255,255,0.45);
+  color: #fff;
+  transition: background 200ms ease, border-color 200ms ease;
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.75);
+}
+
+/* ── Layout helpers ───────────────────────── */
+.section-gap { padding: 4rem 1.5rem; }
+@media (max-width: 768px) { .section-gap { padding: 2.5rem 1rem; } }
+.container-sm  { max-width: 42rem;  margin: 0 auto; }
+.container-md  { max-width: 56rem;  margin: 0 auto; }
+.container-lg  { max-width: 72rem;  margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 2.5rem; }
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  font-family: var(--font-fraunces);
+  margin: 0;
+}
+
+/* ── Browser frame ────────────────────────── */
+.browser-frame {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(61,43,31,0.2), 0 4px 16px rgba(61,43,31,0.12);
+  border: 1px solid rgba(61,43,31,0.12);
+}
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: #EBEBEB;
+}
+.dot {
+  display: block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.browser-url {
+  flex: 1;
+  background: #fff;
+  border-radius: 5px;
+  padding: 3px 10px;
+  margin-left: 8px;
+  font-size: 0.75rem;
+  color: #666;
+  font-family: var(--font-inter);
+}
+.browser-screen {
+  position: relative;
+  background: #f0f0f0;
+  min-height: 340px;
+  overflow: hidden;
+}
+.browser-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.browser-img-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+/* hide fallback when real img loads */
+.browser-screen:has(.browser-img[src]) .browser-img-fallback { display: none; }
+.fallback-emoji { font-size: 3rem; }
+.fallback-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; }
+.frame-label {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--color-gray-soft);
+  margin-top: 0.75rem;
+}
+
+/* ── Features grid ────────────────────────── */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+@media (max-width: 900px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .features-grid { grid-template-columns: 1fr; } }
+
+.feature-card {
+  background: #fff;
+  border-radius: 0.875rem;
+  padding: 1.25rem;
+  display: flex;
+  gap: 0.875rem;
+  align-items: flex-start;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 200ms, transform 200ms;
+}
+.feature-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+}
+.feature-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  margin: 0 0 0.25rem;
+}
+.feature-desc {
+  font-size: 0.8125rem;
+  color: var(--color-gray-soft);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Screenshots ──────────────────────────── */
+.screens-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 900px) { .screens-grid { grid-template-columns: 1fr; } }
+
+.screen-card {
+  background: #fff;
+  border-radius: 0.875rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 200ms, transform 200ms;
+}
+.screen-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+.screen-img-wrap {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+.screen-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.screen-img-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+.screen-img-wrap:has(.screen-img[src]) .screen-img-fallback { display: none; }
+.screen-body { padding: 1rem 1.125rem 1.25rem; }
+.screen-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  font-family: var(--font-fraunces);
+  margin: 0 0 0.375rem;
+}
+.screen-desc {
+  font-size: 0.8125rem;
+  color: var(--color-gray-soft);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── Mobile preview ───────────────────────── */
+.mobile-layout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+@media (max-width: 700px) {
+  .mobile-layout { grid-template-columns: 1fr; }
+  .phone-wrap { display: flex; flex-direction: column; align-items: center; }
+}
+
+.phone-wrap { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+.phone-frame {
+  width: 200px;
+  height: 390px;
+  border-radius: 2.5rem;
+  border: 8px solid #2a2a2a;
+  background: #111;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+.phone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 20px;
+  background: #2a2a2a;
+  border-radius: 0 0 0.75rem 0.75rem;
+  z-index: 2;
+}
+.phone-screen { position: relative; width: 100%; height: 100%; }
+.phone-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.phone-img-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+.phone-screen:has(.phone-img[src]) .phone-img-fallback { display: none; }
+
+.mobile-content { display: flex; flex-direction: column; gap: 1rem; }
+.mobile-sub {
+  font-size: 1rem;
+  color: var(--color-gray-soft);
+  line-height: 1.6;
+  margin: 0;
+}
+.mobile-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+.mobile-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.9375rem;
+  color: var(--color-navy);
+  font-weight: 500;
+}
+.mobile-check { font-size: 1rem; font-weight: 700; }
+.btn-primary-wood {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: opacity 200ms, transform 200ms;
+}
+.btn-primary-wood:hover { opacity: 0.88; transform: translateY(-1px); }
+
+/* ── Stats ────────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+}
+@media (max-width: 600px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+.stat-val {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  font-family: var(--font-fraunces);
+  line-height: 1;
+  margin-bottom: 0.375rem;
+}
+.stat-label { font-size: 0.8125rem; color: var(--color-gray-soft); }
+
+/* ── CTA final ────────────────────────────── */
+.cta-section { text-align: center; }
+.cta-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.cta-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  font-family: var(--font-fraunces);
+  color: #fff;
+  margin: 0;
+}
+.cta-sub {
+  font-size: 1.0625rem;
+  color: rgba(255,255,255,0.72);
+  margin: 0;
+}
+.cta-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+}
+.cta-price strong { font-size: 1.75rem; color: #fff; }
+.cta-tva { font-size: 0.75rem; color: rgba(255,255,255,0.45); font-weight: 400; }
+.btn-cta-main {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  background-color: var(--color-terra);
+  color: #fff;
+  transition: background 200ms, transform 200ms, box-shadow 200ms;
+}
+.btn-cta-main:hover {
+  background-color: var(--color-terra-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(217,116,67,0.4);
+}
+.cta-back {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  transition: color 150ms;
+}
+.cta-back:hover { color: rgba(255,255,255,0.85); }
+
+/* fix: :has() fallback — browsers without support show both */
+@supports not selector(:has(img)) {
+  .browser-img-fallback,
+  .screen-img-fallback,
+  .phone-img-fallback { display: none; }
+}
+</style>
