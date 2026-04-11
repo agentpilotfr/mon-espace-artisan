@@ -22,7 +22,7 @@ export const templates: Template[] = [
     tags: ['Sur mesure', 'Galerie', 'Devis'],
     urgency: false,
     sections: 9,
-    previewUrl: '/templates/preview/menuisier',  // page dédiée
+    previewUrl: 'https://mea-menuisier.pages.dev',
   },
   {
     slug: 'plombier',
@@ -34,7 +34,7 @@ export const templates: Template[] = [
     tags: ['Urgence 24/7', 'Devis', 'SEO local'],
     urgency: true,
     sections: 9,
-    previewUrl: '/templates/preview/plombier',
+    previewUrl: 'https://mea-plombier.pages.dev',
   },
   {
     slug: 'electricien',
@@ -46,7 +46,7 @@ export const templates: Template[] = [
     tags: ['Urgence 24/7', 'RGE', 'Dépannage'],
     urgency: true,
     sections: 9,
-    previewUrl: '/templates/preview/electricien',
+    previewUrl: 'https://mea-electricien.pages.dev',
   },
   {
     slug: 'peintre',
@@ -58,7 +58,7 @@ export const templates: Template[] = [
     tags: ['Portfolio', 'Avant/après', 'Devis'],
     urgency: false,
     sections: 8,
-    previewUrl: '/templates/preview/peintre',
+    previewUrl: 'https://mea-peintre.pages.dev',
   },
   {
     slug: 'macon',
@@ -70,7 +70,7 @@ export const templates: Template[] = [
     tags: ['Décennale', 'Devis', 'Réalisations'],
     urgency: false,
     sections: 9,
-    previewUrl: '/templates/preview/macon',
+    previewUrl: 'https://mea-macon.pages.dev',
   },
   {
     slug: 'paysagiste',
@@ -82,7 +82,7 @@ export const templates: Template[] = [
     tags: ['Entretien', 'Création', 'Abonnement'],
     urgency: false,
     sections: 9,
-    previewUrl: '/templates/preview/paysagiste',
+    previewUrl: 'https://mea-paysagiste.pages.dev',
   },
   {
     slug: 'couvreur',
@@ -94,7 +94,7 @@ export const templates: Template[] = [
     tags: ['Urgence fuite', 'Devis', 'Zone 80km'],
     urgency: true,
     sections: 9,
-    previewUrl: '/templates/preview/couvreur',
+    previewUrl: 'https://mea-couvreur.pages.dev',
   },
   {
     slug: 'chauffagiste',
@@ -106,7 +106,7 @@ export const templates: Template[] = [
     tags: ["RGE", "MaPrimeRénov'", 'Urgence'],
     urgency: true,
     sections: 9,
-    previewUrl: '/templates/preview/chauffagiste',
+    previewUrl: 'https://mea-chauffagiste.pages.dev',
   },
 ];
 
