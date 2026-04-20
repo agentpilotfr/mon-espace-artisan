@@ -1,0 +1,113 @@
+{
+  "_metier": "Peintre",
+  "_instructions": "Remplace toutes les valeurs par les infos réelles du client avant de lancer la génération.",
+
+  "businessName": "Peinture Leroy",
+  "ownerName": "Sébastien Leroy",
+  "siret": "38912745600041",
+  "tva": "FR71389127456",
+
+  "contact": {
+    "phone": "06 34 56 78 90",
+    "email": "contact@peinture-leroy.fr",
+    "website": "https://peinture-leroy.fr"
+  },
+
+  "address": {
+    "street": "3 impasse des Couleurs",
+    "city": "Rezé",
+    "postalCode": "44400",
+    "department": "Loire-Atlantique",
+    "region": "Pays de la Loire"
+  },
+
+  "zone": {
+    "radiusKm": 35,
+    "communes": ["Rezé", "Nantes", "Saint-Sébastien-sur-Loire", "Vertou", "Bouguenais"]
+  },
+
+  "about": {
+    "yearsExperience": 20,
+    "foundedYear": 2004,
+    "employees": 4,
+    "tagline": "Couleurs, matières et finitions haut de gamme pour votre habitat.",
+    "description": "Peinture Leroy est spécialisée depuis 20 ans dans les travaux de peinture intérieure et extérieure, les enduits décoratifs et le ravalement de façade dans la région nantaise. Sébastien Leroy et son équipe apportent un soin particulier à la préparation des supports pour un résultat durable et esthétique."
+  },
+
+  "services": [
+    {"id": "peinture-interieure", "label": "Peinture intérieure", "description": "Application de peintures haut de gamme dans toutes vos pièces, avec préparation des supports.", "featured": true},
+    {"id": "ravalement-facade", "label": "Ravalement de façade", "description": "Nettoyage, réparation et peinture de façades en pierre, brique ou enduit.", "featured": true},
+    {"id": "enduits-decoratifs", "label": "Enduits décoratifs", "description": "Béton ciré, stuc, tadelakt et autres finitions décoratives pour un effet unique.", "featured": true},
+    {"id": "papier-peint", "label": "Pose de papier peint", "description": "Pose de papier peint traditionnel, vinyle, intissé ou panoramique.", "featured": false},
+    {"id": "peinture-exterieure", "label": "Peinture extérieure", "description": "Protection et embellissement de vos murets, clôtures et portails extérieurs.", "featured": false},
+    {"id": "peinture-boiseries", "label": "Boiseries & menuiseries", "description": "Peinture et lasure de fenêtres, volets, portes et escaliers en bois.", "featured": false},
+    {"id": "protection-sols", "label": "Protection des sols", "description": "Application de résine époxy ou polyuréthane sur sols béton, garage et cave.", "featured": true},
+    {"id": "renovation-appartement", "label": "Rénovation complète", "description": "Prise en charge globale de la rénovation peinture d'un logement entier.", "featured": false}
+  ],
+
+  "stats": {
+    "interventions": 1100,
+    "satisfaction": 100,
+    "soustraitance": 0,
+    "garantieAns": 5
+  },
+
+  "certifications": ["Qualibat Peinture 6111", "Peintre en Bâtiment Qualifié", "Garantie Décennale"],
+
+  "openingHours": {
+    "monday":    "08:00-18:00",
+    "tuesday":   "08:00-18:00",
+    "wednesday": "08:00-18:00",
+    "thursday":  "08:00-18:00",
+    "friday":    "08:00-17:00",
+    "saturday":  "08:00-12:00",
+    "sunday":    "Fermé"
+  },
+
+  "design": {
+    "colorPrimary":   "#2D2D2D",
+    "colorSecondary": "#F7F5F2",
+    "colorAccent":    "#E63946",
+    "fontDisplay":    "DM Serif Display",
+    "fontBody":       "DM Sans"
+  },
+
+  "options": {
+    "urgency":     false,
+    "showGallery": true,
+    "showBlog":    false,
+    "showFaq":     true
+  },
+
+  "seo": {
+    "metaTitle":       "Peinture Leroy — Peintre à Rezé & Nantes | Finitions haut de gamme",
+    "metaDescription": "Peinture Leroy, peintre à Rezé. Peinture intérieure, ravalement façade, enduits décoratifs, béton ciré. Devis gratuit. ☎ 06 34 56 78 90",
+    "keywords":        ["peintre Rezé", "peintre Nantes", "ravalement façade Nantes", "enduit décoratif Nantes", "béton ciré Nantes"]
+  },
+
+  "testimonials": [
+    {
+      "name": "Nathalie",
+      "city": "Rezé",
+      "stars": 5,
+      "text": "Béton ciré dans notre cuisine et salle de bain, le résultat est absolument magnifique. Sébastien a pris le temps de choisir les teintes avec nous et le rendu dépasse nos attentes.",
+      "service": "Enduits décoratifs"
+    },
+    {
+      "name": "Bruno",
+      "city": "Saint-Sébastien-sur-Loire",
+      "stars": 5,
+      "text": "Ravalement complet de notre pavillon des années 80. La façade est méconnaissable ! Travail propre, équipe sérieuse et délais respectés. Le quartier nous fait des compliments.",
+      "service": "Ravalement de façade"
+    },
+    {
+      "name": "Clara",
+      "city": "Nantes",
+      "stars": 5,
+      "text": "Rénovation peinture complète de notre appartement avant location. Tout en 4 jours, sans dépasser le budget. Les murs sont parfaitement lisses et les couleurs exactement celles choisies.",
+      "service": "Rénovation complète"
+    }
+  ],
+
+  "agencyCredit": "Ton Agence"
+}

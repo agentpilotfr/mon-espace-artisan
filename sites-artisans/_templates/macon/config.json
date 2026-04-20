@@ -1,0 +1,113 @@
+{
+  "_metier": "Macon",
+  "_instructions": "Remplace toutes les valeurs par les infos réelles du client avant de lancer la génération.",
+
+  "businessName": "Maçonnerie Girard",
+  "ownerName": "Philippe Girard",
+  "siret": "49123874500027",
+  "tva": "FR84491238745",
+
+  "contact": {
+    "phone": "06 45 67 89 01",
+    "email": "contact@maconnerie-girard.fr",
+    "website": "https://maconnerie-girard.fr"
+  },
+
+  "address": {
+    "street": "17 route de la Pierre",
+    "city": "Orvault",
+    "postalCode": "44700",
+    "department": "Loire-Atlantique",
+    "region": "Pays de la Loire"
+  },
+
+  "zone": {
+    "radiusKm": 50,
+    "communes": ["Orvault", "Nantes", "Saint-Herblain", "Couëron", "Sainte-Luce-sur-Loire"]
+  },
+
+  "about": {
+    "yearsExperience": 22,
+    "foundedYear": 2002,
+    "employees": 5,
+    "tagline": "Gros œuvre, extensions et rénovation — construisons ensemble votre projet.",
+    "description": "Maçonnerie Girard est une entreprise familiale basée à Orvault, spécialisée dans tous les travaux de maçonnerie, du gros œuvre à la rénovation de façades. Philippe Girard et ses 5 compagnons maçons interviennent sur vos projets d'extension, de construction neuve ou de rénovation avec rigueur et expertise depuis plus de 22 ans."
+  },
+
+  "services": [
+    {"id": "murs-porteurs", "label": "Murs porteurs", "description": "Construction et renforcement de murs porteurs en parpaing, brique ou béton.", "featured": true},
+    {"id": "extension-maison", "label": "Extension de maison", "description": "Agrandissement de votre habitat par extension latérale ou surélévation.", "featured": true},
+    {"id": "renovation-gros-oeuvre", "label": "Rénovation gros œuvre", "description": "Consolidation de structures, reprise en sous-œuvre et rénovation de bâtiments anciens.", "featured": true},
+    {"id": "dallage", "label": "Dallage béton", "description": "Coulage de dalles béton armé pour garages, ateliers, cours et terrasses.", "featured": false},
+    {"id": "enduit-facade", "label": "Enduit de façade", "description": "Application d'enduit de façade projeté ou taloché, finition lisse ou grattée.", "featured": true},
+    {"id": "soubassement", "label": "Soubassement & fondations", "description": "Réalisation de fondations et soubassements pour constructions neuves.", "featured": false},
+    {"id": "cheminee-barbecue", "label": "Cheminée & barbecue", "description": "Construction de cheminées traditionnelles et barbecues en pierre ou briques.", "featured": false},
+    {"id": "terrasse-beton", "label": "Terrasse béton & dallage", "description": "Création de terrasses et allées en béton désactivé, dallage et pavés.", "featured": false}
+  ],
+
+  "stats": {
+    "interventions": 650,
+    "satisfaction": 100,
+    "soustraitance": 0,
+    "garantieAns": 10
+  },
+
+  "certifications": ["Qualibat Maçonnerie 2111", "Qualibat Béton Armé 2211", "Garantie Décennale"],
+
+  "openingHours": {
+    "monday":    "07:30-17:30",
+    "tuesday":   "07:30-17:30",
+    "wednesday": "07:30-17:30",
+    "thursday":  "07:30-17:30",
+    "friday":    "07:30-16:30",
+    "saturday":  "Sur rendez-vous",
+    "sunday":    "Fermé"
+  },
+
+  "design": {
+    "colorPrimary":   "#4A4A4A",
+    "colorSecondary": "#F4F2F0",
+    "colorAccent":    "#E67E22",
+    "fontDisplay":    "Bebas Neue",
+    "fontBody":       "Roboto"
+  },
+
+  "options": {
+    "urgency":     false,
+    "showGallery": true,
+    "showBlog":    false,
+    "showFaq":     true
+  },
+
+  "seo": {
+    "metaTitle":       "Maçonnerie Girard — Maçon à Orvault & Nantes | Extension · Gros œuvre",
+    "metaDescription": "Maçonnerie Girard, maçon à Orvault. Extension de maison, murs porteurs, enduit façade, dallage béton. 22 ans d'expérience. Devis gratuit. ☎ 06 45 67 89 01",
+    "keywords":        ["maçon Orvault", "maçon Nantes", "extension maison Nantes", "gros oeuvre Loire-Atlantique", "enduit façade Orvault"]
+  },
+
+  "testimonials": [
+    {
+      "name": "Jean-Claude",
+      "city": "Orvault",
+      "stars": 5,
+      "text": "Extension de 40m² réalisée en 3 mois, dans les délais et dans le budget. Philippe et son équipe sont de vrais professionnels. La maçonnerie est solide, les finitions soignées.",
+      "service": "Extension de maison"
+    },
+    {
+      "name": "Valérie",
+      "city": "Couëron",
+      "stars": 5,
+      "text": "Ravalement de notre vieille maison de 1960, façades refaites à neuf. On croyait que c'était irréalisable mais le résultat est parfait. Merci à toute l'équipe pour le sérieux du travail.",
+      "service": "Enduit de façade"
+    },
+    {
+      "name": "David",
+      "city": "Nantes",
+      "stars": 5,
+      "text": "Dalle béton pour notre garage et notre atelier. Travail propre, coulage impeccable et séchage bien géré. Philippe a été de bon conseil pour l'épaisseur et le ferraillage. Très satisfait.",
+      "service": "Dallage béton"
+    }
+  ],
+
+  "agencyCredit": "Ton Agence"
+}

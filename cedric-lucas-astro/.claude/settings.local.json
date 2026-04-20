@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(ffmpeg -version)",
+      "Bash(ffmpeg -i \"C:/Users/alexd/Bureau/mon-espace-artisan/cedric-lucas-astro/public/photo.webp\" -vf \"scale=640:-2\" -quality 85 \"C:/Users/alexd/Bureau/mon-espace-artisan/cedric-lucas-astro/public/photo-optimized.webp\" -y)"
+    ]
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "_metier": "Plombier",
+  "_instructions": "Remplace toutes les valeurs par les infos réelles du client avant de lancer la génération.",
+
+  "businessName": "Plomberie Durand",
+  "ownerName": "Marc Durand",
+  "siret": "53147892300018",
+  "tva": "FR23531478923",
+
+  "contact": {
+    "phone": "06 87 65 43 21",
+    "email": "contact@plomberie-durand.fr",
+    "website": "https://plomberie-durand.fr"
+  },
+
+  "address": {
+    "street": "8 allée des Compagnons",
+    "city": "Saint-Nazaire",
+    "postalCode": "44600",
+    "department": "Loire-Atlantique",
+    "region": "Pays de la Loire"
+  },
+
+  "zone": {
+    "radiusKm": 30,
+    "communes": ["Saint-Nazaire", "Trignac", "Montoir-de-Bretagne", "La Baule-Escoublac", "Pornichet"]
+  },
+
+  "about": {
+    "yearsExperience": 14,
+    "foundedYear": 2010,
+    "employees": 2,
+    "tagline": "Plombier disponible 7j/7 — Urgences et installations à Saint-Nazaire.",
+    "description": "Plomberie Durand intervient à Saint-Nazaire et dans tout le bassin nazairien pour tous vos travaux de plomberie, sanitaires et dépannage urgent. Marc Durand et son équipe répondent présent 7j/7, avec un service rapide, transparent et sans mauvaises surprises."
+  },
+
+  "services": [
+    {"id": "installation-sanitaires", "label": "Installation sanitaires", "description": "Pose et raccordement de baignoires, douches, lavabos et WC dans vos espaces.", "featured": true},
+    {"id": "depannage-urgence", "label": "Dépannage urgence", "description": "Intervention rapide 7j/7 pour fuites, ruptures de canalisation et pannes.", "featured": true},
+    {"id": "chauffe-eau", "label": "Chauffe-eau & ballon", "description": "Installation et remplacement de chauffe-eaux électriques et thermodynamiques.", "featured": true},
+    {"id": "debouchage", "label": "Débouchage canalisation", "description": "Débouchage par hydrocurage ou furet de toutes vos évacuations bouchées.", "featured": true},
+    {"id": "renovation-sdb", "label": "Rénovation salle de bain", "description": "Rénovation complète clé en main, de la plomberie au carrelage.", "featured": false},
+    {"id": "detection-fuites", "label": "Détection de fuites", "description": "Recherche non destructive de fuites avec matériel thermique et acoustique.", "featured": false},
+    {"id": "wc-suspendu", "label": "WC suspendu", "description": "Pose de WC suspendu avec bâti-support intégré et plaque de déclenchement.", "featured": false},
+    {"id": "vmc", "label": "VMC & ventilation", "description": "Installation et entretien de VMC simple flux et double flux.", "featured": false}
+  ],
+
+  "stats": {
+    "interventions": 1200,
+    "satisfaction": 100,
+    "soustraitance": 0,
+    "garantieAns": 2
+  },
+
+  "certifications": ["Qualipropre", "RGE QualiPAC", "Garantie Décennale"],
+
+  "openingHours": {
+    "monday":    "07:00-19:00",
+    "tuesday":   "07:00-19:00",
+    "wednesday": "07:00-19:00",
+    "thursday":  "07:00-19:00",
+    "friday":    "07:00-19:00",
+    "saturday":  "08:00-17:00",
+    "sunday":    "Urgences uniquement"
+  },
+
+  "design": {
+    "colorPrimary":   "#1B3A6B",
+    "colorSecondary": "#EEF3FB",
+    "colorAccent":    "#FF6B35",
+    "fontDisplay":    "Oswald",
+    "fontBody":       "Open Sans"
+  },
+
+  "options": {
+    "urgency":     true,
+    "showGallery": true,
+    "showBlog":    false,
+    "showFaq":     true
+  },
+
+  "seo": {
+    "metaTitle":       "Plomberie Durand — Plombier à Saint-Nazaire | Urgence 7j/7",
+    "metaDescription": "Plomberie Durand, plombier à Saint-Nazaire. Dépannage urgence 7j/7, installation sanitaires, chauffe-eau, débouchage. Devis gratuit. ☎ 06 87 65 43 21",
+    "keywords":        ["plombier Saint-Nazaire", "plombier Loire-Atlantique", "dépannage plomberie Saint-Nazaire", "urgence plombier Saint-Nazaire", "débouchage Saint-Nazaire"]
+  },
+
+  "testimonials": [
+    {
+      "name": "Laurent",
+      "city": "Saint-Nazaire",
+      "stars": 5,
+      "text": "Fuite importante un dimanche matin, Marc est arrivé en moins d'une heure. Réparation rapide et efficace, sans dégât supplémentaire. Un vrai pro de confiance, je le recommande sans hésiter.",
+      "service": "Dépannage urgence"
+    },
+    {
+      "name": "Martine",
+      "city": "La Baule-Escoublac",
+      "stars": 5,
+      "text": "Rénovation complète de ma salle de bain, du sol au plafond. Le résultat est bluffant ! Marc a su coordonner tous les corps de métier et respecter le budget annoncé à l'euro près.",
+      "service": "Rénovation salle de bain"
+    },
+    {
+      "name": "Éric",
+      "city": "Pornichet",
+      "stars": 5,
+      "text": "Installation d'un chauffe-eau thermodynamique, travail soigné et bien expliqué. Marc m'a conseillé sur le meilleur modèle pour ma consommation. Très satisfait et économies au rendez-vous.",
+      "service": "Chauffe-eau & ballon"
+    }
+  ],
+
+  "agencyCredit": "Ton Agence"
+}

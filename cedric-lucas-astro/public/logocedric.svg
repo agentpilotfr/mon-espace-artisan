@@ -1,0 +1,61 @@
+<svg width="160" height="160" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Cédric Lucas logo lumineux">
+        <defs>
+          <linearGradient id="rayGrad" x1="0%" y1="20%" x2="100%" y2="80%">
+            <stop offset="0%" stop-color="#4db8d4">
+  </stop>
+            <stop offset="100%" stop-color="#2d7d9a">
+  </stop>
+          </linearGradient>
+          <radialGradient id="eyeGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#4db8d4" stop-opacity="0.45">
+  </stop>
+            <stop offset="100%" stop-color="#4db8d4" stop-opacity="0">
+  </stop>
+          </radialGradient>
+          <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="1.2" result="blur">
+  </feGaussianBlur>
+            <feMerge>
+  <feMergeNode in="blur">
+  </feMergeNode>
+  <feMergeNode in="SourceGraphic">
+  </feMergeNode>
+  </feMerge>
+          </filter>
+          <clipPath id="eyeClipV2">
+  <path d="M 40 50 Q 62 31 86 50 Q 62 69 40 50 Z">
+  </path>
+  </clipPath>
+        </defs>
+        <ellipse cx="63" cy="50" rx="38" ry="26" fill="url(#eyeGlow)">
+  </ellipse>
+        <g fill="url(#rayGrad)" filter="url(#softGlow)">
+          <polygon points="51.62,59.57 54.38,61.88 32.32,87.75 29.97,85.79">
+  </polygon>
+          <polygon points="49.58,56.71 51.68,59.63 23.92,79.26 22.13,76.78">
+  </polygon>
+          <polygon points="48.31,53.44 49.63,56.79 17.88,68.96 16.76,66.11">
+  </polygon>
+          <polygon points="47.88,49.95 48.33,53.53 14.56,57.49 14.18,54.45">
+  </polygon>
+          <polygon points="48.33,46.47 47.88,50.05 14.18,45.55 14.56,42.51">
+  </polygon>
+          <polygon points="49.63,43.21 48.31,46.56 16.76,33.89 17.88,31.04">
+  </polygon>
+          <polygon points="51.68,40.37 49.58,43.29 22.13,23.22 23.92,20.74">
+  </polygon>
+          <polygon points="54.38,38.12 51.62,40.43 29.97,14.21 32.32,12.25">
+  </polygon>
+        </g>
+        <path d="M 40 50 Q 62 31 86 50 Q 62 69 40 50 Z" fill="#ffffff" stroke="url(#rayGrad)" stroke-width="2.2" stroke-linejoin="round">
+  </path>
+        <g clip-path="url(#eyeClipV2)">
+          <circle cx="63" cy="50" r="11" fill="url(#rayGrad)">
+  </circle>
+          <circle cx="63" cy="50" r="6.5" fill="#0f2a38">
+  </circle>
+          <circle cx="60.5" cy="47.5" r="2.2" fill="#ffffff">
+  </circle>
+        </g>
+      
+</svg>

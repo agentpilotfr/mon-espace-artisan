@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plombier professionnel à Rouen. Dépannage, installation, détection de fuites. Devis gratuit. ☎ 06 12 34 56 78">
+  <title>Plombier Rouen — Marc Durand | Dépannage &amp; Installation</title>
+  <link rel="canonical" href="https://plomberie-durand.fr">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Plomberie Durand",
+    "description": "Plombier réactif à Rouen — Devis gratuit sous 24h",
+    "telephone": "06 12 34 56 78",
+    "email": "contact@plomberie-durand.fr",
+    "url": "https://plomberie-durand.fr",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "8 rue des Lilas",
+      "addressLocality": "Rouen",
+      "postalCode": "76000",
+      "addressCountry": "FR"
+    },
+    "areaServed": ["Rouen", "Mont-Saint-Aignan", "Sotteville-lès-Rouen"],
+    "priceRange": "€€"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+
+    /* ===== VARIABLES ===== */
+    :root {
+      --primary: #1B3A6B;
+      --accent: #FF6B35;
+      --bg-light: #EEF3FB;
+      --text-muted: rgba(255,255,255,0.7);
+    }
+
+    /* ===== CONTAINER ===== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ===== URGENCY BAR ===== */
+    .urgency-bar {
+      background: #E63946;
+      color: #fff;
+      text-align: center;
+      padding: 10px 16px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+    }
+    .urgency-bar a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    /* ===== HEADER ===== */
+    #header {
+      position: fixed;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--primary);
+      height: 64px;
+      transition: box-shadow 0.2s ease;
+    }
+    #header.scrolled {
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #fff;
+      letter-spacing: 0.05em;
+    }
+    .header-phone {
+      color: #fff;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      background: var(--accent);
+      padding: 8px 18px;
+      border-radius: 3px;
+      transition: opacity 0.2s;
+    }
+    .header-phone:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header-phone .phone-text { display: none; }
+      .header-phone .phone-icon { display: inline; }
+    }
+    @media (min-width: 481px) {
+      .header-phone .phone-icon { display: none; }
+    }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh;
+      background-color: var(--primary);
+      background-image: repeating-linear-gradient(
+        135deg,
+        rgba(255,255,255,0.03) 0px,
+        rgba(255,255,255,0.03) 1px,
+        transparent 1px,
+        transparent 60px
+      );
+      display: flex;
+      align-items: center;
+      padding-top: 160px; /* ajusté par JS */
+      padding-bottom: 4rem;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 16px;
+      border-radius: 3px;
+      margin-bottom: 1.2rem;
+    }
+    #hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 3rem;
+      color: #fff;
+      line-height: 1.15;
+      max-width: 700px;
+      margin-bottom: 1.2rem;
+    }
+    .hero-tagline {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 540px;
+      margin-bottom: 2rem;
+    }
+    .btn-cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 18px 40px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-cta:hover { opacity: 0.92; transform: translateY(-1px); }
+
+    @media (max-width: 768px) {
+      #hero h1 { font-size: 2rem; }
+      .hero-tagline { font-size: 1rem; }
+      .btn-cta { padding: 15px 28px; font-size: 1rem; }
+    }
+
+    /* ===== SERVICES ===== */
+    #services {
+      background: #fff;
+      padding: 5rem 0 4rem;
+    }
+    #services h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .service-card {
+      border: 1px solid #e0e7f0;
+      border-radius: 4px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 16px rgba(255,107,53,0.1);
+    }
+    .service-icon {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .service-icon svg {
+      width: 48px;
+      height: 48px;
+      color: var(--primary);
+    }
+    .service-label {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+    }
+    .zone-info {
+      margin-top: 2.5rem;
+      background: rgba(27, 58, 107, 0.06);
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.5rem;
+      font-size: 0.95rem;
+      color: var(--primary);
+      font-weight: 600;
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+    @media (min-width: 769px) and (max-width: 900px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ===== CONTACT ===== */
+    #contact {
+      background: #EEF3FB;
+      padding: 5rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    #contact h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1.8rem;
+    }
+    #contact h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+    }
+    .contact-info p {
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+    }
+    .contact-info a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    form { display: flex; flex-direction: column; gap: 0.9rem; }
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #d0d8e8;
+      border-radius: 3px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.95rem;
+      background: #fff;
+      color: #1a1a1a;
+      transition: border-color 0.2s;
+    }
+    form input:focus,
+    form textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    form textarea { resize: vertical; }
+    .btn-submit {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      padding: 14px 32px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+      align-self: flex-start;
+    }
+    .btn-submit:hover { opacity: 0.88; }
+    .rgpd-note {
+      font-size: 0.78rem;
+      color: #888;
+      margin-top: 0.4rem;
+    }
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .btn-submit { align-self: stretch; }
+    }
+
+    /* ===== FOOTER ===== */
+    #footer {
+      background: var(--primary);
+      color: var(--text-muted);
+      padding: 1rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+    }
+    .footer-inner a {
+      color: rgba(255,255,255,0.9);
+      transition: color 0.2s;
+    }
+    .footer-inner a:hover { color: #fff; }
+    @media (max-width: 600px) {
+      .footer-inner {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BANDEAU URGENCE -->
+  <div class="urgency-bar">
+    ⚡ Urgence 24h/7j — Appelez maintenant :
+    <a href="tel:0612345678">06 12 34 56 78</a>
+  </div>
+
+  <!-- HEADER FIXE -->
+  <header id="header">
+    <div class="header-inner">
+      <div class="logo">Plomberie Durand</div>
+      <a class="header-phone" href="tel:0612345678">
+        <span class="phone-icon">☎</span>
+        <span class="phone-text">☎ 06 12 34 56 78</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">12 ans d'expérience</div>
+      <h1>Plomberie Durand — plombier à Rouen</h1>
+      <p class="hero-tagline">Plombier réactif à Rouen — Devis gratuit sous 24h</p>
+      <a class="btn-cta" href="tel:0612345678">☎ Appeler maintenant</a>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <h2>Nos prestations</h2>
+      <div class="services-grid">
+
+        <!-- Dépannage plomberie -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Clé à molette -->
+              <path d="M33 6a9 9 0 0 1 0 18 9 9 0 0 1-6.36-2.64L12 36a3 3 0 1 1-4.24-4.24L22.4 17.36A9 9 0 0 1 33 6z"/>
+              <circle cx="33" cy="15" r="3"/>
+            </svg>
+          </div>
+          <span class="service-label">Dépannage plomberie</span>
+        </div>
+
+        <!-- Installation sanitaire -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Robinet -->
+              <rect x="8" y="20" width="32" height="8" rx="2"/>
+              <path d="M20 20v-6h8v6"/>
+              <path d="M24 14V8"/>
+              <path d="M20 28v8a4 4 0 0 0 8 0v-8"/>
+            </svg>
+          </div>
+          <span class="service-label">Installation sanitaire</span>
+        </div>
+
+        <!-- Détection de fuites -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Goutte -->
+              <path d="M24 6C18 14 12 20 12 27a12 12 0 0 0 24 0c0-7-6-13-12-21z"/>
+              <path d="M18 30a6 6 0 0 0 6 6"/>
+            </svg>
+          </div>
+          <span class="service-label">Détection de fuites</span>
+        </div>
+
+        <!-- Débouchage canalisations -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Tuyau en L -->
+              <path d="M10 12h16a4 4 0 0 1 4 4v20"/>
+              <path d="M6 12h8"/>
+              <path d="M30 36h8"/>
+              <circle cx="30" cy="16" r="3"/>
+              <path d="M18 8v8"/>
+            </svg>
+          </div>
+          <span class="service-label">Débouchage canalisations</span>
+        </div>
+
+        <!-- Rénovation salle de bain -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Baignoire -->
+              <path d="M6 26h36v6a6 6 0 0 1-6 6H12a6 6 0 0 1-6-6v-6z"/>
+              <path d="M12 26V14a4 4 0 0 1 8 0"/>
+              <path d="M16 38v4"/>
+              <path d="M32 38v4"/>
+            </svg>
+          </div>
+          <span class="service-label">Rénovation salle de bain</span>
+        </div>
+
+        <!-- Urgence 24h/7j -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Horloge + éclair -->
+              <circle cx="24" cy="24" r="16"/>
+              <path d="M24 12v12l7 7"/>
+              <path d="M36 6l-4 6h6l-4 6" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <span class="service-label">Urgence 24h/7j</span>
+        </div>
+
+      </div>
+
+      <p class="zone-info">
+        Intervention dans un rayon de 30 km autour de Rouen —
+        Rouen · Mont-Saint-Aignan · Sotteville-lès-Rouen
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT / DEVIS -->
+  <section id="contact">
+    <div class="container contact-grid">
+
+      <div class="contact-form-wrap">
+        <h2>Demandez votre devis gratuit</h2>
+        <form action="mailto:contact@plomberie-durand.fr" method="GET" enctype="text/plain">
+          <input type="text"  name="prenom"    placeholder="Prénom *"          required>
+          <input type="tel"   name="telephone" placeholder="Téléphone *"       required>
+          <input type="email" name="email"     placeholder="Email">
+          <textarea           name="message"   placeholder="Votre message..." rows="4"></textarea>
+          <button type="submit" class="btn-submit">Envoyer ma demande</button>
+        </form>
+        <p class="rgpd-note">Vos données ne sont pas partagées.</p>
+      </div>
+
+      <div class="contact-info">
+        <h3>Nous contacter</h3>
+        <p>📍 8 rue des Lilas, 76000 Rouen</p>
+        <p>☎ <a href="tel:0612345678">06 12 34 56 78</a></p>
+        <p>✉ <a href="mailto:contact@plomberie-durand.fr">contact@plomberie-durand.fr</a></p>
+        <p>🕐 Lun–Ven 8h–18h · Sam 9h–12h</p>
+        <p>⚡ Urgences 24h/7j</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <span>Plomberie Durand</span>
+      <span>SIRET : 412 345 678 00012</span>
+      <a href="#mentions">Mentions légales</a>
+      <span>© 2026 — Tous droits réservés</span>
+    </div>
+  </footer>
+
+  <script>
+    // 1. Ajustement top header si bandeau urgence présent
+    (function () {
+      const bar = document.querySelector('.urgency-bar');
+      const header = document.getElementById('header');
+      const hero = document.getElementById('hero');
+      if (bar && header) {
+        const adjust = function () {
+          const barH = bar.offsetHeight;
+          const headerH = header.offsetHeight;
+          header.style.top = barH + 'px';
+          if (hero) {
+            hero.style.paddingTop = (barH + headerH + 48) + 'px';
+          }
+        };
+        adjust();
+        window.addEventListener('resize', adjust);
+      }
+    })();
+
+    // 2. Header shadow au scroll
+    window.addEventListener('scroll', function () {
+      document.getElementById('header').classList
+        .toggle('scrolled', window.scrollY > 10);
+    });
+
+    // 3. Scroll smooth ancres internes
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(taskkill /F /IM git.exe)",
+      "Bash(del \"C:\\\\Users\\\\alexd\\\\Bureau\\\\mon-espace-artisan\\\\.git\\\\index.lock\")",
+      "Bash(powershell -Command \"Remove-Item 'C:\\\\Users\\\\alexd\\\\Bureau\\\\mon-espace-artisan\\\\.git\\\\index.lock' -Force -ErrorAction SilentlyContinue; Write-Host 'done'\")",
+      "WebFetch(domain:www.therapeute-hypnose-guerande.fr)",
+      "WebSearch",
+      "WebFetch(domain:webiniac.fr)",
+      "WebFetch(domain:www.phehypnose.fr)",
+      "Bash(npx serve *)",
+      "Bash(ipconfig)",
+      "Bash(findstr \"IPv4\")",
+      "Bash(netstat -ano)",
+      "Bash(findstr \":3456\")",
+      "Bash(taskkill /PID 4444 /F)",
+      "Bash(cmd /c \"taskkill /PID 4444 /F\")",
+      "Bash(npm create *)",
+      "Bash(npx astro *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/)",
+      "Bash(node *)",
+      "Bash(curl *)",
+      "Bash(pkill -f \"astro dev\")",
+      "Read(//tmp/**)",
+      "Bash(CLOUDFLARE_API_TOKEN=cfut_GSzmKmuQjYlLzSSb26bIcHNZW7LushR0vmWS0WBxc4fa8a52 npx wrangler pages deploy dist/ --project-name=mea-cedric-lucas --commit-dirty=true)",
+      "Bash(CLOUDFLARE_API_TOKEN=cfut_GSzmKmuQjYlLzSSb26bIcHNZW7LushR0vmWS0WBxc4fa8a52 npx wrangler pages project create mea-cedric-lucas --production-branch=master)",
+      "Bash(npm uninstall *)",
+      "Bash(ffmpeg -i \"C:/Users/alexd/Bureau/mon-espace-artisan/cedric-lucas-astro/public/video.mp4\" -vf \"scale=720:-2\" -c:v libx264 -crf 28 -preset fast -an -movflags +faststart \"C:/Users/alexd/Bureau/mon-espace-artisan/cedric-lucas-astro/public/video-mobile.mp4\" -y)"
+    ]
+  }
+}

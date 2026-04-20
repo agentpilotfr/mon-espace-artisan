@@ -1,0 +1,59 @@
+{
+  "_pack": "essentiel",
+  "_prix": "290€ HT",
+  "_livraison": "48h",
+  "_description": "One-pager 5 sections, idéal pour artisan solo",
+
+  "businessName": "Plomberie Durand",
+  "ownerName": "Marc Durand",
+  "siret": "41234567800012",
+  "tva": "FR41412345678",
+
+  "contact": {
+    "phone": "06 12 34 56 78",
+    "email": "contact@plomberie-durand.fr",
+    "website": "https://plomberie-durand.fr"
+  },
+
+  "address": {
+    "street": "8 rue des Lilas",
+    "city": "Rouen",
+    "postalCode": "76000",
+    "department": "Seine-Maritime",
+    "region": "Normandie"
+  },
+
+  "metier": "plombier",
+
+  "zone": {
+    "radiusKm": 30,
+    "communes": ["Rouen", "Mont-Saint-Aignan", "Sotteville-lès-Rouen"]
+  },
+
+  "about": {
+    "yearsExperience": 12,
+    "tagline": "Plombier réactif à Rouen — Devis gratuit sous 24h"
+  },
+
+  "services": [
+    "Dépannage plomberie",
+    "Installation sanitaire",
+    "Détection de fuites",
+    "Débouchage canalisations",
+    "Rénovation salle de bain"
+  ],
+
+  "urgency": true,
+
+  "design": {
+    "colorPrimary": "#1B3A6B",
+    "colorAccent": "#FF6B35",
+    "fontDisplay": "Oswald",
+    "fontBody": "Open Sans"
+  },
+
+  "seo": {
+    "metaTitle": "Plombier Rouen — Marc Durand | Dépannage & Installation",
+    "metaDescription": "Plombier professionnel à Rouen. Dépannage, installation, détection de fuites. Devis gratuit. ☎ 06 12 34 56 78"
+  }
+}

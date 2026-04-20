@@ -1,0 +1,66 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="keywords" content="hypnothérapeute Saint-André-des-Eaux, hypnose Loire-Atlantique 44, EMDR PNL hypnose Guérande, Cédric Lucas hypnothérapeute, arrêt tabac hypnose 44" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <link rel="icon" type="image/svg+xml" href="/faviconcedric.svg?v=4" />
+  <link rel="apple-touch-icon" href="/faviconcedric.svg" />
+  <link rel="canonical" href="https://cedric-lucas-hypnotherapeute.fr/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Cédric Lucas — Hypnothérapeute",
+    "description": "Hypnothérapeute diplômé pratiquant Hypnose, EMDR, PNL, La Trame et Linequartz à Saint-André-des-Eaux (44).",
+    "url": "https://cedric-lucas-hypnotherapeute.fr/",
+    "telephone": "+33678825558",
+    "email": "cedricenr@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Saint-André-des-Eaux",
+      "postalCode": "44140",
+      "addressRegion": "Loire-Atlantique",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 47.3167,
+      "longitude": -2.2333
+    },
+    "areaServed": ["Saint-André-des-Eaux", "Guérande", "La Baule", "Saint-Nazaire", "Herbignac", "Pontchâteau"],
+    "priceRange": "€€",
+    "sameAs": [
+      "https://www.facebook.com/cedric.lucas.5648",
+      "https://www.instagram.com/therapeute_hypnose_guerande/",
+      "https://fr.linkedin.com/in/cedric-lucas-b39b76101",
+      "https://www.youtube.com/channel/UC2e6t_j75vRmgmvWXnAf_dw"
+    ]
+  }
+  </script>
+
+  <slot name="head" />
+</head>
+<body class="bg-[#f0f8fb] font-sans text-[#1a3a4a] overflow-x-hidden">
+  <slot />
+</body>
+</html>

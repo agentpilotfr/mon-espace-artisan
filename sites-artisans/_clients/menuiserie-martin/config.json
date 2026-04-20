@@ -1,0 +1,113 @@
+{
+  "_metier": "Menuisier",
+  "_instructions": "Remplace toutes les valeurs par les infos réelles du client avant de lancer la génération.",
+
+  "businessName": "Menuiserie Bonhomme",
+  "ownerName": "Hugo Delaunay",
+  "siret": "45231678900024",
+  "tva": "FR84452316789",
+
+  "contact": {
+    "phone": "06 12 34 56 78",
+    "email": "contact@menuiserie-delaunay.fr",
+    "website": "https://menuiserie-delaunay.fr"
+  },
+
+  "address": {
+    "street": "14 rue des Artisans",
+    "city": "Nantes",
+    "postalCode": "44000",
+    "department": "Loire-Atlantique",
+    "region": "Pays de la Loire"
+  },
+
+  "zone": {
+    "radiusKm": 40,
+    "communes": ["Nantes", "Saint-Herblain", "Rezé", "Orvault", "Vertou"]
+  },
+
+  "about": {
+    "yearsExperience": 18,
+    "foundedYear": 2006,
+    "employees": 3,
+    "tagline": "L'art du bois façonné à la main, pour votre intérieur.",
+    "description": "Menuiserie Bonhomme est une entreprise artisanale basée à Nantes, spécialisée dans la fabrication et la pose de menuiseries intérieures et extérieures sur mesure. Fondée en 2006 par Thomas Bonhomme, compagnon du devoir, notre atelier allie savoir-faire traditionnel et techniques modernes pour des réalisations durables et esthétiques."
+  },
+
+  "services": [
+    {"id": "parquet", "label": "Pose de parquet", "description": "Installation de parquet massif, contrecollé ou stratifié dans toutes les pièces.", "featured": true},
+    {"id": "fabrication-sur-mesure", "label": "Fabrication sur mesure", "description": "Création de meubles, bibliothèques et agencements adaptés à vos espaces.", "featured": true},
+    {"id": "escaliers", "label": "Escaliers bois", "description": "Conception et pose d'escaliers droits, tournants ou hélicoïdaux en bois massif.", "featured": true},
+    {"id": "dressing", "label": "Dressing & placards", "description": "Aménagement de dressings et placards sur mesure, optimisés pour votre espace.", "featured": false},
+    {"id": "fenetres-bois", "label": "Fenêtres bois", "description": "Pose et remplacement de fenêtres en bois avec options double vitrage haute performance.", "featured": false},
+    {"id": "portes", "label": "Portes intérieures", "description": "Installation de portes battantes, coulissantes ou à galandage sur mesure.", "featured": false},
+    {"id": "terrasse-bois", "label": "Terrasse bois", "description": "Conception et construction de terrasses en bois massif ou composite.", "featured": true},
+    {"id": "restauration", "label": "Restauration ancienne", "description": "Restauration de menuiseries anciennes dans le respect des techniques d'époque.", "featured": false}
+  ],
+
+  "stats": {
+    "interventions": 850,
+    "satisfaction": 100,
+    "soustraitance": 0,
+    "garantieAns": 10
+  },
+
+  "certifications": ["Compagnon du Devoir", "RGE Qualibat Menuiserie", "Garantie Décennale"],
+
+  "openingHours": {
+    "monday":    "08:00-18:00",
+    "tuesday":   "08:00-18:00",
+    "wednesday": "08:00-18:00",
+    "thursday":  "08:00-18:00",
+    "friday":    "08:00-17:00",
+    "saturday":  "08:00-12:00",
+    "sunday":    "Fermé"
+  },
+
+  "design": {
+    "colorPrimary":   "#3D2B1F",
+    "colorSecondary": "#F5EFE6",
+    "colorAccent":    "#C8A96E",
+    "fontDisplay":    "Playfair Display",
+    "fontBody":       "Source Sans Pro"
+  },
+
+  "options": {
+    "urgency":     false,
+    "showGallery": true,
+    "showBlog":    false,
+    "showFaq":     true
+  },
+
+  "seo": {
+    "metaTitle":       "Menuiserie Bonhomme — Menuisier à Nantes | Fabrication bois sur mesure",
+    "metaDescription": "Menuiserie Bonhomme, menuisier à Nantes. Parquet, escaliers, dressing, fenêtres bois, terrasses. Fabrication sur mesure. Devis gratuit. ☎ 06 12 34 56 78",
+    "keywords":        ["menuisier Nantes", "menuisier Loire-Atlantique", "parquet Nantes", "escalier bois Nantes", "menuiserie sur mesure Nantes"]
+  },
+
+  "testimonials": [
+    {
+      "name": "Sophie",
+      "city": "Nantes",
+      "stars": 5,
+      "text": "Thomas a réalisé notre escalier en chêne massif. Le résultat est magnifique, le bois est d'une qualité exceptionnelle et la finition est parfaite. Je recommande vivement !",
+      "service": "Escaliers bois"
+    },
+    {
+      "name": "Michel",
+      "city": "Saint-Herblain",
+      "stars": 5,
+      "text": "Dressing sur mesure impeccable, parfaitement adapté à notre chambre en pente. Thomas a été à l'écoute et a proposé des solutions très créatives. Délais respectés.",
+      "service": "Dressing & placards"
+    },
+    {
+      "name": "Isabelle",
+      "city": "Vertou",
+      "stars": 5,
+      "text": "Terrasse en bois exotique réalisée cet été, vraiment superbe. L'équipe est sérieuse, propre et ponctuelle. La terrasse est solide et le rendu est exactement ce que nous voulions.",
+      "service": "Terrasse bois"
+    }
+  ],
+
+  "agencyCredit": "Ton Agence"
+}

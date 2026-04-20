@@ -1,0 +1,70 @@
+---
+const avis = [
+  {
+    stars: 5,
+    text: "C'est un plaisir d'avoir rencontré Cédric Lucas. Très professionnel, souriant et compétent. Sa méthode d'hypnose Au Cœur de Soi m'a vraiment aidé(e). Je recommande vivement.",
+    author: 'Avis Google',
+    motif: 'Hypnose',
+  },
+  {
+    stars: 5,
+    text: "Nous avons été voir Cédric Lucas pour mon fils de 8 ans qui avait une très grande phobie des chiens. Autant dire que nos sorties étaient devenues compliquées. Les résultats ont été remarquables.",
+    author: 'Avis Google',
+    motif: 'Phobie enfant',
+  },
+  {
+    stars: 5,
+    text: "C'était une expérience forte et ce grâce à toi. Merci de m'avoir permis d'arrêter de fumer grâce à ton hypnose. Merci beaucoup, c'est vraiment incroyable.",
+    author: 'Avis Google',
+    motif: 'Arrêt du tabac',
+  },
+];
+---
+<section class="relative py-24 bg-[#f5ecd6]">
+  <!-- Texture sable CSS -->
+  <div class="absolute inset-0 opacity-30" style="
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(196,168,130,0.4) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(196,168,130,0.3) 0%, transparent 40%);
+  "></div>
+
+  <div class="relative z-10">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <span class="text-[#1a7fa0] text-xs tracking-[0.2em] uppercase font-sans block mb-3">Ce qu'ils disent</span>
+      <h2 class="font-serif font-light text-[#1a3a4a] mb-4" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">
+        Témoignages <em class="text-[#c49040] not-italic">clients</em>
+      </h2>
+      <p class="text-[#1a3a4a]/60 max-w-xl mx-auto mb-14 font-sans">
+        Chaque parcours est unique. Voici quelques expériences partagées.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {avis.map(a => (
+          <div class="glow-biolum bg-white/80 border border-[#1a7fa0]/20 rounded-xl p-7 text-left backdrop-blur-sm transition-all duration-300">
+            <div class="text-[#c49040] text-lg tracking-wider mb-4" aria-label={`${a.stars} étoiles`}>
+              {'★'.repeat(a.stars)}
+            </div>
+            <p class="text-[#1a3a4a]/70 text-sm leading-relaxed italic mb-5 font-sans">"{a.text}"</p>
+            <div>
+              <span class="text-[#1a7fa0] font-semibold text-xs font-sans">{a.author}</span>
+              <span class="text-[#1a3a4a]/40 text-xs font-sans"> — {a.motif}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10">
+        <a
+          href="https://g.page/r/cedric-lucas-hypnose/review"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-[#1a3a4a]/45 hover:text-[#1a7fa0] text-xs font-sans tracking-wide transition-colors duration-300">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          Laisser un avis Google
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  /* Mer & Plage — palette principale */
+  --color-cosmos-950: #f0f8fb;   /* fond général blanc bleuté */
+  --color-cosmos-900: #e8f4f8;   /* fond section */
+  --color-cosmos-800: #ddeef5;   /* fond card / présentation */
+  --color-cosmos-700: #e0eff5;   /* fond hover */
+  --color-abyss:      #f5ecd6;   /* fond sable */
+
+  /* Océan */
+  --color-biolum:     #1a7fa0;   /* bleu mer */
+  --color-biolum-dim: #0a4f6e;   /* bleu océan profond */
+
+  /* Nébuleuse — conservées mais inutilisées */
+  --color-nebula:     #7c3aed;
+  --color-nebula-dim: #4c1d95;
+
+  /* Accent */
+  --color-gold:       #c49040;   /* or sable foncé (lisible sur fond clair) */
+  --color-gold-light: #d4a050;
+  --color-sage:       #7C9A7E;
+  --color-sage-dark:  #2d5a3d;
+  --color-star:       #1a3a4a;   /* texte foncé marine */
+
+  /* Typographie */
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans:  "Source Sans 3", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f0f8fb;
+  color: #1a3a4a;
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+@keyframes float-particle {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+  50% { transform: translateY(-30px) scale(1.2); opacity: 1; }
+}
+
+/* Lueur océan sur hover */
+.glow-biolum:hover {
+  box-shadow: 0 0 20px rgba(26,127,160,0.25), 0 0 40px rgba(26,127,160,0.08);
+  border-color: rgba(26,127,160,0.4) !important;
+}
+
+/* Placeholder lisible sur fond clair */
+::placeholder {
+  color: rgba(26,58,74,0.4);
+}

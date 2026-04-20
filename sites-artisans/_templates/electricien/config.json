@@ -1,0 +1,113 @@
+{
+  "_metier": "Electricien",
+  "_instructions": "Remplace toutes les valeurs par les infos réelles du client avant de lancer la génération.",
+
+  "businessName": "Électricité Martin",
+  "ownerName": "Pierre Martin",
+  "siret": "67234598100032",
+  "tva": "FR56672345981",
+
+  "contact": {
+    "phone": "06 23 45 67 89",
+    "email": "contact@electricite-martin.fr",
+    "website": "https://electricite-martin.fr"
+  },
+
+  "address": {
+    "street": "22 rue des Voltampères",
+    "city": "La Baule-Escoublac",
+    "postalCode": "44500",
+    "department": "Loire-Atlantique",
+    "region": "Pays de la Loire"
+  },
+
+  "zone": {
+    "radiusKm": 35,
+    "communes": ["La Baule-Escoublac", "Saint-Nazaire", "Guérande", "Pornichet", "Le Pouliguen"]
+  },
+
+  "about": {
+    "yearsExperience": 16,
+    "foundedYear": 2008,
+    "employees": 3,
+    "tagline": "Électricien certifié Qualifelec — Installations sûres, domotique et urgences.",
+    "description": "Électricité Martin intervient à La Baule-Escoublac et sur l'ensemble de la presqu'île guérandaise pour toutes vos installations électriques résidentielles et tertiaires. Pierre Martin et son équipe certifiée Qualifelec garantissent des travaux conformes NFC 15-100 et des interventions d'urgence 24h/24."
+  },
+
+  "services": [
+    {"id": "tableau-electrique", "label": "Tableau électrique", "description": "Installation, mise aux normes et remplacement de tableau électrique NFC 15-100.", "featured": true},
+    {"id": "mise-aux-normes", "label": "Mise aux normes", "description": "Diagnostic et mise en conformité de l'installation électrique existante.", "featured": true},
+    {"id": "domotique", "label": "Domotique & maison connectée", "description": "Installation de systèmes domotiques KNX, Legrand ou Somfy pour piloter votre habitat.", "featured": true},
+    {"id": "eclairage-led", "label": "Éclairage LED", "description": "Conception et pose d'éclairages intérieurs et extérieurs basse consommation.", "featured": true},
+    {"id": "prises-interrupteurs", "label": "Prises & interrupteurs", "description": "Installation et remplacement de prises, interrupteurs et variateurs de lumière.", "featured": false},
+    {"id": "alarme", "label": "Alarme & sécurité", "description": "Pose de systèmes d'alarme intrusion, caméras et contrôle d'accès.", "featured": false},
+    {"id": "borne-recharge", "label": "Borne de recharge VE", "description": "Installation de bornes IRVE pour voitures électriques en maison et copropriété.", "featured": true},
+    {"id": "vmc", "label": "VMC hygroréglable", "description": "Installation et entretien de VMC simple et double flux pour un air sain.", "featured": false}
+  ],
+
+  "stats": {
+    "interventions": 980,
+    "satisfaction": 100,
+    "soustraitance": 0,
+    "garantieAns": 2
+  },
+
+  "certifications": ["Qualifelec", "IRVE (Bornes de recharge)", "Habilitation BR/BC", "Garantie Décennale"],
+
+  "openingHours": {
+    "monday":    "07:30-18:30",
+    "tuesday":   "07:30-18:30",
+    "wednesday": "07:30-18:30",
+    "thursday":  "07:30-18:30",
+    "friday":    "07:30-17:30",
+    "saturday":  "08:00-12:00",
+    "sunday":    "Urgences uniquement"
+  },
+
+  "design": {
+    "colorPrimary":   "#1A1A2E",
+    "colorSecondary": "#F0F0F8",
+    "colorAccent":    "#FFD700",
+    "fontDisplay":    "Barlow Condensed",
+    "fontBody":       "Inter"
+  },
+
+  "options": {
+    "urgency":     true,
+    "showGallery": true,
+    "showBlog":    false,
+    "showFaq":     true
+  },
+
+  "seo": {
+    "metaTitle":       "Électricité Martin — Électricien à La Baule | Urgence 24h/24 · Qualifelec",
+    "metaDescription": "Électricité Martin, électricien à La Baule-Escoublac. Tableau électrique, domotique, borne de recharge, mise aux normes. Urgences 24h/24. ☎ 06 23 45 67 89",
+    "keywords":        ["électricien La Baule", "électricien Loire-Atlantique", "domotique La Baule", "borne recharge La Baule", "mise aux normes électrique La Baule"]
+  },
+
+  "testimonials": [
+    {
+      "name": "Renaud",
+      "city": "La Baule-Escoublac",
+      "stars": 5,
+      "text": "Pierre a installé notre tableau électrique neuf et mis toute la maison aux normes. Travail impeccable, propre, bien expliqué. L'inspection CONSUEL a été validée du premier coup.",
+      "service": "Tableau électrique"
+    },
+    {
+      "name": "Caroline",
+      "city": "Guérande",
+      "stars": 5,
+      "text": "Installation domotique complète dans notre maison neuve : volets, éclairage, alarme. Pierre a été patient pour tout configurer et nous former. On ne s'en passerait plus !",
+      "service": "Domotique & maison connectée"
+    },
+    {
+      "name": "François",
+      "city": "Pornichet",
+      "stars": 5,
+      "text": "Borne de recharge pour ma Tesla installée en une demi-journée. Tout le câblage est soigné, la borne est parfaitement intégrée dans le garage. Je recommande vivement.",
+      "service": "Borne de recharge VE"
+    }
+  ],
+
+  "agencyCredit": "Ton Agence"
+}

@@ -1,0 +1,113 @@
+{
+  "_metier": "Paysagiste",
+  "_instructions": "Remplace toutes les valeurs par les infos réelles du client avant de lancer la génération.",
+
+  "businessName": "Paysages Verdure",
+  "ownerName": "Nicolas Lambert",
+  "siret": "72134569800015",
+  "tva": "FR47721345698",
+
+  "contact": {
+    "phone": "06 56 78 90 12",
+    "email": "contact@paysages-verdure.fr",
+    "website": "https://paysages-verdure.fr"
+  },
+
+  "address": {
+    "street": "5 chemin du Verger",
+    "city": "Carquefou",
+    "postalCode": "44470",
+    "department": "Loire-Atlantique",
+    "region": "Pays de la Loire"
+  },
+
+  "zone": {
+    "radiusKm": 40,
+    "communes": ["Carquefou", "Nantes", "Sainte-Luce-sur-Loire", "Thouaré-sur-Loire", "Mauves-sur-Loire"]
+  },
+
+  "about": {
+    "yearsExperience": 15,
+    "foundedYear": 2009,
+    "employees": 3,
+    "tagline": "Votre jardin, notre passion — Création, entretien et aménagement paysager.",
+    "description": "Paysages Verdure est une entreprise paysagiste basée à Carquefou, spécialisée dans la création et l'entretien de jardins particuliers et d'espaces verts. Nicolas Lambert et son équipe de jardiniers-paysagistes conçoivent des espaces végétaux sur mesure, en harmonie avec votre habitat et votre style de vie."
+  },
+
+  "services": [
+    {"id": "creation-jardin", "label": "Création de jardin", "description": "Conception et réalisation complète de jardins de A à Z selon vos envies.", "featured": true},
+    {"id": "tonte-entretien", "label": "Tonte & entretien", "description": "Tonte régulière de pelouse, désherbage et entretien de massifs floraux.", "featured": true},
+    {"id": "taille-haies", "label": "Taille haies & arbustes", "description": "Taille et formation de haies, arbustes et buis en toutes formes.", "featured": true},
+    {"id": "allees-terrasses", "label": "Allées & terrasses", "description": "Création d'allées en gravier, pavés, ardoise ou béton désactivé.", "featured": false},
+    {"id": "gazon", "label": "Pose de gazon", "description": "Engazonnement par semis ou pose de gazon en rouleau, naturel ou synthétique.", "featured": true},
+    {"id": "arrosage-automatique", "label": "Arrosage automatique", "description": "Installation de systèmes d'arrosage intégrés, programmables et économes en eau.", "featured": false},
+    {"id": "elagage", "label": "Élagage & abattage", "description": "Élagage raisonné d'arbres, abattage contrôlé et broyage des déchets verts.", "featured": false},
+    {"id": "bassin", "label": "Bassin & mare", "description": "Création de bassins ornementaux, mares naturelles et jardins aquatiques.", "featured": false}
+  ],
+
+  "stats": {
+    "interventions": 720,
+    "satisfaction": 100,
+    "soustraitance": 0,
+    "garantieAns": 3
+  },
+
+  "certifications": ["Certiphyto", "Qualipaysage", "Éco-jardinier Certifié"],
+
+  "openingHours": {
+    "monday":    "08:00-18:00",
+    "tuesday":   "08:00-18:00",
+    "wednesday": "08:00-18:00",
+    "thursday":  "08:00-18:00",
+    "friday":    "08:00-17:00",
+    "saturday":  "08:30-12:00",
+    "sunday":    "Fermé"
+  },
+
+  "design": {
+    "colorPrimary":   "#1B4332",
+    "colorSecondary": "#EEF8F2",
+    "colorAccent":    "#95D5B2",
+    "fontDisplay":    "Cormorant Garamond",
+    "fontBody":       "Lato"
+  },
+
+  "options": {
+    "urgency":     false,
+    "showGallery": true,
+    "showBlog":    false,
+    "showFaq":     true
+  },
+
+  "seo": {
+    "metaTitle":       "Paysages Verdure — Paysagiste à Carquefou & Nantes | Jardins sur mesure",
+    "metaDescription": "Paysages Verdure, paysagiste à Carquefou. Création de jardins, tonte, taille de haies, arrosage automatique, bassins. Devis gratuit. ☎ 06 56 78 90 12",
+    "keywords":        ["paysagiste Carquefou", "paysagiste Nantes", "création jardin Nantes", "entretien jardin Carquefou", "arrosage automatique Nantes"]
+  },
+
+  "testimonials": [
+    {
+      "name": "Anne-Sophie",
+      "city": "Carquefou",
+      "stars": 5,
+      "text": "Nicolas a transformé notre terrain vague en un jardin magnifique avec terrasse, massifs et bassin. Il a su comprendre exactement ce que nous voulions. Le résultat est un vrai coup de cœur.",
+      "service": "Création de jardin"
+    },
+    {
+      "name": "Thierry",
+      "city": "Sainte-Luce-sur-Loire",
+      "stars": 5,
+      "text": "Contrat d'entretien depuis 2 ans, le jardin est toujours impeccable. Nicolas passe régulièrement, anticipe les saisons et choisit des plantes adaptées à notre sol. On ne cherche plus.",
+      "service": "Tonte & entretien"
+    },
+    {
+      "name": "Lucie",
+      "city": "Thouaré-sur-Loire",
+      "stars": 5,
+      "text": "Installation d'un arrosage automatique pour tout le jardin. Nicolas a tout programmé et optimisé les zones. On économise de l'eau et nos plantes n'ont jamais été aussi belles en été.",
+      "service": "Arrosage automatique"
+    }
+  ],
+
+  "agencyCredit": "Ton Agence"
+}

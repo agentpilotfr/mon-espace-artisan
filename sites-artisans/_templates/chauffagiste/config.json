@@ -1,0 +1,113 @@
+{
+  "_metier": "Chauffagiste",
+  "_instructions": "Remplace toutes les valeurs par les infos réelles du client avant de lancer la génération.",
+
+  "businessName": "Thermique & Confort",
+  "ownerName": "Julien Bernard",
+  "siret": "58342197600038",
+  "tva": "FR36583421976",
+
+  "contact": {
+    "phone": "06 78 90 12 34",
+    "email": "contact@thermique-confort.fr",
+    "website": "https://thermique-confort.fr"
+  },
+
+  "address": {
+    "street": "11 avenue des Thermes",
+    "city": "Saint-Herblain",
+    "postalCode": "44800",
+    "department": "Loire-Atlantique",
+    "region": "Pays de la Loire"
+  },
+
+  "zone": {
+    "radiusKm": 40,
+    "communes": ["Saint-Herblain", "Nantes", "Orvault", "Couëron", "Bouguenais"]
+  },
+
+  "about": {
+    "yearsExperience": 17,
+    "foundedYear": 2007,
+    "employees": 3,
+    "tagline": "Chauffagiste certifié RGE — Confort thermique et économies d'énergie.",
+    "description": "Thermique & Confort est spécialisée dans l'installation et la maintenance de tous systèmes de chauffage à Saint-Herblain et dans la métropole nantaise. Julien Bernard et son équipe certifiée RGE vous conseillent et interviennent pour des solutions durables et économes en énergie, de la chaudière gaz à la pompe à chaleur."
+  },
+
+  "services": [
+    {"id": "chaudiere-gaz", "label": "Chaudière gaz condensation", "description": "Installation et remplacement de chaudières gaz à condensation haute performance.", "featured": true},
+    {"id": "entretien-chaudiere", "label": "Entretien & maintenance", "description": "Contrat d'entretien annuel obligatoire et révision complète de votre chaudière.", "featured": true},
+    {"id": "pompe-a-chaleur", "label": "Pompe à chaleur air/eau", "description": "Installation de PAC air/eau pour chauffage et production d'eau chaude sanitaire.", "featured": true},
+    {"id": "plancher-chauffant", "label": "Plancher chauffant", "description": "Installation de plancher chauffant hydraulique dans les constructions neuves et rénovations.", "featured": true},
+    {"id": "radiateurs", "label": "Radiateurs & robinetterie", "description": "Remplacement de radiateurs, têtes thermostatiques et équilibrage du circuit.", "featured": false},
+    {"id": "depannage-urgence", "label": "Dépannage urgence", "description": "Intervention rapide 7j/7 en cas de panne de chauffage ou de chauffe-eau.", "featured": true},
+    {"id": "vmc-double-flux", "label": "VMC double flux", "description": "Installation de VMC double flux avec récupération de chaleur pour une maison saine.", "featured": false},
+    {"id": "climatisation", "label": "Climatisation réversible", "description": "Pose de systèmes de climatisation réversible mono et multi-split.", "featured": false}
+  ],
+
+  "stats": {
+    "interventions": 920,
+    "satisfaction": 100,
+    "soustraitance": 0,
+    "garantieAns": 2
+  },
+
+  "certifications": ["RGE QualiPAC", "RGE Qualibois", "Habilitation Fluides Frigorigènes", "Garantie Décennale"],
+
+  "openingHours": {
+    "monday":    "07:30-18:30",
+    "tuesday":   "07:30-18:30",
+    "wednesday": "07:30-18:30",
+    "thursday":  "07:30-18:30",
+    "friday":    "07:30-17:30",
+    "saturday":  "08:00-12:00",
+    "sunday":    "Urgences uniquement"
+  },
+
+  "design": {
+    "colorPrimary":   "#7B2D00",
+    "colorSecondary": "#FDF3EE",
+    "colorAccent":    "#FF8C42",
+    "fontDisplay":    "Barlow Condensed",
+    "fontBody":       "Inter"
+  },
+
+  "options": {
+    "urgency":     true,
+    "showGallery": true,
+    "showBlog":    false,
+    "showFaq":     true
+  },
+
+  "seo": {
+    "metaTitle":       "Thermique & Confort — Chauffagiste à Saint-Herblain | RGE · Urgence 7j/7",
+    "metaDescription": "Thermique & Confort, chauffagiste à Saint-Herblain. Chaudière, pompe à chaleur, plancher chauffant, dépannage urgence. Certifié RGE. Devis gratuit. ☎ 06 78 90 12 34",
+    "keywords":        ["chauffagiste Saint-Herblain", "chauffagiste Nantes", "pompe à chaleur Nantes", "entretien chaudière Saint-Herblain", "dépannage chauffage Nantes"]
+  },
+
+  "testimonials": [
+    {
+      "name": "Monique",
+      "city": "Saint-Herblain",
+      "stars": 5,
+      "text": "Julien a remplacé notre vieille chaudière en fin de vie par une chaudière à condensation en une journée. La mise en route était parfaite et la facture de gaz a baissé de 30% cet hiver.",
+      "service": "Chaudière gaz condensation"
+    },
+    {
+      "name": "Arnaud",
+      "city": "Orvault",
+      "stars": 5,
+      "text": "Installation d'une pompe à chaleur air/eau couplée à notre plancher chauffant. Julien a tout géré, de la conception au dossier MaPrimeRénov'. Un vrai professionnel, on recommande !",
+      "service": "Pompe à chaleur air/eau"
+    },
+    {
+      "name": "Christine",
+      "city": "Nantes",
+      "stars": 5,
+      "text": "Panne de chaudière un vendredi soir en plein hiver, Julien était là à 20h et a tout réparé. On a pu passer le week-end au chaud. Service d'urgence vraiment irréprochable.",
+      "service": "Dépannage urgence"
+    }
+  ],
+
+  "agencyCredit": "Ton Agence"
+}

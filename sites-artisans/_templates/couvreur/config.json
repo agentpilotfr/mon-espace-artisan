@@ -1,0 +1,113 @@
+{
+  "_metier": "Couvreur",
+  "_instructions": "Remplace toutes les valeurs par les infos réelles du client avant de lancer la génération.",
+
+  "businessName": "Couverture Petit",
+  "ownerName": "Emmanuel Petit",
+  "siret": "81267453900019",
+  "tva": "FR25812674539",
+
+  "contact": {
+    "phone": "06 67 89 01 23",
+    "email": "contact@couverture-petit.fr",
+    "website": "https://couverture-petit.fr"
+  },
+
+  "address": {
+    "street": "29 rue des Ardoisières",
+    "city": "Vertou",
+    "postalCode": "44120",
+    "department": "Loire-Atlantique",
+    "region": "Pays de la Loire"
+  },
+
+  "zone": {
+    "radiusKm": 45,
+    "communes": ["Vertou", "Nantes", "Rezé", "Clisson", "Vallet"]
+  },
+
+  "about": {
+    "yearsExperience": 19,
+    "foundedYear": 2005,
+    "employees": 4,
+    "tagline": "Couvreur urgence 7j/7 — Votre toit entre de bonnes mains depuis 2005.",
+    "description": "Couverture Petit est une entreprise de couverture-charpente basée à Vertou, spécialisée dans la réfection de toitures, l'isolation et la zinguerie sur tous types de bâtiments. Emmanuel Petit et son équipe interviennent en urgence 7j/7 après tempêtes ou chutes et proposent des solutions durables pour tous les types de toits."
+  },
+
+  "services": [
+    {"id": "refection-toiture", "label": "Réfection de toiture", "description": "Dépose et repose complète de couverture en tuiles, ardoises ou bac acier.", "featured": true},
+    {"id": "pose-tuiles", "label": "Pose de tuiles", "description": "Pose de tuiles terre cuite, béton ou romaines sur toutes pentes.", "featured": true},
+    {"id": "isolation-toiture", "label": "Isolation thermique", "description": "Isolation par l'extérieur (sarking) ou en combles perdus pour gain énergétique maximal.", "featured": true},
+    {"id": "zinguerie", "label": "Zinguerie & gouttières", "description": "Pose et remplacement de gouttières, noues, faîtages et ouvrages en zinc.", "featured": true},
+    {"id": "charpente", "label": "Charpente bois", "description": "Réparation, renforcement et remplacement de charpentes traditionnelles et fermettes.", "featured": false},
+    {"id": "reparation-urgence", "label": "Réparation urgence", "description": "Intervention rapide 7j/7 après tempête, fuite ou tuiles envolées.", "featured": true},
+    {"id": "nettoyage-toiture", "label": "Nettoyage & traitement", "description": "Nettoyage haute pression et traitement hydrofuge anti-mousse pour toitures.", "featured": false},
+    {"id": "velux", "label": "Velux & fenêtres de toit", "description": "Pose et remplacement de fenêtres de toit Velux, Fakro et marques équivalentes.", "featured": false}
+  ],
+
+  "stats": {
+    "interventions": 780,
+    "satisfaction": 100,
+    "soustraitance": 0,
+    "garantieAns": 10
+  },
+
+  "certifications": ["Qualibat Couverture 3111", "RGE Qualibat Isolation", "Garantie Décennale"],
+
+  "openingHours": {
+    "monday":    "07:00-18:00",
+    "tuesday":   "07:00-18:00",
+    "wednesday": "07:00-18:00",
+    "thursday":  "07:00-18:00",
+    "friday":    "07:00-17:00",
+    "saturday":  "08:00-13:00",
+    "sunday":    "Urgences uniquement"
+  },
+
+  "design": {
+    "colorPrimary":   "#2C3E50",
+    "colorSecondary": "#EEF2F5",
+    "colorAccent":    "#E74C3C",
+    "fontDisplay":    "Oswald",
+    "fontBody":       "Open Sans"
+  },
+
+  "options": {
+    "urgency":     true,
+    "showGallery": true,
+    "showBlog":    false,
+    "showFaq":     true
+  },
+
+  "seo": {
+    "metaTitle":       "Couverture Petit — Couvreur à Vertou & Nantes | Urgence 7j/7",
+    "metaDescription": "Couverture Petit, couvreur à Vertou. Réfection toiture, isolation, zinguerie, charpente, réparation urgence tempête. Devis gratuit. ☎ 06 67 89 01 23",
+    "keywords":        ["couvreur Vertou", "couvreur Nantes", "réfection toiture Nantes", "urgence toiture Loire-Atlantique", "isolation toiture Vertou"]
+  },
+
+  "testimonials": [
+    {
+      "name": "Patrick",
+      "city": "Vertou",
+      "stars": 5,
+      "text": "Après la tempête de janvier, Emmanuel est venu le lendemain matin pour mettre une bâche d'urgence puis a réparé la toiture en 2 jours. Travail sérieux, devis honnête. Bravo !",
+      "service": "Réparation urgence"
+    },
+    {
+      "name": "Sylvie",
+      "city": "Clisson",
+      "stars": 5,
+      "text": "Réfection complète de notre toit en ardoises naturelles. Emmanuel et son équipe ont travaillé avec soin, les ardoises sont parfaitement posées et la maison est bien plus chaude depuis l'isolation.",
+      "service": "Réfection de toiture"
+    },
+    {
+      "name": "Alain",
+      "city": "Rezé",
+      "stars": 5,
+      "text": "Remplacement des gouttières et traitement anti-mousse de la toiture. Travail propre, pas de déchets laissés. Le prix était très correct pour la qualité de la prestation.",
+      "service": "Zinguerie & gouttières"
+    }
+  ],
+
+  "agencyCredit": "Ton Agence"
+}

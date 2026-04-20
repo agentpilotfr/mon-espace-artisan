@@ -1,0 +1,2686 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="description" content="Sabrina Duval, négociatrice en immobilier à Pontchâteau (44160). Vente, achat, estimation immobilière sur Pontchâteau, Crossac, Fégreac, Herbignac et alentours. 16 avis 5 étoiles. Appelez le 06 75 53 64 21.">
+  <meta name="keywords" content="négociatrice immobilier Pontchâteau, immobilier Pontchâteau 44160, vente maison Pontchâteau, estimation immobilière Crossac, immobilier Herbignac, immobilier Missillac, Sabrina Duval immobilier">
+  <meta property="og:title" content="Sabrina Duval — Négociatrice en Immobilier Pontchâteau (44)">
+  <meta property="og:description" content="16 avis 5★ — Négociatrice en immobilier spécialiste Pontchâteau et alentours. Estimation gratuite.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="canonical" href="https://sabrinaduval-immobilier.fr/">
+  <title>Sabrina Duval — Négociatrice en Immobilier Pontchâteau (44)</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "Sabrina Duval — Négociatrice en Immobilier",
+    "description": "Négociatrice en immobilier spécialiste Pontchâteau et communes alentours.",
+    "url": "https://sabrinaduval-immobilier.fr/",
+    "telephone": "+33675536421",
+    "email": "s.duval@bskimmobilier.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pontchâteau",
+      "postalCode": "44160",
+      "addressRegion": "Loire-Atlantique",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 47.4338,
+      "longitude": -2.0853
+    },
+    "areaServed": [
+      "Pontchâteau", "Crossac", "Fégreac",
+      "Saint-Gildas-des-Bois", "Herbignac",
+      "Sainte-Anne-sur-Brivet", "La Chapelle-des-Marais", "Missillac"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "22",
+      "bestRating": "5"
+    },
+    "sameAs": [
+      "https://www.immodvisor.com/professionnels/mandataire-immobilier/pro/bsk-immobilier-duval-sabrina-71517",
+      "https://www.facebook.com/sabduvalimmo",
+      "https://www.instagram.com/sabduvalimmo",
+      "https://www.immodvisor.com/pro/bsk-immobilier-duval-sabrina-pontchateau-44160-71517.html"
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+  <style>
+    /* =============================================
+       VARIABLES & RESET
+    ============================================= */
+    :root {
+      --creme:       #F5F0E8;
+      --creme-light: #FAFAF7;
+      --bordeaux:    #8B2635;
+      --bordeaux-dark: #6B1C27;
+      --or:          #C4A35A;
+      --or-light:    #D4B86A;
+      --texte:       #1A1A1A;
+      --texte-doux:  #4A4440;
+      --gris-fin:    #E8E2DA;
+      --blanc:       #FFFFFF;
+      --radius:      4px;
+      --transition:  0.25s ease;
+      --max-width:   1200px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--texte);
+      background-color: var(--creme-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* =============================================
+       SKIP LINK
+    ============================================= */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--bordeaux);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      z-index: 9999;
+      font-size: 0.875rem;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* =============================================
+       NAV
+    ============================================= */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
+    }
+
+    .nav.scrolled {
+      background: rgba(250, 250, 247, 0.97);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 1px 0 var(--gris-fin);
+      padding: 0.875rem 2rem;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--blanc);
+      letter-spacing: 0.03em;
+      transition: color var(--transition);
+    }
+    .nav.scrolled .nav-logo { color: var(--texte); }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    #nav-menu a {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      transition: color var(--transition);
+    }
+    .nav.scrolled #nav-menu a { color: var(--texte-doux); }
+    #nav-menu a:hover { color: var(--or); }
+    .nav.scrolled #nav-menu a:hover { color: var(--bordeaux); }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bordeaux);
+      color: var(--blanc) !important;
+      padding: 0.75rem 1.25rem;
+      min-height: 44px;
+      border-radius: 2px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .nav-cta:hover { background: var(--bordeaux-dark); transform: translateY(-1px); }
+    .nav.scrolled .nav-cta { color: var(--blanc) !important; }
+
+    #nav-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100vh;
+      background: rgba(26,10,10,0.97);
+      z-index: 1000;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    #nav-toggle:checked ~ #nav-menu { display: flex !important; }
+    #nav-toggle:checked ~ #nav-menu a { color: var(--blanc); font-size: 1.25rem; }
+    #nav-toggle:checked ~ #nav-menu .nav-cta { font-size: 1rem; padding: 0.875rem 2rem; }
+
+    @media (min-width: 769px) {
+      #nav-menu {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        background: transparent;
+        height: auto;
+        width: auto;
+        gap: 1.5rem;
+      }
+      .nav-container { width: auto; }
+      #menu-btn { display: none !important; }
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+      position: relative;
+      height: 100svh;
+      height: 100vh; /* fallback navigateurs sans svh */
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #2a1f1a;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(26, 10, 8, 0.45) 0%,
+        rgba(139, 38, 53, 0.15) 50%,
+        rgba(26, 10, 8, 0.6) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 1.5rem;
+      max-width: 780px;
+      animation: heroFadeIn 1s ease both;
+    }
+
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: var(--or);
+      opacity: 0.7;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      font-weight: 700;
+      color: var(--blanc);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--or-light);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      color: rgba(255,255,255,0.8);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-stars {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.75);
+    }
+    .hero-stars .stars { color: var(--or); letter-spacing: 0.1em; font-size: 1rem; }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bordeaux);
+      color: var(--blanc);
+      padding: 1rem 2rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      border-radius: 2px;
+    }
+    .btn-primary:hover {
+      background: var(--bordeaux-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(139, 38, 53, 0.35);
+    }
+    .btn-primary:focus-visible {
+      outline: 2px solid var(--or);
+      outline-offset: 3px;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--blanc);
+      padding: 1rem 2rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.45);
+      cursor: pointer;
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+      border-radius: 2px;
+    }
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+    .btn-secondary:focus-visible {
+      outline: 2px solid var(--or);
+      outline-offset: 3px;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+    .hero-scroll svg { opacity: 0.5; }
+
+    /* =============================================
+       SECTIONS COMMUNES
+    ============================================= */
+    .section { padding: 6rem 2rem; }
+    .section-inner { max-width: var(--max-width); margin: 0 auto; }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--bordeaux);
+      margin-bottom: 1.25rem;
+    }
+    .section-eyebrow::after {
+      content: '';
+      display: inline-block;
+      width: 40px;
+      height: 1px;
+      background: var(--or);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--texte);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--bordeaux);
+    }
+
+    .section-subtitle {
+      font-size: 1.0625rem;
+      color: var(--texte-doux);
+      font-weight: 300;
+      line-height: 1.75;
+      margin-top: 1rem;
+      max-width: 560px;
+    }
+
+    /* =============================================
+       BANDE RÉASSURANCE
+    ============================================= */
+    .reassurance {
+      background: var(--bordeaux);
+      padding: 1.5rem 2rem;
+    }
+    .reassurance-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .reassurance-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: rgba(255,255,255,0.9);
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+    .reassurance-item svg {
+      flex-shrink: 0;
+      color: var(--or-light);
+    }
+    .reassurance-item strong {
+      color: var(--blanc);
+      font-weight: 700;
+    }
+
+    /* =============================================
+       PRÉSENTATION SABRINA
+    ============================================= */
+    .about { background: var(--creme-light); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-photo-wrap {
+      position: relative;
+    }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+
+    .about-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--gris-fin);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-photo-placeholder::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--creme) 0%, var(--gris-fin) 100%);
+    }
+    .about-photo-placeholder-text {
+      position: relative;
+      z-index: 1;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--texte-doux);
+      opacity: 0.5;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .about-photo-frame {
+      position: absolute;
+      top: -1rem;
+      left: -1rem;
+      right: 1rem;
+      bottom: 1rem;
+      border: 1px solid var(--or);
+      border-radius: 2px;
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .about-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      width: 7rem;
+      height: 7rem;
+      background: var(--bordeaux);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--blanc);
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(139, 38, 53, 0.35);
+    }
+    .about-badge-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .about-badge-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.9;
+      margin-top: 2px;
+      padding: 0 0.5rem;
+      line-height: 1.3;
+      text-align: center;
+    }
+
+    .about-content { padding-left: 1rem; }
+
+    .about-bsk {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--creme);
+      border: 1px solid var(--gris-fin);
+      padding: 0.4rem 0.875rem;
+      border-radius: 2px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--texte-doux);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text {
+      color: var(--texte-doux);
+      font-weight: 300;
+      line-height: 1.85;
+      margin-top: 1.5rem;
+    }
+    .about-text p + p { margin-top: 1rem; }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--gris-fin);
+    }
+    .about-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--bordeaux);
+      line-height: 1;
+    }
+    .about-stat-label {
+      font-size: 0.75rem;
+      color: var(--texte-doux);
+      font-weight: 400;
+      margin-top: 0.25rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* =============================================
+       SERVICES
+    ============================================= */
+    .services { background: var(--creme); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 4rem;
+    }
+
+    .service-card {
+      background: var(--creme-light);
+      padding: 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background var(--transition);
+    }
+    .service-card:hover { background: var(--blanc); }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--bordeaux);
+      transition: height 0.35s ease;
+    }
+    .service-card:hover::before { height: 100%; }
+
+    .service-icon {
+      width: 3rem;
+      height: 3rem;
+      margin-bottom: 1.75rem;
+      color: var(--or);
+    }
+
+    .service-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: var(--texte);
+      margin-bottom: 0.875rem;
+      letter-spacing: -0.01em;
+    }
+
+    .service-desc {
+      font-size: 0.9375rem;
+      color: var(--texte-doux);
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--bordeaux);
+      transition: gap var(--transition);
+    }
+    .service-link:hover { gap: 0.75rem; }
+
+    /* =============================================
+       BIENS RÉCENTS
+    ============================================= */
+    .biens { background: var(--texte); }
+    .biens .section-eyebrow { color: var(--or); }
+    .biens .section-title { color: var(--blanc); }
+    .biens .section-title em { color: var(--or-light); }
+    .biens .section-subtitle { color: rgba(255,255,255,0.6); }
+
+    .biens-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      margin-top: 4rem;
+    }
+
+    .bien-card {
+      position: relative;
+      overflow: hidden;
+      background: #2a2520;
+      cursor: default;
+    }
+
+    .bien-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.75);
+      transition: filter 0.4s ease, transform 0.4s ease;
+    }
+
+    .bien-card:hover .bien-img {
+      filter: brightness(0.65);
+      transform: scale(1.03);
+    }
+
+    .bien-img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #2a2520, #3d3530);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .bien-img-placeholder svg { opacity: 0.2; }
+
+    .bien-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem 1.75rem 1.75rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    }
+
+    .bien-statut {
+      display: inline-block;
+      padding: 0.2rem 0.75rem;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      margin-bottom: 0.75rem;
+    }
+    .bien-statut.disponible {
+      background: rgba(196, 163, 90, 0.25);
+      color: var(--or-light);
+      border: 1px solid rgba(196, 163, 90, 0.35);
+    }
+    .bien-statut.offre {
+      background: rgba(139, 38, 53, 0.35);
+      color: #f4a5ae;
+      border: 1px solid rgba(139, 38, 53, 0.45);
+    }
+
+    .bien-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--blanc);
+      line-height: 1.3;
+      margin-bottom: 0.25rem;
+    }
+
+    .bien-meta {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.65);
+      font-weight: 300;
+      margin-bottom: 0.625rem;
+    }
+
+    .bien-prix {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: var(--or-light);
+    }
+
+    /* Statut vendu */
+    .bien-statut.vendu {
+      background: rgba(74, 160, 74, 0.2);
+      color: #8fd88f;
+      border: 1px solid rgba(74, 160, 74, 0.3);
+    }
+
+    /* Fiche bien unique */
+    .bien-fiche {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1.75rem 2rem;
+      background: #2a2520;
+      border-left: 3px solid var(--or);
+      margin-top: 4rem;
+      margin-bottom: 1.5px;
+    }
+    .bien-fiche-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--blanc);
+      margin: 0.5rem 0 0.25rem;
+    }
+    .bien-fiche-meta {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+    }
+    .bien-fiche-prix {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.625rem;
+      font-weight: 700;
+      color: var(--or-light);
+      margin-top: 0.5rem;
+    }
+
+    /* Grille 3×3 photos */
+    .bien-photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+    }
+    .bien-photo-item {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      cursor: zoom-in;
+    }
+    .bien-photo-item img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.88);
+      transition: filter 0.35s ease, transform 0.35s ease;
+    }
+    .bien-photo-item:hover img {
+      filter: brightness(0.62);
+      transform: scale(1.05);
+    }
+    .bien-photo-zoom {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      background: rgba(0,0,0,0.12);
+    }
+    .bien-photo-item:hover .bien-photo-zoom { opacity: 1; }
+
+    /* Lightbox photo individuelle */
+    .lightbox-photo .lightbox-img {
+      max-width: 90vw;
+      max-height: 78vh;
+      object-fit: contain;
+      border-radius: 2px;
+      display: block;
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 1.75rem;
+      line-height: 1;
+      text-decoration: none;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      transition: background 0.2s, color 0.2s;
+      z-index: 10;
+    }
+    .lightbox-nav:hover { background: rgba(255,255,255,0.18); color: #fff; }
+    .lightbox-prev { left: 1.5rem; }
+    .lightbox-next { right: 1.5rem; }
+    .lightbox-counter {
+      position: absolute;
+      bottom: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.1em;
+      font-family: 'Lato', sans-serif;
+    }
+    @media (max-width: 640px) {
+      .bien-photo-grid { grid-template-columns: repeat(3, 1fr); gap: 1px; }
+      .bien-fiche { padding: 1.25rem 1rem; }
+      .lightbox-nav { width: 36px; height: 36px; font-size: 1.375rem; }
+      .lightbox-prev { left: 0.5rem; }
+      .lightbox-next { right: 0.5rem; }
+    }
+
+    /* =============================================
+       AVIS CLIENTS
+    ============================================= */
+    .avis { background: var(--creme); }
+
+    .avis-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .avis-score {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .avis-score-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--bordeaux);
+      line-height: 1;
+    }
+    .avis-score-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .avis-score-stars {
+      color: var(--or);
+      font-size: 1.25rem;
+      letter-spacing: 0.1em;
+    }
+    .avis-score-label {
+      font-size: 0.75rem;
+      color: var(--texte-doux);
+      font-weight: 400;
+    }
+
+    /* Carrousel avis */
+    .avis-carousel-wrap {
+      position: relative;
+      margin-top: 4rem;
+      padding: 0 3rem;
+    }
+    .avis-carousel {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      -webkit-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .avis-carousel::-webkit-scrollbar { display: none; }
+
+    .avis-card {
+      min-width: calc(33.333% - 1rem);
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      background: var(--creme-light);
+      padding: 2rem;
+      border-radius: 2px;
+      border: 1px solid var(--gris-fin);
+      position: relative;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .avis-card:hover {
+      box-shadow: 0 8px 32px rgba(26,26,26,0.08);
+      transform: translateY(-3px);
+    }
+
+    .avis-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gris-fin);
+      background: var(--blanc);
+      color: var(--texte-doux);
+      font-size: 1.375rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+      z-index: 2;
+      padding: 0;
+    }
+    .avis-btn:hover {
+      border-color: var(--bordeaux);
+      color: var(--bordeaux);
+      box-shadow: 0 2px 12px rgba(139,38,53,0.15);
+    }
+    .avis-prev { left: 0; }
+    .avis-next { right: 0; }
+
+    .avis-bsk-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 3rem;
+      padding: 0.875rem 1.75rem;
+      background: var(--bordeaux);
+      color: var(--blanc);
+      border-radius: 2px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+    .avis-bsk-cta:hover { background: var(--bordeaux-dark); transform: translateY(-2px); }
+
+    .avis-quote {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--gris-fin);
+      font-style: italic;
+      pointer-events: none;
+    }
+
+    .avis-stars {
+      color: var(--or);
+      font-size: 0.9375rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .avis-texte {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--texte-doux);
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .avis-auteur {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+    }
+    .avis-avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: var(--bordeaux);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blanc);
+      font-size: 0.875rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .avis-nom {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--texte);
+    }
+    .avis-date {
+      font-size: 0.75rem;
+      color: var(--texte-doux);
+      font-weight: 300;
+    }
+
+    .avis-immodvisor {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 3rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--blanc);
+      border: 1px solid var(--gris-fin);
+      border-radius: 2px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--texte-doux);
+      letter-spacing: 0.04em;
+      transition: border-color var(--transition), color var(--transition);
+    }
+    .avis-immodvisor:hover {
+      border-color: var(--bordeaux);
+      color: var(--bordeaux);
+    }
+
+    /* =============================================
+       ZONE D'INTERVENTION
+    ============================================= */
+    .zone { background: var(--creme-light); }
+
+    .zone-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .zone-map {
+      border: 1px solid var(--gris-fin);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    /* Leaflet map container */
+    .leaflet-map {
+      height: 420px;
+      width: 100%;
+      border-radius: 2px;
+      z-index: 1;
+    }
+
+    /* Custom Leaflet markers */
+    .marker-main {
+      width: 16px; height: 16px;
+      background: var(--bordeaux);
+      border-radius: 50%;
+      border: 2.5px solid #fff;
+      box-shadow: 0 2px 10px rgba(139,38,53,0.55);
+    }
+    .marker-sec {
+      width: 10px; height: 10px;
+      background: var(--or);
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+    }
+    .leaflet-popup-content-wrapper {
+      border-radius: 2px !important;
+      font-family: 'Lato', sans-serif !important;
+      font-size: 0.8125rem !important;
+    }
+    .leaflet-popup-content a { color: var(--bordeaux); font-weight: 700; }
+
+    /* =============================================
+       GALERIE LIGHTBOX (CSS-only, :target)
+    ============================================= */
+    .bien-gallery-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+      padding: 0.45rem 0.875rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 2px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      cursor: pointer;
+      transition: background var(--transition), border-color var(--transition);
+      text-decoration: none;
+    }
+    .bien-gallery-btn:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,8,8,0.94);
+      z-index: 500;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1.5rem;
+    }
+    .lightbox:target { display: flex; }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      color: rgba(255,255,255,0.7);
+      font-size: 1.5rem;
+      line-height: 1;
+      text-decoration: none;
+      transition: color var(--transition);
+      z-index: 501;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-close:hover { color: var(--blanc); }
+
+    .lightbox-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+    }
+
+    .lightbox-track {
+      display: flex;
+      gap: 0.75rem;
+      overflow-x: auto;
+      -webkit-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      max-width: min(90vw, 900px);
+      width: 100%;
+      scrollbar-width: thin;
+      scrollbar-color: var(--bordeaux) transparent;
+    }
+    .lightbox-track::-webkit-scrollbar { height: 4px; }
+    .lightbox-track::-webkit-scrollbar-track { background: transparent; }
+    .lightbox-track::-webkit-scrollbar-thumb { background: var(--bordeaux); border-radius: 2px; }
+
+    .lightbox-track img {
+      flex-shrink: 0;
+      width: min(80vw, 640px);
+      height: min(60vh, 480px);
+      object-fit: cover;
+      scroll-snap-align: center;
+      border-radius: 2px;
+    }
+
+    .lightbox-hint {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.06em;
+    }
+
+    .zone-communes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.625rem;
+      margin-top: 2.5rem;
+    }
+
+    .zone-commune {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.875rem;
+      background: var(--blanc);
+      border: 1px solid var(--gris-fin);
+      border-radius: 2px;
+      font-size: 0.8125rem;
+      color: var(--texte-doux);
+      font-weight: 400;
+      transition: border-color var(--transition), color var(--transition);
+    }
+    .zone-commune:hover {
+      border-color: var(--bordeaux);
+      color: var(--bordeaux);
+    }
+    .zone-commune::before {
+      content: '·';
+      color: var(--or);
+      font-size: 1rem;
+    }
+
+    .zone-tagline {
+      margin-top: 2.5rem;
+      padding: 1.5rem;
+      background: var(--creme);
+      border-left: 3px solid var(--bordeaux);
+    }
+    .zone-tagline p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.0625rem;
+      color: var(--texte-doux);
+      line-height: 1.7;
+    }
+
+    /* =============================================
+       RÉSEAUX SOCIAUX
+    ============================================= */
+    .social { background: var(--creme); }
+
+    /* Cards liens directs réseaux sociaux */
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 4rem;
+      flex-wrap: wrap;
+    }
+    .social-card {
+      flex: 1;
+      min-width: 260px;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.625rem 1.75rem;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #fff;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    .social-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+    }
+    .social-card--fb   { background: #1877F2; }
+    .social-card--insta { background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #F77737 100%); }
+
+    .social-card-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .social-card-body { flex: 1; }
+    .social-card-label {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      letter-spacing: 0.01em;
+    }
+    .social-card-handle {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.72);
+      font-weight: 300;
+      margin-top: 0.2rem;
+    }
+    .social-card-arrow {
+      flex-shrink: 0;
+      opacity: 0.7;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .social-card:hover .social-card-arrow { opacity: 1; transform: translateX(3px); }
+
+    .fb-embed-wrap {
+      background: var(--creme-light);
+      border: 1px solid var(--gris-fin);
+      border-radius: 2px;
+      overflow: hidden;
+      min-height: 340px;
+    }
+
+    /* Fallback Facebook — visible tant que l'ID Elfsight n'est pas configuré */
+    .fb-fallback {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      min-height: 340px;
+      justify-content: center;
+    }
+    .fb-fallback-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--gris-fin);
+    }
+    .fb-fallback-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--texte);
+      margin-bottom: 0.125rem;
+    }
+    .fb-fallback-followers {
+      font-size: 0.8125rem;
+      color: var(--texte-doux);
+      font-weight: 300;
+    }
+    .btn-fb {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #1877F2;
+      color: #fff;
+      border-radius: 2px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn-fb:hover { opacity: 0.88; }
+
+    /* Label "Feed en cours d'activation" sous la grille Instagram */
+    .insta-activation-note {
+      font-size: 0.75rem;
+      color: var(--texte-doux);
+      font-weight: 300;
+      opacity: 0.7;
+      margin-top: 0.625rem;
+      font-style: italic;
+    }
+
+    .insta-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+    .insta-cta p {
+      font-size: 0.9375rem;
+      color: var(--texte-doux);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    .btn-instagram {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      padding: 0.875rem 1.75rem;
+      border-radius: 2px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--blanc);
+      background: linear-gradient(135deg, #833ab4, #fd1d1d 50%, #fcb045);
+      border: none;
+      cursor: pointer;
+      transition: opacity var(--transition), transform var(--transition);
+      text-decoration: none;
+    }
+    .btn-instagram:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    /* Lien profil BSK dans about */
+    .about-bsk-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--bordeaux);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      margin-top: 0.75rem;
+      transition: color 0.2s;
+    }
+    .about-bsk-link:hover { color: var(--bordeaux-dark); text-decoration: underline; }
+
+    /* Grille Instagram 6 posts */
+    .insta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .insta-post {
+      aspect-ratio: 1 / 1;
+      display: block;
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+      background: linear-gradient(135deg, var(--bordeaux) 0%, var(--or) 100%);
+      text-decoration: none;
+    }
+    .insta-post-icon {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.28);
+    }
+    .insta-post-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(20, 5, 8, 0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.375rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    .insta-post:hover .insta-post-overlay,
+    .insta-post:focus-visible .insta-post-overlay { opacity: 1; }
+
+    /* Bouton Instagram bordeaux (variante sobre) */
+    .btn-instagram-alt {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      padding: 0.875rem 1.75rem;
+      border-radius: 2px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--blanc);
+      background: var(--bordeaux);
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+      text-decoration: none;
+    }
+    .btn-instagram-alt:hover { background: #a02e3e; transform: translateY(-2px); }
+
+    /* Posts Instagram mock */
+    .insta-mock-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .insta-mock-post {
+      aspect-ratio: 1;
+      background: var(--gris-fin);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(100,90,80,0.3);
+      overflow: hidden;
+    }
+    .insta-mock-label {
+      font-size: 0.8rem;
+      color: var(--texte-doux);
+      font-weight: 300;
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       CONTACT
+    ============================================= */
+    .contact { background: var(--texte); }
+    .contact .section-eyebrow { color: var(--or); }
+    .contact .section-title { color: var(--blanc); }
+    .contact .section-subtitle { color: rgba(255,255,255,0.6); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 4rem;
+    }
+
+    .contact-info { display: flex; flex-direction: column; gap: 2rem; }
+
+    .contact-phone-cta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: var(--bordeaux);
+      border-radius: 2px;
+      transition: background var(--transition);
+      text-decoration: none;
+    }
+    .contact-phone-cta:hover { background: var(--bordeaux-dark); }
+
+    .contact-phone-icon {
+      width: 3rem;
+      height: 3rem;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-phone-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: var(--blanc);
+    }
+    .contact-phone-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9375rem;
+      font-weight: 300;
+    }
+    .contact-detail svg { flex-shrink: 0; margin-top: 2px; color: var(--or); }
+
+    /* Formulaire */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .form-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .form-input, .form-select, .form-textarea {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 2px;
+      padding: 0.875rem 1rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem;
+      color: var(--blanc);
+      transition: border-color var(--transition), background var(--transition);
+      outline: none;
+      width: 100%;
+    }
+    .form-input::placeholder, .form-textarea::placeholder {
+      color: rgba(255,255,255,0.3);
+      font-weight: 300;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--or);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .form-select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+    .form-select option { background: #2a2520; color: var(--blanc); }
+
+    .form-textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+
+    .form-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bordeaux);
+      color: var(--blanc);
+      padding: 1.1rem 2.5rem;
+      border: none;
+      border-radius: 2px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+      align-self: flex-start;
+    }
+    .form-submit:hover {
+      background: var(--bordeaux-dark);
+      transform: translateY(-2px);
+    }
+    .form-submit:focus-visible {
+      outline: 2px solid var(--or);
+      outline-offset: 3px;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      background: #111;
+      padding: 3rem 2rem 2rem;
+    }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--blanc);
+      margin-bottom: 0.5rem;
+    }
+    .footer-brand-sub {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.45);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    .footer-col-title {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 1.25rem;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+    .footer-links a {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 300;
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--or-light); }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .footer-social a {
+      width: 2.75rem;
+      height: 2.75rem;
+      min-width: 44px;
+      min-height: 44px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+      transition: border-color var(--transition), color var(--transition);
+    }
+    .footer-social a:hover {
+      border-color: var(--or);
+      color: var(--or);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-top: 2rem;
+    }
+    .footer-legal {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      font-weight: 300;
+    }
+    .footer-legal a {
+      color: rgba(255,255,255,0.4);
+      transition: color var(--transition);
+    }
+    .footer-legal a:hover { color: var(--or-light); }
+
+    /* =============================================
+       ANIMATIONS AU SCROLL
+       Visible par défaut — animation bonus si JS ok
+    ============================================= */
+    .reveal, .reveal-delay-1, .reveal-delay-2, .reveal-delay-3 {
+      opacity: 1;
+      transform: none;
+      visibility: visible;
+    }
+
+    /* =============================================
+       SECTION VISIBILITY — force tout visible
+    ============================================= */
+    section:not(.hero), .section {
+      min-height: auto !important;
+      height: auto !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+      display: block !important;
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 1024px) {
+      .about-grid,
+      .zone-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-content { padding-left: 0; }
+      .about-photo-wrap { max-width: 380px; }
+      .services-grid { grid-template-columns: 1fr; gap: 2px; }
+      .avis-card { min-width: calc(50% - 0.75rem); }
+      .avis-carousel-wrap { padding: 0 2.75rem; }
+      .social-links { flex-direction: column; }
+      .social-card { min-width: unset; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .section { padding: 4rem 1.25rem; }
+      .reassurance-inner { gap: 1.5rem; }
+      .reassurance-item { font-size: 0.8125rem; }
+      .about-stats { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+      .avis-header { flex-direction: column; align-items: flex-start; }
+      .avis-carousel-wrap { padding: 0; }
+      .avis-btn { display: none; }
+      .avis-card { min-width: min(85vw, 340px); }
+      .insta-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .nav { padding: 1rem 1.25rem; }
+      .nav.scrolled { padding: 0.75rem 1.25rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions .btn-primary,
+      .hero-actions .btn-secondary { justify-content: center; }
+      .leaflet-map { height: 250px; }
+      .lightbox-track img { width: min(90vw, 320px); height: min(55vh, 280px); }
+    }
+
+    /* Réduction des animations si préféré */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Aller au contenu principal</a>
+
+  <!-- NAV -->
+  <header class="nav" id="nav" role="navigation" aria-label="Navigation principale">
+    <input type="checkbox" id="nav-toggle" style="display:none !important;">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" aria-label="Sabrina Duval — Accueil">Sabrina Duval</a>
+      <label for="nav-toggle" id="menu-btn"
+        style="cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:8px;position:relative;z-index:1001;">
+        <span style="display:block;width:24px;height:2px;background:white;"></span>
+        <span style="display:block;width:24px;height:2px;background:white;"></span>
+        <span style="display:block;width:24px;height:2px;background:white;"></span>
+      </label>
+    </div>
+    <nav id="nav-menu">
+      <a href="#about">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#biens">Biens</a>
+      <a href="#avis">Avis</a>
+      <a href="tel:0675536421" class="nav-cta" aria-label="Appeler Sabrina Duval">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.29 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Appeler Sabrina
+      </a>
+    </nav>
+  </header>
+  <script>
+  var links = document.querySelectorAll('#nav-menu a');
+  var toggle = document.getElementById('nav-toggle');
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', function() {
+      toggle.checked = false;
+    });
+  }
+  </script>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Présentation" style="position:relative;overflow:hidden;">
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      aria-hidden="true"
+      style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;"
+    >
+      <source media="(max-width: 768px)" src="assets/hero-mobile.mp4" type="video/mp4">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content" style="position:relative;z-index:1;">
+      <div class="hero-eyebrow">Négociatrice en immobilier · Pontchâteau</div>
+      <h1 class="hero-title">
+        Votre projet immobilier<br>
+        à <em>Pontchâteau (44160)</em><br>et ses alentours
+      </h1>
+      <p class="hero-subtitle">
+        Accompagnement personnalisé de l'estimation à la signature.
+        Sabrina Duval, votre experte locale en Loire-Atlantique.
+      </p>
+      <div class="hero-stars" aria-label="Avis clients 5 étoiles">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span>22 avis 5/5 ★★★★★</span>
+      </div>
+      <div class="hero-actions">
+        <a href="tel:0675536421" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.29 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Estimer mon bien
+        </a>
+        <a href="#contact" class="btn-secondary">
+          Me contacter
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <main id="main">
+
+    <!-- BANDE RÉASSURANCE -->
+    <div class="reassurance" aria-label="Points forts">
+      <div class="reassurance-inner">
+        <div class="reassurance-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z"/></svg>
+          <span><strong>Négociatrice indépendante</strong> — expertise locale</span>
+        </div>
+        <div class="reassurance-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span><strong>Experte locale</strong> — Pontchâteau et alentours</span>
+        </div>
+        <div class="reassurance-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span><strong>5/5 ★★★★★</strong> — 3 avis vérifiés</span>
+        </div>
+        <div class="reassurance-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span><strong>Disponible 7j/7</strong> — réponse rapide</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRÉSENTATION SABRINA -->
+    <section class="section about" id="about" aria-label="À propos de Sabrina Duval">
+      <div class="section-inner">
+        <div class="about-grid">
+          <div class="about-photo-wrap reveal">
+            <div class="about-photo-frame" aria-hidden="true"></div>
+            <img src="assets/photo.jpg" alt="Sabrina Duval négociatrice en immobilier Pontchâteau Loire-Atlantique" class="about-photo" width="500" height="667" loading="eager">
+            <div class="about-badge" aria-label="Biens vendus récents">
+              <span class="about-badge-num">+</span>
+              <span class="about-badge-label">Biens vendus</span>
+            </div>
+          </div>
+
+          <div class="about-content reveal reveal-delay-1">
+            <div class="section-eyebrow">À propos</div>
+            <h2 class="section-title">Une experte à vos côtés, <em>pas une agence</em></h2>
+
+            <div class="about-text">
+              <p>
+                Je suis Sabrina Duval, négociatrice en immobilier basée à Pontchâteau. Ce qui me distingue ?
+                Je connais ce territoire comme ma poche — ses communes, ses quartiers, ses prix réels,
+                ses opportunités cachées.
+              </p>
+              <p>
+                Vendre ou acheter un bien immobilier est l'une des décisions les plus importantes de votre vie.
+                Je vous accompagne à chaque étape avec la même exigence que pour ma propre famille :
+                écoute, transparence, disponibilité.
+              </p>
+              <p>
+                De l'estimation à la signature chez le notaire, vous ne serez jamais livré à vous-même.
+                Avec moi, vous avez une seule interlocutrice, toujours disponible.
+              </p>
+            </div>
+
+            <div class="about-stats" aria-label="Chiffres clés">
+              <div>
+                <div class="about-stat-num">44</div>
+                <div class="about-stat-label">Loire-Atlantique</div>
+              </div>
+              <div>
+                <div class="about-stat-num">5★</div>
+                <div class="about-stat-label">Avis clients</div>
+              </div>
+              <div>
+                <div class="about-stat-num">360k</div>
+                <div class="about-stat-label">Biens vendus max.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section services" id="services" aria-label="Services">
+      <div class="section-inner">
+        <div class="reveal">
+          <div class="section-eyebrow">Ce que je fais pour vous</div>
+          <h2 class="section-title">Trois façons de vous <em>accompagner</em></h2>
+        </div>
+        <div class="services-grid">
+
+          <div class="service-card reveal reveal-delay-1">
+            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            <h3 class="service-title">Vendre</h3>
+            <p class="service-desc">
+              Estimation juste au prix du marché, photos professionnelles,
+              diffusion sur les portails immobiliers, visites organisées,
+              négociation et suivi jusqu'à la signature.
+            </p>
+            <a href="tel:0675536421" class="service-link" aria-label="Prendre contact pour vendre">
+              Discutons de votre projet
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="service-card reveal reveal-delay-2">
+            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.35-4.35"/>
+            </svg>
+            <h3 class="service-title">Acheter</h3>
+            <p class="service-desc">
+              Je recherche activement le bien qui correspond à vos critères.
+              Pontchâteau, Crossac, Fégreac, Saint-Gildas-des-Bois et tout
+              le secteur Loire-Atlantique rural et périurbain.
+            </p>
+            <a href="tel:0675536421" class="service-link" aria-label="Prendre contact pour acheter">
+              Discutons de votre projet
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="service-card reveal reveal-delay-3">
+            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+            </svg>
+            <h3 class="service-title">Estimer</h3>
+            <p class="service-desc">
+              Estimation gratuite et sans engagement, basée sur les transactions
+              réelles du secteur. Je vous donne une valeur fiable, pas un chiffre
+              pour vous flatter.
+            </p>
+            <a href="tel:0675536421" class="service-link" aria-label="Prendre contact pour estimer">
+              Demander une estimation
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BIENS RÉCENTS -->
+    <section class="section biens" id="biens" aria-label="Biens récents">
+      <div class="section-inner">
+        <div class="reveal">
+          <div class="section-eyebrow">Transactions récentes</div>
+          <h2 class="section-title">Un bien <em>vendu</em>, en images</h2>
+          <p class="section-subtitle">Un exemple concret parmi les nombreux biens récemment commercialisés sur le secteur de Pontchâteau.</p>
+        </div>
+
+        <!-- Fiche du bien -->
+        <div class="bien-fiche reveal reveal-delay-1">
+          <div>
+            <span class="bien-statut vendu">Vendu ✓</span>
+            <h3 class="bien-fiche-title">Maison de ville · Pontchâteau</h3>
+            <p class="bien-fiche-meta">55 m² · 3 pièces · Pontchâteau (44160)</p>
+            <div class="bien-fiche-prix">166 000 €</div>
+          </div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-transform:uppercase;">9 photos</div>
+        </div>
+
+        <!-- Grille 3×3 — cliquer pour agrandir -->
+        <div class="bien-photo-grid reveal reveal-delay-2">
+
+          <a href="#photo-1" class="bien-photo-item" aria-label="Voir la photo 1 en grand">
+            <img src="assets/bien-1.jpeg" alt="Bien immobilier à vendre Pontchâteau Loire-Atlantique — photo 1" loading="lazy" decoding="async">
+            <div class="bien-photo-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          </a>
+
+          <a href="#photo-2" class="bien-photo-item" aria-label="Voir la photo 2 en grand">
+            <img src="assets/bien-2.jpeg" alt="Bien immobilier à vendre Pontchâteau Loire-Atlantique — photo 2" loading="lazy" decoding="async">
+            <div class="bien-photo-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          </a>
+
+          <a href="#photo-3" class="bien-photo-item" aria-label="Voir la photo 3 en grand">
+            <img src="assets/bien-3.jpeg" alt="Bien immobilier à vendre Pontchâteau Loire-Atlantique — photo 3" loading="lazy" decoding="async">
+            <div class="bien-photo-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          </a>
+
+          <a href="#photo-4" class="bien-photo-item" aria-label="Voir la photo 4 en grand">
+            <img src="assets/bien-4.jpeg" alt="Bien immobilier à vendre Pontchâteau Loire-Atlantique — photo 4" loading="lazy" decoding="async">
+            <div class="bien-photo-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          </a>
+
+          <a href="#photo-5" class="bien-photo-item" aria-label="Voir la photo 5 en grand">
+            <img src="assets/bien-5.jpeg" alt="Bien immobilier à vendre Pontchâteau Loire-Atlantique — photo 5" loading="lazy" decoding="async">
+            <div class="bien-photo-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          </a>
+
+          <a href="#photo-6" class="bien-photo-item" aria-label="Voir la photo 6 en grand">
+            <img src="assets/bien-6.jpeg" alt="Bien immobilier à vendre Pontchâteau Loire-Atlantique — photo 6" loading="lazy" decoding="async">
+            <div class="bien-photo-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          </a>
+
+          <a href="#photo-7" class="bien-photo-item" aria-label="Voir la photo 7 en grand">
+            <img src="assets/bien-7.jpeg" alt="Bien immobilier à vendre Pontchâteau Loire-Atlantique — photo 7" loading="lazy" decoding="async">
+            <div class="bien-photo-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          </a>
+
+          <a href="#photo-8" class="bien-photo-item" aria-label="Voir la photo 8 en grand">
+            <img src="assets/bien-8.jpeg" alt="Bien immobilier à vendre Pontchâteau Loire-Atlantique — photo 8" loading="lazy" decoding="async">
+            <div class="bien-photo-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          </a>
+
+          <a href="#photo-9" class="bien-photo-item" aria-label="Voir la photo 9 en grand">
+            <img src="assets/bien-9.jpeg" alt="Bien immobilier à vendre Pontchâteau Loire-Atlantique — photo 9" loading="lazy" decoding="async">
+            <div class="bien-photo-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- AVIS CLIENTS -->
+    <section class="section avis" id="avis" aria-label="Avis clients">
+      <div class="section-inner">
+        <div class="avis-header reveal">
+          <div>
+            <div class="section-eyebrow">Ce qu'ils disent</div>
+            <h2 class="section-title">22 avis 5/5 <em>★★★★★</em></h2>
+          </div>
+          <div class="avis-score" aria-label="Note moyenne : 5 sur 5, 22 avis vérifiés">
+            <div class="avis-score-num" aria-hidden="true">5</div>
+            <div class="avis-score-detail">
+              <div class="avis-score-stars" aria-hidden="true">★★★★★</div>
+              <div class="avis-score-label">Note moyenne · 22 avis vérifiés Immodvisor</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carrousel avis Immodvisor — 8 avis affichés, 22 au total -->
+        <div class="avis-carousel-wrap reveal">
+          <button class="avis-btn avis-prev" id="avisPrev" aria-label="Avis précédents">&#8249;</button>
+
+          <div class="avis-carousel" id="avisCarousel" role="list">
+
+            <article class="avis-card" role="listitem">
+              <div class="avis-quote" aria-hidden="true">"</div>
+              <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
+              <blockquote class="avis-texte">"Sabrina s'est chargée de nous accompagner dans la vente de notre maison : accompagnement tout au long des démarches, conseils, communication, démarches administratives. Professionnelle qui fait preuve de dynamisme et de réactivité !"</blockquote>
+              <div class="avis-auteur">
+                <div class="avis-avatar" aria-hidden="true">La</div>
+                <div><div class="avis-nom">Laure</div><div class="avis-date">Mai 2024 · Immodvisor</div></div>
+              </div>
+            </article>
+
+            <article class="avis-card" role="listitem">
+              <div class="avis-quote" aria-hidden="true">"</div>
+              <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
+              <blockquote class="avis-texte">"Sabrina a été à l'écoute et très réactive concernant la vente de notre bien."</blockquote>
+              <div class="avis-auteur">
+                <div class="avis-avatar" aria-hidden="true">Se</div>
+                <div><div class="avis-nom">Seb</div><div class="avis-date">Mai 2024 · Immodvisor</div></div>
+              </div>
+            </article>
+
+            <article class="avis-card" role="listitem">
+              <div class="avis-quote" aria-hidden="true">"</div>
+              <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
+              <blockquote class="avis-texte">"Très proche de ses clients avec beaucoup de bons conseils. Vente d'un terrain non constructible avec une mare. Vente effectuée en moins d'une semaine."</blockquote>
+              <div class="avis-auteur">
+                <div class="avis-avatar" aria-hidden="true">Ki</div>
+                <div><div class="avis-nom">Kinkalpaca</div><div class="avis-date">Nov 2023 · Immodvisor</div></div>
+              </div>
+            </article>
+
+            <article class="avis-card" role="listitem">
+              <div class="avis-quote" aria-hidden="true">"</div>
+              <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
+              <blockquote class="avis-texte">"Je recommande fortement Mme Duval pour son professionnalisme et l'écoute de notre demande. Nous a vendu notre maison en une fois et nous a aidé à chercher un terrain dans la foulée. Encore merci Sabrina."</blockquote>
+              <div class="avis-auteur">
+                <div class="avis-avatar" aria-hidden="true">HJ</div>
+                <div><div class="avis-nom">Mr Haurais JM</div><div class="avis-date">Sep 2023 · Immodvisor</div></div>
+              </div>
+            </article>
+
+            <article class="avis-card" role="listitem">
+              <div class="avis-quote" aria-hidden="true">"</div>
+              <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
+              <blockquote class="avis-texte">"Mme Duval nous a vendu notre maison, malgré les difficultés elle n'a rien lâché. Je recommande très fortement Mme Duval pour votre projet immobilier."</blockquote>
+              <div class="avis-auteur">
+                <div class="avis-avatar" aria-hidden="true">MC</div>
+                <div><div class="avis-nom">Mickaël &amp; Coralie</div><div class="avis-date">Août 2023 · Immodvisor</div></div>
+              </div>
+            </article>
+
+            <article class="avis-card" role="listitem">
+              <div class="avis-quote" aria-hidden="true">"</div>
+              <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
+              <blockquote class="avis-texte">"Très bon agent immobilier."</blockquote>
+              <div class="avis-auteur">
+                <div class="avis-avatar" aria-hidden="true">Gw</div>
+                <div><div class="avis-nom">Gwendal</div><div class="avis-date">Juil 2023 · Immodvisor</div></div>
+              </div>
+            </article>
+
+            <article class="avis-card" role="listitem">
+              <div class="avis-quote" aria-hidden="true">"</div>
+              <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
+              <blockquote class="avis-texte">"Très professionnelle et efficace."</blockquote>
+              <div class="avis-auteur">
+                <div class="avis-avatar" aria-hidden="true">Fr</div>
+                <div><div class="avis-nom">Fred</div><div class="avis-date">Mai 2023 · Immodvisor</div></div>
+              </div>
+            </article>
+
+            <article class="avis-card" role="listitem">
+              <div class="avis-quote" aria-hidden="true">"</div>
+              <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
+              <blockquote class="avis-texte">"Conseillère au top."</blockquote>
+              <div class="avis-auteur">
+                <div class="avis-avatar" aria-hidden="true">Va</div>
+                <div><div class="avis-nom">Valou</div><div class="avis-date">Mai 2023 · Immodvisor</div></div>
+              </div>
+            </article>
+
+          </div>
+
+          <button class="avis-btn avis-next" id="avisNext" aria-label="Avis suivants">&#8250;</button>
+        </div>
+
+        <div class="reveal" style="margin-top:0;">
+          <a href="https://www.immodvisor.com/professionnels/mandataire-immobilier/pro/bsk-immobilier-duval-sabrina-71517" target="_blank" rel="noopener noreferrer" class="avis-bsk-cta" aria-label="Voir les 22 avis de Sabrina Duval sur Immodvisor">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Voir mes 22 avis sur Immodvisor
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZONE D'INTERVENTION -->
+    <section class="section zone" id="zone" aria-label="Zone d'intervention">
+      <div class="section-inner">
+        <div class="zone-grid">
+          <div class="reveal">
+            <div class="section-eyebrow">Mon secteur</div>
+            <h2 class="section-title">Votre experte immobilière <em>locale</em></h2>
+            <p class="section-subtitle">
+              Je couvre <strong>Pontchâteau, Crossac, Fégreac,
+              Saint-Gildas-des-Bois, Herbignac, Sainte-Anne-sur-Brivet,
+              La Chapelle-des-Marais, Missillac et les communes alentours.</strong>
+              Une connaissance fine du terrain, des prix réels et des opportunités
+              dans chaque commune.
+            </p>
+
+            <div class="zone-communes" role="list" aria-label="Communes couvertes">
+              <span class="zone-commune" role="listitem">Pontchâteau</span>
+              <span class="zone-commune" role="listitem">Crossac</span>
+              <span class="zone-commune" role="listitem">Fégreac</span>
+              <span class="zone-commune" role="listitem">Saint-Gildas-des-Bois</span>
+              <span class="zone-commune" role="listitem">Herbignac</span>
+              <span class="zone-commune" role="listitem">Sainte-Anne-sur-Brivet</span>
+              <span class="zone-commune" role="listitem">La Chapelle-des-Marais</span>
+              <span class="zone-commune" role="listitem">Missillac</span>
+            </div>
+
+            <div class="zone-tagline">
+              <p>"Je ne suis pas un réseau national avec une carte. Je vis et travaille ici — je connais ce secteur intimement."</p>
+            </div>
+          </div>
+
+          <div class="zone-map reveal reveal-delay-1">
+            <div style="width:100%;height:420px;border-radius:12px;overflow:hidden;">
+              <iframe
+                src="https://maps.google.com/maps?q=Pontch%C3%A2teau,44160,France&t=&z=11&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="420"
+                style="border:0;border-radius:12px;"
+                allowfullscreen=""
+                loading="lazy" decoding="async"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Zone d'intervention Sabrina Duval — Pontchâteau et alentours">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RÉSEAUX SOCIAUX -->
+    <section class="section social" id="social" aria-label="Réseaux sociaux">
+      <div class="section-inner">
+        <div class="reveal">
+          <div class="section-eyebrow">Suivez l'actualité</div>
+          <h2 class="section-title">Retrouvez-moi sur les <em>réseaux</em></h2>
+        </div>
+
+        <div class="social-links reveal reveal-delay-1">
+
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/sabduvalimmo"
+             target="_blank" rel="noopener noreferrer"
+             class="social-card social-card--fb"
+             aria-label="Retrouvez Sabrina Duval sur Facebook — sabduvalimmo">
+            <div class="social-card-icon" aria-hidden="true">
+              <!-- Logo Facebook officiel -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+                <path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+              </svg>
+            </div>
+            <div class="social-card-body">
+              <div class="social-card-label">Retrouvez-moi sur Facebook</div>
+              <div class="social-card-handle">facebook.com/sabduvalimmo</div>
+            </div>
+            <svg class="social-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/sabduvalimmo"
+             target="_blank" rel="noopener noreferrer"
+             class="social-card social-card--insta"
+             aria-label="Suivez Sabrina Duval sur Instagram — @sabduvalimmo">
+            <div class="social-card-icon" aria-hidden="true">
+              <!-- Logo Instagram officiel -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+            </div>
+            <div class="social-card-body">
+              <div class="social-card-label">Suivez-moi sur Instagram</div>
+              <div class="social-card-handle">@sabduvalimmo</div>
+            </div>
+            <svg class="social-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact" aria-label="Contact">
+      <div class="section-inner">
+        <div class="reveal">
+          <div class="section-eyebrow">Parlons de votre projet</div>
+          <h2 class="section-title">Contactez <em>Sabrina</em></h2>
+          <p class="section-subtitle">Réponse garantie sous 24h — souvent bien plus vite.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <a href="tel:0675536421" class="contact-phone-cta" aria-label="Appeler Sabrina Duval au 06 75 53 64 21">
+              <div class="contact-phone-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.29 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              </div>
+              <div>
+                <div class="contact-phone-num">06 75 53 64 21</div>
+                <div class="contact-phone-label">Appel direct · 7j/7</div>
+              </div>
+            </a>
+
+            <div class="contact-detail">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <div>
+                <div style="color:rgba(255,255,255,0.85); font-weight:400;">Pontchâteau (44160)</div>
+                <div>Loire-Atlantique et alentours</div>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z"/></svg>
+              <div>
+                <div style="color:rgba(255,255,255,0.85); font-weight:400;">RSAC 89055889300016 — Saint-Nazaire</div>
+              </div>
+            </div>
+          </div>
+
+          <form
+            class="contact-form reveal reveal-delay-1"
+            action="mailto:s.duval@bskimmobilier.com"
+            method="post"
+            enctype="text/plain"
+            novalidate
+          >
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="nom">Nom *</label>
+                <input class="form-input" type="text" id="nom" name="nom" placeholder="Votre nom" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="telephone">Téléphone *</label>
+                <input class="form-input" type="tel" id="telephone" name="telephone" placeholder="06 XX XX XX XX" required autocomplete="tel">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="votre@email.fr" autocomplete="email">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="projet">Type de projet</label>
+              <select class="form-select" id="projet" name="projet">
+                <option value="" disabled selected>Sélectionner…</option>
+                <option value="vendre">Je souhaite vendre</option>
+                <option value="acheter">Je souhaite acheter</option>
+                <option value="estimer">Je souhaite estimer mon bien</option>
+                <option value="autre">Autre question</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">Message</label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="Décrivez brièvement votre projet…"></textarea>
+            </div>
+
+            <button type="submit" class="form-submit">
+              Envoyer ma demande
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LIGHTBOXES PHOTOS (CSS-only, :target) — 9 photos individuelles -->
+  <div id="photo-1" class="lightbox lightbox-photo" role="dialog" aria-modal="true" aria-label="Photo 1 — Maison de ville Pontchâteau">
+    <a href="#biens" class="lightbox-close" aria-label="Fermer">×</a>
+    <a href="#photo-9" class="lightbox-nav lightbox-prev" aria-label="Photo précédente">&#8249;</a>
+    <img src="assets/bien-1.jpeg" class="lightbox-img" alt="Bien immobilier à vendre Pontchâteau Loire-Atlantique — photo 1" width="900" height="675" loading="eager">
+    <a href="#photo-2" class="lightbox-nav lightbox-next" aria-label="Photo suivante">&#8250;</a>
+    <div class="lightbox-counter">1 / 9</div>
+  </div>
+
+  <div id="photo-2" class="lightbox lightbox-photo" role="dialog" aria-modal="true" aria-label="Photo 2 — Maison de ville Pontchâteau">
+    <a href="#biens" class="lightbox-close" aria-label="Fermer">×</a>
+    <a href="#photo-1" class="lightbox-nav lightbox-prev" aria-label="Photo précédente">&#8249;</a>
+    <img src="assets/bien-2.jpeg" class="lightbox-img" alt="Bien immobilier à vendre Pontchâteau Loire-Atlantique — photo 2" width="900" height="675" loading="lazy" decoding="async">
+    <a href="#photo-3" class="lightbox-nav lightbox-next" aria-label="Photo suivante">&#8250;</a>
+    <div class="lightbox-counter">2 / 9</div>
+  </div>
+
+  <div id="photo-3" class="lightbox lightbox-photo" role="dialog" aria-modal="true" aria-label="Photo 3 — Maison de ville Pontchâteau">
+    <a href="#biens" class="lightbox-close" aria-label="Fermer">×</a>
+    <a href="#photo-2" class="lightbox-nav lightbox-prev" aria-label="Photo précédente">&#8249;</a>
+    <img src="assets/bien-3.jpeg" class="lightbox-img" alt="Bien immobilier à vendre Pontchâteau Loire-Atlantique — photo 3" width="900" height="675" loading="lazy" decoding="async">
+    <a href="#photo-4" class="lightbox-nav lightbox-next" aria-label="Photo suivante">&#8250;</a>
+    <div class="lightbox-counter">3 / 9</div>
+  </div>
+
+  <div id="photo-4" class="lightbox lightbox-photo" role="dialog" aria-modal="true" aria-label="Photo 4 — Maison de ville Pontchâteau">
+    <a href="#biens" class="lightbox-close" aria-label="Fermer">×</a>
+    <a href="#photo-3" class="lightbox-nav lightbox-prev" aria-label="Photo précédente">&#8249;</a>
+    <img src="assets/bien-4.jpeg" class="lightbox-img" alt="Bien immobilier à vendre Pontchâteau Loire-Atlantique — photo 4" width="900" height="675" loading="lazy" decoding="async">
+    <a href="#photo-5" class="lightbox-nav lightbox-next" aria-label="Photo suivante">&#8250;</a>
+    <div class="lightbox-counter">4 / 9</div>
+  </div>
+
+  <div id="photo-5" class="lightbox lightbox-photo" role="dialog" aria-modal="true" aria-label="Photo 5 — Maison de ville Pontchâteau">
+    <a href="#biens" class="lightbox-close" aria-label="Fermer">×</a>
+    <a href="#photo-4" class="lightbox-nav lightbox-prev" aria-label="Photo précédente">&#8249;</a>
+    <img src="assets/bien-5.jpeg" class="lightbox-img" alt="Bien immobilier à vendre Pontchâteau Loire-Atlantique — photo 5" width="900" height="675" loading="lazy" decoding="async">
+    <a href="#photo-6" class="lightbox-nav lightbox-next" aria-label="Photo suivante">&#8250;</a>
+    <div class="lightbox-counter">5 / 9</div>
+  </div>
+
+  <div id="photo-6" class="lightbox lightbox-photo" role="dialog" aria-modal="true" aria-label="Photo 6 — Maison de ville Pontchâteau">
+    <a href="#biens" class="lightbox-close" aria-label="Fermer">×</a>
+    <a href="#photo-5" class="lightbox-nav lightbox-prev" aria-label="Photo précédente">&#8249;</a>
+    <img src="assets/bien-6.jpeg" class="lightbox-img" alt="Bien immobilier à vendre Pontchâteau Loire-Atlantique — photo 6" width="900" height="675" loading="lazy" decoding="async">
+    <a href="#photo-7" class="lightbox-nav lightbox-next" aria-label="Photo suivante">&#8250;</a>
+    <div class="lightbox-counter">6 / 9</div>
+  </div>
+
+  <div id="photo-7" class="lightbox lightbox-photo" role="dialog" aria-modal="true" aria-label="Photo 7 — Maison de ville Pontchâteau">
+    <a href="#biens" class="lightbox-close" aria-label="Fermer">×</a>
+    <a href="#photo-6" class="lightbox-nav lightbox-prev" aria-label="Photo précédente">&#8249;</a>
+    <img src="assets/bien-7.jpeg" class="lightbox-img" alt="Bien immobilier à vendre Pontchâteau Loire-Atlantique — photo 7" width="900" height="675" loading="lazy" decoding="async">
+    <a href="#photo-8" class="lightbox-nav lightbox-next" aria-label="Photo suivante">&#8250;</a>
+    <div class="lightbox-counter">7 / 9</div>
+  </div>
+
+  <div id="photo-8" class="lightbox lightbox-photo" role="dialog" aria-modal="true" aria-label="Photo 8 — Maison de ville Pontchâteau">
+    <a href="#biens" class="lightbox-close" aria-label="Fermer">×</a>
+    <a href="#photo-7" class="lightbox-nav lightbox-prev" aria-label="Photo précédente">&#8249;</a>
+    <img src="assets/bien-8.jpeg" class="lightbox-img" alt="Bien immobilier à vendre Pontchâteau Loire-Atlantique — photo 8" width="900" height="675" loading="lazy" decoding="async">
+    <a href="#photo-9" class="lightbox-nav lightbox-next" aria-label="Photo suivante">&#8250;</a>
+    <div class="lightbox-counter">8 / 9</div>
+  </div>
+
+  <div id="photo-9" class="lightbox lightbox-photo" role="dialog" aria-modal="true" aria-label="Photo 9 — Maison de ville Pontchâteau">
+    <a href="#biens" class="lightbox-close" aria-label="Fermer">×</a>
+    <a href="#photo-8" class="lightbox-nav lightbox-prev" aria-label="Photo précédente">&#8249;</a>
+    <img src="assets/bien-9.jpeg" class="lightbox-img" alt="Bien immobilier à vendre Pontchâteau Loire-Atlantique — photo 9" width="900" height="675" loading="lazy" decoding="async">
+    <a href="#photo-1" class="lightbox-nav lightbox-next" aria-label="Photo suivante">&#8250;</a>
+    <div class="lightbox-counter">9 / 9</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Sabrina Duval</div>
+          <div class="footer-brand-sub">
+            Négociatrice en immobilier<br>
+            RSAC 89055889300016 — Saint-Nazaire<br>
+            Pontchâteau (44160), Loire-Atlantique
+          </div>
+          <div class="footer-social" aria-label="Réseaux sociaux">
+            <a href="https://www.facebook.com/sabduvalimmo" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Sabrina Duval">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/sabduvalimmo" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Sabrina Duval">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#biens">Biens récents</a></li>
+            <li><a href="#avis">Avis clients</a></li>
+            <li><a href="#zone">Zone d'intervention</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li><a href="tel:0675536421">06 75 53 64 21</a></li>
+            <li><a href="#contact">Formulaire de contact</a></li>
+            <li><a href="https://www.immodvisor.com/pro/bsk-immobilier-duval-sabrina-pontchateau-44160-71517.html" target="_blank" rel="noopener noreferrer">Avis Immodvisor</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          © <span id="year"></span> Sabrina Duval · Négociatrice en immobilier ·
+          <a href="#">Mentions légales</a> ·
+          <a href="#">Politique de confidentialité</a>
+        </div>
+        <div class="footer-legal" style="color:rgba(255,255,255,0.22); font-size:0.6875rem;">
+          Fait avec <span aria-label="amour" style="color:var(--bordeaux);">❤</span> par
+          <a href="https://mon-espace-artisan.fr" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.32);">Mon Espace Artisan</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- =============================================
+       JS PRINCIPAL
+  ============================================= */
+  <script>
+  try {
+    // Année footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightbox — fermeture clavier (Escape)
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && (window.location.hash.startsWith('#lightbox') || window.location.hash.startsWith('#photo'))) {
+        history.pushState('', document.title, window.location.pathname + window.location.search);
+      }
+    });
+
+    // Carrousel avis — navigation prev/next
+    (function() {
+      var track = document.getElementById('avisCarousel');
+      if (!track) return;
+      function scrollCards(dir) {
+        var card = track.querySelector('.avis-card');
+        if (!card) return;
+        var gap = 24; // 1.5rem
+        var w = card.getBoundingClientRect().width + gap;
+        track.scrollBy({ left: dir * w * 3, behavior: 'smooth' });
+      }
+      var prev = document.getElementById('avisPrev');
+      var next = document.getElementById('avisNext');
+      if (prev) prev.addEventListener('click', function() { scrollCards(-1); });
+      if (next) next.addEventListener('click', function() { scrollCards(1); });
+    })();
+
+    // Nav scroll
+    var nav = document.getElementById('nav');
+    var onScroll = function() {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Nav hamburger : géré par checkbox hack CSS-only (#nav-toggle)
+
+
+  } catch(e) {
+    console.error('JS Error:', e);
+    // Fallback : force tout visible
+    document.querySelectorAll('[style*="opacity: 0"]')
+      .forEach(function(el) { el.style.opacity = '1'; });
+    document.querySelectorAll('[style*="opacity:0"]')
+      .forEach(function(el) { el.style.opacity = '1'; });
+    document.querySelectorAll('.hidden, .invisible')
+      .forEach(function(el) {
+        el.classList.remove('hidden');
+        el.classList.remove('invisible');
+        el.style.visibility = 'visible';
+      });
+  }
+  </script>
+
+  <noscript>
+    <style>
+      * { opacity: 1 !important; visibility: visible !important; transform: none !important; }
+    </style>
+  </noscript>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp:*)",
+      "Read(//c/Users/alexd/Bureau/mon-espace-artisan/sites-artisans/_clients/menuiserie-notebooklm-test/**)",
+      "Bash(start cmd:*)"
+    ]
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "_pack": "premium",
+  "_prix": "790€ HT",
+  "_livraison": "72h",
+  "_description": "Site multipage 5 pages, blog SEO, prise de RDV en ligne, galerie avec filtres",
+
+  "businessName": "Atelier Bois & Création",
+  "ownerName": "Thomas Lefebvre",
+  "siret": "52398741200018",
+  "tva": "FR52523987412",
+
+  "contact": {
+    "phone": "06 82 14 73 29",
+    "email": "contact@atelier-bois-creation.fr",
+    "website": "https://atelier-bois-creation.fr"
+  },
+
+  "address": {
+    "street": "14 allée des Chênes",
+    "city": "Lyon",
+    "postalCode": "69003",
+    "department": "Rhône",
+    "region": "Auvergne-Rhône-Alpes"
+  },
+
+  "metier": "menuisier",
+
+  "zone": {
+    "radiusKm": 40,
+    "communes": [
+      "Lyon",
+      "Villeurbanne",
+      "Caluire-et-Cuire",
+      "Écully",
+      "Tassin-la-Demi-Lune",
+      "Bron",
+      "Vénissieux",
+      "Saint-Priest",
+      "Meyzieu",
+      "Décines-Charpieu",
+      "Limonest",
+      "Charbonnières-les-Bains"
+    ]
+  },
+
+  "about": {
+    "yearsExperience": 15,
+    "tagline": "Menuisier artisan à Lyon — Créations bois sur mesure depuis 2009",
+    "description": "Artisan menuisier passionné, je mets mon savoir-faire au service de vos projets d'aménagement intérieur et extérieur. De la conception d'escaliers uniques à la pose de parquets prestigieux, chaque réalisation est pensée, taillée et posée par mes soins. Aucune sous-traitance : je suis votre interlocuteur unique du premier rendez-vous à la remise des clés."
+  },
+
+  "services": [
+    { "label": "Pose de parquet massif et stratifié", "icon": "parquet", "featured": true, "description": "Sélection des meilleures essences — chêne, noyer, hêtre — posées à l'anglaise, en bâtons rompus ou en point de Hongrie. Préparation du support, pose flottante ou clouée, vitrification et entretien." },
+    { "label": "Fabrication de meubles sur mesure", "icon": "fabrication", "featured": true, "description": "Buffets, bibliothèques, meubles TV, îlots de cuisine, banquettes… Chaque meuble est dessiné avec vous et fabriqué en atelier à partir de matériaux nobles sélectionnés à la source." },
+    { "label": "Création d'escaliers artisanaux", "icon": "escaliers", "featured": true, "description": "Escaliers droits, quart-tournants, hélicoïdaux, en bois massif ou en métal-bois. Étude structurelle, fabrication sur mesure, pose et finitions soignées pour un résultat durable et esthétique." },
+    { "label": "Aménagement de dressings et placards", "icon": "dressing", "description": "Optimisation totale de l'espace : tringles, tiroirs, étagères, portes coulissantes ou battantes, finitions laquées ou bois naturel selon vos envies." },
+    { "label": "Pose de fenêtres bois et mixtes", "icon": "fenetres", "description": "Fenêtres simple et double vitrage, bois exotique ou pin traité, avec ou sans volets intégrés. Pose dans le respect des normes thermiques RT 2020." },
+    { "label": "Portes d'entrée et intérieures", "icon": "portes", "description": "Portes pleines, vitrées ou à galandage sur mesure. Isolation phonique et thermique renforcée. Choix des quincailleries : poignées, serrures multipoints, charnières." },
+    { "label": "Terrasses en bois et bois composite", "icon": "terrasse", "description": "Lames de terrasse en pin, douglas, IPE ou composite haute résistance. Traitement anti-UV, anti-glisse. Structure portante intégrée, nettoyage et entretien inclus première année." },
+    { "label": "Restauration de menuiseries anciennes", "icon": "restauration", "description": "Redonner vie à vos volets anciens, vos parquets anciens usés, vos boiseries classées. Travail minutieux dans le respect des matériaux d'origine, compatible bâtiments classés MH." }
+  ],
+
+  "pages": [
+    "index.html",
+    "services.html",
+    "realisations.html",
+    "blog.html",
+    "contact.html"
+  ],
+
+  "blog": {
+    "enabled": true,
+    "articles": [
+      {
+        "titre": "Comment choisir son essence de bois pour un parquet longue durée à Lyon ?",
+        "slug": "choisir-essence-bois-parquet-lyon",
+        "description": "Guide complet pour sélectionner le bon bois selon votre usage, votre décor et votre budget dans la région lyonnaise."
+      },
+      {
+        "titre": "Escalier sur mesure : les 5 étapes clés de la fabrication artisanale",
+        "slug": "escalier-sur-mesure-etapes-fabrication",
+        "description": "De la prise de cotes à la pose finale, découvrez le processus complet de création d'un escalier en bois unique."
+      },
+      {
+        "titre": "Terrasse bois vs composite : quel matériau choisir en 2025 ?",
+        "slug": "terrasse-bois-vs-composite-2025",
+        "description": "Comparatif complet des deux solutions les plus populaires pour aménager une terrasse à Lyon et ses alentours."
+      }
+    ]
+  },
+
+  "rdv": {
+    "enabled": true,
+    "calendlyUrl": "",
+    "fallback": "tel"
+  },
+
+  "galerie": {
+    "enabled": true,
+    "categories": ["Avant/Après", "Chantiers", "Réalisations", "Équipe"],
+    "items": 12
+  },
+
+  "testimonials": [
+    {
+      "name": "Sophie",
+      "city": "Villeurbanne",
+      "service": "Escalier sur mesure",
+      "note": 5,
+      "text": "Un travail d'orfèvre ! Notre escalier est devenu la pièce centrale de la maison. Thomas a su comprendre exactement ce que nous voulions tout en respectant les délais et le budget annoncé."
+    },
+    {
+      "name": "Marc",
+      "city": "Écully",
+      "service": "Dressing sur mesure",
+      "note": 5,
+      "text": "Optimisation parfaite de l'espace dans notre suite parentale. Les finitions sont impeccables, la qualité du bois remarquable. Je recommande sans hésitation."
+    },
+    {
+      "name": "Julie",
+      "city": "Limonest",
+      "service": "Terrasse bois",
+      "note": 5,
+      "text": "Magnifique réalisation pour notre extérieur. Thomas est de très bon conseil sur le choix des essences durables et l'entretien. Un vrai professionnel !"
+    },
+    {
+      "name": "Antoine",
+      "city": "Caluire-et-Cuire",
+      "service": "Parquet massif",
+      "note": 5,
+      "text": "Notre appartement haussmannien a retrouvé tout son cachet grâce à la restauration du parquet point de Hongrie. Travail soigné, propre et dans les temps."
+    },
+    {
+      "name": "Camille",
+      "city": "Tassin-la-Demi-Lune",
+      "service": "Meubles sur mesure",
+      "note": 5,
+      "text": "Bibliothèque du sol au plafond dans notre salon : exactement ce que nous avions imaginé. Thomas a apporté des idées auxquelles nous n'avions pas pensé. Résultat époustouflant."
+    }
+  ],
+
+  "certifications": [
+    "Artisan Menuisier Qualifié",
+    "Label Qualibat RGE",
+    "Garantie Décennale",
+    "Certification PEFC — Bois éco-responsable",
+    "Membre Compagnons du Devoir"
+  ],
+
+  "stats": {
+    "interventions": 800,
+    "satisfaction": 100,
+    "soustraitance": 0,
+    "garantieAns": 10,
+    "annees": 15
+  },
+
+  "design": {
+    "colorPrimary": "#3D2B1F",
+    "colorSecondary": "#F5EFE6",
+    "colorAccent": "#C8A96E",
+    "fontDisplay": "Playfair Display",
+    "fontBody": "Raleway"
+  },
+
+  "openingHours": {
+    "lundi":    { "open": "08:00", "close": "18:00" },
+    "mardi":    { "open": "08:00", "close": "18:00" },
+    "mercredi": { "open": "08:00", "close": "18:00" },
+    "jeudi":    { "open": "08:00", "close": "18:00" },
+    "vendredi": { "open": "08:00", "close": "17:00" },
+    "samedi":   { "open": "09:00", "close": "12:00" },
+    "dimanche": null
+  },
+
+  "urgency": false,
+
+  "seo": {
+    "metaTitle": "Menuisier Lyon — Atelier Bois & Création | Sur mesure depuis 2009",
+    "metaDescription": "Menuisier artisan à Lyon, Thomas Lefebvre crée escaliers, parquets, meubles et terrasses sur mesure. Garantie 10 ans. Devis gratuit sous 48h. ☎ 06 82 14 73 29",
+    "keywords": [
+      "menuisier Lyon",
+      "menuisier sur mesure Lyon",
+      "escalier bois Lyon",
+      "parquet massif Lyon",
+      "meuble sur mesure Lyon 3",
+      "terrasse bois Lyon",
+      "dressing sur mesure Lyon",
+      "artisan menuisier Rhône"
+    ],
+    "localPages": [
+      "Lyon",
+      "Villeurbanne",
+      "Caluire-et-Cuire"
+    ]
+  },
+
+  "agencyCredit": "Site créé par Mon Espace Artisan",
+
+  "options": {
+    "urgency": false,
+    "showGallery": true,
+    "showBlog": true,
+    "showFaq": true,
+    "showRdv": true,
+    "showMap": true,
+    "showStats": true
+  }
+}
