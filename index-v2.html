@@ -591,19 +591,22 @@ function HammerStage({ angle, strikes, shaking, y }) {
 
         {/* The Hammer */}
         <div style={{
-          position: 'absolute', left: '-40px', top: '10%',
-          transformOrigin: '53% 92%',
+          position: 'absolute',
+          right: '-20px',
+          top: '-5%',
+          transformOrigin: '85% 88%',
           transform: `rotate(${angle}deg)`,
-          transition: shaking ? 'transform 0.08s cubic-bezier(0.9, 0, 1, 0.5)' : 'transform 0.35s cubic-bezier(0.2, 0.6, 0.2, 1)',
+          transition: shaking
+            ? 'transform 0.08s cubic-bezier(0.9, 0, 1, 0.5)'
+            : 'transform 0.35s cubic-bezier(0.2, 0.6, 0.2, 1)',
           zIndex: 5,
           filter: 'drop-shadow(-3px 5px 0 rgba(0,0,0,0.5))',
         }}>
           <div style={{ position: 'relative', display: 'inline-block' }}>
             <BigHammer />
-            {/* Logo MEA sur le flanc de la tête */}
             <div style={{
               position: 'absolute',
-              top: '28%', left: '18%',
+              top: '28%', right: '22%',
               pointerEvents: 'none',
               background: 'rgba(28,28,28,0.72)',
               padding: '0.12rem 0.38rem',
@@ -660,7 +663,7 @@ function HammerStage({ angle, strikes, shaking, y }) {
 // ─── BIG HAMMER (anatomically correct) ───────────────────────────────────────
 function BigHammer() {
   return (
-    <svg width="200" height="250" viewBox="0 0 200 250" style={{ transform: 'scaleX(-1)' }} fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="200" height="250" viewBox="0 0 200 250" fill="none" xmlns="http://www.w3.org/2000/svg">
       {/* === HANDLE (drawn first, behind head) === */}
       {/* Main body: 13×175px, rx=4, #b8632a */}
       <rect x="87" y="65" width="13" height="175" rx="4" fill="#b8632a"/>
