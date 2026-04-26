@@ -1,0 +1,14 @@
+# Dossier outils/plugins internes — ne pas versionner dans ce repo
+marketplaces/
+
+# Dépendances et artefacts de build
+node_modules/
+.astro/
+
+.claude/
+cedric-lucas-astro/public/sable.mp4
+cedric-lucas-astro/public/underwater.mp4
+cedric-lucas-astro/
+_clients/
+sites-artisans/
+astro-site/
