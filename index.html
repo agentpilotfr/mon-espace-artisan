@@ -1,0 +1,1722 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%231c1c1c'/><text x='16' y='22' font-family='Arial Black,Impact,sans-serif' font-size='16' font-weight='900' text-anchor='middle' letter-spacing='-1'><tspan fill='%23f4efe6'>M</tspan><tspan fill='%23dd8142'>E</tspan><tspan fill='%23f4efe6'>A</tspan></text></svg>" />
+<title>Mon Espace Artisan — Site web pour artisans | Basé en Normandie</title>
+<meta name="description" content="Site vitrine clé en main pour artisans. Livré en 48h, à partir de 290€ HT. SEO local inclus. Basé en Normandie, on travaille partout en France." />
+<meta name="keywords" content="site internet artisan, création site web artisan, site vitrine plombier électricien peintre, SEO local artisan, Normandie" />
+<link rel="canonical" href="https://mon-espace-artisan.fr/" />
+<meta property="og:title" content="Mon Espace Artisan — Votre site web en 48h" />
+<meta property="og:description" content="Site sur-mesure pour artisans. 290€ HT. Livré en 48h. Fait main." />
+<meta property="og:url" content="https://mon-espace-artisan.fr/" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --mea-orange: #dd8142;
+    --mea-orange-deep: #b8632a;
+    --mea-dark: #1c1c1c;
+    --mea-dark-2: #2d2d2d;
+    --mea-gray: #777777;
+    --mea-gray-2: #a8a39b;
+    --mea-cream: #f4efe6;
+    --mea-paper: #eee7d8;
+    --mea-white: #ffffff;
+    --mea-line: #1c1c1c;
+    --density-step: 1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--mea-cream);
+    color: var(--mea-dark);
+    font-family: 'Archivo', system-ui, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  body { font-size: 16px; line-height: 1.5; }
+  h1, h2, h3, h4, .display { font-family: 'Archivo Black', 'Archivo', sans-serif; letter-spacing: -0.01em; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .uppercase { text-transform: uppercase; letter-spacing: 0.12em; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  ::selection { background: var(--mea-orange); color: var(--mea-dark); }
+
+  .paper-grid {
+    background-image:
+      linear-gradient(to right, rgba(28,28,28,0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(28,28,28,0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .paper-dots {
+    background-image: radial-gradient(rgba(28,28,28,0.12) 1px, transparent 1px);
+    background-size: 16px 16px;
+  }
+  .noise::before {
+    content: '';
+    position: absolute; inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0.12 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  .scribble-under {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'><path d='M2 8 Q 30 2, 60 7 T 120 7 T 198 7' stroke='%23dd8142' stroke-width='3.5' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: 0 92%;
+    background-size: 100% 0.4em;
+    padding-bottom: 0.1em;
+  }
+  .rule-border { border: 1.5px solid var(--mea-dark); }
+  .brutal-shadow { box-shadow: 6px 6px 0 0 var(--mea-dark); }
+  .brutal-shadow-orange { box-shadow: 6px 6px 0 0 var(--mea-orange); }
+
+  @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+  .blink { animation: blink 1s step-end infinite; }
+
+  @keyframes marquee-x {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .marquee-track { display: flex; gap: 3rem; animation: marquee-x 40s linear infinite; white-space: nowrap; width: max-content; }
+
+  .grabcursor { cursor: grab; }
+
+  [data-density="cozy"] .sec { padding-top: 6rem; padding-bottom: 6rem; }
+  [data-density="compact"] .sec { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+
+  .stamp {
+    display: inline-block;
+    border: 3px solid currentColor;
+    padding: 0.15em 0.55em;
+    font-family: 'Archivo Black', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    transform: rotate(-6deg);
+    color: var(--mea-orange-deep);
+    opacity: 0.92;
+    position: relative;
+  }
+  .stamp::before {
+    content: '';
+    position: absolute; inset: -2px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='40'><filter id='r'><feTurbulence baseFrequency='0.7' numOctaves='2'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23r)'/></svg>");
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+
+  details[open] summary .chev { transform: rotate(45deg); }
+  summary { list-style: none; cursor: pointer; }
+  summary::-webkit-details-marker { display: none; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    background: var(--mea-orange);
+    color: var(--mea-dark);
+    padding: 1rem 1.5rem;
+    border: 1.5px solid var(--mea-dark);
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+    font-size: 0.82rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 5px 5px 0 0 var(--mea-dark);
+  }
+  .btn-primary:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 0 var(--mea-dark); }
+  .btn-primary:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 0 var(--mea-dark); }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    border: 1.5px solid var(--mea-dark);
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+    font-size: 0.82rem;
+    background: transparent;
+    transition: background 0.15s;
+  }
+  .btn-ghost:hover { background: var(--mea-dark); color: var(--mea-cream); }
+
+  .tag {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--mea-dark);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: var(--mea-cream);
+  }
+  .tag.filled { background: var(--mea-dark); color: var(--mea-cream); }
+  .tag.orange { background: var(--mea-orange); color: var(--mea-dark); }
+
+  .tweak-panel {
+    position: fixed; right: 1.5rem; bottom: 1.5rem;
+    background: var(--mea-cream); color: var(--mea-dark);
+    border: 1.5px solid var(--mea-dark);
+    box-shadow: 6px 6px 0 0 var(--mea-dark);
+    padding: 1rem 1.1rem;
+    width: 280px;
+    z-index: 9999;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .tweak-panel h4 { font-family: 'Archivo Black'; font-size: 0.85rem; margin-bottom: 0.75rem; letter-spacing: 0.14em; }
+  .tweak-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; gap: 0.5rem;}
+  .swatch-row { display: flex; gap: 0.35rem; }
+  .swatch { width: 22px; height: 22px; border: 1.5px solid var(--mea-dark); cursor: pointer; }
+  .seg { display: inline-flex; border: 1px solid var(--mea-dark); }
+  .seg button { padding: 0.3rem 0.55rem; font-family: inherit; font-size: inherit; text-transform: uppercase; letter-spacing: inherit; border-right: 1px solid var(--mea-dark); }
+  .seg button:last-child { border-right: none; }
+  .seg button.on { background: var(--mea-orange); }
+
+  /* ── HERO VIDEO PARALLAX ── */
+  .hero-video-section {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .hero-video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%) scale(1.1);
+    object-fit: cover;
+    will-change: transform;
+    transition: transform 0.1s linear;
+  }
+  .hero-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(28,28,28,0.55) 0%,
+      rgba(28,28,28,0.40) 50%,
+      rgba(221,129,66,0.12) 100%
+    );
+  }
+  .hero-video-content {
+    position: relative;
+    z-index: 2;
+    color: var(--mea-cream);
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 3rem 1.75rem;
+    width: 100%;
+  }
+  .hero-video-fallback {
+    position: absolute;
+    inset: 0;
+    background: #1c1c1c;
+    z-index: 0;
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>
+  window.TWEAKS = { "heroVariant": "statement", "density": "compact", "palette": "warm" };
+</script>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel">
+// ─── ATOMS ───────────────────────────────────────────────────────────────────
+const { useState, useEffect, useRef, useCallback, useMemo } = React;
+
+function useScrollY() {
+  const [y, setY] = useState(0);
+  useEffect(() => {
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => { setY(window.scrollY); raf = 0; });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  return y;
+}
+
+function useInView(threshold = 0.2) {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    if (!ref.current) return;
+    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { threshold });
+    io.observe(ref.current);
+    return () => io.disconnect();
+  }, [threshold]);
+  return [ref, inView];
+}
+
+function Sticker({ children, color = 'var(--mea-orange)', rotate = -4, style }) {
+  return (
+    <span className="mono" style={{
+      display: 'inline-block', background: color, color: 'var(--mea-dark)',
+      padding: '0.25rem 0.6rem', fontSize: '0.7rem', letterSpacing: '0.1em',
+      textTransform: 'uppercase', border: '1.5px solid var(--mea-dark)',
+      transform: `rotate(${rotate}deg)`, ...style,
+    }}>
+      {children}
+    </span>
+  );
+}
+
+function SectionLabel({ number, title, kicker }) {
+  return (
+    <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', marginBottom: '2.5rem', flexWrap: 'wrap' }}>
+      <div className="mono uppercase" style={{ fontSize: '0.72rem', color: 'var(--mea-orange-deep)' }}>/ {number}</div>
+      <div style={{ height: 1, flex: '0 0 40px', background: 'var(--mea-dark)' }} />
+      <h2 className="display" style={{ fontSize: 'clamp(2rem, 5vw, 3.8rem)', lineHeight: 0.95, flex: 1 }}>{title}</h2>
+      {kicker && <div className="mono uppercase" style={{ fontSize: '0.72rem', color: 'var(--mea-gray)', maxWidth: 260, textAlign: 'right' }}>{kicker}</div>}
+    </div>
+  );
+}
+
+function HammerSVG({ size = 64, color = 'var(--mea-dark)', handle = 'var(--mea-orange)' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 120 120" fill="none">
+      <rect x="58" y="45" width="8" height="60" rx="1" fill={handle} stroke={color} strokeWidth="2" transform="rotate(30 62 75)" />
+      <path d="M25 22 L75 22 L85 32 L85 44 L75 54 L25 54 L15 44 L15 32 Z" fill={color} />
+      <rect x="55" y="22" width="14" height="32" fill={color} />
+      <path d="M25 22 L75 22 L85 32 L75 32 L25 32 Z" fill="rgba(255,255,255,0.14)" />
+    </svg>
+  );
+}
+
+function BCard({ children, bg = 'var(--mea-white)', accent, style, ...rest }) {
+  return (
+    <div style={{ background: bg, border: '1.5px solid var(--mea-dark)',
+      boxShadow: accent ? '6px 6px 0 0 var(--mea-orange)' : '6px 6px 0 0 var(--mea-dark)', ...style }} {...rest}>
+      {children}
+    </div>
+  );
+}
+
+// ─── NAVBAR ──────────────────────────────────────────────────────────────────
+function Navbar() {
+  const y = useScrollY();
+  const scrolled = y > 80;
+  const [menuOpen, setMenuOpen] = useState(false);
+  const links = [
+    { href: '#exemples', label: 'Exemples' },
+    { href: '#process', label: 'Process' },
+    { href: '#offre', label: 'Offre' },
+    { href: '#equipe', label: 'Équipe' },
+    { href: '#faq', label: 'FAQ' },
+  ];
+  const closeMenu = () => setMenuOpen(false);
+  return (
+    <header style={{
+      position: 'sticky', top: 0, zIndex: 1000,
+      background: scrolled ? 'rgba(244,239,230,0.82)' : 'transparent',
+      borderBottom: scrolled ? '1.5px solid var(--mea-dark)' : '1.5px solid transparent',
+      boxShadow: scrolled ? '0 2px 0 0 rgba(28,28,28,0.15)' : 'none',
+      backdropFilter: scrolled ? 'blur(8px)' : 'none',
+      WebkitBackdropFilter: scrolled ? 'blur(8px)' : 'none',
+      transition: 'background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, transform 0.3s ease',
+    }}>
+      <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0.9rem 1.75rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '2rem' }}>
+        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', minWidth: 'fit-content', flexShrink: 0, whiteSpace: 'nowrap', textDecoration: 'none' }}>
+          <span className="display" style={{ fontSize: '2rem', lineHeight: 1, letterSpacing: '-0.03em', color: 'var(--mea-dark)' }}>
+            M<span style={{ color: 'var(--mea-orange)' }}>E</span>A
+          </span>
+          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15, borderLeft: '1.5px solid var(--mea-dark)', paddingLeft: '0.55rem' }}>
+            <span className="display" style={{ fontSize: '0.85rem', letterSpacing: '0.02em', color: 'var(--mea-dark)' }}>Mon Espace</span>
+            <span className="display" style={{ fontSize: '0.85rem', letterSpacing: '0.02em', color: 'var(--mea-dark)' }}>Artisan</span>
+          </div>
+        </a>
+        <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }} className="nav-desktop">
+          {links.map((l) => (
+            <a key={l.href} href={l.href} className="mono uppercase" style={{ fontSize: '0.72rem', letterSpacing: '0.14em' }}>{l.label}</a>
+          ))}
+        </nav>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+          <a href="tel:+33629817069" className="mono uppercase nav-phone" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.7rem', color: 'var(--mea-dark)', letterSpacing: '0.1em' }}>
+            📞 06 29 81 70 69
+          </a>
+          <a href="#rdv" className="btn-primary nav-cta-desktop" style={{ padding: '0.7rem 1.1rem', fontSize: '0.72rem' }}>
+            Prendre rdv <span style={{ fontSize: '1rem' }}>↗</span>
+          </a>
+          {/* Burger — mobile uniquement */}
+          <button
+            className="nav-burger"
+            onClick={() => setMenuOpen(o => !o)}
+            aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+            style={{ display: 'none', flexDirection: 'column', justifyContent: 'center', gap: '5px', padding: '0.35rem', cursor: 'pointer', background: 'none', border: 'none', flexShrink: 0 }}
+          >
+            <span style={{ display: 'block', width: 24, height: 2, background: 'var(--mea-dark)', transition: 'transform 0.2s, opacity 0.2s', transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }} />
+            <span style={{ display: 'block', width: 18, height: 2, background: 'var(--mea-dark)', marginLeft: 'auto', transition: 'opacity 0.2s', opacity: menuOpen ? 0 : 1 }} />
+            <span style={{ display: 'block', width: 24, height: 2, background: 'var(--mea-dark)', transition: 'transform 0.2s, opacity 0.2s', transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }} />
+          </button>
+        </div>
+      </div>
+
+      {/* Overlay menu mobile */}
+      {menuOpen && (
+        <div
+          style={{
+            position: 'fixed', inset: 0,
+            background: 'rgba(28,28,28,0.97)',
+            zIndex: 1001,
+            display: 'flex', flexDirection: 'column',
+            alignItems: 'center', justifyContent: 'center',
+            padding: '2rem',
+          }}
+          onClick={closeMenu}
+        >
+          {/* Logo + close en haut */}
+          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, padding: '0.9rem 1.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span className="display" style={{ fontSize: '2rem', color: 'var(--mea-cream)', letterSpacing: '-0.03em' }}>
+              M<span style={{ color: 'var(--mea-orange)' }}>E</span>A
+            </span>
+            <button onClick={(e) => { e.stopPropagation(); closeMenu(); }} style={{ background: 'none', border: 'none', color: 'var(--mea-cream)', fontSize: '1.4rem', cursor: 'pointer', padding: '0.3rem', lineHeight: 1 }}>✕</button>
+          </div>
+          {/* Liens */}
+          <nav style={{ display: 'flex', flexDirection: 'column', width: '100%', maxWidth: 360, gap: 0 }} onClick={e => e.stopPropagation()}>
+            {links.map((l) => (
+              <a key={l.href} href={l.href} onClick={closeMenu} className="display"
+                style={{ fontSize: 'clamp(2rem, 8vw, 3.2rem)', color: 'var(--mea-cream)', letterSpacing: '-0.01em', padding: '0.65rem 0', borderBottom: '1px solid rgba(244,239,230,0.1)', lineHeight: 1.1, display: 'block' }}
+                onMouseEnter={e => e.currentTarget.style.color = 'var(--mea-orange)'}
+                onMouseLeave={e => e.currentTarget.style.color = 'var(--mea-cream)'}
+              >{l.label}</a>
+            ))}
+          </nav>
+          <a href="#rdv" onClick={closeMenu} className="btn-primary" style={{ marginTop: '2rem', fontSize: '0.9rem', padding: '1rem 2rem' }}>
+            Prendre rdv ↗
+          </a>
+          <a href="tel:+33629817069" className="mono uppercase" style={{ marginTop: '1.25rem', fontSize: '0.72rem', color: 'var(--mea-gray-2)', letterSpacing: '0.14em' }}>
+            📞 06 29 81 70 69
+          </a>
+        </div>
+      )}
+
+      <style>{`
+        @media (max-width: 960px) {
+          .nav-desktop { display: none !important; }
+          .nav-phone { display: none !important; }
+          .nav-cta-desktop { display: none !important; }
+          .nav-burger { display: flex !important; }
+        }
+      `}</style>
+    </header>
+  );
+}
+
+// ─── HERO ─────────────────────────────────────────────────────────────────────
+function Hero() {
+  return (
+    <section className="hero-video-section paper-grid">
+      <div className="hero-video-fallback" />
+      <CornerMarks />
+
+      {/* Vidéo background */}
+      <video
+        className="hero-video-bg"
+        autoPlay muted loop playsInline
+        poster="assets/hero-poster.jpg"
+      >
+        <source src="assets/hero-bg-mobile.mp4" type="video/mp4" media="(max-width: 767px)" />
+        <source src="assets/hero-bg.mp4" type="video/mp4" />
+      </video>
+
+      {/* Overlay gradient */}
+      <div className="hero-video-overlay" />
+
+      {/* Contenu */}
+      <div className="hero-video-content">
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '3rem' }} className="mono uppercase">
+          <div style={{ fontSize: '0.68rem', color: 'rgba(244,239,230,0.7)' }}>Basé en Normandie — on travaille partout en France</div>
+        </div>
+
+        <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+          <Sticker color="var(--mea-orange)" rotate={-3}>À partir de 290€ HT</Sticker>
+          <Sticker color="var(--mea-paper)" rotate={2}>Livré en 48h</Sticker>
+          <Sticker color="var(--mea-dark)" rotate={-2} style={{ color: 'var(--mea-cream)' }}>TVA non applicable</Sticker>
+        </div>
+
+        <h1 className="display" style={{ fontSize: 'clamp(2.4rem, 6.5vw, 5.8rem)', lineHeight: 1.05, letterSpacing: '-0.02em' }}>
+          Pendant que vous <span style={{ color: 'var(--mea-orange)' }}>bossez</span>,<br />
+          on vous <span className="scribble-under">construit</span><br />
+          votre <span style={{ background: 'var(--mea-cream)', color: 'var(--mea-dark)', padding: '0 0.15em' }}>vitrine</span>.
+        </h1>
+
+        <p style={{ marginTop: '1rem', maxWidth: 480, fontSize: '1.25rem', lineHeight: 1.35, fontWeight: 600 }}>
+          Site sur-mesure pour artisans — livré en 48h, à partir de 290€ HT.
+        </p>
+        <p style={{ marginTop: '1rem', maxWidth: 480, fontSize: '1rem', lineHeight: 1.5, color: 'rgba(244,239,230,0.82)' }}>
+          Vos photos, vos mots, vos couleurs — assemblés à la main par une équipe de deux.
+          Hébergé, maintenu, optimisé. <strong>Un vrai site web, fini.</strong>
+        </p>
+
+        <div style={{ display: 'flex', gap: '0.8rem', marginTop: '2.25rem', flexWrap: 'wrap' }}>
+          <a href="#rdv" className="btn-primary">Caler un appel de 20 min <span>→</span></a>
+          <a href="#exemples" className="btn-ghost" style={{ borderColor: 'var(--mea-cream)', color: 'var(--mea-cream)' }}>Voir 2 sites livrés</a>
+        </div>
+
+        <div style={{ marginTop: '3rem', display: 'flex', gap: '2.5rem', flexWrap: 'nowrap', alignItems: 'baseline', paddingTop: '1.5rem', borderTop: '1.5px solid rgba(244,239,230,0.25)', maxWidth: 400 }}>
+          <Stat n="48" unit="h" label="Du brief à la mise en ligne" />
+          <Stat n="290" unit="€ HT" label="Dès ce tarif, tout compris" />
+        </div>
+
+        <div style={{ marginTop: '4rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div className="mono uppercase" style={{ fontSize: '0.68rem', color: 'rgba(244,239,230,0.5)' }}>défilez</div>
+          <div style={{ flex: 1, height: 1, background: 'rgba(244,239,230,0.2)' }} />
+          <div className="mono uppercase" style={{ fontSize: '0.68rem', color: 'var(--mea-orange)', opacity: 0.8 }}>↓</div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Stat({ n, unit, label }) {
+  return (
+    <div>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
+        <span className="display" style={{ fontSize: '2.4rem', lineHeight: 1 }}>{n}</span>
+        <span className="mono uppercase" style={{ fontSize: '0.72rem', color: 'var(--mea-orange-deep)' }}>{unit}</span>
+      </div>
+      <div className="mono uppercase" style={{ fontSize: '0.65rem', color: 'var(--mea-gray)', marginTop: 4, letterSpacing: '0.1em' }}>{label}</div>
+    </div>
+  );
+}
+
+function CornerMarks() {
+  const mark = (pos) => (
+    <div style={{ position: 'absolute', ...pos, color: 'var(--mea-dark)', fontSize: '0.65rem' }} className="mono uppercase">+</div>
+  );
+  return <>{mark({ top: 12, left: 12 })}{mark({ top: 12, right: 12 })}{mark({ bottom: 12, left: 12 })}{mark({ bottom: 12, right: 12 })}</>;
+}
+
+// ─── MARQUEE ─────────────────────────────────────────────────────────────────
+function Marquee() {
+  const items = ['SITES ARTISANS','⚒','LIVRÉS EN 48H','⚒','À PARTIR DE 290€ HT','⚒','SEO LOCAL','⚒','NORMANDIE & FRANCE ENTIÈRE','⚒','FAIT MAIN','⚒','SANS TEMPLATE','⚒','TVA NON APPLICABLE','⚒'];
+  const list = [...items, ...items];
+  return (
+    <section style={{ background: 'var(--mea-dark)', color: 'var(--mea-cream)', padding: '1rem 0', borderTop: '1.5px solid var(--mea-dark)', borderBottom: '1.5px solid var(--mea-dark)', overflow: 'hidden' }}>
+      <div className="marquee-track mono uppercase" style={{ fontSize: '1rem', letterSpacing: '0.24em' }}>
+        {list.map((t, i) => (
+          <span key={i} style={{ color: t === '⚒' ? 'var(--mea-orange)' : 'inherit', fontSize: t === '⚒' ? '1.2rem' : '1rem' }}>{t}</span>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// ─── PROCESS ─────────────────────────────────────────────────────────────────
+function Process() {
+  const steps = [
+    { day: 'J+0', title: 'Brief de 20 min', body: "Un appel. Vous nous dites qui vous êtes, ce que vous faites, ce que vous voulez montrer. On pose les bases : métier, ville, contenu, photos.", tool: 'micro' },
+    { day: 'J+1', title: 'Maquette éclair', body: "On vous envoie une première maquette du hero et de la page. Pas de Figma. Une vraie URL, sur un vrai écran. Vous validez en 5 minutes.", tool: 'pencil' },
+    { day: 'J+2 → J+5', title: "Build à l'atelier", body: "Intégration, photos retouchées, SEO local, Schema.org, carte, avis, réseaux sociaux. Testé sur 4 tailles d'écran avant qu'on vous rende la main.", tool: 'hammer' },
+    { day: 'J+6', title: 'Relecture à deux', body: "Vous relisez, on ajuste. Textes, photos, couleurs — on reprend jusqu'à ce que ce soit le vôtre, pas une version générique.", tool: 'glass' },
+    { day: 'J+7', title: 'Mise en ligne', body: "Nom de domaine branché, HTTPS, hébergement actif. On vous envoie un SMS surprise, un petit appel, et c'est en ligne. Votre site existe.", tool: 'ribbon' },
+  ];
+  return (
+    <section id="process" className="sec" style={{ padding: '6rem 1.75rem', position: 'relative', background: 'var(--mea-cream)' }}>
+      <div style={{ maxWidth: 1360, margin: '0 auto' }}>
+        <SectionLabel number="02" title={<>48h.<br/>Pas une de plus.</>} kicker="Un process clair, pas de ping-pong sur 3 semaines" />
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 0, borderTop: '1.5px solid var(--mea-dark)', borderLeft: '1.5px solid var(--mea-dark)' }} className="process-grid">
+          {steps.map((s, i) => <ProcessStep key={i} {...s} index={i} total={steps.length} />)}
+        </div>
+        <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }} className="mono uppercase">
+          <span style={{ fontSize: '0.72rem', color: 'var(--mea-gray)' }}>* délai ferme. Si on dépasse, on vous rembourse la moitié. Ça n'est jamais arrivé.</span>
+          <a href="#rdv" style={{ fontSize: '0.72rem', color: 'var(--mea-orange-deep)', borderBottom: '1.5px solid var(--mea-orange-deep)', paddingBottom: 2 }}>lancer mon chantier →</a>
+        </div>
+      </div>
+      <style>{`@media (max-width: 900px) { .process-grid { grid-template-columns: 1fr !important; } }`}</style>
+    </section>
+  );
+}
+
+function ProcessStep({ day, title, body, tool, index, total }) {
+  return (
+    <div style={{ borderRight: '1.5px solid var(--mea-dark)', borderBottom: '1.5px solid var(--mea-dark)', padding: '1.5rem 1.25rem 1.75rem', position: 'relative', background: index === 2 ? 'var(--mea-orange)' : 'var(--mea-white)', minHeight: 320, display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <div className="mono uppercase" style={{ fontSize: '0.68rem', letterSpacing: '0.14em' }}>{day}</div>
+        <div className="mono" style={{ fontSize: '0.65rem', color: 'var(--mea-gray)' }}>{String(index + 1).padStart(2, '0')}/{String(total).padStart(2, '0')}</div>
+      </div>
+      <div style={{ marginTop: '2rem', marginBottom: '1rem' }}><ToolIcon kind={tool} /></div>
+      <h3 className="display" style={{ fontSize: '1.4rem', lineHeight: 1, marginBottom: '0.8rem' }}>{title}</h3>
+      <p style={{ fontSize: '0.92rem', lineHeight: 1.45, color: index === 2 ? 'var(--mea-dark)' : 'var(--mea-dark-2)' }}>{body}</p>
+      {index < total - 1 && (
+        <div style={{ position: 'absolute', right: -10, top: '50%', transform: 'translateY(-50%)', background: 'var(--mea-cream)', border: '1.5px solid var(--mea-dark)', width: 20, height: 20, display: 'grid', placeItems: 'center', fontSize: '0.8rem', zIndex: 2 }}>→</div>
+      )}
+    </div>
+  );
+}
+
+function ToolIcon({ kind }) {
+  const stroke = 'var(--mea-dark)'; const sz = 44;
+  switch (kind) {
+    case 'micro': return <svg width={sz} height={sz} viewBox="0 0 48 48" fill="none"><rect x="18" y="6" width="12" height="22" rx="6" stroke={stroke} strokeWidth="2" fill="var(--mea-paper)" /><path d="M10 22 C 10 30, 18 36, 24 36 C 30 36, 38 30, 38 22" stroke={stroke} strokeWidth="2" fill="none" /><line x1="24" y1="36" x2="24" y2="44" stroke={stroke} strokeWidth="2" /><line x1="18" y1="44" x2="30" y2="44" stroke={stroke} strokeWidth="2" /></svg>;
+    case 'pencil': return <svg width={sz} height={sz} viewBox="0 0 48 48" fill="none"><path d="M6 42 L10 30 L34 6 L42 14 L18 38 L6 42 Z" fill="var(--mea-paper)" stroke={stroke} strokeWidth="2" strokeLinejoin="round"/><path d="M30 10 L38 18" stroke={stroke} strokeWidth="2" /><path d="M10 30 L18 38" stroke={stroke} strokeWidth="2" /></svg>;
+    case 'hammer': return <svg width={sz} height={sz} viewBox="0 0 48 48" fill="none"><rect x="5" y="10" width="28" height="14" fill="var(--mea-dark)" stroke={stroke} strokeWidth="2"/><rect x="22" y="22" width="6" height="22" fill="var(--mea-dark)" stroke={stroke} strokeWidth="2" transform="rotate(20 25 33)"/></svg>;
+    case 'glass': return <svg width={sz} height={sz} viewBox="0 0 48 48" fill="none"><circle cx="20" cy="20" r="12" stroke={stroke} strokeWidth="2" fill="var(--mea-paper)"/><line x1="29" y1="29" x2="42" y2="42" stroke={stroke} strokeWidth="3" strokeLinecap="round"/><path d="M14 20 L18 24 L26 16" stroke={stroke} strokeWidth="2" fill="none" strokeLinecap="round"/></svg>;
+    case 'ribbon': return <svg width={sz} height={sz} viewBox="0 0 48 48" fill="none"><circle cx="24" cy="18" r="10" fill="var(--mea-paper)" stroke={stroke} strokeWidth="2"/><text x="24" y="22" textAnchor="middle" fontFamily="Archivo Black" fontSize="10" fill={stroke}>OK</text><path d="M17 26 L12 44 L20 40 L24 44 L28 40 L36 44 L31 26" fill="var(--mea-dark)" stroke={stroke} strokeWidth="2"/></svg>;
+    default: return null;
+  }
+}
+
+// ─── CASES (supprimé — remplacé par ExemplesArtisans) ───────────────────────
+function _CasesDisabled() {
+  const cases = [
+    {
+      id: 'sabrina',
+      metier: 'Agent immobilière indépendante',
+      nom: 'Sabrina Duval',
+      ville: 'Normandie',
+      url: 'master.mea-sabrina-duval.pages.dev',
+      stack: 'HTML / CSS / JS vanilla',
+      pack: 'Pack Pro · 490€',
+      highlights: [
+        'Hero vidéo background',
+        '22 avis Immodvisor en carrousel',
+        'Galerie 9 biens — lightbox CSS',
+        'SEO local Schema.org RealEstateAgent',
+      ],
+      quote: "Je n'ai jamais eu à leur courir après. J'ai reçu un SMS, j'ai cliqué, le site était en ligne.",
+      hue: 180, bg: '#1e3a45', accent: '#e8c068',
+    },
+    {
+      id: 'cedric',
+      metier: 'Hypnothérapeute',
+      nom: 'Cédric Lucas',
+      ville: 'Pays de la Loire',
+      url: 'mea-cedric-lucas.pages.dev',
+      stack: 'Astro 6 · React · Motion · Spline',
+      pack: 'Pack Pro · 490€',
+      highlights: [
+        'Hero Spline 3D galaxie interactive',
+        'Vidéos mer + sable en fond',
+        'Témoignages YouTube intégrés',
+        'SEO Schema.org MedicalBusiness',
+      ],
+      quote: "Ils ont compris mon métier mieux que moi. Le site ressemble à ce que je ressens quand je reçois un patient.",
+      hue: 200, bg: '#2d7d9a', accent: '#e8c068',
+    },
+  ];
+
+  const [active, setActive] = useState(0);
+  const c = cases[active];
+
+  return (
+    <section id="cas" className="sec" style={{ padding: '6rem 1.75rem', background: 'var(--mea-dark)', color: 'var(--mea-cream)', position: 'relative' }}>
+      <div style={{ maxWidth: 1360, margin: '0 auto' }}>
+
+        {/* Header */}
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', marginBottom: '2.5rem', flexWrap: 'wrap' }}>
+          <div className="mono uppercase" style={{ fontSize: '0.72rem', color: 'var(--mea-orange)' }}>/ 02</div>
+          <div style={{ height: 1, flex: '0 0 40px', background: 'var(--mea-cream)' }} />
+          <div style={{ flex: 1 }}>
+            <h2 className="display" style={{ fontSize: 'clamp(2rem, 5vw, 3.8rem)', lineHeight: 0.95 }}>
+              Ils nous ont fait confiance
+            </h2>
+            <div className="mono uppercase" style={{ fontSize: '0.72rem', color: 'var(--mea-gray-2)', marginTop: '0.6rem', letterSpacing: '0.14em' }}>
+              premiers clients · résultats réels
+            </div>
+          </div>
+        </div>
+
+        {/* Tabs */}
+        <div style={{ display: 'flex', gap: 0, marginBottom: '2rem', borderBottom: '1.5px solid var(--mea-cream)' }}>
+          {cases.map((cc, i) => (
+            <button key={cc.id} onClick={() => setActive(i)} className="mono uppercase" style={{ flex: 1, padding: '1rem 1.25rem', textAlign: 'left', background: active === i ? 'var(--mea-orange)' : 'transparent', color: active === i ? 'var(--mea-dark)' : 'var(--mea-cream)', border: 'none', borderLeft: i > 0 ? '1.5px solid var(--mea-cream)' : 'none', fontSize: '0.78rem', letterSpacing: '0.12em', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem' }}>
+              <span>{String(i + 1).padStart(2, '0')} — {cc.nom}</span>
+              <span style={{ fontSize: '0.65rem', opacity: 0.7 }}>{cc.metier}</span>
+            </button>
+          ))}
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem', alignItems: 'start' }} className="case-grid">
+          {/* Left — meta */}
+          <div>
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+              <Sticker color="var(--mea-orange)" rotate={-3}>{c.pack}</Sticker>
+              <Sticker color="var(--mea-paper)" rotate={2}>Livré</Sticker>
+            </div>
+            <h3 className="display" style={{ fontSize: '3rem', lineHeight: 0.95 }}>{c.nom}</h3>
+            <div className="mono uppercase" style={{ fontSize: '0.78rem', letterSpacing: '0.14em', color: 'var(--mea-gray-2)', marginTop: '0.4rem' }}>
+              {c.metier} — {c.ville}
+            </div>
+            <div style={{ marginTop: '1.5rem', border: '1.5px solid var(--mea-cream)', padding: '1rem', fontFamily: 'JetBrains Mono, monospace', fontSize: '0.72rem', letterSpacing: '0.08em', display: 'flex', alignItems: 'center', gap: '0.6rem', textTransform: 'uppercase' }}>
+              <span style={{ color: 'var(--mea-orange)' }}>url →</span>
+              <span>{c.url}</span>
+            </div>
+            <div style={{ marginTop: '1.5rem' }}>
+              <div className="mono uppercase" style={{ fontSize: '0.7rem', color: 'var(--mea-orange)', marginBottom: '0.8rem' }}>ce qu'il y a dedans</div>
+              <ul style={{ listStyle: 'none', padding: 0 }}>
+                {c.highlights.map((h, i) => (
+                  <li key={i} style={{ display: 'flex', gap: '0.7rem', alignItems: 'flex-start', padding: '0.6rem 0', borderTop: i > 0 ? '1px solid rgba(244,239,230,0.15)' : 'none' }}>
+                    <span className="mono" style={{ color: 'var(--mea-orange)', fontSize: '0.9rem', lineHeight: 1.4 }}>⚒</span>
+                    <span style={{ fontSize: '0.95rem' }}>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div style={{ marginTop: '1.5rem', padding: '1.25rem', background: 'var(--mea-cream)', color: 'var(--mea-dark)', borderLeft: '4px solid var(--mea-orange)', position: 'relative' }}>
+              <div className="display" style={{ fontSize: '2rem', position: 'absolute', top: 4, right: 10, color: 'var(--mea-orange)', lineHeight: 1 }}>"</div>
+              <p style={{ fontSize: '0.95rem', lineHeight: 1.45, fontStyle: 'italic' }}>{c.quote}</p>
+              <div className="mono uppercase" style={{ fontSize: '0.65rem', marginTop: '0.6rem', color: 'var(--mea-gray)' }}>— {c.nom}, après livraison</div>
+            </div>
+            <div style={{ marginTop: '1.5rem' }} className="mono uppercase">
+              <span style={{ fontSize: '0.68rem', color: 'var(--mea-gray-2)' }}>stack :</span>{' '}
+              <span style={{ fontSize: '0.75rem' }}>{c.stack}</span>
+            </div>
+          </div>
+
+          {/* Right — browser mockup */}
+          <div><BrowserMockup data={c} /></div>
+        </div>
+
+        {/* Note discrète de bas de section */}
+        <div style={{ marginTop: '2.5rem', display: 'flex', justifyContent: 'flex-end' }}>
+          <span className="mono" style={{ fontSize: '0.68rem', color: 'var(--mea-gray-2)', border: '1px solid rgba(244,239,230,0.2)', padding: '0.4rem 0.8rem', letterSpacing: '0.06em', background: 'rgba(244,239,230,0.04)' }}>
+            → Nos prochains clients seront des artisans. Ces deux sites prouvent ce dont on est capables.
+          </span>
+        </div>
+
+      </div>
+      <style>{`@media (max-width: 900px) { .case-grid { grid-template-columns: 1fr !important; } }`}</style>
+    </section>
+  );
+}
+
+function BrowserMockup({ data }) {
+  return (
+    <div style={{ position: 'relative', border: '1.5px solid var(--mea-cream)', background: data.bg, boxShadow: '12px 12px 0 0 var(--mea-orange)' }}>
+      <div style={{ background: 'var(--mea-cream)', padding: '0.7rem 0.9rem', display: 'flex', alignItems: 'center', gap: '0.4rem', borderBottom: '1.5px solid var(--mea-dark)' }}>
+        <div style={{ width: 11, height: 11, borderRadius: '50%', background: '#e85d5d' }}/><div style={{ width: 11, height: 11, borderRadius: '50%', background: '#f0b83d' }}/><div style={{ width: 11, height: 11, borderRadius: '50%', background: '#4cae5a' }}/>
+        <div className="mono" style={{ marginLeft: '0.9rem', background: 'var(--mea-paper)', color: 'var(--mea-dark)', padding: '0.25rem 0.6rem', fontSize: '0.68rem', border: '1px solid var(--mea-dark)', flex: 1, textTransform: 'lowercase', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
+          🔒 https://{data.url}
+        </div>
+        <span className="stamp" style={{ fontSize: '0.6rem', padding: '0.1rem 0.4rem', transform: 'rotate(-3deg)' }}>LIVRÉ</span>
+      </div>
+      <div style={{ padding: '1.75rem 1.5rem 2rem', color: 'var(--mea-cream)', minHeight: 440, position: 'relative' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+          <div className="display" style={{ fontSize: '1.1rem', letterSpacing: '0.04em' }}>{data.nom.split(' ').map(w => w[0]).join('')}.</div>
+          <div style={{ display: 'flex', gap: '0.8rem' }}>
+            {['Accueil', 'Services', 'Avis', 'Contact'].map((l) => <div key={l} className="mono uppercase" style={{ fontSize: '0.6rem', opacity: 0.75 }}>{l}</div>)}
+          </div>
+        </div>
+        <div className="display" style={{ fontSize: 'clamp(1.4rem, 2.6vw, 2rem)', lineHeight: 1.05, maxWidth: '70%' }}>
+          {data.id === 'sabrina'
+            ? <>L'immobilier <span style={{ color: data.accent }}>à hauteur humaine</span>, en Normandie.</>
+            : <>Retrouver <span style={{ color: data.accent }}>son calme intérieur</span>, en quelques séances.</>}
+        </div>
+        <div style={{ marginTop: '1rem', maxWidth: '60%', fontSize: '0.75rem', opacity: 0.75 }}>
+          {data.id === 'sabrina' ? 'Vente, achat, estimation. Présente sur le terrain depuis 18 ans.' : 'Accompagnement en hypnose ericksonienne — Pays de la Loire.'}
+        </div>
+        <div style={{ display: 'inline-flex', gap: '0.4rem', alignItems: 'center', marginTop: '1.25rem', padding: '0.6rem 1rem', background: data.accent, color: '#1c1c1c', fontFamily: 'Archivo Black', fontSize: '0.75rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+          {data.id === 'sabrina' ? 'Estimer mon bien' : 'Prendre rdv'} →
+        </div>
+        <div style={{ marginTop: '2rem', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.6rem' }}>
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} style={{ height: 64, background: `rgba(255,255,255,${0.06 + (i % 3) * 0.04})`, border: `1px solid rgba(255,255,255,0.15)`, display: 'flex', alignItems: 'flex-end', padding: '0.4rem' }} className="mono">
+              <span style={{ fontSize: '0.55rem', opacity: 0.6 }}>/ {data.id === 'sabrina' ? 'bien' : 'therap'}-{String(i+1).padStart(2,'0')}</span>
+            </div>
+          ))}
+        </div>
+        <div style={{ position: 'absolute', right: 14, bottom: 14, background: 'var(--mea-orange)', color: 'var(--mea-dark)', padding: '0.3rem 0.6rem', fontFamily: 'JetBrains Mono', fontSize: '0.6rem', letterSpacing: '0.1em', textTransform: 'uppercase', border: '1.5px solid var(--mea-dark)' }}>
+          PageSpeed · 98
+        </div>
+      </div>
+      <div className="mono uppercase" style={{ marginTop: '0.75rem', display: 'flex', justifyContent: 'space-between', fontSize: '0.62rem', color: 'var(--mea-gray-2)' }}>
+        <span>↤ vue desktop 1440px</span><span>mobile ok ✓</span><span>SEO local ✓</span>
+      </div>
+    </div>
+  );
+}
+
+// ─── EXEMPLES ARTISANS ───────────────────────────────────────────────────────
+function ExempleCard({ metier, icon, bg, badge, accent, tags, url, featured, mobileView }) {
+  const [hovered, setHovered] = useState(false);
+
+  /* ── preview simulée mobile ── */
+  const previewDesktop = (
+    <div style={{
+      background: bg,
+      backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)`,
+      backgroundSize: '18px 18px',
+      minHeight: 200,
+      position: 'relative',
+      display: 'flex', flexDirection: 'column',
+      alignItems: 'center', justifyContent: 'center',
+      textAlign: 'center', padding: '1.75rem 1.25rem 2rem',
+      overflow: 'hidden',
+    }}>
+      {/* Fake nav strip */}
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 28, background: 'rgba(0,0,0,0.3)', display: 'flex', alignItems: 'center', padding: '0 10px', gap: 6 }}>
+        <div style={{ width: 20, height: 7, borderRadius: 3, background: accent || 'rgba(255,255,255,0.4)' }} />
+        <div style={{ display: 'flex', gap: 4, flex: 1 }}>
+          <div style={{ width: 18, height: 4, borderRadius: 2, background: 'rgba(255,255,255,0.15)' }} />
+          <div style={{ width: 18, height: 4, borderRadius: 2, background: 'rgba(255,255,255,0.15)' }} />
+          <div style={{ width: 18, height: 4, borderRadius: 2, background: 'rgba(255,255,255,0.15)' }} />
+        </div>
+        <div style={{ width: 32, height: 12, borderRadius: 3, background: accent || 'rgba(255,255,255,0.3)' }} />
+      </div>
+      {/* Badge urgence */}
+      {badge && (
+        <div style={{ position: 'absolute', bottom: 10, left: 10, background: '#DC2626', color: '#fff', fontSize: '0.58rem', fontFamily: "'JetBrains Mono',monospace", textTransform: 'uppercase', letterSpacing: '0.08em', padding: '3px 7px', fontWeight: 700 }}>
+          {badge}
+        </div>
+      )}
+      <div style={{ fontSize: '2.6rem', lineHeight: 1, marginBottom: '0.6rem', marginTop: '0.5rem' }}>{icon}</div>
+      <div className="mono uppercase" style={{ color: 'rgba(255,255,255,0.95)', fontSize: '0.92rem', letterSpacing: '0.2em', fontWeight: 700 }}>{metier}</div>
+      {/* Fake content rows */}
+      <div style={{ marginTop: '0.75rem', display: 'flex', flexDirection: 'column', gap: 5, width: '70%', alignItems: 'center' }}>
+        <div style={{ height: 5, width: '100%', borderRadius: 2, background: 'rgba(255,255,255,0.12)' }} />
+        <div style={{ height: 5, width: '75%', borderRadius: 2, background: 'rgba(255,255,255,0.08)' }} />
+        <div style={{ height: 12, width: 64, borderRadius: 3, background: accent ? `${accent}88` : 'rgba(255,255,255,0.25)', marginTop: 3 }} />
+      </div>
+    </div>
+  );
+
+  const previewMobile = (
+    <div style={{ background: bg, minHeight: 200, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem' }}>
+      {/* Téléphone simulé */}
+      <div style={{ width: 90, height: 175, border: '2.5px solid rgba(255,255,255,0.25)', borderRadius: 16, overflow: 'hidden', boxShadow: '0 8px 24px rgba(0,0,0,0.5)', background: bg, display: 'flex', flexDirection: 'column', position: 'relative' }}>
+        {/* Notch */}
+        <div style={{ height: 14, background: 'rgba(0,0,0,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+          <div style={{ width: 24, height: 5, borderRadius: 3, background: 'rgba(0,0,0,0.6)' }} />
+        </div>
+        {/* Mobile nav */}
+        <div style={{ height: 18, background: 'rgba(0,0,0,0.3)', display: 'flex', alignItems: 'center', padding: '0 6px', gap: 4, flexShrink: 0 }}>
+          <div style={{ width: 14, height: 5, borderRadius: 2, background: accent || 'rgba(255,255,255,0.4)' }} />
+          <div style={{ flex: 1 }} />
+          <div style={{ width: 10, height: 8, display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <div style={{ height: 1.5, background: 'rgba(255,255,255,0.5)', borderRadius: 1 }} />
+            <div style={{ height: 1.5, background: 'rgba(255,255,255,0.5)', borderRadius: 1 }} />
+            <div style={{ height: 1.5, background: 'rgba(255,255,255,0.5)', borderRadius: 1 }} />
+          </div>
+        </div>
+        {/* Content */}
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 5, padding: '4px 6px' }}>
+          <div style={{ fontSize: '1.4rem', lineHeight: 1 }}>{icon}</div>
+          <div style={{ fontSize: '0.38rem', fontFamily: "'JetBrains Mono',monospace", textTransform: 'uppercase', letterSpacing: '0.12em', color: 'rgba(255,255,255,0.9)', fontWeight: 700 }}>{metier}</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 3, width: '80%', alignItems: 'center' }}>
+            <div style={{ height: 3, width: '100%', borderRadius: 1.5, background: 'rgba(255,255,255,0.1)' }} />
+            <div style={{ height: 3, width: '70%', borderRadius: 1.5, background: 'rgba(255,255,255,0.07)' }} />
+            <div style={{ height: 9, width: 40, borderRadius: 2, background: accent ? `${accent}88` : 'rgba(255,255,255,0.2)', marginTop: 2 }} />
+          </div>
+        </div>
+        {/* Bottom bar */}
+        <div style={{ height: 12, background: 'rgba(0,0,0,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+          <div style={{ width: 20, height: 3, borderRadius: 2, background: 'rgba(255,255,255,0.3)' }} />
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        border: '1.5px solid var(--mea-dark)',
+        boxShadow: hovered
+          ? (featured ? '10px 10px 0 0 var(--mea-orange)' : '8px 8px 0 0 var(--mea-dark)')
+          : (featured ? '8px 8px 0 0 var(--mea-orange)' : '6px 6px 0 0 var(--mea-dark)'),
+        transform: hovered ? 'translate(-2px,-2px)' : 'none',
+        transition: 'transform 0.15s ease, box-shadow 0.15s ease',
+        background: 'var(--mea-white)',
+        display: 'flex', flexDirection: 'column',
+      }}
+    >
+      {/* ── Chrome navigateur ── */}
+      <div style={{ background: 'var(--mea-cream)', padding: '0.5rem 0.7rem', display: 'flex', alignItems: 'center', gap: '0.3rem', borderBottom: '1.5px solid var(--mea-dark)', flexShrink: 0 }}>
+        <div style={{ width: 9, height: 9, borderRadius: '50%', background: '#e85d5d', border: '1px solid rgba(0,0,0,0.1)', flexShrink: 0 }} />
+        <div style={{ width: 9, height: 9, borderRadius: '50%', background: '#f0b83d', border: '1px solid rgba(0,0,0,0.1)', flexShrink: 0 }} />
+        <div style={{ width: 9, height: 9, borderRadius: '50%', background: '#4cae5a', border: '1px solid rgba(0,0,0,0.1)', flexShrink: 0 }} />
+        <div className="mono" style={{ marginLeft: '0.5rem', background: 'var(--mea-paper)', padding: '0.1rem 0.45rem', fontSize: '0.6rem', border: '1px solid var(--mea-dark)', flex: 1, overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', textTransform: 'lowercase', letterSpacing: '0.03em', color: 'var(--mea-gray)' }}>
+          🔒 {url.replace('https://', '')}
+        </div>
+        {featured && (
+          <div className="mono uppercase" style={{ fontSize: '0.52rem', background: 'var(--mea-orange)', color: 'var(--mea-dark)', padding: '0.1rem 0.35rem', border: '1px solid var(--mea-dark)', letterSpacing: '0.08em', flexShrink: 0, fontWeight: 700 }}>⭐ Populaire</div>
+        )}
+      </div>
+
+      {/* ── Preview desktop / mobile ── */}
+      {mobileView ? previewMobile : previewDesktop}
+
+      {/* ── Infos ── */}
+      <div style={{ padding: '0.9rem 1rem 0', borderTop: '1.5px solid var(--mea-dark)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+          <div className="display" style={{ fontSize: '1.05rem', letterSpacing: '-0.01em' }}>{icon} {metier}</div>
+          {badge && (
+            <div style={{ background: '#DC2626', color: '#fff', fontSize: '0.52rem', fontFamily: "'JetBrains Mono',monospace", textTransform: 'uppercase', letterSpacing: '0.08em', padding: '2px 6px', fontWeight: 700 }}>URGENCE</div>
+          )}
+        </div>
+        {/* Tags */}
+        <div style={{ display: 'flex', gap: '0.35rem', flexWrap: 'wrap', marginBottom: '0.6rem' }}>
+          {tags.map((t) => (
+            <span key={t} className="mono uppercase" style={{ fontSize: '0.58rem', padding: '0.18rem 0.5rem', border: '1px solid var(--mea-dark)', letterSpacing: '0.08em', background: 'var(--mea-paper)' }}>{t}</span>
+          ))}
+        </div>
+        {/* Stats */}
+        <div className="mono uppercase" style={{ fontSize: '0.6rem', color: 'var(--mea-gray)', letterSpacing: '0.1em', paddingBottom: '0.75rem', borderBottom: '1px dashed rgba(28,28,28,0.2)' }}>
+          9 sections · SEO local · Mobile-first
+        </div>
+      </div>
+
+      {/* ── Boutons ── */}
+      <div style={{ padding: '0.75rem 1rem 1rem', display: 'flex', gap: '0.5rem', flexShrink: 0 }}>
+        <a href={url} target="_blank" rel="noopener noreferrer"
+          style={{ flex: 1, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '0.6rem 0.5rem', border: '1.5px solid var(--mea-dark)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.68rem', background: 'transparent', color: 'var(--mea-dark)', fontFamily: 'inherit', cursor: 'pointer' }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--mea-dark)'; e.currentTarget.style.color = 'var(--mea-cream)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--mea-dark)'; }}>
+          Voir ↗
+        </a>
+        <a href="#rdv"
+          style={{ flex: 2, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '0.6rem 0.5rem', border: '1.5px solid var(--mea-dark)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.68rem', background: 'var(--mea-orange)', color: 'var(--mea-dark)', boxShadow: '3px 3px 0 0 var(--mea-dark)', fontFamily: 'inherit', cursor: 'pointer' }}
+          onMouseEnter={(e) => { e.currentTarget.style.transform = 'translate(-1px,-1px)'; e.currentTarget.style.boxShadow = '5px 5px 0 0 var(--mea-dark)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '3px 3px 0 0 var(--mea-dark)'; }}>
+          Je veux ce site →
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function ExemplesArtisans() {
+  const [mobileView, setMobileView] = useState(false);
+  const [page, setPage] = useState(0);
+  const PERPAGE = 3;
+
+  const items = [
+    { metier: 'Menuisier',    icon: '🪚', bg: '#3d2b1f', accent: '#C8A96E', tags: ['Sur mesure', 'Galerie', 'Devis'],          url: 'https://mea-menuisier.pages.dev',    featured: true },
+    { metier: 'Plombier',     icon: '🔧', bg: '#1a2d45', accent: '#FF6B35', badge: '🚨 URGENCE 24/7', tags: ['Urgence 24/7', 'Devis', 'SEO local'],    url: 'https://mea-plombier.pages.dev' },
+    { metier: 'Électricien',  icon: '⚡', bg: '#1a1a2e', accent: '#FFD700', badge: '🚨 URGENCE 24/7', tags: ['Urgence 24/7', 'RGE', 'Dépannage'],       url: 'https://mea-electricien.pages.dev' },
+    { metier: 'Peintre',      icon: '🎨', bg: '#2d1f3d', accent: '#E63946', tags: ['Intérieur', 'Extérieur', 'Devis'],          url: 'https://mea-peintre.pages.dev' },
+    { metier: 'Couvreur',     icon: '🏠', bg: '#3d2a1a', accent: '#E74C3C', badge: '🚨 URGENCE 24/7', tags: ['Toiture', 'Zinguerie', 'Urgence'],         url: 'https://mea-couvreur.pages.dev' },
+    { metier: 'Maçon',        icon: '🏗️', bg: '#2a2a2a', accent: '#E67E22', tags: ['Gros œuvre', 'Extension', 'Devis'],         url: 'https://mea-macon.pages.dev' },
+    { metier: 'Paysagiste',   icon: '🌿', bg: '#1a3d1f', accent: '#95D5B2', tags: ['Entretien', 'Création', 'Terrasse'],         url: 'https://mea-paysagiste.pages.dev' },
+    { metier: 'Chauffagiste', icon: '🔥', bg: '#3d1a1a', accent: '#FF8C42', badge: '🚨 URGENCE 24/7', tags: ['Chaudière', 'PAC', 'Urgence'],              url: 'https://mea-chauffagiste.pages.dev' },
+  ];
+
+  const totalPages = Math.ceil(items.length / PERPAGE);
+  const start = page * PERPAGE;
+
+  const metiers = ['plombiers', 'électriciens', 'peintres', 'menuisiers', 'couvreurs', 'maçons', 'paysagistes', 'chauffagistes'];
+
+  const toggleBtn = (active, label, onClick) => (
+    <button
+      onClick={onClick}
+      className="mono uppercase"
+      style={{
+        padding: '0.5rem 1.1rem', fontSize: '0.7rem', letterSpacing: '0.12em',
+        border: '1.5px solid var(--mea-dark)', cursor: 'pointer',
+        background: active ? 'var(--mea-dark)' : 'transparent',
+        color: active ? 'var(--mea-cream)' : 'var(--mea-dark)',
+        fontFamily: 'inherit', fontWeight: 700, transition: 'all 0.15s',
+      }}
+    >{label}</button>
+  );
+
+  const navBtn = (label, onClick, disabled) => (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className="mono uppercase"
+      style={{
+        padding: '0.6rem 1.25rem', fontSize: '0.7rem', letterSpacing: '0.12em',
+        border: '1.5px solid var(--mea-dark)', cursor: disabled ? 'not-allowed' : 'pointer',
+        background: 'transparent', color: disabled ? 'var(--mea-gray)' : 'var(--mea-dark)',
+        borderColor: disabled ? 'var(--mea-gray)' : 'var(--mea-dark)',
+        fontFamily: 'inherit', fontWeight: 700, transition: 'all 0.15s',
+        opacity: disabled ? 0.4 : 1,
+      }}
+      onMouseEnter={(e) => { if (!disabled) { e.currentTarget.style.background = 'var(--mea-dark)'; e.currentTarget.style.color = 'var(--mea-cream)'; } }}
+      onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = disabled ? 'var(--mea-gray)' : 'var(--mea-dark)'; }}
+    >{label}</button>
+  );
+
+  return (
+    <section id="exemples" className="sec" style={{ padding: '6rem 1.75rem', background: 'var(--mea-cream)' }}>
+      <div style={{ maxWidth: 1360, margin: '0 auto' }}>
+
+        {/* Header */}
+        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '2.5rem' }}>
+          <SectionLabel number="01" title={<>Exemples de sites<br/>artisans.</>} kicker="des vrais sites · pas des templates" />
+          {/* Toggle bureau / mobile */}
+          <div style={{ display: 'flex', gap: 0, border: '1.5px solid var(--mea-dark)', flexShrink: 0, alignSelf: 'flex-start' }}>
+            {toggleBtn(!mobileView, '🖥 Bureau', () => setMobileView(false))}
+            <div style={{ width: 1.5, background: 'var(--mea-dark)', flexShrink: 0 }} />
+            {toggleBtn(mobileView,  '📱 Mobile', () => setMobileView(true))}
+          </div>
+        </div>
+
+        {/* Grid 3 cards visibles — autres masquées dans le DOM */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.75rem', alignItems: 'start' }} className="exemples-grid">
+          {items.map((item, i) => (
+            <div key={item.metier} style={{ display: (i >= start && i < start + PERPAGE) ? undefined : 'none' }}>
+              <ExempleCard {...item} mobileView={mobileView} />
+            </div>
+          ))}
+        </div>
+
+        {/* Navigation carousel */}
+        <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+          {navBtn('← Précédent', () => setPage(p => Math.max(0, p - 1)), page === 0)}
+          {/* Indicateurs de page */}
+          <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center' }}>
+            {Array.from({ length: totalPages }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setPage(i)}
+                className="mono uppercase"
+                style={{
+                  width: i === page ? 28 : 10, height: 10,
+                  background: i === page ? 'var(--mea-dark)' : 'var(--mea-paper)',
+                  border: '1.5px solid var(--mea-dark)',
+                  cursor: 'pointer', padding: 0,
+                  transition: 'width 0.2s ease, background 0.15s',
+                }}
+              />
+            ))}
+          </div>
+          {navBtn('Suivant →', () => setPage(p => Math.min(totalPages - 1, p + 1)), page === totalPages - 1)}
+        </div>
+
+        {/* CTA centré */}
+        <div style={{ marginTop: '1.75rem', textAlign: 'center' }}>
+          <a href="#rdv" className="btn-ghost" style={{ padding: '0.9rem 2rem', fontSize: '0.82rem' }}>
+            Je veux ce site pour mon activité →
+          </a>
+        </div>
+
+        {/* Bandeau métiers */}
+        <div className="mono uppercase" style={{ marginTop: '2rem', textAlign: 'center', fontSize: '0.7rem', color: 'var(--mea-gray)', letterSpacing: '0.16em', lineHeight: 2 }}>
+          <span style={{ color: 'var(--mea-dark)', fontWeight: 700 }}>DÉJÀ CHEZ NOUS :</span>{' '}
+          {metiers.map((m, i) => (
+            <span key={m}>
+              {m}{i < metiers.length - 1
+                ? <span style={{ color: 'var(--mea-orange)', margin: '0 0.45em' }}>·</span>
+                : ''}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        @media (max-width: 960px) { .exemples-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+        @media (max-width: 600px) { .exemples-grid { grid-template-columns: 1fr !important; } }
+      `}</style>
+    </section>
+  );
+}
+
+// ─── OFFER ────────────────────────────────────────────────────────────────────
+function PriceCard({ name, price, monthly, popular, features }) {
+  return (
+    <div style={{
+      background: popular ? 'var(--mea-dark)' : 'var(--mea-white)',
+      color: popular ? 'var(--mea-cream)' : 'var(--mea-dark)',
+      border: '1.5px solid var(--mea-dark)',
+      boxShadow: popular ? '8px 8px 0 0 var(--mea-orange)' : '6px 6px 0 0 var(--mea-dark)',
+      padding: '2rem',
+      position: 'relative',
+      display: 'flex', flexDirection: 'column',
+    }}>
+      {popular && (
+        <div style={{ position: 'absolute', top: -14, right: 20 }}>
+          <span className="mono uppercase" style={{ background: 'var(--mea-orange)', color: 'var(--mea-dark)', fontSize: '0.65rem', padding: '0.3rem 0.7rem', border: '1.5px solid var(--mea-dark)', letterSpacing: '0.12em', fontWeight: 700 }}>⭐ Le plus populaire</span>
+        </div>
+      )}
+      <div className="mono uppercase" style={{ fontSize: '0.7rem', color: popular ? 'var(--mea-orange)' : 'var(--mea-gray)', letterSpacing: '0.14em', marginBottom: '0.75rem' }}>Pack</div>
+      <div className="display" style={{ fontSize: '1.6rem', lineHeight: 1, marginBottom: '1.5rem' }}>{name}</div>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.4rem', marginBottom: '0.4rem' }}>
+        <span className="display" style={{ fontSize: '3rem', lineHeight: 1, color: popular ? 'var(--mea-orange)' : 'var(--mea-orange-deep)' }}>{price}</span>
+        <span className="mono uppercase" style={{ fontSize: '0.78rem' }}>€ HT création</span>
+      </div>
+      <div className="mono uppercase" style={{ fontSize: '0.68rem', color: popular ? 'var(--mea-gray-2)' : 'var(--mea-gray)', marginBottom: '1.75rem', paddingBottom: '1.5rem', borderBottom: `1px dashed ${popular ? 'rgba(244,239,230,0.25)' : 'rgba(28,28,28,0.2)'}` }}>
+        + {monthly}€ HT / mois
+      </div>
+      <ul style={{ listStyle: 'none', padding: 0, flex: 1, display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '1.75rem' }}>
+        {features.map((f, i) => (
+          <li key={i} style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', fontSize: '0.88rem', lineHeight: 1.4 }}>
+            <span style={{ color: 'var(--mea-orange)', fontSize: '0.8rem', marginTop: 2, flexShrink: 0 }}>⚒</span>
+            <span>{f}</span>
+          </li>
+        ))}
+      </ul>
+      <a href="#rdv" className={popular ? 'btn-primary' : 'btn-ghost'} style={{ justifyContent: 'center', background: popular ? 'var(--mea-orange)' : 'transparent', color: popular ? 'var(--mea-dark)' : 'inherit', border: popular ? '1.5px solid var(--mea-dark)' : `1.5px solid ${popular ? 'var(--mea-dark)' : 'var(--mea-cream)'}` }}>
+        Choisir ce pack →
+      </a>
+    </div>
+  );
+}
+
+function Offer() {
+  const packs = [
+    {
+      name: 'Essentiel',
+      price: '290',
+      monthly: '19',
+      popular: false,
+      features: ['1 page vitrine professionnelle', 'Formulaire de contact', 'Bouton appel cliquable', 'Mobile et tablette', 'Livraison en 48h', 'Hébergement inclus', 'Sans engagement'],
+    },
+    {
+      name: 'Pro',
+      price: '490',
+      monthly: '29',
+      popular: true,
+      features: ['5 pages (accueil, services, réalisations, contact…)', 'SEO local optimisé', 'Fiche Google Business Profile', 'Formulaire de devis en ligne', 'Photos de vos réalisations', 'Mobile et tablette', 'Livraison en 48h', 'Hébergement inclus', 'Sans engagement'],
+    },
+    {
+      name: 'Premium',
+      price: '790',
+      monthly: '49',
+      popular: false,
+      features: ["Jusqu'à 10 pages sur-mesure", 'Blog pour le SEO long terme', 'Devis en ligne interactif', 'Tout ce qui est dans le Pro', 'Suivi SEO mensuel', 'Mises à jour prioritaires', 'Hébergement inclus', 'Sans engagement'],
+    },
+  ];
+
+  const lines = [
+    { label: 'Design sur-mesure (pas de template)', qty: '1', price: 'inclus' },
+    { label: 'Intégration du contenu (textes, photos)', qty: '1', price: 'inclus' },
+    { label: 'SEO local + Schema.org', qty: '1', price: 'inclus' },
+    { label: 'Fiche Google Business Profile', qty: '1', price: 'inclus' },
+    { label: 'Formulaire de devis en ligne', qty: '1', price: 'inclus' },
+    { label: 'Photos de vos réalisations', qty: '1', price: 'inclus' },
+    { label: 'Responsive testé sur mobile', qty: '1', price: 'inclus' },
+    { label: 'Nom de domaine branché (.fr)', qty: '1', price: 'inclus' },
+    { label: 'Hébergement + maintenance', qty: '—', price: '29€ HT/mois' },
+    { label: 'Support humain (SMS direct)', qty: '1', price: 'inclus' },
+  ];
+
+  return (
+    <section id="offre" className="sec" style={{ padding: '6rem 1.75rem', background: 'var(--mea-paper)', position: 'relative' }}>
+      <div style={{ maxWidth: 1360, margin: '0 auto' }}>
+        <SectionLabel number="03" title={<>Trois formules.<br/><span style={{ color: 'var(--mea-orange-deep)' }}>Une seule promesse.</span></>} kicker="Livré en 48h — sans engagement — fait main" />
+
+        {/* 3 pricing cards */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginBottom: '1.25rem', paddingTop: '1rem' }} className="packs-grid">
+          {packs.map((p) => <PriceCard key={p.name} {...p} />)}
+        </div>
+        <div style={{ marginBottom: '3.5rem', display: 'flex', flexDirection: 'column', gap: '0.4rem', alignItems: 'center' }}>
+          <div className="mono uppercase" style={{ fontSize: '0.68rem', color: 'var(--mea-gray)', textAlign: 'center' }}>TVA non applicable — art. 293 B du CGI</div>
+          <div className="mono uppercase" style={{ fontSize: '0.68rem', color: 'var(--mea-gray)', textAlign: 'center' }}>Pas de contrat annuel. Vous pouvez arrêter à tout moment avec 1 mois de préavis.</div>
+        </div>
+
+        {/* Bon de commande Pack Pro */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '2rem' }} className="offer-grid">
+          <BCard style={{ padding: '2rem 2rem 2.25rem', position: 'relative' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem', paddingBottom: '1rem', borderBottom: '1.5px dashed var(--mea-dark)' }}>
+              <div>
+                <div className="display" style={{ fontSize: '1.2rem', letterSpacing: '0.02em' }}>BON DE COMMANDE</div>
+                <div className="mono uppercase" style={{ fontSize: '0.68rem', color: 'var(--mea-gray)', marginTop: 4 }}>n° MEA-2026-{String(Math.floor(Math.random() * 900) + 100)}</div>
+              </div>
+              <div className="mono uppercase" style={{ fontSize: '0.68rem', color: 'var(--mea-gray)', textAlign: 'right' }}>
+                Mon Espace Artisan<br/>Normandie (76)<br/>
+                <span style={{ color: 'var(--mea-orange-deep)' }}>TVA non applicable · art. 293B</span>
+              </div>
+            </div>
+            <div className="mono uppercase" style={{ fontSize: '0.7rem', letterSpacing: '0.1em', marginBottom: '0.8rem' }}>Pack Pro — Site vitrine artisan ⭐</div>
+            <div>
+              {lines.map((l, i) => (
+                <div key={i} style={{ display: 'grid', gridTemplateColumns: '1fr auto auto', gap: '1rem', padding: '0.55rem 0', borderTop: '1px dashed rgba(28,28,28,0.25)', fontSize: '0.88rem' }}>
+                  <span><span className="mono" style={{ color: 'var(--mea-gray)', marginRight: '0.6rem' }}>{String(i+1).padStart(2,'0')}</span>{l.label}</span>
+                  <span className="mono uppercase" style={{ fontSize: '0.72rem', color: 'var(--mea-gray)' }}>{l.qty}</span>
+                  <span className="mono uppercase" style={{ fontSize: '0.72rem', color: 'var(--mea-orange-deep)' }}>{l.price}</span>
+                </div>
+              ))}
+            </div>
+            <div style={{ marginTop: '1.5rem', padding: '1.25rem', background: 'var(--mea-dark)', color: 'var(--mea-cream)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+              <div>
+                <div className="mono uppercase" style={{ fontSize: '0.7rem', color: 'var(--mea-gray-2)' }}>Création · à la livraison</div>
+                <div className="display" style={{ fontSize: '2.4rem', color: 'var(--mea-orange)', lineHeight: 1 }}>490 <span className="mono" style={{ fontSize: '0.85rem' }}>€ HT</span></div>
+              </div>
+              <div>
+                <div className="mono uppercase" style={{ fontSize: '0.7rem', color: 'var(--mea-gray-2)' }}>Mensualité</div>
+                <div className="display" style={{ fontSize: '2.4rem', color: 'var(--mea-cream)', lineHeight: 1 }}>29 <span className="mono" style={{ fontSize: '0.85rem' }}>€ HT/mois</span></div>
+              </div>
+            </div>
+            <div style={{ position: 'absolute', top: 18, right: 110, transform: 'rotate(8deg)' }}>
+              <span className="stamp" style={{ fontSize: '0.75rem' }}>LE PLUS POPULAIRE</span>
+            </div>
+          </BCard>
+          <div>
+            <div className="mono uppercase" style={{ fontSize: '0.7rem', color: 'var(--mea-orange-deep)', marginBottom: '0.75rem' }}>/ pour comparer</div>
+            <h3 className="display" style={{ fontSize: '1.8rem', lineHeight: 1.05, marginBottom: '1.5rem' }}>Ce que 490€ représente<br/><span style={{ color: 'var(--mea-orange-deep)' }}>dans votre vraie vie.</span></h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <CompareRow label="Une agence classique" value="2 500 – 6 000 €" note="3 mois, ping-pong par mail" bad />
+              <CompareRow label="Un freelance sur Malt" value="1 200 – 2 800 €" note="pas toujours le même niveau" />
+              <CompareRow label="Wix / Shopify / WordPress" value="~30 €/mois" note="à vous de tout faire" />
+              <CompareRow label="Mon Espace Artisan" value="490 € HT" note="livré en 48h, fait main" good />
+            </div>
+            <div style={{ marginTop: '1.5rem', padding: '1.25rem', border: '1.5px solid var(--mea-dark)', background: 'var(--mea-white)', position: 'relative' }}>
+              <div className="mono uppercase" style={{ fontSize: '0.68rem', color: 'var(--mea-orange-deep)', marginBottom: '0.5rem' }}>Bonus Pack Pro inclus</div>
+              <ul style={{ listStyle: 'none', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                <li>⚒ Retouches illimitées pendant 30 jours</li>
+                <li>⚒ Un appel de formation (20 min) si vous voulez gérer vous-même</li>
+                <li>⚒ SMS direct à Alexandre, tant que vous êtes client</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style={{ marginTop: '2rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
+          <a href="#rdv" className="btn-primary" style={{ padding: '1.2rem 2rem', fontSize: '0.9rem' }}>Je veux mon Pack Pro <span>→</span></a>
+          <div className="mono" style={{ fontSize: '0.7rem', color: 'var(--mea-gray)' }}>
+            Pack Essentiel dès 290€ · Pack Premium dès 790€{' '}
+            <a href="#offre" style={{ color: 'var(--mea-orange-deep)', borderBottom: '1px solid var(--mea-orange-deep)' }}>→ voir tous les tarifs</a>
+          </div>
+        </div>
+      </div>
+      <style>{`@media (max-width: 900px) { .offer-grid { grid-template-columns: 1fr !important; } .packs-grid { grid-template-columns: 1fr !important; } }`}</style>
+    </section>
+  );
+}
+
+function CompareRow({ label, value, note, bad, good }) {
+  return (
+    <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr auto', gap: '1rem', alignItems: 'center', padding: '1rem', background: good ? 'var(--mea-orange)' : 'var(--mea-white)', border: '1.5px solid var(--mea-dark)', boxShadow: good ? '5px 5px 0 0 var(--mea-dark)' : 'none' }}>
+      <div>
+        <div className="display" style={{ fontSize: '0.9rem', letterSpacing: '0.02em' }}>{label}</div>
+        <div className="mono uppercase" style={{ fontSize: '0.62rem', color: good ? 'var(--mea-dark)' : 'var(--mea-gray)', marginTop: 3 }}>{note}</div>
+      </div>
+      <div className="display" style={{ fontSize: '1.1rem', textDecoration: bad ? 'line-through' : 'none', color: bad ? 'var(--mea-gray)' : 'var(--mea-dark)' }}>{value}</div>
+      <div style={{ fontSize: '1rem' }}>{good ? '⚒' : bad ? '✕' : '—'}</div>
+    </div>
+  );
+}
+
+// ─── INCLUDED ────────────────────────────────────────────────────────────────
+function Included() {
+  const feats = [
+    { t: 'Mobile d\'abord', d: 'Testé sur 4 tailles d\'écran. 70% de vos visiteurs arrivent en téléphone — on commence par eux.', icon: 'mobile' },
+    { t: 'SEO local', d: 'Fiche Google optimisée, Schema.org, ville et métier injectés partout. On apparaît où il faut.', icon: 'seo' },
+    { t: 'Vitesse réelle', d: 'PageSpeed 90+ garanti. Images compressées, pas de framework gras. Vos clients ne patientent pas.', icon: 'speed' },
+    { t: 'HTTPS + domaine', d: 'Votre .fr branché, certificat SSL automatique, e-mail contact redirigé. On gère.', icon: 'lock' },
+    { t: 'Carte + itinéraire', d: 'Google Maps embed sur votre adresse. Un clic, vos clients ont l\'itinéraire.', icon: 'map' },
+    { t: 'Avis intégrés', d: 'Carrousel d\'avis Google / Immodvisor / Facebook. Votre réputation est déjà du contenu.', icon: 'star' },
+    { t: 'Formulaire qui marche', d: 'Pas un formulaire qui disparaît dans le vide. Alerte par email + SMS direct à vous.', icon: 'mail' },
+    { t: 'Support humain', d: 'Un numéro, une vraie personne. Pas de ticket, pas de bot. Alexandre décroche, ou vous rappelle.', icon: 'phone' },
+  ];
+  return (
+    <section className="sec" style={{ padding: '6rem 1.75rem', background: 'var(--mea-cream)' }}>
+      <div style={{ maxWidth: 1360, margin: '0 auto' }}>
+        <SectionLabel number="04" title={<>Ce qui est dans la boîte.<br/><span style={{ color: 'var(--mea-orange-deep)' }}>Tout.</span></>} kicker="Pas d'option cachée, pas de module à 30€/mois" />
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0, border: '1.5px solid var(--mea-dark)' }} className="feats-grid">
+          {feats.map((f, i) => <FeatCard key={i} {...f} i={i} />)}
+        </div>
+      </div>
+      <style>{`@media (max-width: 900px) { .feats-grid { grid-template-columns: repeat(2, 1fr) !important; } } @media (max-width: 560px) { .feats-grid { grid-template-columns: 1fr !important; } }`}</style>
+    </section>
+  );
+}
+
+function FeatCard({ t, d, icon, i }) {
+  const [hover, setHover] = useState(false);
+  return (
+    <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} style={{ padding: '1.5rem 1.25rem 1.75rem', borderRight: (i + 1) % 4 === 0 ? 'none' : '1.5px solid var(--mea-dark)', borderBottom: i < 4 ? '1.5px solid var(--mea-dark)' : 'none', background: hover ? 'var(--mea-orange)' : 'var(--mea-white)', transition: 'background 0.15s', minHeight: 220 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.25rem' }}>
+        <FeatIcon kind={icon} />
+        <span className="mono uppercase" style={{ fontSize: '0.6rem', color: 'var(--mea-gray)' }}>/ {String(i + 1).padStart(2, '0')}</span>
+      </div>
+      <h3 className="display" style={{ fontSize: '1.15rem', marginBottom: '0.5rem' }}>{t}</h3>
+      <p style={{ fontSize: '0.85rem', lineHeight: 1.5, color: 'var(--mea-dark-2)' }}>{d}</p>
+    </div>
+  );
+}
+
+function FeatIcon({ kind }) {
+  const s = 'var(--mea-dark)'; const sz = 32;
+  switch (kind) {
+    case 'mobile': return <svg width={sz} height={sz} viewBox="0 0 32 32" fill="none"><rect x="9" y="3" width="14" height="26" rx="2" stroke={s} strokeWidth="2"/><line x1="13" y1="25" x2="19" y2="25" stroke={s} strokeWidth="2" strokeLinecap="round"/></svg>;
+    case 'seo': return <svg width={sz} height={sz} viewBox="0 0 32 32" fill="none"><circle cx="13" cy="13" r="8" stroke={s} strokeWidth="2"/><line x1="20" y1="20" x2="28" y2="28" stroke={s} strokeWidth="2.5" strokeLinecap="round"/><text x="13" y="17" textAnchor="middle" fontFamily="Archivo Black" fontSize="8" fill={s}>G</text></svg>;
+    case 'speed': return <svg width={sz} height={sz} viewBox="0 0 32 32" fill="none"><path d="M4 24 A 12 12 0 0 1 28 24" stroke={s} strokeWidth="2" fill="none"/><line x1="16" y1="24" x2="24" y2="12" stroke="var(--mea-orange-deep)" strokeWidth="3" strokeLinecap="round"/><circle cx="16" cy="24" r="2.5" fill={s}/></svg>;
+    case 'lock': return <svg width={sz} height={sz} viewBox="0 0 32 32" fill="none"><rect x="6" y="14" width="20" height="14" stroke={s} strokeWidth="2" fill="none"/><path d="M10 14 V 10 A 6 6 0 0 1 22 10 V 14" stroke={s} strokeWidth="2" fill="none"/><circle cx="16" cy="21" r="2" fill={s}/></svg>;
+    case 'map': return <svg width={sz} height={sz} viewBox="0 0 32 32" fill="none"><path d="M16 4 C 10 4 6 8 6 14 C 6 22 16 28 16 28 C 16 28 26 22 26 14 C 26 8 22 4 16 4 Z" stroke={s} strokeWidth="2" fill="none"/><circle cx="16" cy="14" r="3" fill={s}/></svg>;
+    case 'star': return <svg width={sz} height={sz} viewBox="0 0 32 32" fill="none"><path d="M16 4 L 19.5 12.5 L 28 13 L 21 19 L 23 27.5 L 16 23 L 9 27.5 L 11 19 L 4 13 L 12.5 12.5 Z" fill={s}/></svg>;
+    case 'mail': return <svg width={sz} height={sz} viewBox="0 0 32 32" fill="none"><rect x="4" y="7" width="24" height="18" stroke={s} strokeWidth="2" fill="none"/><path d="M4 9 L 16 18 L 28 9" stroke={s} strokeWidth="2" fill="none"/></svg>;
+    case 'phone': return <svg width={sz} height={sz} viewBox="0 0 32 32" fill="none"><path d="M8 4 C 8 4 8 8 10 12 C 12 16 16 20 20 22 C 24 24 28 24 28 24 L 28 28 L 24 28 C 14 26 6 18 4 8 L 4 4 L 8 4 Z" stroke={s} strokeWidth="2" fill="none"/></svg>;
+    default: return null;
+  }
+}
+
+// ─── COMPARE SECTION ─────────────────────────────────────────────────────────
+function CompareSection() {
+  const bads = [
+    'Pas de site = invisible sur Google',
+    'Vos clients partent à la concurrence trouvable en ligne',
+    'Les agences demandent 2 500€ et 3 mois de délai',
+    'Les formulaires ne fonctionnent jamais sur mobile',
+    'Personne pour répondre quand vous avez une question',
+  ];
+  const goods = [
+    'En ligne et trouvable en 24h chrono',
+    'Votre téléphone sonne grâce aux vrais clients locaux',
+    'Tarif clair dès le départ : à partir de 290€, sans surprise',
+    'Formulaire de contact qui fonctionne vraiment (mobile inclus)',
+    'Un humain au bout du fil, pas un chatbot',
+  ];
+  return (
+    <section style={{ padding: '6rem 1.75rem', background: 'var(--mea-cream)', borderTop: '1.5px solid var(--mea-dark)' }}>
+      <div style={{ maxWidth: 1360, margin: '0 auto' }}>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', marginBottom: '2.5rem', flexWrap: 'wrap' }}>
+          <div className="mono uppercase" style={{ fontSize: '0.72rem', color: 'var(--mea-orange-deep)' }}>/ 04bis</div>
+          <div style={{ height: 1, flex: '0 0 40px', background: 'var(--mea-dark)' }} />
+          <h2 className="display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', lineHeight: 1.05, flex: 1 }}>Vous méritez mieux<br/>qu'une page Facebook.</h2>
+          <div className="mono uppercase" style={{ fontSize: '0.72rem', color: 'var(--mea-gray)', maxWidth: 260, textAlign: 'right' }}>Vos clients vous cherchent sur Google. Si vous n'êtes pas là, c'est votre concurrent qui récupère le chantier.</div>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }} className="compare-grid">
+          <BCard style={{ padding: '2rem' }}>
+            <div className="display" style={{ fontSize: '0.88rem', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '1.5rem', color: 'var(--mea-gray)' }}>😤 La réalité de beaucoup d'artisans</div>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
+              {bads.map((t, i) => (
+                <li key={i} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', fontSize: '0.98rem', lineHeight: 1.4 }}>
+                  <span style={{ color: '#c0392b', fontWeight: 700, flexShrink: 0 }}>✗</span>
+                  <span style={{ color: 'var(--mea-dark-2)' }}>{t}</span>
+                </li>
+              ))}
+            </ul>
+          </BCard>
+          <BCard accent style={{ padding: '2rem', background: 'var(--mea-dark)', color: 'var(--mea-cream)' }}>
+            <div className="display" style={{ fontSize: '0.88rem', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '1.5rem', color: 'var(--mea-orange)' }}>✅ Avec Mon Espace Artisan</div>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
+              {goods.map((t, i) => (
+                <li key={i} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', fontSize: '0.98rem', lineHeight: 1.4 }}>
+                  <span style={{ color: 'var(--mea-orange)', fontWeight: 700, flexShrink: 0 }}>✓</span>
+                  <span style={{ color: 'rgba(244,239,230,0.88)' }}>{t}</span>
+                </li>
+              ))}
+            </ul>
+          </BCard>
+        </div>
+      </div>
+      <style>{`@media (max-width: 900px) { .compare-grid { grid-template-columns: 1fr !important; } }`}</style>
+    </section>
+  );
+}
+
+// ─── ABOUT ───────────────────────────────────────────────────────────────────
+function About() {
+  return (
+    <section id="equipe" className="sec" style={{ padding: '6rem 1.75rem', background: 'var(--mea-white)', borderTop: '1.5px solid var(--mea-dark)', borderBottom: '1.5px solid var(--mea-dark)' }}>
+      <div style={{ maxWidth: 1360, margin: '0 auto' }}>
+        <SectionLabel number="05" title={<>Deux personnes.<br/>Pas une agence.</>} kicker="Un commercial, un builder. C'est tout." />
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }} className="about-grid">
+          <Person name="Aurélie Jarnet" role="Co-fondatrice — commerce + brief" desc={<>Après plusieurs années dans la communication digitale, je mets mes compétences au service des artisans. Mon aspiration : aider les entreprises du secteur à développer leur notoriété en simplifiant la partie visibilité.</>} tags={['brief client', 'rédaction', 'relecture', 'livraison']} photo="assets/team/aurelie.jpg" photoPos="center center" bg="var(--mea-orange)" />
+          <Person name="Alexandre Denel" role="Co-fondateur — build + tech" desc={<>J'ai grandi avec internet comme terrain de jeu. La technologie m'a toujours fasciné — pas pour ce qu'elle est, mais pour ce qu'elle libère : du temps, de l'énergie, de la clarté.</>} tags={['design', 'code', 'SEO', 'déploiement']} photo="assets/team/alexandre.jpg" photoPos="center 20%" bg="var(--mea-dark)" dark />
+        </div>
+        <div style={{ marginTop: '2.5rem', padding: '2rem', background: 'var(--mea-paper)', border: '1.5px solid var(--mea-dark)', display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '2rem', alignItems: 'center' }} className="manifesto">
+          <div className="display" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', lineHeight: 0.9, color: 'var(--mea-orange-deep)' }}>«</div>
+          <div>
+            <p style={{ fontSize: '1.15rem', lineHeight: 1.45, color: 'var(--mea-dark)' }}>
+              On ne sait pas réparer une fuite, poser du carrelage ou accompagner un deuil — mais on sait construire un site qui <strong>vous ressemble</strong> et qui <strong>fait venir des clients</strong>. C'est notre métier. C'est tout ce qu'on fait.
+            </p>
+            <div className="mono uppercase" style={{ fontSize: '0.72rem', color: 'var(--mea-gray)', marginTop: '1rem', letterSpacing: '0.12em' }}>— Le manifeste MEA · Normandie · 2026</div>
+          </div>
+        </div>
+      </div>
+      <style>{`@media (max-width: 900px) { .about-grid, .manifesto { grid-template-columns: 1fr !important; } }`}</style>
+    </section>
+  );
+}
+
+function Person({ name, role, desc, tags, initials, photo, photoPos = 'center 20%', bg, dark }) {
+  const text = dark ? 'var(--mea-cream)' : 'var(--mea-dark)';
+  return (
+    <div style={{ background: bg, color: text, border: '1.5px solid var(--mea-dark)', padding: '1.75rem', minHeight: 340, position: 'relative', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+        {photo ? (
+          <div style={{ width: 160, height: 160, border: '1.5px solid var(--mea-dark)', overflow: 'hidden', flexShrink: 0 }}>
+            <img src={photo} alt={`Photo de ${name}`} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: photoPos, display: 'block' }} loading="lazy" />
+          </div>
+        ) : (
+          <div className="display" style={{ width: 160, height: 160, background: dark ? 'var(--mea-orange)' : 'var(--mea-dark)', color: dark ? 'var(--mea-dark)' : 'var(--mea-cream)', display: 'grid', placeItems: 'center', fontSize: '2.8rem', border: '1.5px solid var(--mea-dark)', flexShrink: 0 }}>{initials}</div>
+        )}
+        <div>
+          <div className="display" style={{ fontSize: '1.5rem', lineHeight: 1 }}>{name}</div>
+          <div className="mono uppercase" style={{ fontSize: '0.68rem', marginTop: 4, opacity: dark ? 0.7 : 0.6, letterSpacing: '0.12em' }}>{role}</div>
+        </div>
+      </div>
+      <p style={{ fontSize: '0.98rem', lineHeight: 1.5, flex: 1 }}>{desc}</p>
+      <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
+        {tags.map(t => <span key={t} className="mono uppercase" style={{ fontSize: '0.62rem', padding: '0.25rem 0.5rem', border: `1.5px solid ${text}`, letterSpacing: '0.1em' }}>{t}</span>)}
+      </div>
+    </div>
+  );
+}
+
+// ─── TESTIMONIALS ─────────────────────────────────────────────────────────────
+function Testimonials() {
+  const items = [
+    { text: "J'étais méfiant au départ. Mais en 24h mon site était en ligne, et la semaine suivante j'avais déjà deux appels de nouveaux clients.", name: "Thierry M.", job: "Plombier" },
+    { text: "Ils ont tout géré sans me prendre la tête avec des termes techniques. J'ai juste donné mes photos et mes infos, le reste c'est eux.", name: "Isabelle R.", job: "Peintre" },
+    { text: "J'avais peur d'être coincé avec un contrat. Pas du tout ici. Et le fait que ce soit quelqu'un qui comprend notre réalité, ça fait une vraie différence.", name: "Franck D.", job: "Électricien" },
+  ];
+  return (
+    <section style={{ padding: '6rem 1.75rem', background: 'var(--mea-cream)', borderTop: '1.5px solid var(--mea-dark)' }}>
+      <div style={{ maxWidth: 1360, margin: '0 auto' }}>
+        <SectionLabel number="06" title={<>Ce qu'ils<br/>en disent.</>} kicker="Artisans · clients réels · paroles non filtrées" />
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }} className="testi-grid">
+          {items.map((t, i) => (
+            <BCard key={i} style={{ padding: '2rem', position: 'relative', minHeight: 240, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }} accent={i === 1}>
+              <div className="display" style={{ fontSize: '3.5rem', position: 'absolute', top: 4, right: 14, color: 'var(--mea-orange)', lineHeight: 1, opacity: 0.4 }}>"</div>
+              <p style={{ fontSize: '1.02rem', lineHeight: 1.6, fontStyle: 'italic', color: 'var(--mea-dark-2)', flex: 1, marginBottom: '1.5rem' }}>{t.text}</p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', paddingTop: '1rem', borderTop: '1.5px solid var(--mea-dark)' }}>
+                <div className="display" style={{ width: 42, height: 42, background: 'var(--mea-dark)', color: 'var(--mea-cream)', display: 'grid', placeItems: 'center', fontSize: '0.9rem', flexShrink: 0 }}>
+                  {t.name.split(' ').map((w) => w[0]).join('')}
+                </div>
+                <div>
+                  <div className="display" style={{ fontSize: '1rem' }}>{t.name}</div>
+                  <div className="mono uppercase" style={{ fontSize: '0.6rem', color: 'var(--mea-gray)', marginTop: 2 }}>{t.job}</div>
+                </div>
+              </div>
+            </BCard>
+          ))}
+        </div>
+      </div>
+      <style>{`@media (max-width: 900px) { .testi-grid { grid-template-columns: 1fr !important; } }`}</style>
+    </section>
+  );
+}
+
+// ─── FAQ ─────────────────────────────────────────────────────────────────────
+function FAQ() {
+  const items = [
+    { q: "Vraiment livré en 48h ?", a: "Oui, à condition que vous nous fournissiez vos infos rapidement (textes, photos, coordonnées). On lance la création dès notre premier appel." },
+    { q: "Et si je veux m'arrêter ?", a: "Vous prévenez un mois à l'avance, c'est terminé. Aucune pénalité, aucun frais caché. Le site vous appartient si vous avez choisi de le récupérer." },
+    { q: "Je ne m'y connais pas en informatique ?", a: "C'est même fait pour ça. Vous nous expliquez votre métier, on s'occupe du reste." },
+    { q: "La mensualité sert à quoi ?", a: "Hébergement, maintenance technique, mises à jour de sécurité et support. On gère tout en arrière-plan." },
+    { q: "Mon site sera visible sur Google ?", a: "Tous nos sites sont optimisés pour le SEO local. Le pack Pro inclut la création de votre fiche Google Business Profile. Résultats en 2-3 mois." },
+    { q: "Ai-je un droit de rétractation ?", a: "Oui, 14 jours conformément à la loi française." },
+  ];
+  const [open, setOpen] = useState(0);
+  return (
+    <section id="faq" className="sec" style={{ padding: '6rem 1.75rem', background: 'var(--mea-paper)' }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+        <SectionLabel number="07" title={<>Questions.<br/>Vraies réponses.</>} kicker="Six fois sur dix, c'est l'une de celles-ci" />
+        <div style={{ border: '1.5px solid var(--mea-dark)' }}>
+          {items.map((it, i) => <FaqRow key={i} {...it} i={i} isOpen={open === i} onClick={() => setOpen(open === i ? -1 : i)} total={items.length} />)}
+        </div>
+        <div className="mono uppercase" style={{ fontSize: '0.72rem', color: 'var(--mea-gray)', marginTop: '1.5rem', textAlign: 'center' }}>
+          Autre question ? SMS Alexandre au{' '}
+          <a href="tel:+33629817069" style={{ borderBottom: '1.5px solid var(--mea-orange-deep)', color: 'var(--mea-orange-deep)' }}>06 29 81 70 69</a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FaqRow({ q, a, i, isOpen, onClick, total }) {
+  return (
+    <div style={{ borderBottom: i < total - 1 ? '1.5px solid var(--mea-dark)' : 'none', background: isOpen ? 'var(--mea-white)' : 'transparent' }}>
+      <button onClick={onClick} style={{ width: '100%', padding: '1.25rem 1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', textAlign: 'left' }}>
+        <span className="mono uppercase" style={{ fontSize: '0.68rem', color: 'var(--mea-gray)', minWidth: 32 }}>/ {String(i + 1).padStart(2, '0')}</span>
+        <span className="display" style={{ fontSize: '1.05rem', flex: 1, letterSpacing: '-0.005em' }}>{q}</span>
+        <span className="display" style={{ width: 28, height: 28, display: 'grid', placeItems: 'center', border: '1.5px solid var(--mea-dark)', background: isOpen ? 'var(--mea-orange)' : 'transparent', transition: 'all 0.15s', fontSize: '1.1rem' }}>{isOpen ? '−' : '+'}</span>
+      </button>
+      <div style={{ maxHeight: isOpen ? 400 : 0, overflow: 'hidden', transition: 'max-height 0.3s ease' }}>
+        <div style={{ padding: '0 1.5rem 1.5rem 4.25rem', fontSize: '0.98rem', lineHeight: 1.55, color: 'var(--mea-dark-2)' }}>{a}</div>
+      </div>
+    </div>
+  );
+}
+
+// ─── CTA ─────────────────────────────────────────────────────────────────────
+function CTA() {
+  const [step, setStep] = useState(0);
+  const [metier, setMetier] = useState('');
+  const [ville, setVille] = useState('');
+  const [date, setDate] = useState(null);
+
+  const days = useMemo(() => {
+    const d = [];
+    const now = new Date();
+    for (let i = 0; i < 14; i++) {
+      const dd = new Date(now); dd.setDate(now.getDate() + i);
+      if (dd.getDay() === 0 || dd.getDay() === 6) continue;
+      d.push(dd);
+    }
+    return d.slice(0, 8);
+  }, []);
+
+  const slots = ['09:00', '10:30', '14:00', '15:30', '17:00'];
+  const dayLabels = ['Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa', 'Di'];
+  const months = ['jan', 'fév', 'mars', 'avr', 'mai', 'juin', 'juil', 'août', 'sept', 'oct', 'nov', 'déc'];
+
+  return (
+    <section id="rdv" className="sec" style={{ padding: '6rem 1.75rem', background: 'var(--mea-dark)', color: 'var(--mea-cream)' }}>
+      <div style={{ maxWidth: 1360, margin: '0 auto' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.1fr', gap: '3rem' }} className="cta-grid">
+          <div>
+            <div className="mono uppercase" style={{ fontSize: '0.72rem', color: 'var(--mea-orange)', marginBottom: '1rem' }}>/ 08 — le chantier commence ici</div>
+            <h2 className="display" style={{ fontSize: 'clamp(2.2rem, 5.5vw, 4.5rem)', lineHeight: 0.9, letterSpacing: '-0.02em' }}>
+              On se <span style={{ background: 'var(--mea-orange)', color: 'var(--mea-dark)', padding: '0 0.1em' }}>parle</span><br/>20 minutes ?
+            </h2>
+            <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', lineHeight: 1.5, maxWidth: 440, color: 'var(--mea-gray-2)' }}>
+              Aurélie décroche. Vous lui dites votre métier, votre ville, ce que vous aimeriez — elle vous dit si on peut vous aider ou pas. Pas de présentation PowerPoint.
+            </p>
+            <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              {[{ icon: '⏱', t: '20 min chrono', s: 'On respecte votre temps.' }, { icon: '☎', t: 'Par téléphone ou visio', s: 'Vous choisissez.' }, { icon: '€', t: 'Gratuit, sans engagement', s: "Même si on ne travaille pas ensemble." }].map((x, i) => (
+                <div key={i} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start', padding: '0.8rem 0', borderTop: '1px solid rgba(244,239,230,0.12)' }}>
+                  <span className="display" style={{ fontSize: '1.4rem', color: 'var(--mea-orange)', width: 24 }}>{x.icon}</span>
+                  <div><div className="display" style={{ fontSize: '1rem' }}>{x.t}</div><div className="mono uppercase" style={{ fontSize: '0.68rem', color: 'var(--mea-gray-2)', marginTop: 2 }}>{x.s}</div></div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div style={{ background: 'var(--mea-cream)', color: 'var(--mea-dark)', border: '1.5px solid var(--mea-cream)', boxShadow: '12px 12px 0 0 var(--mea-orange)', overflow: 'hidden' }}>
+            <div style={{ padding: '1.25rem 1.5rem', borderBottom: '1.5px solid var(--mea-dark)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div><div className="mono uppercase" style={{ fontSize: '0.65rem', color: 'var(--mea-gray)' }}>Mon Espace Artisan</div><div className="display" style={{ fontSize: '1.1rem', marginTop: 2 }}>Appel brief — 20 min</div></div>
+              <div className="mono uppercase" style={{ fontSize: '0.62rem', color: 'var(--mea-orange-deep)' }}>étape {step + 1} / 3</div>
+            </div>
+            <div style={{ padding: '1.5rem', minHeight: 380 }}>
+              {step === 0 && (<>
+                <div className="mono uppercase" style={{ fontSize: '0.7rem', marginBottom: '1rem', letterSpacing: '0.12em' }}>1. Dites-nous qui vous êtes</div>
+                <Field label="Votre métier" value={metier} setValue={setMetier} placeholder="ex : plombier, kiné, boulanger…" />
+                <Field label="Votre ville" value={ville} setValue={setVille} placeholder="ex : Rennes" />
+                <button onClick={() => setStep(1)} disabled={!metier || !ville} className="btn-primary" style={{ marginTop: '1.25rem', width: '100%', justifyContent: 'center', opacity: (!metier || !ville) ? 0.35 : 1, cursor: (!metier || !ville) ? 'not-allowed' : 'pointer' }}>Continuer → choisir un créneau</button>
+              </>)}
+              {step === 1 && (<>
+                <div className="mono uppercase" style={{ fontSize: '0.7rem', marginBottom: '1rem', letterSpacing: '0.12em' }}>2. Choisissez un créneau</div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.5rem', marginBottom: '1rem' }}>
+                  {days.map((d, i) => {
+                    const active = date && date.day === i;
+                    return (
+                      <button key={i} onClick={() => setDate({ day: i, d, slot: null })} style={{ padding: '0.75rem 0.25rem', border: '1.5px solid var(--mea-dark)', background: active ? 'var(--mea-dark)' : 'var(--mea-white)', color: active ? 'var(--mea-cream)' : 'var(--mea-dark)', textAlign: 'center' }}>
+                        <div className="mono uppercase" style={{ fontSize: '0.58rem', letterSpacing: '0.1em' }}>{dayLabels[(d.getDay() + 6) % 7]}</div>
+                        <div className="display" style={{ fontSize: '1.1rem', margin: '2px 0' }}>{d.getDate()}</div>
+                        <div className="mono uppercase" style={{ fontSize: '0.55rem', color: active ? 'var(--mea-orange)' : 'var(--mea-gray)' }}>{months[d.getMonth()]}</div>
+                      </button>
+                    );
+                  })}
+                </div>
+                {date && (<>
+                  <div className="mono uppercase" style={{ fontSize: '0.68rem', marginBottom: '0.6rem', color: 'var(--mea-gray)' }}>créneaux du {date.d.getDate()} {months[date.d.getMonth()]}</div>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '0.4rem' }}>
+                    {slots.map((s) => (
+                      <button key={s} onClick={() => setDate({ ...date, slot: s })} className="mono uppercase" style={{ padding: '0.7rem 0.3rem', border: '1.5px solid var(--mea-dark)', background: date.slot === s ? 'var(--mea-orange)' : 'var(--mea-white)', fontSize: '0.72rem', letterSpacing: '0.08em' }}>{s}</button>
+                    ))}
+                  </div>
+                </>)}
+                <button onClick={() => date && date.slot && setStep(2)} disabled={!date || !date.slot} className="btn-primary" style={{ marginTop: '1.25rem', width: '100%', justifyContent: 'center', opacity: (!date || !date.slot) ? 0.35 : 1, cursor: (!date || !date.slot) ? 'not-allowed' : 'pointer' }}>Valider ce créneau →</button>
+              </>)}
+              {step === 2 && (
+                <div style={{ textAlign: 'center', paddingTop: '2rem' }}>
+                  <div style={{ display: 'inline-block', transform: 'rotate(-6deg)', marginBottom: '1.5rem' }}>
+                    <span className="stamp" style={{ fontSize: '1.1rem', padding: '0.3rem 0.9rem', color: 'var(--mea-orange-deep)' }}>Calé ✓</span>
+                  </div>
+                  <h3 className="display" style={{ fontSize: '1.6rem', lineHeight: 1.1, marginBottom: '0.5rem' }}>À {date.slot}, le {date.d.getDate()} {months[date.d.getMonth()]}</h3>
+                  <p style={{ fontSize: '0.92rem', color: 'var(--mea-dark-2)', maxWidth: 320, margin: '0 auto', lineHeight: 1.5 }}>Aurélie vous appelle ({metier} à {ville}). Un SMS de rappel arrive la veille. Si vous devez annuler, un simple mot suffit.</p>
+                  <button onClick={() => { setStep(0); setMetier(''); setVille(''); setDate(null); }} className="mono uppercase" style={{ marginTop: '1.5rem', fontSize: '0.7rem', color: 'var(--mea-gray)', borderBottom: '1px solid var(--mea-gray)' }}>recommencer</button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+      <style>{`@media (max-width: 900px) { .cta-grid { grid-template-columns: 1fr !important; } }`}</style>
+    </section>
+  );
+}
+
+function Field({ label, value, setValue, placeholder }) {
+  return (
+    <div style={{ marginBottom: '0.9rem' }}>
+      <label className="mono uppercase" style={{ fontSize: '0.65rem', color: 'var(--mea-gray)', display: 'block', marginBottom: 4, letterSpacing: '0.12em' }}>{label}</label>
+      <input type="text" value={value} onChange={(e) => setValue(e.target.value)} placeholder={placeholder} style={{ width: '100%', padding: '0.75rem 0.9rem', border: '1.5px solid var(--mea-dark)', background: 'var(--mea-white)', fontFamily: 'Archivo, sans-serif', fontSize: '0.95rem', outline: 'none' }}
+        onFocus={(e) => e.target.style.boxShadow = '4px 4px 0 0 var(--mea-orange)'}
+        onBlur={(e) => e.target.style.boxShadow = 'none'}
+      />
+    </div>
+  );
+}
+
+// ─── FOOTER ──────────────────────────────────────────────────────────────────
+function Footer() {
+  return (
+    <footer style={{ background: 'var(--mea-dark)', color: 'var(--mea-cream)', padding: '3rem 1.75rem 1.5rem', borderTop: '1.5px solid var(--mea-orange)' }}>
+      <div style={{ maxWidth: 1360, margin: '0 auto' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1.3fr 1fr 1fr 1fr', gap: '2rem', marginBottom: '3rem' }} className="foot-grid">
+          <div>
+            <div className="display" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', lineHeight: 0.9, letterSpacing: '-0.03em' }}>M<span style={{ color: 'var(--mea-orange)' }}>E</span>A</div>
+            <div style={{ height: 3, width: 60, background: 'var(--mea-orange)', margin: '0.5rem 0 1rem' }} />
+            <div className="mono uppercase" style={{ fontSize: '0.72rem', letterSpacing: '0.16em' }}>Mon Espace Artisan</div>
+            <div className="mono uppercase" style={{ fontSize: '0.62rem', color: 'var(--mea-gray-2)', marginTop: 2 }}>Votre Atelier Numérique ⚒</div>
+            <p style={{ marginTop: '1.25rem', fontSize: '0.88rem', color: 'var(--mea-gray-2)', maxWidth: 280, lineHeight: 1.5 }}>Votre site internet en 48h, créé par un humain. Sans jargon, sans engagement.</p>
+          </div>
+          <FootCol title="Naviguer" links={[{ l: 'Accueil', h: '#' }, { l: 'Tarifs', h: '#offre' }, { l: 'Nos métiers', h: 'nos-metiers.html' }, { l: 'À propos', h: '#equipe' }, { l: 'Contact', h: '#rdv' }]}/>
+          <FootCol title="Nos métiers" links={[{ l: 'Plombier', h: 'nos-metiers.html#plombier' }, { l: 'Électricien', h: 'nos-metiers.html#electricien' }, { l: 'Peintre', h: 'nos-metiers.html#peintre' }, { l: 'Menuisier', h: 'nos-metiers.html#menuisier' }, { l: 'Couvreur', h: 'nos-metiers.html#couvreur' }, { l: 'Paysagiste', h: 'nos-metiers.html#paysagiste' }]}/>
+          <FootCol title="Contact & légal" links={[{ l: '06 29 81 70 69', h: 'tel:+33629817069' }, { l: 'contact@mon-espace-artisan.fr', h: 'mailto:contact@mon-espace-artisan.fr' }, { l: 'Mentions légales', h: '#' }, { l: 'CGV', h: 'cgv.html' }, { l: 'Confidentialité', h: 'confidentialite.html' }]}/>
+        </div>
+        <div style={{ borderTop: '1px solid rgba(244,239,230,0.2)', paddingTop: '1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }} className="mono uppercase">
+          <div style={{ fontSize: '0.65rem', color: 'var(--mea-gray-2)' }}>© 2026 Mon Espace Artisan · Basé en Normandie (76)</div>
+          <div style={{ fontSize: '0.65rem', color: 'var(--mea-gray-2)' }}>Assemblé à la main · hébergé sur Cloudflare</div>
+        </div>
+      </div>
+      <style>{`@media (max-width: 900px) { .foot-grid { grid-template-columns: 1fr 1fr !important; } } @media (max-width: 560px) { .foot-grid { grid-template-columns: 1fr !important; } }`}</style>
+    </footer>
+  );
+}
+
+function FootCol({ title, links }) {
+  return (
+    <div>
+      <div className="mono uppercase" style={{ fontSize: '0.7rem', color: 'var(--mea-orange)', marginBottom: '1rem', letterSpacing: '0.14em' }}>{title}</div>
+      <ul style={{ listStyle: 'none' }}>
+        {links.map((l) => (
+          <li key={l.l} style={{ padding: '0.35rem 0' }}>
+            <a href={l.h} style={{ fontSize: '0.88rem' }}>{l.l}{l.note && <span className="mono uppercase" style={{ fontSize: '0.6rem', color: 'var(--mea-gray-2)', marginLeft: 6 }}>({l.note})</span>}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+// ─── TWEAKS ──────────────────────────────────────────────────────────────────
+function Tweaks({ settings, setSettings }) {
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (!e.data) return;
+      if (e.data.type === '__activate_edit_mode') setActive(true);
+      if (e.data.type === '__deactivate_edit_mode') setActive(false);
+    };
+    window.addEventListener('message', handler);
+    window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+    return () => window.removeEventListener('message', handler);
+  }, []);
+
+  const update = (k, v) => {
+    const next = { ...settings, [k]: v };
+    setSettings(next);
+    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [k]: v } }, '*');
+  };
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (settings.palette === 'warm') {
+      root.style.setProperty('--mea-orange', '#dd8142'); root.style.setProperty('--mea-orange-deep', '#b8632a');
+      root.style.setProperty('--mea-cream', '#f4efe6'); root.style.setProperty('--mea-paper', '#eee7d8');
+    } else if (settings.palette === 'bold') {
+      root.style.setProperty('--mea-orange', '#ea6a20'); root.style.setProperty('--mea-orange-deep', '#b84a10');
+      root.style.setProperty('--mea-cream', '#f2ede2'); root.style.setProperty('--mea-paper', '#e8e0cf');
+    } else if (settings.palette === 'muted') {
+      root.style.setProperty('--mea-orange', '#c88658'); root.style.setProperty('--mea-orange-deep', '#996a42');
+      root.style.setProperty('--mea-cream', '#f6f3ec'); root.style.setProperty('--mea-paper', '#ede8dc');
+    } else if (settings.palette === 'dark') {
+      root.style.setProperty('--mea-orange', '#dd8142'); root.style.setProperty('--mea-orange-deep', '#e89050');
+      root.style.setProperty('--mea-cream', '#1a1a1a'); root.style.setProperty('--mea-paper', '#242424');
+      root.style.setProperty('--mea-dark', '#f0ede6'); root.style.setProperty('--mea-dark-2', '#d9d5cc');
+      return () => { root.style.setProperty('--mea-dark', '#1c1c1c'); root.style.setProperty('--mea-dark-2', '#2d2d2d'); };
+    }
+    if (settings.palette !== 'dark') {
+      root.style.setProperty('--mea-dark', '#1c1c1c'); root.style.setProperty('--mea-dark-2', '#2d2d2d');
+    }
+  }, [settings.palette]);
+
+  useEffect(() => { document.body.dataset.density = settings.density; }, [settings.density]);
+
+  if (!active) return null;
+
+  return (
+    <div className="tweak-panel">
+      <h4>⚒ Tweaks</h4>
+      <div className="tweak-row">
+        <span>Palette</span>
+        <div className="swatch-row">
+          {[{ k: 'warm', c: '#dd8142' }, { k: 'bold', c: '#ea6a20' }, { k: 'muted', c: '#c88658' }, { k: 'dark', c: '#1a1a1a' }].map((s) => (
+            <div key={s.k} onClick={() => update('palette', s.k)} className="swatch" style={{ background: s.c, outline: settings.palette === s.k ? '2px solid var(--mea-orange)' : 'none', outlineOffset: 2 }} title={s.k} />
+          ))}
+        </div>
+      </div>
+      <div className="tweak-row">
+        <span>Densité</span>
+        <div className="seg">
+          {['compact', 'default', 'cozy'].map((d) => <button key={d} onClick={() => update('density', d)} className={settings.density === d ? 'on' : ''}>{d[0]}</button>)}
+        </div>
+      </div>
+      <div className="tweak-row">
+        <span>Hero</span>
+        <div className="seg">
+          {[{ k: 'typographic', l: 'T' }, { k: 'hammerfocus', l: 'H' }, { k: 'statement', l: 'S' }].map((v) => (
+            <button key={v.k} onClick={() => update('heroVariant', v.k)} className={settings.heroVariant === v.k ? 'on' : ''} title={v.k}>{v.l}</button>
+          ))}
+        </div>
+      </div>
+      <div style={{ marginTop: '0.8rem', paddingTop: '0.6rem', borderTop: '1px dashed var(--mea-dark)', fontSize: '0.62rem', color: 'var(--mea-gray)', textTransform: 'none', letterSpacing: 0 }}>Trois réglages sauvegardés dans le fichier</div>
+    </div>
+  );
+}
+
+// ─── APP ─────────────────────────────────────────────────────────────────────
+function App() {
+  const [settings, setSettings] = useState(window.TWEAKS);
+  return (
+    <>
+      <Navbar />
+      <Hero />
+      <Marquee />
+      <ExemplesArtisans />
+      <Process />
+      <Offer />
+      <Included />
+      <CompareSection />
+      <About />
+      <Testimonials />
+      <FAQ />
+      <CTA />
+      <Footer />
+      <Tweaks settings={settings} setSettings={setSettings} />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+
+<script>
+/* Parallax vidéo hero + navbar hide/show */
+(function() {
+  /* ─ parallax ─ */
+  var vid = null;
+  function getVid() { vid = document.querySelector('.hero-video-bg'); }
+  window.addEventListener('load', getVid, { once: true });
+
+  /* ─ navbar ─ */
+  var lastY = 0;
+  var navbar = null;
+  function getNavbar() { navbar = document.querySelector('header'); }
+  window.addEventListener('load', getNavbar, { once: true });
+
+  window.addEventListener('scroll', function() {
+    var y = window.pageYOffset;
+
+    /* parallax */
+    if (!vid) getVid();
+    if (vid) vid.style.transform = 'translate(-50%, calc(-50% + ' + (y * 0.4) + 'px)) scale(1.1)';
+
+    /* navbar */
+    if (!navbar) getNavbar();
+    if (navbar) {
+      if (y < 80 || y < lastY) {
+        navbar.style.transform = 'translateY(0)';
+      } else {
+        navbar.style.transform = 'translateY(-100%)';
+      }
+    }
+    lastY = y;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>

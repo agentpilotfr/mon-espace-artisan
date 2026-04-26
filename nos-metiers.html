@@ -1,0 +1,330 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%231c1c1c'/><text x='16' y='22' font-family='Arial Black,Impact,sans-serif' font-size='16' font-weight='900' text-anchor='middle' letter-spacing='-1'><tspan fill='%23f4efe6'>M</tspan><tspan fill='%23dd8142'>E</tspan><tspan fill='%23f4efe6'>A</tspan></text></svg>" />
+<title>Sites internet pour artisans — Mon Espace Artisan</title>
+<meta name="description" content="Mon Espace Artisan crée des sites internet pour tous les artisans : plombiers, électriciens, peintres, menuisiers, couvreurs, chauffagistes et plus. En 48h, à partir de 290€." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --mea-orange: #dd8142;
+    --mea-orange-deep: #b8632a;
+    --mea-dark: #1c1c1c;
+    --mea-dark-2: #2d2d2d;
+    --mea-gray: #777777;
+    --mea-gray-2: #a8a39b;
+    --mea-cream: #f4efe6;
+    --mea-paper: #eee7d8;
+    --mea-white: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--mea-cream); color: var(--mea-dark); font-family: 'Archivo', system-ui, sans-serif; font-weight: 400; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body { font-size: 16px; line-height: 1.6; }
+  h1, h2, h3 { font-family: 'Archivo Black', 'Archivo', sans-serif; letter-spacing: -0.01em; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  /* ── Navbar ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(244,239,230,0.92);
+    border-bottom: 1.5px solid var(--mea-dark);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 0.9rem 1.75rem;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: transform 0.3s ease;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; white-space: nowrap; }
+  .nav-logo-mea { font-family: 'Archivo Black', sans-serif; font-size: 2rem; line-height: 1; letter-spacing: -0.03em; color: var(--mea-dark); }
+  .nav-logo-mea span { color: var(--mea-orange); }
+  .nav-logo-name { display: flex; flex-direction: column; line-height: 1.15; border-left: 1.5px solid var(--mea-dark); padding-left: 0.55rem; }
+  .nav-logo-name span { font-family: 'Archivo Black', sans-serif; font-size: 0.85rem; letter-spacing: 0.02em; color: var(--mea-dark); }
+  .nav-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1.1rem; background: var(--mea-orange); color: var(--mea-dark); border: 1.5px solid var(--mea-dark); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.72rem; box-shadow: 4px 4px 0 0 var(--mea-dark); transition: transform 0.15s, box-shadow 0.15s; }
+  .nav-cta:hover { transform: translate(-1px,-1px); box-shadow: 6px 6px 0 0 var(--mea-dark); }
+
+  /* ── Hero ── */
+  .hero { background: var(--mea-dark); color: var(--mea-cream); padding: 5rem 1.75rem 4rem; border-bottom: 1.5px solid var(--mea-orange); }
+  .hero-inner { max-width: 1360px; margin: 0 auto; }
+  .hero h1 { font-size: clamp(2.4rem, 6vw, 5rem); line-height: 1; letter-spacing: -0.02em; margin-bottom: 1rem; }
+  .hero p { font-size: 1.1rem; color: rgba(244,239,230,0.72); max-width: 540px; line-height: 1.5; }
+  .hero-mono { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--mea-orange); margin-bottom: 1.25rem; }
+
+  /* ── Métiers grid ── */
+  .metiers { max-width: 1360px; margin: 0 auto; padding: 0 1.75rem; }
+
+  .metier-section { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 5rem 0; border-bottom: 1.5px solid rgba(28,28,28,0.12); align-items: center; }
+  .metier-section:last-child { border-bottom: none; }
+  .metier-section.reverse { direction: rtl; }
+  .metier-section.reverse > * { direction: ltr; }
+
+  .metier-photo { position: relative; border: 1.5px solid var(--mea-dark); box-shadow: 8px 8px 0 0 var(--mea-dark); overflow: hidden; }
+  .metier-photo img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; }
+
+  .metier-content { display: flex; flex-direction: column; gap: 1.5rem; }
+  .metier-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--mea-orange-deep); }
+  .metier-content h2 { font-size: clamp(1.5rem, 3vw, 2.4rem); line-height: 1.05; }
+  .metier-content p { font-size: 0.98rem; color: var(--mea-dark-2); line-height: 1.65; }
+
+  .avantages { background: var(--mea-white); border: 1.5px solid var(--mea-dark); padding: 1.5rem; }
+  .avantages-title { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--mea-gray); margin-bottom: 1rem; }
+  .avantages ul { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+  .avantages li { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.92rem; line-height: 1.4; color: var(--mea-dark-2); }
+  .avantages li::before { content: '✓'; color: var(--mea-orange); font-weight: 700; flex-shrink: 0; }
+
+  .metier-cta { display: inline-flex; align-items: center; gap: 0.65rem; padding: 1rem 1.5rem; background: var(--mea-orange); color: var(--mea-dark); border: 1.5px solid var(--mea-dark); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.82rem; box-shadow: 5px 5px 0 0 var(--mea-dark); transition: transform 0.15s, box-shadow 0.15s; width: fit-content; }
+  .metier-cta:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 0 var(--mea-dark); }
+
+  /* ── CTA final ── */
+  .section-cta { background: var(--mea-dark); color: var(--mea-cream); padding: 5rem 1.75rem; text-align: center; border-top: 1.5px solid var(--mea-orange); }
+  .section-cta h2 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; }
+  .section-cta p { color: rgba(244,239,230,0.72); font-size: 1rem; max-width: 480px; margin: 0 auto 2rem; line-height: 1.55; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+  .btn-orange { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 1.75rem; background: var(--mea-orange); color: var(--mea-dark); border: 1.5px solid var(--mea-orange); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.85rem; transition: transform 0.15s; }
+  .btn-orange:hover { transform: translateY(-2px); }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 1.75rem; background: transparent; color: var(--mea-cream); border: 1.5px solid var(--mea-cream); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.85rem; transition: background 0.15s, color 0.15s; }
+  .btn-ghost:hover { background: var(--mea-cream); color: var(--mea-dark); }
+
+  /* ── Footer ── */
+  .page-footer { background: var(--mea-dark); color: var(--mea-cream); padding: 1.5rem 1.75rem; border-top: 1.5px solid rgba(244,239,230,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--mea-gray-2); }
+  .page-footer a { color: var(--mea-gray-2); }
+  .page-footer a:hover { color: var(--mea-orange); }
+
+  @media (max-width: 900px) {
+    .metier-section { grid-template-columns: 1fr; gap: 2rem; }
+    .metier-section.reverse { direction: ltr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-mea">M<span>E</span>A</span>
+    <div class="nav-logo-name"><span>Mon Espace</span><span>Artisan</span></div>
+  </a>
+  <a href="index.html#rdv" class="nav-cta">Prendre rdv ↗</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-mono">/ Sites artisans</div>
+    <h1>Un site pour<br/>chaque artisan.</h1>
+    <p>Plombier, électricien, peintre, couvreur… Chaque métier a ses besoins. On s'adapte à vous — en 48h, à partir de 290€ HT.</p>
+  </div>
+</section>
+
+<div class="metiers">
+
+  <!-- Plombier -->
+  <section class="metier-section" id="plombier">
+    <div class="metier-photo">
+      <img src="assets/metiers/plombier.jpg" alt="Plombier au travail" loading="lazy" />
+    </div>
+    <div class="metier-content">
+      <div class="metier-badge">/ Plombier</div>
+      <h2>Site internet pour plombier à Saint-Nazaire</h2>
+      <p>En Loire-Atlantique, un plombier qui n'a pas de site web perd des clients chaque jour. Quand un robinet fuit à 21h, le premier réflexe c'est Google. Si vous n'êtes pas là, c'est votre concurrent qui décroche le téléphone.</p>
+      <div class="avantages">
+        <div class="avantages-title">Ce que votre site inclura :</div>
+        <ul>
+          <li>Votre numéro en grand sur mobile — les urgences appellent</li>
+          <li>Vos interventions listées clairement : dépannage, remplacement, installation</li>
+          <li>Zone d'intervention visible (Saint-Nazaire, Montoir, Trignac…)</li>
+          <li>Formulaire de devis rapide</li>
+        </ul>
+      </div>
+      <a href="index.html#rdv" class="metier-cta">Créer mon site plombier →</a>
+    </div>
+  </section>
+
+  <!-- Électricien -->
+  <section class="metier-section reverse" id="electricien">
+    <div class="metier-photo">
+      <img src="assets/metiers/electricien.jpg" alt="Électricien au travail" loading="lazy" />
+    </div>
+    <div class="metier-content">
+      <div class="metier-badge">/ Électricien</div>
+      <h2>Site internet pour électricien à Saint-Nazaire</h2>
+      <p>Les particuliers et entreprises de Saint-Nazaire cherchent un électricien qualifié RGE sur Google, pas dans les Pages Jaunes. Un site pro renforce la confiance et vous permet de montrer vos certifications.</p>
+      <div class="avantages">
+        <div class="avantages-title">Ce que votre site inclura :</div>
+        <ul>
+          <li>Mise en avant de vos certifications (RGE, Qualifelec…)</li>
+          <li>Page dédiée à vos services : tableau électrique, mise aux normes, domotique</li>
+          <li>Formulaire de devis pour les travaux importants</li>
+          <li>Référencement local sur les communes du 44</li>
+        </ul>
+      </div>
+      <a href="index.html#rdv" class="metier-cta">Créer mon site électricien →</a>
+    </div>
+  </section>
+
+  <!-- Peintre -->
+  <section class="metier-section" id="peintre">
+    <div class="metier-photo">
+      <img src="assets/metiers/peintre.jpg" alt="Peintre en train de peindre un mur" loading="lazy" />
+    </div>
+    <div class="metier-content">
+      <div class="metier-badge">/ Peintre</div>
+      <h2>Site internet pour peintre à Saint-Nazaire</h2>
+      <p>En peinture, les photos parlent plus que les mots. Un site avec votre book de réalisations convainc immédiatement les clients hésitants. Montrez vos chantiers, vos finitions, votre soin du travail.</p>
+      <div class="avantages">
+        <div class="avantages-title">Ce que votre site inclura :</div>
+        <ul>
+          <li>Galerie photos de vos réalisations</li>
+          <li>Description de vos spécialités : intérieur, extérieur, ravalement</li>
+          <li>Devis en ligne pour réduire les déplacements inutiles</li>
+          <li>Avis clients visibles directement sur votre site</li>
+        </ul>
+      </div>
+      <a href="index.html#rdv" class="metier-cta">Créer mon site peintre →</a>
+    </div>
+  </section>
+
+  <!-- Menuisier -->
+  <section class="metier-section reverse" id="menuisier">
+    <div class="metier-photo">
+      <img src="assets/metiers/menuisier.jpg" alt="Atelier de menuiserie" loading="lazy" />
+    </div>
+    <div class="metier-content">
+      <div class="metier-badge">/ Menuisier</div>
+      <h2>Site internet pour menuisier à Saint-Nazaire</h2>
+      <p>Fenêtres, portes, escaliers, agencement sur mesure — la menuiserie c'est du beau travail. Autant que les clients le voient avant même d'appeler. Un site bien fait valorise votre savoir-faire artisanal.</p>
+      <div class="avantages">
+        <div class="avantages-title">Ce que votre site inclura :</div>
+        <ul>
+          <li>Portfolio de vos créations sur mesure</li>
+          <li>Pages par spécialité : fenêtres, portes, escaliers, dressing…</li>
+          <li>Formulaire de demande de devis détaillé</li>
+          <li>Mise en avant du fait main et du local</li>
+        </ul>
+      </div>
+      <a href="index.html#rdv" class="metier-cta">Créer mon site menuisier →</a>
+    </div>
+  </section>
+
+  <!-- Maçon -->
+  <section class="metier-section" id="macon">
+    <div class="metier-photo">
+      <img src="assets/metiers/macon.jpg" alt="Maçon posant des briques" loading="lazy" />
+    </div>
+    <div class="metier-content">
+      <div class="metier-badge">/ Maçon</div>
+      <h2>Site internet pour maçon à Saint-Nazaire</h2>
+      <p>Un chantier de maçonnerie ou d'extension, c'est souvent un gros budget. Les clients cherchent longtemps avant de choisir. Un site professionnel avec vos réalisations et vos références les rassure avant même le premier appel.</p>
+      <div class="avantages">
+        <div class="avantages-title">Ce que votre site inclura :</div>
+        <ul>
+          <li>Galerie avant/après de vos chantiers</li>
+          <li>Description de vos spécialités : construction, extension, rénovation</li>
+          <li>Zone d'intervention dans tout le 44</li>
+          <li>Formulaire de prise de contact pour grands projets</li>
+        </ul>
+      </div>
+      <a href="index.html#rdv" class="metier-cta">Créer mon site maçon →</a>
+    </div>
+  </section>
+
+  <!-- Paysagiste -->
+  <section class="metier-section reverse" id="paysagiste">
+    <div class="metier-photo">
+      <img src="assets/metiers/paysagiste.jpg" alt="Jardin aménagé par un paysagiste" loading="lazy" />
+    </div>
+    <div class="metier-content">
+      <div class="metier-badge">/ Paysagiste</div>
+      <h2>Site internet pour paysagiste à Saint-Nazaire</h2>
+      <p>Un jardin réussi, ça se voit. Publiez vos plus beaux aménagements, vos créations d'espaces verts, vos tailles et entretiens. Les particuliers du bord de Loire cherchent un paysagiste de confiance sur Google.</p>
+      <div class="avantages">
+        <div class="avantages-title">Ce que votre site inclura :</div>
+        <ul>
+          <li>Galerie de créations et aménagements paysagers</li>
+          <li>Services listés : création, entretien, arrosage automatique</li>
+          <li>Calendrier de devis en ligne (par saison)</li>
+          <li>SEO sur les communes côtières du 44</li>
+        </ul>
+      </div>
+      <a href="index.html#rdv" class="metier-cta">Créer mon site paysagiste →</a>
+    </div>
+  </section>
+
+  <!-- Couvreur -->
+  <section class="metier-section" id="couvreur">
+    <div class="metier-photo">
+      <img src="assets/metiers/couvreur.jpg" alt="Couvreur travaillant sur une toiture" loading="lazy" />
+    </div>
+    <div class="metier-content">
+      <div class="metier-badge">/ Couvreur</div>
+      <h2>Site internet pour couvreur à Saint-Nazaire</h2>
+      <p>Après une tempête ou une infiltration, les gens cherchent un couvreur en urgence. Si votre site est bien référencé, c'est vous qu'ils appellent. La couverture, ça ne pardonne pas l'improvisation — votre site non plus.</p>
+      <div class="avantages">
+        <div class="avantages-title">Ce que votre site inclura :</div>
+        <ul>
+          <li>Numéro d'urgence visible immédiatement</li>
+          <li>Photos de vos réparations et toitures neuves</li>
+          <li>Types de toiture pris en charge : ardoise, tuile, zinc…</li>
+          <li>Intervention rapide mise en avant</li>
+        </ul>
+      </div>
+      <a href="index.html#rdv" class="metier-cta">Créer mon site couvreur →</a>
+    </div>
+  </section>
+
+  <!-- Chauffagiste -->
+  <section class="metier-section reverse" id="chauffagiste">
+    <div class="metier-photo">
+      <img src="assets/metiers/chauffagiste.jpg" alt="Chauffagiste inspectant une chaudière" loading="lazy" />
+    </div>
+    <div class="metier-content">
+      <div class="metier-badge">/ Chauffagiste</div>
+      <h2>Site internet pour chauffagiste à Saint-Nazaire</h2>
+      <p>Chaudière en panne en plein hiver, installation de pompe à chaleur, entretien annuel — les clients cherchent un chauffagiste RGE qualifié rapidement. Votre site est votre meilleure carte de visite.</p>
+      <div class="avantages">
+        <div class="avantages-title">Ce que votre site inclura :</div>
+        <ul>
+          <li>Certifications RGE mises en avant (aides de l'État)</li>
+          <li>Services détaillés : chaudière, PAC, climatisation, entretien</li>
+          <li>Formulaire d'urgence disponible 24h/24</li>
+          <li>Explication des aides MaPrimeRénov pour vos clients</li>
+        </ul>
+      </div>
+      <a href="index.html#rdv" class="metier-cta">Créer mon site chauffagiste →</a>
+    </div>
+  </section>
+
+</div>
+
+<section class="section-cta">
+  <h2>Votre métier n'est pas dans la liste ?</h2>
+  <p>On intervient pour tous les artisans du bâtiment et des services. Appelez-nous, on s'adapte.</p>
+  <div class="cta-row">
+    <a href="index.html#rdv" class="btn-orange">Prendre rdv gratuit ↗</a>
+    <a href="tel:+33629817069" class="btn-ghost">📞 06 29 81 70 69</a>
+  </div>
+</section>
+
+<footer class="page-footer">
+  <span>© 2026 Mon Espace Artisan · Votre Atelier Numérique ⚒</span>
+  <div style="display:flex;gap:1.5rem;">
+    <a href="cgv.html">CGV</a>
+    <a href="confidentialite.html">Confidentialité</a>
+    <a href="index.html">Accueil</a>
+  </div>
+</footer>
+
+<script>
+var lastY = 0;
+var nav = document.querySelector('.nav');
+window.addEventListener('scroll', function() {
+  var y = window.pageYOffset;
+  nav.style.transform = (y < 80 || y < lastY) ? 'translateY(0)' : 'translateY(-100%)';
+  lastY = y;
+}, { passive: true });
+</script>
+
+</body>
+</html>

@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext font-family='Arial Black%2CImpact%2Csans-serif' font-size='28' font-weight='900' y='44' letter-spacing='-1'%3E%3Ctspan x='4' fill='%231c1c1c'%3EM%3C/tspan%3E%3Ctspan fill='%23dd8142'%3EE%3C/tspan%3E%3Ctspan fill='%231c1c1c'%3EA%3C/tspan%3E%3C/text%3E%3C/svg%3E" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%231c1c1c'/><text x='16' y='22' font-family='Arial Black,Impact,sans-serif' font-size='16' font-weight='900' text-anchor='middle' letter-spacing='-1'><tspan fill='%23f4efe6'>M</tspan><tspan fill='%23dd8142'>E</tspan><tspan fill='%23f4efe6'>A</tspan></text></svg>" />
 <title>Mon Espace Artisan — Site web pour artisans | Basé en Normandie</title>
 <meta name="description" content="Site vitrine clé en main pour artisans. Livré en 48h, à partir de 290€ HT. SEO local inclus. Basé en Normandie, on travaille partout en France." />
 <meta name="keywords" content="site internet artisan, création site web artisan, site vitrine plombier électricien peintre, SEO local artisan, Normandie" />
@@ -171,6 +171,53 @@
   .seg button { padding: 0.3rem 0.55rem; font-family: inherit; font-size: inherit; text-transform: uppercase; letter-spacing: inherit; border-right: 1px solid var(--mea-dark); }
   .seg button:last-child { border-right: none; }
   .seg button.on { background: var(--mea-orange); }
+
+  /* ── HERO VIDEO PARALLAX ── */
+  .hero-video-section {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .hero-video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%) scale(1.1);
+    object-fit: cover;
+    will-change: transform;
+    transition: transform 0.1s linear;
+  }
+  .hero-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(28,28,28,0.55) 0%,
+      rgba(28,28,28,0.40) 50%,
+      rgba(221,129,66,0.12) 100%
+    );
+  }
+  .hero-video-content {
+    position: relative;
+    z-index: 2;
+    color: var(--mea-cream);
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 3rem 1.75rem;
+    width: 100%;
+  }
+  .hero-video-fallback {
+    position: absolute;
+    inset: 0;
+    background: #1c1c1c;
+    z-index: 0;
+  }
 </style>
 </head>
 <body>
@@ -279,16 +326,16 @@ function Navbar() {
       boxShadow: scrolled ? '0 2px 0 0 rgba(28,28,28,0.15)' : 'none',
       backdropFilter: scrolled ? 'blur(8px)' : 'none',
       WebkitBackdropFilter: scrolled ? 'blur(8px)' : 'none',
-      transition: 'all 0.25s ease',
+      transition: 'background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, transform 0.3s ease',
     }}>
       <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0.9rem 1.75rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '2rem' }}>
-        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', minWidth: 'fit-content', flexShrink: 0, overflow: 'visible', textDecoration: 'none' }}>
+        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', minWidth: 'fit-content', flexShrink: 0, whiteSpace: 'nowrap', textDecoration: 'none' }}>
           <span className="display" style={{ fontSize: '2rem', lineHeight: 1, letterSpacing: '-0.03em', color: 'var(--mea-dark)' }}>
             M<span style={{ color: 'var(--mea-orange)' }}>E</span>A
           </span>
-          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1, borderLeft: '1.5px solid var(--mea-dark)', paddingLeft: '0.55rem' }}>
-            <span className="display" style={{ fontSize: '0.72rem', letterSpacing: '0.04em', color: 'var(--mea-dark)' }}>Mon Espace</span>
-            <span className="display" style={{ fontSize: '0.72rem', letterSpacing: '0.04em', color: 'var(--mea-dark)' }}>Artisan</span>
+          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15, borderLeft: '1.5px solid var(--mea-dark)', paddingLeft: '0.55rem' }}>
+            <span className="display" style={{ fontSize: '0.85rem', letterSpacing: '0.02em', color: 'var(--mea-dark)' }}>Mon Espace</span>
+            <span className="display" style={{ fontSize: '0.85rem', letterSpacing: '0.02em', color: 'var(--mea-dark)' }}>Artisan</span>
           </div>
         </a>
         <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }} className="nav-desktop">
@@ -370,105 +417,66 @@ function Navbar() {
 
 // ─── HERO ─────────────────────────────────────────────────────────────────────
 function Hero() {
-  const y = useScrollY();
-
-  const [strikes, setStrikes] = useState(0);
-  const [shaking, setShaking] = useState(false);
-  const [hammerHover, setHammerHover] = useState(false);
-  const lastHitRef = useRef(-1);
-
-  useEffect(() => {
-    const threshold = 260;
-    const hit = Math.floor(y / threshold);
-    if (hit !== lastHitRef.current && hit > 0 && y < 2200) {
-      lastHitRef.current = hit;
-      setStrikes((s) => s + 1);
-      setShaking(true);
-      setTimeout(() => setShaking(false), 280);
-    }
-  }, [y]);
-
-  const cyclePos = (y % 260) / 260;
-  let angle;
-  if (cyclePos < 0.7) {
-    angle = -30 - cyclePos * 35;
-  } else {
-    const t = (cyclePos - 0.7) / 0.3;
-    angle = -55 + t * 70;
-  }
-  if (y < 40) angle = -30;
-
-  const heroOpacity = Math.max(0, 1 - y / 700);
-
   return (
-    <section style={{
-      position: 'relative', minHeight: 'calc(100vh - 72px)', overflow: 'hidden',
-      padding: '3rem 1.75rem 5rem',
-      transform: shaking ? 'translate(1px, 1.5px)' : 'none',
-      transition: shaking ? 'transform 0.05s' : 'transform 0.22s',
-    }} className="paper-grid">
+    <section className="hero-video-section paper-grid">
+      <div className="hero-video-fallback" />
       <CornerMarks />
-      <div style={{ maxWidth: 1360, margin: '0 auto', position: 'relative' }}>
+
+      {/* Vidéo background */}
+      <video
+        className="hero-video-bg"
+        autoPlay muted loop playsInline
+        poster="assets/hero-poster.jpg"
+      >
+        <source src="assets/hero-bg-mobile.mp4" type="video/mp4" media="(max-width: 767px)" />
+        <source src="assets/hero-bg.mp4" type="video/mp4" />
+      </video>
+
+      {/* Overlay gradient */}
+      <div className="hero-video-overlay" />
+
+      {/* Contenu */}
+      <div className="hero-video-content">
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '3rem' }} className="mono uppercase">
-          <div style={{ fontSize: '0.68rem', color: 'var(--mea-gray)' }}>Basé en Normandie — on travaille partout en France</div>
+          <div style={{ fontSize: '0.68rem', color: 'rgba(244,239,230,0.7)' }}>Basé en Normandie — on travaille partout en France</div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 0.95fr', gap: '2.5rem', alignItems: 'start' }} className="hero-grid">
-          <div style={{ opacity: heroOpacity }}>
-            <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
-              <Sticker color="var(--mea-orange)" rotate={-3}>À partir de 290€ HT</Sticker>
-              <Sticker color="var(--mea-paper)" rotate={2}>Livré en 48h</Sticker>
-              <Sticker color="var(--mea-dark)" rotate={-2} style={{ color: 'var(--mea-cream)' }}>TVA non applicable</Sticker>
-            </div>
-            <h1 className="display" style={{ fontSize: 'clamp(2.6rem, 7.4vw, 6.4rem)', lineHeight: 0.92, letterSpacing: '-0.02em' }}>
-              Pendant que vous<br />
-              <span style={{ color: 'var(--mea-orange-deep)' }}>bossez</span>,<br />
-              on vous <span className="scribble-under">construit</span><br />
-              votre <span style={{ background: 'var(--mea-dark)', color: 'var(--mea-cream)', padding: '0 0.15em' }}>vitrine</span>.
-            </h1>
-            <p style={{ marginTop: '1rem', maxWidth: 480, fontSize: '1.25rem', lineHeight: 1.35, color: 'var(--mea-dark)', fontWeight: 600 }}>
-              Site sur-mesure pour artisans — livré en 48h, à partir de 290€ HT.
-            </p>
-            <p style={{ marginTop: '1rem', maxWidth: 480, fontSize: '1rem', lineHeight: 1.5, color: 'var(--mea-dark-2)' }}>
-              Vos photos, vos mots, vos couleurs — assemblés à la main par une équipe de deux.
-              Hébergé, maintenu, optimisé. <strong>Un vrai site web, fini.</strong>
-            </p>
-            <div style={{ display: 'flex', gap: '0.8rem', marginTop: '2.25rem', flexWrap: 'wrap' }}>
-              <a href="#rdv" className="btn-primary">Caler un appel de 20 min <span>→</span></a>
-              <a href="#cas" className="btn-ghost">Voir 2 sites livrés</a>
-            </div>
-            <div style={{ marginTop: '3rem', display: 'flex', gap: '2.5rem', flexWrap: 'wrap', paddingTop: '1.5rem', borderTop: '1.5px solid var(--mea-dark)', maxWidth: 560 }}>
-              <Stat n="48" unit="h" label="Du brief à la mise en ligne" />
-              <Stat n="290" unit="€ HT" label="Dès ce tarif, tout compris" />
-              <Stat n="2/2" unit="" label="Clients livrés, zéro retour" />
-            </div>
-          </div>
+        <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+          <Sticker color="var(--mea-orange)" rotate={-3}>À partir de 290€ HT</Sticker>
+          <Sticker color="var(--mea-paper)" rotate={2}>Livré en 48h</Sticker>
+          <Sticker color="var(--mea-dark)" rotate={-2} style={{ color: 'var(--mea-cream)' }}>TVA non applicable</Sticker>
+        </div>
 
-          <div
-            style={{
-              position: 'relative',
-              cursor: 'pointer',
-              transform: hammerHover ? 'rotate(2deg) scale(1.01)' : 'none',
-              transition: 'transform 0.3s ease',
-            }}
-            onClick={() => { setStrikes(s => s + 1); setShaking(true); setTimeout(() => setShaking(false), 280); const el = document.getElementById('exemples'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
-            onMouseEnter={() => setHammerHover(true)}
-            onMouseLeave={() => setHammerHover(false)}
-            title="Voir les exemples de sites →"
-          >
-            <HammerStage angle={angle} strikes={strikes} shaking={shaking} y={y} />
-          </div>
+        <h1 className="display" style={{ fontSize: 'clamp(2.4rem, 6.5vw, 5.8rem)', lineHeight: 1.05, letterSpacing: '-0.02em' }}>
+          Pendant que vous <span style={{ color: 'var(--mea-orange)' }}>bossez</span>,<br />
+          on vous <span className="scribble-under">construit</span><br />
+          votre <span style={{ background: 'var(--mea-cream)', color: 'var(--mea-dark)', padding: '0 0.15em' }}>vitrine</span>.
+        </h1>
+
+        <p style={{ marginTop: '1rem', maxWidth: 480, fontSize: '1.25rem', lineHeight: 1.35, fontWeight: 600 }}>
+          Site sur-mesure pour artisans — livré en 48h, à partir de 290€ HT.
+        </p>
+        <p style={{ marginTop: '1rem', maxWidth: 480, fontSize: '1rem', lineHeight: 1.5, color: 'rgba(244,239,230,0.82)' }}>
+          Vos photos, vos mots, vos couleurs — assemblés à la main par une équipe de deux.
+          Hébergé, maintenu, optimisé. <strong>Un vrai site web, fini.</strong>
+        </p>
+
+        <div style={{ display: 'flex', gap: '0.8rem', marginTop: '2.25rem', flexWrap: 'wrap' }}>
+          <a href="#rdv" className="btn-primary">Caler un appel de 20 min <span>→</span></a>
+          <a href="#exemples" className="btn-ghost" style={{ borderColor: 'var(--mea-cream)', color: 'var(--mea-cream)' }}>Voir 2 sites livrés</a>
+        </div>
+
+        <div style={{ marginTop: '3rem', display: 'flex', gap: '2.5rem', flexWrap: 'nowrap', alignItems: 'baseline', paddingTop: '1.5rem', borderTop: '1.5px solid rgba(244,239,230,0.25)', maxWidth: 400 }}>
+          <Stat n="48" unit="h" label="Du brief à la mise en ligne" />
+          <Stat n="290" unit="€ HT" label="Dès ce tarif, tout compris" />
         </div>
 
         <div style={{ marginTop: '4rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <div className="mono uppercase" style={{ fontSize: '0.68rem', color: 'var(--mea-gray)' }}>défilez</div>
-          <div style={{ flex: 1, height: 1, background: 'var(--mea-dark)' }} />
-          <div className="mono uppercase" style={{ fontSize: '0.68rem', color: 'var(--mea-orange-deep)' }}>
-            coups de marteau : {String(strikes).padStart(3, '0')}
-          </div>
+          <div className="mono uppercase" style={{ fontSize: '0.68rem', color: 'rgba(244,239,230,0.5)' }}>défilez</div>
+          <div style={{ flex: 1, height: 1, background: 'rgba(244,239,230,0.2)' }} />
+          <div className="mono uppercase" style={{ fontSize: '0.68rem', color: 'var(--mea-orange)', opacity: 0.8 }}>↓</div>
         </div>
       </div>
-      <style>{`@media (max-width: 960px) { .hero-grid { grid-template-columns: 1fr !important; } }`}</style>
     </section>
   );
 }
@@ -490,236 +498,6 @@ function CornerMarks() {
     <div style={{ position: 'absolute', ...pos, color: 'var(--mea-dark)', fontSize: '0.65rem' }} className="mono uppercase">+</div>
   );
   return <>{mark({ top: 12, left: 12 })}{mark({ top: 12, right: 12 })}{mark({ bottom: 12, left: 12 })}{mark({ bottom: 12, right: 12 })}</>;
-}
-
-// ─── HAMMER STAGE ────────────────────────────────────────────────────────────
-function HammerStage({ angle, strikes, shaking, y }) {
-  const nailDepth = Math.min(strikes * 6, 80);
-  const nailVisibleH = Math.max(14, 100 - nailDepth);
-
-  const dents = [];
-  for (let i = 0; i < Math.min(strikes, 8); i++) {
-    const jx = ((i * 37) % 100) - 40;
-    const jy = ((i * 53) % 60);
-    dents.push({ x: jx, y: jy, i });
-  }
-
-  return (
-    <div style={{
-      position: 'relative', aspectRatio: '1 / 1.1',
-      background: 'var(--mea-dark)', border: '1.5px solid var(--mea-dark)',
-      boxShadow: '10px 10px 0 0 var(--mea-orange)', overflow: 'hidden',
-    }}>
-      {/* Browser chrome */}
-      <div style={{
-        position: 'absolute', top: 0, left: 0, right: 0, height: 34,
-        background: 'var(--mea-cream)', borderBottom: '1.5px solid var(--mea-dark)',
-        display: 'flex', alignItems: 'center', padding: '0 0.75rem', gap: '0.35rem', zIndex: 3,
-      }}>
-        <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#e85d5d', border: '1px solid var(--mea-dark)' }} />
-        <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#f0b83d', border: '1px solid var(--mea-dark)' }} />
-        <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#4cae5a', border: '1px solid var(--mea-dark)' }} />
-        <div className="mono uppercase" style={{ marginLeft: '0.75rem', fontSize: '0.6rem', color: 'var(--mea-gray)', background: 'var(--mea-paper)', padding: '0.15rem 0.55rem', border: '1px solid var(--mea-dark)', flex: 1, overflow: 'hidden', whiteSpace: 'nowrap' }}>
-          https:// <span style={{ color: 'var(--mea-dark)' }}>mon-espace-artisan.fr</span>
-        </div>
-      </div>
-
-      {/* Screen interior */}
-      <div style={{
-        position: 'absolute', top: 34, left: 0, right: 0, bottom: 0,
-        background: `repeating-linear-gradient(180deg, #2d2d2d 0px, #2d2d2d 3px, #262626 3px, #262626 6px), radial-gradient(circle at 30% 40%, #3a3a3a 0%, transparent 60%)`,
-      }}>
-        {/* Grain lines */}
-        <svg viewBox="0 0 400 400" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.25 }}>
-          <path d="M0 80 Q 100 90, 200 78 T 400 82" stroke="var(--mea-cream)" strokeWidth="0.6" fill="none" />
-          <path d="M0 160 Q 120 175, 240 155 T 400 162" stroke="var(--mea-cream)" strokeWidth="0.5" fill="none" />
-          <path d="M0 240 Q 90 230, 220 248 T 400 240" stroke="var(--mea-cream)" strokeWidth="0.5" fill="none" />
-          <path d="M0 320 Q 130 335, 260 322 T 400 328" stroke="var(--mea-cream)" strokeWidth="0.5" fill="none" />
-        </svg>
-
-        {/* Dents */}
-        {dents.map((d) => (
-          <div key={d.i} style={{
-            position: 'absolute', left: `${50 + d.x}%`, top: `${45 + d.y}%`,
-            width: 14, height: 6, background: 'radial-gradient(ellipse, rgba(0,0,0,0.5) 0%, transparent 70%)',
-            borderRadius: '50%', transform: `rotate(${d.i * 27}deg)`,
-          }} />
-        ))}
-
-        {/* SVG Nail */}
-        <div style={{
-          position: 'absolute', left: '50%', top: `${55 - nailDepth * 0.4}%`,
-          transform: 'translateX(-50%)',
-          transition: 'top 0.25s cubic-bezier(0.2, 0.8, 0.2, 1)',
-          zIndex: 2,
-        }}>
-          <svg width="28" height={nailVisibleH} viewBox={`0 0 28 ${nailVisibleH}`} fill="none" style={{ display: 'block', overflow: 'hidden' }}>
-            <defs>
-              <linearGradient id="nail-grad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#b8b5ac"/>
-                <stop offset="100%" stopColor="#7a7870"/>
-              </linearGradient>
-            </defs>
-            {/* Head */}
-            <ellipse cx="14" cy="5" rx="11" ry="4.5" fill="#c8c5bc" stroke="#777777" strokeWidth="1.5"/>
-            {/* Shaft */}
-            <rect x="11" y="9" width="6" height="75" fill="url(#nail-grad)" stroke="#666666" strokeWidth="1"/>
-            {/* Tip */}
-            <path d="M 9 84 L 19 84 L 14 100 Z" fill="#888888"/>
-          </svg>
-        </div>
-
-        {/* Text overlay */}
-        <div style={{
-          position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column',
-          alignItems: 'center', justifyContent: 'flex-end', padding: '0 1.5rem 2rem',
-          textAlign: 'center', color: 'var(--mea-cream)',
-        }}>
-          <div className="mono uppercase" style={{ fontSize: '0.62rem', letterSpacing: '0.18em', color: 'var(--mea-orange)', marginBottom: '0.4rem' }}>
-            en cours d'assemblage
-          </div>
-          <div className="display" style={{ fontSize: 'clamp(1.4rem, 3vw, 2.1rem)', lineHeight: 1, letterSpacing: '-0.01em' }}>
-            votre site web
-          </div>
-          <div className="mono uppercase" style={{ fontSize: '0.62rem', color: 'var(--mea-gray-2)', marginTop: '0.5rem' }}>
-            coup #{String(strikes).padStart(3, '0')} — progression {Math.min(strikes * 12, 100)}%
-          </div>
-          <div style={{ marginTop: '0.75rem', width: '80%', height: 8, border: '1px solid var(--mea-cream)', background: 'rgba(255,255,255,0.05)' }}>
-            <div style={{ height: '100%', width: `${Math.min(strikes * 12, 100)}%`, background: 'var(--mea-orange)', transition: 'width 0.25s' }} />
-          </div>
-        </div>
-
-        {/* The Hammer */}
-        <div style={{
-          position: 'absolute',
-          right: '-20px',
-          top: '-5%',
-          transformOrigin: '85% 88%',
-          transform: `rotate(${angle}deg)`,
-          transition: shaking
-            ? 'transform 0.08s cubic-bezier(0.9, 0, 1, 0.5)'
-            : 'transform 0.35s cubic-bezier(0.2, 0.6, 0.2, 1)',
-          zIndex: 5,
-          filter: 'drop-shadow(-3px 5px 0 rgba(0,0,0,0.5))',
-        }}>
-          <div style={{ position: 'relative', display: 'inline-block' }}>
-            <BigHammer />
-            <div style={{
-              position: 'absolute',
-              top: '28%', right: '22%',
-              pointerEvents: 'none',
-              background: 'rgba(28,28,28,0.72)',
-              padding: '0.12rem 0.38rem',
-              border: '1px solid rgba(221,129,66,0.7)',
-              lineHeight: 1,
-            }}>
-              <span style={{
-                fontFamily: "'Archivo Black', sans-serif",
-                fontSize: '0.78rem',
-                letterSpacing: '-0.02em',
-                color: '#f4efe6',
-              }}>
-                M<span style={{ color: '#dd8142' }}>E</span>A
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Impact flash */}
-        {shaking && (
-          <div style={{
-            position: 'absolute', left: '50%', top: `${52 - nailDepth * 0.4}%`,
-            transform: 'translate(-50%, -50%)', pointerEvents: 'none', zIndex: 4,
-          }}>
-            <ImpactStar />
-          </div>
-        )}
-      </div>
-
-      {/* Annotation */}
-      <div className="mono uppercase" style={{
-        position: 'absolute', left: 16, bottom: 12, color: 'var(--mea-cream)',
-        fontSize: '0.6rem', letterSpacing: '0.14em', zIndex: 6,
-        display: 'flex', alignItems: 'center', gap: '0.5rem',
-      }}>
-        <span style={{ width: 20, height: 1, background: 'var(--mea-orange)' }} />
-        fait main, par deux humains
-      </div>
-
-      {/* MEA logo — coin bas-droite */}
-      <div style={{
-        position: 'absolute', right: 14, bottom: 36, zIndex: 7,
-        background: 'rgba(28,28,28,0.75)', padding: '0.18rem 0.45rem',
-        border: '1px solid rgba(221,129,66,0.6)',
-      }}>
-        <span className="display" style={{ fontSize: '0.92rem', letterSpacing: '-0.02em', color: 'var(--mea-cream)', lineHeight: 1 }}>
-          M<span style={{ color: 'var(--mea-orange)' }}>E</span>A
-        </span>
-      </div>
-    </div>
-  );
-}
-
-// ─── BIG HAMMER (anatomically correct) ───────────────────────────────────────
-function BigHammer() {
-  return (
-    <svg width="200" height="250" viewBox="0 0 200 250" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* === HANDLE (drawn first, behind head) === */}
-      {/* Main body: 13×175px, rx=4, #b8632a */}
-      <rect x="87" y="65" width="13" height="175" rx="4" fill="#b8632a"/>
-
-      {/* Wood grain: 4 subtle curved lines */}
-      <path d="M 90,70 Q 89,115 90,158 Q 91,195 90,235" stroke="#9a5020" strokeWidth="0.9" fill="none" opacity="0.4"/>
-      <path d="M 93,70 Q 94,120 93,165 Q 92,200 93,235" stroke="#9a5020" strokeWidth="0.9" fill="none" opacity="0.4"/>
-      <path d="M 96,70 Q 95,118 97,162 Q 96,198 96,235" stroke="#9a5020" strokeWidth="0.9" fill="none" opacity="0.4"/>
-      <path d="M 99,70 Q 98,122 99,168 Q 100,205 99,235" stroke="#9a5020" strokeWidth="0.9" fill="none" opacity="0.4"/>
-
-      {/* Grip bands: 3 × 19×3px, 8px apart */}
-      <rect x="84" y="206" width="19" height="3" rx="1" fill="#1c1c1c"/>
-      <rect x="84" y="214" width="19" height="3" rx="1" fill="#1c1c1c"/>
-      <rect x="84" y="222" width="19" height="3" rx="1" fill="#1c1c1c"/>
-
-      {/* Bottom flare (renflé = slight trapeze widening) */}
-      <path d="M 87,228 L 100,228 L 102,240 L 85,240 Z" fill="#a05828"/>
-
-      {/* === HAMMER HEAD (drawn over handle) === */}
-
-      {/* Panne (left taper): 42px tall at body → 18px at tip, centered at y=71 */}
-      <path d="M 20,50 L 0,62 L 0,80 L 20,92 Z" fill="#1c1c1c"/>
-
-      {/* Corps principal: 110×42px, rx=5 */}
-      <rect x="20" y="50" width="110" height="42" rx="5" fill="#1c1c1c"/>
-
-      {/* Poll (right striking face): 44×42px, rx=3 right side only */}
-      <path d="M 130,50 L 170,50 Q 174,50 174,54 L 174,88 Q 174,92 170,92 L 130,92 Z" fill="#2a2a2a"/>
-
-      {/* Œil (eye/handle hole): 18×13px at 2/3 from left of body (cx≈93) */}
-      <ellipse cx="93" cy="71" rx="9" ry="6.5" fill="#333333"/>
-
-      {/* Highlight: thin rect on top for relief */}
-      <rect x="20" y="50" width="154" height="7" rx="2" fill="rgba(255,255,255,0.1)"/>
-
-      {/* Poll highlight */}
-      <rect x="130" y="50" width="44" height="6" rx="1" fill="rgba(255,255,255,0.06)"/>
-    </svg>
-  );
-}
-
-function ImpactStar() {
-  return (
-    <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-      <g stroke="var(--mea-orange)" strokeWidth="3" strokeLinecap="round">
-        <line x1="60" y1="10" x2="60" y2="30" />
-        <line x1="60" y1="90" x2="60" y2="110" />
-        <line x1="10" y1="60" x2="30" y2="60" />
-        <line x1="90" y1="60" x2="110" y2="60" />
-        <line x1="25" y1="25" x2="40" y2="40" />
-        <line x1="80" y1="80" x2="95" y2="95" />
-        <line x1="95" y1="25" x2="80" y2="40" />
-        <line x1="40" y1="80" x2="25" y2="95" />
-      </g>
-    </svg>
-  );
 }
 
 // ─── MARQUEE ─────────────────────────────────────────────────────────────────
@@ -1469,6 +1247,61 @@ function FeatIcon({ kind }) {
   }
 }
 
+// ─── COMPARE SECTION ─────────────────────────────────────────────────────────
+function CompareSection() {
+  const bads = [
+    'Pas de site = invisible sur Google',
+    'Vos clients partent à la concurrence trouvable en ligne',
+    'Les agences demandent 2 500€ et 3 mois de délai',
+    'Les formulaires ne fonctionnent jamais sur mobile',
+    'Personne pour répondre quand vous avez une question',
+  ];
+  const goods = [
+    'En ligne et trouvable en 24h chrono',
+    'Votre téléphone sonne grâce aux vrais clients locaux',
+    'Tarif clair dès le départ : à partir de 290€, sans surprise',
+    'Formulaire de contact qui fonctionne vraiment (mobile inclus)',
+    'Un humain au bout du fil, pas un chatbot',
+  ];
+  return (
+    <section style={{ padding: '6rem 1.75rem', background: 'var(--mea-cream)', borderTop: '1.5px solid var(--mea-dark)' }}>
+      <div style={{ maxWidth: 1360, margin: '0 auto' }}>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', marginBottom: '2.5rem', flexWrap: 'wrap' }}>
+          <div className="mono uppercase" style={{ fontSize: '0.72rem', color: 'var(--mea-orange-deep)' }}>/ 04bis</div>
+          <div style={{ height: 1, flex: '0 0 40px', background: 'var(--mea-dark)' }} />
+          <h2 className="display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', lineHeight: 1.05, flex: 1 }}>Vous méritez mieux<br/>qu'une page Facebook.</h2>
+          <div className="mono uppercase" style={{ fontSize: '0.72rem', color: 'var(--mea-gray)', maxWidth: 260, textAlign: 'right' }}>Vos clients vous cherchent sur Google. Si vous n'êtes pas là, c'est votre concurrent qui récupère le chantier.</div>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }} className="compare-grid">
+          <BCard style={{ padding: '2rem' }}>
+            <div className="display" style={{ fontSize: '0.88rem', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '1.5rem', color: 'var(--mea-gray)' }}>😤 La réalité de beaucoup d'artisans</div>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
+              {bads.map((t, i) => (
+                <li key={i} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', fontSize: '0.98rem', lineHeight: 1.4 }}>
+                  <span style={{ color: '#c0392b', fontWeight: 700, flexShrink: 0 }}>✗</span>
+                  <span style={{ color: 'var(--mea-dark-2)' }}>{t}</span>
+                </li>
+              ))}
+            </ul>
+          </BCard>
+          <BCard accent style={{ padding: '2rem', background: 'var(--mea-dark)', color: 'var(--mea-cream)' }}>
+            <div className="display" style={{ fontSize: '0.88rem', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '1.5rem', color: 'var(--mea-orange)' }}>✅ Avec Mon Espace Artisan</div>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
+              {goods.map((t, i) => (
+                <li key={i} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', fontSize: '0.98rem', lineHeight: 1.4 }}>
+                  <span style={{ color: 'var(--mea-orange)', fontWeight: 700, flexShrink: 0 }}>✓</span>
+                  <span style={{ color: 'rgba(244,239,230,0.88)' }}>{t}</span>
+                </li>
+              ))}
+            </ul>
+          </BCard>
+        </div>
+      </div>
+      <style>{`@media (max-width: 900px) { .compare-grid { grid-template-columns: 1fr !important; } }`}</style>
+    </section>
+  );
+}
+
 // ─── ABOUT ───────────────────────────────────────────────────────────────────
 function About() {
   return (
@@ -1716,12 +1549,12 @@ function Footer() {
             <div className="display" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', lineHeight: 0.9, letterSpacing: '-0.03em' }}>M<span style={{ color: 'var(--mea-orange)' }}>E</span>A</div>
             <div style={{ height: 3, width: 60, background: 'var(--mea-orange)', margin: '0.5rem 0 1rem' }} />
             <div className="mono uppercase" style={{ fontSize: '0.72rem', letterSpacing: '0.16em' }}>Mon Espace Artisan</div>
-            <div className="mono uppercase" style={{ fontSize: '0.62rem', color: 'var(--mea-gray-2)', marginTop: 2 }}>Normandie & toute la France ⚒</div>
+            <div className="mono uppercase" style={{ fontSize: '0.62rem', color: 'var(--mea-gray-2)', marginTop: 2 }}>Votre Atelier Numérique ⚒</div>
             <p style={{ marginTop: '1.25rem', fontSize: '0.88rem', color: 'var(--mea-gray-2)', maxWidth: 280, lineHeight: 1.5 }}>Votre site internet en 48h, créé par un humain. Sans jargon, sans engagement.</p>
           </div>
-          <FootCol title="Naviguer" links={[{ l: 'Accueil', h: '#' }, { l: 'Tarifs', h: '#offre' }, { l: 'Nos métiers', h: '#cas' }, { l: 'À propos', h: '#equipe' }, { l: 'Contact', h: '#rdv' }]}/>
-          <FootCol title="Nos métiers" links={[{ l: 'Plombier', h: '#' }, { l: 'Électricien', h: '#' }, { l: 'Peintre', h: '#' }, { l: 'Menuisier', h: '#' }, { l: 'Couvreur', h: '#' }, { l: 'Paysagiste', h: '#' }]}/>
-          <FootCol title="Contact & légal" links={[{ l: '06 29 81 70 69', h: 'tel:+33629817069' }, { l: 'contact@mon-espace-artisan.fr', h: 'mailto:contact@mon-espace-artisan.fr' }, { l: 'Mentions légales', h: '#' }, { l: 'CGV', h: '#' }, { l: 'Confidentialité', h: '#' }]}/>
+          <FootCol title="Naviguer" links={[{ l: 'Accueil', h: '#' }, { l: 'Tarifs', h: '#offre' }, { l: 'Nos métiers', h: 'nos-metiers.html' }, { l: 'À propos', h: '#equipe' }, { l: 'Contact', h: '#rdv' }]}/>
+          <FootCol title="Nos métiers" links={[{ l: 'Plombier', h: 'nos-metiers.html#plombier' }, { l: 'Électricien', h: 'nos-metiers.html#electricien' }, { l: 'Peintre', h: 'nos-metiers.html#peintre' }, { l: 'Menuisier', h: 'nos-metiers.html#menuisier' }, { l: 'Couvreur', h: 'nos-metiers.html#couvreur' }, { l: 'Paysagiste', h: 'nos-metiers.html#paysagiste' }]}/>
+          <FootCol title="Contact & légal" links={[{ l: '06 29 81 70 69', h: 'tel:+33629817069' }, { l: 'contact@mon-espace-artisan.fr', h: 'mailto:contact@mon-espace-artisan.fr' }, { l: 'Mentions légales', h: '#' }, { l: 'CGV', h: 'cgv.html' }, { l: 'Confidentialité', h: 'confidentialite.html' }]}/>
         </div>
         <div style={{ borderTop: '1px solid rgba(244,239,230,0.2)', paddingTop: '1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }} className="mono uppercase">
           <div style={{ fontSize: '0.65rem', color: 'var(--mea-gray-2)' }}>© 2026 Mon Espace Artisan · Basé en Normandie (76)</div>
@@ -1837,6 +1670,7 @@ function App() {
       <Process />
       <Offer />
       <Included />
+      <CompareSection />
       <About />
       <Testimonials />
       <FAQ />
@@ -1848,6 +1682,41 @@ function App() {
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+
+<script>
+/* Parallax vidéo hero + navbar hide/show */
+(function() {
+  /* ─ parallax ─ */
+  var vid = null;
+  function getVid() { vid = document.querySelector('.hero-video-bg'); }
+  window.addEventListener('load', getVid, { once: true });
+
+  /* ─ navbar ─ */
+  var lastY = 0;
+  var navbar = null;
+  function getNavbar() { navbar = document.querySelector('header'); }
+  window.addEventListener('load', getNavbar, { once: true });
+
+  window.addEventListener('scroll', function() {
+    var y = window.pageYOffset;
+
+    /* parallax */
+    if (!vid) getVid();
+    if (vid) vid.style.transform = 'translate(-50%, calc(-50% + ' + (y * 0.4) + 'px)) scale(1.1)';
+
+    /* navbar */
+    if (!navbar) getNavbar();
+    if (navbar) {
+      if (y < 80 || y < lastY) {
+        navbar.style.transform = 'translateY(0)';
+      } else {
+        navbar.style.transform = 'translateY(-100%)';
+      }
+    }
+    lastY = y;
+  }, { passive: true });
+})();
 </script>
 </body>
 </html>
