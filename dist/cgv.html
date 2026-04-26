@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%231c1c1c'/><text x='16' y='22' font-family='Arial Black,Impact,sans-serif' font-size='16' font-weight='900' text-anchor='middle' letter-spacing='-1'><tspan fill='%23f4efe6'>M</tspan><tspan fill='%23dd8142'>E</tspan><tspan fill='%23f4efe6'>A</tspan></text></svg>" />
+<title>Conditions Générales de Vente — Mon Espace Artisan</title>
+<meta name="description" content="CGV de Mon Espace Artisan — conditions de prestation, tarifs, paiement et résiliation." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --mea-orange: #dd8142;
+    --mea-orange-deep: #b8632a;
+    --mea-dark: #1c1c1c;
+    --mea-dark-2: #2d2d2d;
+    --mea-gray: #777777;
+    --mea-gray-2: #a8a39b;
+    --mea-cream: #f4efe6;
+    --mea-paper: #eee7d8;
+    --mea-white: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--mea-cream); color: var(--mea-dark); font-family: 'Archivo', system-ui, sans-serif; font-weight: 400; -webkit-font-smoothing: antialiased; }
+  body { font-size: 16px; line-height: 1.6; }
+  h1, h2, h3 { font-family: 'Archivo Black', 'Archivo', sans-serif; letter-spacing: -0.01em; }
+  a { color: var(--mea-orange-deep); }
+  a:hover { text-decoration: underline; }
+
+  /* ── Navbar ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(244,239,230,0.92);
+    border-bottom: 1.5px solid var(--mea-dark);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 0.9rem 1.75rem;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: transform 0.3s ease;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; white-space: nowrap; }
+  .nav-logo-mea { font-family: 'Archivo Black', sans-serif; font-size: 2rem; line-height: 1; letter-spacing: -0.03em; color: var(--mea-dark); }
+  .nav-logo-mea span { color: var(--mea-orange); }
+  .nav-logo-name { display: flex; flex-direction: column; line-height: 1.15; border-left: 1.5px solid var(--mea-dark); padding-left: 0.55rem; }
+  .nav-logo-name span { font-family: 'Archivo Black', sans-serif; font-size: 0.85rem; letter-spacing: 0.02em; color: var(--mea-dark); }
+  .nav-back { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--mea-dark); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; }
+  .nav-back:hover { color: var(--mea-orange-deep); text-decoration: none; }
+
+  /* ── Content ── */
+  .page-wrap { max-width: 800px; margin: 0 auto; padding: 4rem 1.75rem 6rem; }
+  .page-title { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1; letter-spacing: -0.02em; margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 1.5px solid var(--mea-dark); }
+  .legal-section { padding: 1.75rem 0; border-bottom: 1.5px dashed rgba(28,28,28,0.2); }
+  .legal-section:last-of-type { border-bottom: none; }
+  .legal-section h2 { font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--mea-dark); }
+  .legal-section p { font-size: 0.95rem; color: var(--mea-dark-2); line-height: 1.65; }
+  .legal-section ul { margin: 0.75rem 0 0 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .legal-section li { font-size: 0.95rem; color: var(--mea-dark-2); }
+  .legal-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mea-gray); margin-top: 2.5rem; }
+
+  /* ── Footer ── */
+  .page-footer { background: var(--mea-dark); color: var(--mea-cream); padding: 1.5rem 1.75rem; border-top: 1.5px solid var(--mea-orange); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; }
+  .page-footer a { color: var(--mea-gray-2); text-decoration: none; }
+  .page-footer a:hover { color: var(--mea-orange); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-mea">M<span>E</span>A</span>
+    <div class="nav-logo-name"><span>Mon Espace</span><span>Artisan</span></div>
+  </a>
+  <a href="index.html" class="nav-back">← Retour au site</a>
+</nav>
+
+<main class="page-wrap">
+  <h1 class="page-title">Conditions Générales de Vente</h1>
+
+  <div class="legal-section">
+    <h2>1. Présentation</h2>
+    <p>Les présentes CGV s'appliquent à toutes les prestations de création de sites internet proposées par Mon Espace Artisan (micro-entreprise, SIRET : 000 000 000 00000) à ses clients professionnels artisans.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>2. Commande et bon de commande</h2>
+    <p>Toute commande est formalisée par l'envoi d'un devis signé ou d'un e-mail de confirmation. La commande n'est définitive qu'après réception du paiement de l'acompte.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>3. Tarifs</h2>
+    <p>Les tarifs de création sont affichés hors taxes (TVA non applicable, article 293B du CGI). Les mensualités de maintenance sont également hors taxes, facturées au premier du mois.</p>
+    <ul>
+      <li>Pack Essentiel : 290€ + 19€/mois</li>
+      <li>Pack Pro : 490€ + 29€/mois</li>
+      <li>Pack Premium : 790€ + 49€/mois</li>
+    </ul>
+  </div>
+
+  <div class="legal-section">
+    <h2>4. Paiement</h2>
+    <p>Un acompte de 50% est demandé à la commande. Le solde est dû à la livraison du site. Les mensualités sont prélevées automatiquement ou facturées mensuellement selon les modalités convenues.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>5. Délai de livraison</h2>
+    <p>Le délai de livraison est de 48 heures ouvrées à compter de la réception de l'ensemble des éléments demandés (textes, photos, coordonnées). Ce délai est conditionné à la diligence du client dans la fourniture des informations.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>6. Résiliation</h2>
+    <p>Le client peut résilier son abonnement mensuel à tout moment, avec un préavis d'un mois calendaire par e-mail ou courrier. Aucune pénalité n'est appliquée. En cas de résiliation, le client peut récupérer les fichiers sources de son site.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>7. Propriété intellectuelle</h2>
+    <p>À compter du paiement intégral de la prestation de création, le client est propriétaire du contenu qu'il a fourni. Mon Espace Artisan conserve la propriété du code source jusqu'à résiliation, sauf accord contraire précisé au devis.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>8. Responsabilité</h2>
+    <p>Mon Espace Artisan s'engage à mettre en œuvre tous les moyens nécessaires à la réalisation de la prestation. Les résultats en termes de référencement naturel (SEO) ne peuvent être garantis, celui-ci dépendant des algorithmes de moteurs de recherche tiers.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>9. Litiges</h2>
+    <p>En cas de litige, une solution amiable sera recherchée en priorité. À défaut, les tribunaux compétents du ressort de Saint-Nazaire seront saisis.</p>
+  </div>
+
+  <p class="legal-meta">CGV mises à jour en avril 2026.</p>
+</main>
+
+<footer class="page-footer">
+  <span>© 2026 Mon Espace Artisan · Votre Atelier Numérique ⚒</span>
+  <div style="display:flex;gap:1.5rem;">
+    <a href="cgv.html">CGV</a>
+    <a href="confidentialite.html">Confidentialité</a>
+    <a href="nos-metiers.html">Nos métiers</a>
+  </div>
+</footer>
+
+</body>
+</html>
