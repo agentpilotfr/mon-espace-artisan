@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%231c1c1c'/><text x='16' y='22' font-family='Arial Black,Impact,sans-serif' font-size='16' font-weight='900' text-anchor='middle' letter-spacing='-1'><tspan fill='%23f4efe6'>M</tspan><tspan fill='%23dd8142'>E</tspan><tspan fill='%23f4efe6'>A</tspan></text></svg>" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <title>Mon Espace Artisan — Site web pour artisans | Basé en Normandie</title>
 <meta name="description" content="Site vitrine clé en main pour artisans. Livré en 48h, à partir de 290€ HT. SEO local inclus. Basé en Normandie, on travaille partout en France." />
 <meta name="keywords" content="site internet artisan, création site web artisan, site vitrine plombier électricien peintre, SEO local artisan, Normandie" />
@@ -67,9 +67,9 @@
   .scribble-under {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'><path d='M2 8 Q 30 2, 60 7 T 120 7 T 198 7' stroke='%23dd8142' stroke-width='3.5' fill='none' stroke-linecap='round'/></svg>");
     background-repeat: no-repeat;
-    background-position: 0 92%;
+    background-position: 0 98%;
     background-size: 100% 0.4em;
-    padding-bottom: 0.1em;
+    padding-bottom: 0.15em;
   }
   .rule-border { border: 1.5px solid var(--mea-dark); }
   .brutal-shadow { box-shadow: 6px 6px 0 0 var(--mea-dark); }
@@ -428,8 +428,8 @@ function Hero() {
         autoPlay muted loop playsInline
         poster="assets/hero-poster.jpg"
       >
-        <source src="assets/hero-bg-mobile.mp4" type="video/mp4" media="(max-width: 767px)" />
-        <source src="assets/hero-bg.mp4" type="video/mp4" />
+        <source media="(max-width: 768px)" src="assets/hero-bg-mobile.mp4" type="video/mp4" />
+        <source src="assets/hero-bg-1080p.mp4" type="video/mp4" />
       </video>
 
       {/* Overlay gradient */}
@@ -447,7 +447,7 @@ function Hero() {
           <Sticker color="var(--mea-dark)" rotate={-2} style={{ color: 'var(--mea-cream)' }}>TVA non applicable</Sticker>
         </div>
 
-        <h1 className="display" style={{ fontSize: 'clamp(2.4rem, 6.5vw, 5.8rem)', lineHeight: 1.05, letterSpacing: '-0.02em' }}>
+        <h1 className="display" style={{ fontSize: 'clamp(2.4rem, 6.5vw, 5.8rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
           Pendant que vous <span style={{ color: 'var(--mea-orange)' }}>bossez</span>,<br />
           on vous <span className="scribble-under">construit</span><br />
           votre <span style={{ background: 'var(--mea-cream)', color: 'var(--mea-dark)', padding: '0 0.15em' }}>vitrine</span>.
@@ -463,7 +463,7 @@ function Hero() {
 
         <div style={{ display: 'flex', gap: '0.8rem', marginTop: '2.25rem', flexWrap: 'wrap' }}>
           <a href="#rdv" className="btn-primary">Caler un appel de 20 min <span>→</span></a>
-          <a href="#exemples" className="btn-ghost" style={{ borderColor: 'var(--mea-cream)', color: 'var(--mea-cream)' }}>Voir 2 sites livrés</a>
+          <a href="https://mea-menuisier.pages.dev" target="_blank" rel="noopener noreferrer" className="btn-ghost" style={{ borderColor: 'var(--mea-cream)', color: 'var(--mea-cream)' }}>Voir un exemple →</a>
         </div>
 
         <div style={{ marginTop: '3rem', display: 'flex', gap: '2.5rem', flexWrap: 'nowrap', alignItems: 'baseline', paddingTop: '1.5rem', borderTop: '1.5px solid rgba(244,239,230,0.25)', maxWidth: 400 }}>
@@ -1693,28 +1693,29 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);
   window.addEventListener('load', getVid, { once: true });
 
   /* ─ navbar ─ */
-  var lastY = 0;
-  var navbar = null;
-  function getNavbar() { navbar = document.querySelector('header'); }
-  window.addEventListener('load', getNavbar, { once: true });
+  var lastScrollY = window.pageYOffset;
+  var navbar = document.querySelector('header');
+  if (navbar) {
+    navbar.style.transition = 'transform 0.3s ease';
+  }
 
   window.addEventListener('scroll', function() {
-    var y = window.pageYOffset;
+    var currentY = window.pageYOffset;
 
     /* parallax */
     if (!vid) getVid();
-    if (vid) vid.style.transform = 'translate(-50%, calc(-50% + ' + (y * 0.4) + 'px)) scale(1.1)';
+    if (vid) vid.style.transform = 'translate(-50%, calc(-50% + ' + (currentY * 0.4) + 'px)) scale(1.1)';
 
     /* navbar */
-    if (!navbar) getNavbar();
+    if (!navbar) navbar = document.querySelector('header');
     if (navbar) {
-      if (y < 80 || y < lastY) {
+      if (currentY < lastScrollY || currentY < 80) {
         navbar.style.transform = 'translateY(0)';
-      } else {
+      } else if (currentY > lastScrollY && currentY > 80) {
         navbar.style.transform = 'translateY(-100%)';
       }
     }
-    lastY = y;
+    lastScrollY = currentY;
   }, { passive: true });
 })();
 </script>
