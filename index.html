@@ -337,7 +337,7 @@ function Navbar() {
   const closeMenu = () => setMenuOpen(false);
   return (
     <header style={{
-      position: 'sticky', top: 0, zIndex: 1000,
+      position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 1000,
       background: scrolled ? 'rgba(244,239,230,0.82)' : 'transparent',
       borderBottom: scrolled ? '1.5px solid var(--mea-dark)' : '1.5px solid transparent',
       boxShadow: scrolled ? '0 2px 0 0 rgba(28,28,28,0.15)' : 'none',
@@ -1683,6 +1683,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <div style={{height: '72px'}} />
       <Hero />
       <Marquee />
       <ExemplesArtisans />
