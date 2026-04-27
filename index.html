@@ -311,18 +311,18 @@ function Navbar() {
   const scrolled = y > 80;
   const [menuOpen, setMenuOpen] = useState(false);
   const [navHidden, setNavHidden] = useState(false);
+  const lastYRef = useRef(0);
   useEffect(function() {
-    var lastY = 0;
     function onScroll() {
       var y = window.scrollY || window.pageYOffset;
       if (y < 60) {
         setNavHidden(false);
-      } else if (y > lastY) {
+      } else if (y > lastYRef.current) {
         setNavHidden(true);
       } else {
         setNavHidden(false);
       }
-      lastY = y;
+      lastYRef.current = y;
     }
     document.addEventListener('scroll', onScroll, {passive: true});
     return function() { document.removeEventListener('scroll', onScroll); };
