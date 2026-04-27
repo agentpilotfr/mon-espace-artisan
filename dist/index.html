@@ -427,9 +427,10 @@ function Hero() {
         className="hero-video-bg"
         autoPlay muted loop playsInline
         poster="assets/hero-poster.jpg"
+        style={{position:'absolute',top:'50%',left:'50%',minWidth:'100%',minHeight:'100%',width:'auto',height:'auto',transform:'translate(-50%,-50%) scale(1.1)',objectFit:'cover'}}
       >
-        <source media="(max-width: 768px)" src="assets/hero-bg-mobile.mp4" type="video/mp4" />
         <source src="assets/hero-bg-1080p.mp4" type="video/mp4" />
+        <source src="assets/hero-bg.mp4" type="video/mp4" />
       </video>
 
       {/* Overlay gradient */}
@@ -1696,39 +1697,25 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);
     if (vid) vid.style.transform = 'translate(-50%, calc(-50% + ' + (y * 0.4) + 'px)) scale(1.1)';
   }, { passive: true });
 })();
+</script>
 
-/* Navbar hide on scroll down / show on scroll up */
+<script>
 (function() {
-  var navbar = document.querySelector('header');
-  if (!navbar) return;
-
-  navbar.style.position = 'sticky';
-  navbar.style.top = '0';
-  navbar.style.zIndex = '100';
-  navbar.style.transition = 'transform 0.3s ease';
-
   var lastY = 0;
-  var ticking = false;
-
-  function updateNavbar() {
-    var currentY = window.pageYOffset;
-    if (currentY <= 80) {
-      navbar.style.transform = 'translateY(0)';
-    } else if (currentY > lastY) {
-      navbar.style.transform = 'translateY(-110%)';
+  var nav = document.querySelector('header');
+  if (!nav) return;
+  nav.style.transition = 'transform 0.25s ease';
+  document.addEventListener('scroll', function() {
+    var y = window.scrollY || window.pageYOffset;
+    if (y < 60) {
+      nav.style.transform = '';
+    } else if (y > lastY) {
+      nav.style.transform = 'translateY(-120%)';
     } else {
-      navbar.style.transform = 'translateY(0)';
+      nav.style.transform = 'translateY(0)';
     }
-    lastY = currentY;
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      requestAnimationFrame(updateNavbar);
-      ticking = true;
-    }
-  }, { passive: true });
+    lastY = y;
+  }, {passive: true});
 })();
 </script>
 </body>
