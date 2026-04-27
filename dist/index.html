@@ -310,26 +310,22 @@ function Navbar() {
   const y = useScrollY();
   const scrolled = y > 80;
   const [menuOpen, setMenuOpen] = useState(false);
+  const [navHidden, setNavHidden] = useState(false);
   useEffect(function() {
     var lastY = 0;
-    var nav = document.querySelector('header');
-    if (!nav) return;
-    nav.style.transition = 'transform 0.25s ease';
     function onScroll() {
       var y = window.scrollY || window.pageYOffset;
       if (y < 60) {
-        nav.style.transform = '';
+        setNavHidden(false);
       } else if (y > lastY) {
-        nav.style.transform = 'translateY(-120%)';
+        setNavHidden(true);
       } else {
-        nav.style.transform = 'translateY(0)';
+        setNavHidden(false);
       }
       lastY = y;
     }
     document.addEventListener('scroll', onScroll, {passive: true});
-    return function() {
-      document.removeEventListener('scroll', onScroll);
-    };
+    return function() { document.removeEventListener('scroll', onScroll); };
   }, []);
   const links = [
     { href: '#exemples', label: 'Exemples' },
@@ -347,7 +343,8 @@ function Navbar() {
       boxShadow: scrolled ? '0 2px 0 0 rgba(28,28,28,0.15)' : 'none',
       backdropFilter: scrolled ? 'blur(8px)' : 'none',
       WebkitBackdropFilter: scrolled ? 'blur(8px)' : 'none',
-      transition: 'background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, transform 0.3s ease',
+      transform: navHidden ? 'translateY(-120%)' : 'translateY(0)',
+      transition: 'transform 0.25s ease, background 0.25s ease',
     }}>
       <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0.9rem 1.75rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '2rem' }}>
         <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', minWidth: 'fit-content', flexShrink: 0, whiteSpace: 'nowrap', textDecoration: 'none' }}>
