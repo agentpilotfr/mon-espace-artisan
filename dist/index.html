@@ -310,6 +310,27 @@ function Navbar() {
   const y = useScrollY();
   const scrolled = y > 80;
   const [menuOpen, setMenuOpen] = useState(false);
+  useEffect(function() {
+    var lastY = 0;
+    var nav = document.querySelector('header');
+    if (!nav) return;
+    nav.style.transition = 'transform 0.25s ease';
+    function onScroll() {
+      var y = window.scrollY || window.pageYOffset;
+      if (y < 60) {
+        nav.style.transform = '';
+      } else if (y > lastY) {
+        nav.style.transform = 'translateY(-120%)';
+      } else {
+        nav.style.transform = 'translateY(0)';
+      }
+      lastY = y;
+    }
+    document.addEventListener('scroll', onScroll, {passive: true});
+    return function() {
+      document.removeEventListener('scroll', onScroll);
+    };
+  }, []);
   const links = [
     { href: '#exemples', label: 'Exemples' },
     { href: '#process', label: 'Process' },
@@ -1696,36 +1717,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);
     if (!vid) getVid();
     if (vid) vid.style.transform = 'translate(-50%, calc(-50% + ' + (y * 0.4) + 'px)) scale(1.1)';
   }, { passive: true });
-})();
-</script>
-
-<script>
-(function() {
-  function initNavbar() {
-    var nav = document.querySelector('header');
-    if (!nav) return false;
-    var lastY = 0;
-    nav.style.transition = 'transform 0.25s ease';
-    document.addEventListener('scroll', function() {
-      var y = window.scrollY || window.pageYOffset;
-      if (y < 60) {
-        nav.style.transform = '';
-      } else if (y > lastY) {
-        nav.style.transform = 'translateY(-120%)';
-      } else {
-        nav.style.transform = 'translateY(0)';
-      }
-      lastY = y;
-    }, {passive: true});
-    return true;
-  }
-
-  if (!initNavbar()) {
-    var observer = new MutationObserver(function() {
-      if (initNavbar()) observer.disconnect();
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-  }
 })();
 </script>
 </body>
