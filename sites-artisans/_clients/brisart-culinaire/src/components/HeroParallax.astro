@@ -1,0 +1,395 @@
+---
+// HeroParallax — variante botanical + vidéo background
+// Couches : vidéo(0) → overlay(1) → botanical SVG(2) → ornements(3) → contenu(10)
+import HeroReviews from './HeroReviews.astro';
+---
+
+<section id="hero-parallax" class="hero-parallax" aria-label="Bris'Art Culinaire — Restaurant et Cours de Cuisine à La Baule">
+
+  <!-- ─── Vidéo background (z-index 0) ─── -->
+  <video
+    class="hero-video"
+    autoplay
+    loop
+    muted
+    playsinline
+    webkit-playsinline
+    poster="/images/hero-poster.jpg"
+    aria-hidden="true"
+  >
+    <source src="/videos/hero-guillaume.mp4" type="video/mp4">
+  </video>
+
+  <!-- ─── Overlay sombre (z-index 1) ─── -->
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <!-- ─── Couche 0 : Grand herbier (droite, lent 0.15×, z-index 2) ─── -->
+  <div class="parallax-layer" data-speed="0.15" style="right:-40px; bottom:-60px; width:420px; height:620px; opacity:0.10;" aria-hidden="true">
+    <svg viewBox="0 0 280 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M140 520 C138 450 142 380 140 310 C138 240 142 170 140 80 C139 40 140 10 140 0" stroke="#C9A44A" stroke-width="1.8" stroke-linecap="round"/>
+      <ellipse cx="140" cy="18" rx="6" ry="10" stroke="#C9A44A" stroke-width="0.8"/>
+      <ellipse cx="128" cy="28" rx="5" ry="8"  stroke="#C9A44A" stroke-width="0.7"/>
+      <ellipse cx="152" cy="25" rx="5" ry="8"  stroke="#C9A44A" stroke-width="0.7"/>
+      <ellipse cx="136" cy="4"  rx="3" ry="5"  stroke="#C9A44A" stroke-width="0.6"/>
+      <ellipse cx="145" cy="6"  rx="3" ry="5"  stroke="#C9A44A" stroke-width="0.6"/>
+      <path d="M140 480 C125 462 102 448 76 434 C59 424 44 418 30 412" stroke="#C9A44A" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+      <path d="M140 480 C157 462 178 448 202 435 C220 425 236 419 250 414" stroke="#C9A44A" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+      <line x1="108" y1="451" x2="102" y2="441" stroke="#C9A44A" stroke-width="0.75"/>
+      <line x1="94"  y1="444" x2="88"  y2="434" stroke="#C9A44A" stroke-width="0.75"/>
+      <line x1="80"  y1="437" x2="74"  y2="427" stroke="#C9A44A" stroke-width="0.75"/>
+      <line x1="65"  y1="429" x2="59"  y2="419" stroke="#C9A44A" stroke-width="0.75"/>
+      <line x1="50"  y1="421" x2="44"  y2="411" stroke="#C9A44A" stroke-width="0.75"/>
+      <line x1="170" y1="451" x2="176" y2="441" stroke="#C9A44A" stroke-width="0.75"/>
+      <line x1="184" y1="444" x2="190" y2="434" stroke="#C9A44A" stroke-width="0.75"/>
+      <line x1="198" y1="437" x2="204" y2="427" stroke="#C9A44A" stroke-width="0.75"/>
+      <line x1="212" y1="430" x2="218" y2="420" stroke="#C9A44A" stroke-width="0.75"/>
+      <line x1="226" y1="422" x2="232" y2="412" stroke="#C9A44A" stroke-width="0.75"/>
+      <path d="M140 440 C124 420 98 406 72 391 C54 381 38 374 24 368" stroke="#C9A44A" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+      <path d="M140 440 C158 420 182 407 208 393 C226 383 242 377 256 371" stroke="#C9A44A" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+      <path d="M140 400 C122 378 94 362 68 347 C50 337 35 330 22 324" stroke="#C9A44A" stroke-width="0.95" stroke-linecap="round" fill="none"/>
+      <path d="M140 400 C160 378 188 364 212 350 C230 340 245 334 258 328" stroke="#C9A44A" stroke-width="0.95" stroke-linecap="round" fill="none"/>
+      <path d="M140 360 C120 337 90 320 64 306 C46 296 32 290 20 285" stroke="#C9A44A" stroke-width="0.85" stroke-linecap="round" fill="none"/>
+      <path d="M140 360 C162 337 192 322 216 308 C234 298 248 292 260 287" stroke="#C9A44A" stroke-width="0.85" stroke-linecap="round" fill="none"/>
+      <path d="M140 320 C122 300 96 286 72 274 C55 265 42 260 30 256" stroke="#C9A44A" stroke-width="0.75" stroke-linecap="round" fill="none"/>
+      <path d="M140 320 C160 300 184 287 208 275 C225 266 238 261 250 257" stroke="#C9A44A" stroke-width="0.75" stroke-linecap="round" fill="none"/>
+      <path d="M140 280 C124 262 100 250 78 240 C63 233 50 228 40 225" stroke="#C9A44A" stroke-width="0.7" stroke-linecap="round" fill="none"/>
+      <path d="M140 280 C158 262 182 251 204 241 C219 234 232 229 242 226" stroke="#C9A44A" stroke-width="0.7" stroke-linecap="round" fill="none"/>
+      <path d="M140 240 C127 224 108 214 90 206 C78 200 68 197 60 195" stroke="#C9A44A" stroke-width="0.65" stroke-linecap="round" fill="none"/>
+      <path d="M140 240 C155 224 174 215 192 207 C204 201 214 198 222 196" stroke="#C9A44A" stroke-width="0.65" stroke-linecap="round" fill="none"/>
+      <path d="M140 200 C130 186 115 178 100 172 C90 168 82 166 74 164" stroke="#C9A44A" stroke-width="0.6" stroke-linecap="round" fill="none"/>
+      <path d="M140 200 C152 186 167 178 182 172 C192 168 200 166 208 164" stroke="#C9A44A" stroke-width="0.6" stroke-linecap="round" fill="none"/>
+    </svg>
+  </div>
+
+  <!-- ─── Couche 1 : Branche de laurier (gauche, 0.32×, z-index 2) ─── -->
+  <div class="parallax-layer" data-speed="0.32" style="left:-30px; top:8%; width:320px; height:480px; opacity:0.14;" aria-hidden="true">
+    <svg viewBox="0 0 220 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 390 C40 340 65 300 90 260 C115 220 145 185 170 145 C190 112 205 78 215 40" stroke="#C9A44A" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      <path d="M55 315 C38 295 35 270 48 258 C58 248 72 250 80 264 C88 278 82 302 55 315Z" stroke="#C9A44A" stroke-width="0.85" fill="none"/>
+      <path d="M55 315 C50 295 46 274 50 260" stroke="#C9A44A" stroke-width="0.45" fill="none"/>
+      <path d="M50 295 Q42 290 38 283" stroke="#C9A44A" stroke-width="0.35" fill="none"/>
+      <path d="M50 285 Q43 281 40 275" stroke="#C9A44A" stroke-width="0.35" fill="none"/>
+      <path d="M51 302 Q60 296 66 288" stroke="#C9A44A" stroke-width="0.35" fill="none"/>
+      <path d="M78 262 C92 238 112 232 120 242 C128 254 120 278 98 288 C80 296 64 282 78 262Z" stroke="#C9A44A" stroke-width="0.85" fill="none"/>
+      <path d="M78 262 C92 250 106 246 118 246" stroke="#C9A44A" stroke-width="0.45" fill="none"/>
+      <path d="M90 258 Q92 265 90 272" stroke="#C9A44A" stroke-width="0.35" fill="none"/>
+      <path d="M100 254 Q102 261 101 268" stroke="#C9A44A" stroke-width="0.35" fill="none"/>
+      <path d="M108 222 C96 200 98 178 112 170 C124 162 140 168 146 184 C152 200 144 224 120 234 C112 237 104 232 108 222Z" stroke="#C9A44A" stroke-width="0.85" fill="none"/>
+      <path d="M108 222 C110 206 114 188 116 172" stroke="#C9A44A" stroke-width="0.45" fill="none"/>
+      <path d="M112 210 Q105 206 102 199" stroke="#C9A44A" stroke-width="0.35" fill="none"/>
+      <path d="M112 198 Q106 194 104 188" stroke="#C9A44A" stroke-width="0.35" fill="none"/>
+      <path d="M114 215 Q120 211 124 204" stroke="#C9A44A" stroke-width="0.35" fill="none"/>
+      <path d="M140 184 C154 162 174 158 182 168 C190 180 184 204 162 214 C146 222 130 208 140 184Z" stroke="#C9A44A" stroke-width="0.85" fill="none"/>
+      <path d="M140 184 C152 172 166 168 180 170" stroke="#C9A44A" stroke-width="0.45" fill="none"/>
+      <path d="M152 180 Q154 187 152 194" stroke="#C9A44A" stroke-width="0.35" fill="none"/>
+      <path d="M163 176 Q165 183 163 190" stroke="#C9A44A" stroke-width="0.35" fill="none"/>
+      <path d="M166 148 C158 126 162 106 176 100 C188 94 202 102 206 118 C210 134 202 156 180 162 C170 165 162 158 166 148Z" stroke="#C9A44A" stroke-width="0.85" fill="none"/>
+      <path d="M166 148 C170 132 176 114 180 102" stroke="#C9A44A" stroke-width="0.45" fill="none"/>
+      <path d="M170 138 Q164 132 162 124" stroke="#C9A44A" stroke-width="0.35" fill="none"/>
+      <path d="M172 142 Q178 137 182 130" stroke="#C9A44A" stroke-width="0.35" fill="none"/>
+      <circle cx="212" cy="38" r="3" stroke="#C9A44A" stroke-width="0.7"/>
+      <circle cx="208" cy="28" r="2.5" stroke="#C9A44A" stroke-width="0.6"/>
+      <circle cx="217" cy="30" r="2" stroke="#C9A44A" stroke-width="0.6"/>
+    </svg>
+  </div>
+
+  <!-- ─── Couche 2 : Thym (haut-droite, rapide 0.55×, z-index 2) ─── -->
+  <div class="parallax-layer" data-speed="0.55" style="right:8%; top:6%; width:180px; height:260px; opacity:0.18;" aria-hidden="true">
+    <svg viewBox="0 0 140 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M38 215 C36 185 38 155 36 125 C34 95 36 65 35 30" stroke="#C9A44A" stroke-width="1.1" stroke-linecap="round"/>
+      <path d="M36 195 C30 189 29 182 33 179 C37 176 40 180 40 187 C40 193 38 197 36 195Z" stroke="#C9A44A" stroke-width="0.7" fill="none"/>
+      <path d="M36 175 C30 169 29 162 33 159 C37 156 40 160 40 167 C40 173 38 177 36 175Z" stroke="#C9A44A" stroke-width="0.7" fill="none"/>
+      <path d="M36 155 C29 149 28 142 32 139 C36 136 40 140 40 147 C40 153 38 157 36 155Z" stroke="#C9A44A" stroke-width="0.7" fill="none"/>
+      <path d="M36 135 C30 129 29 122 33 119 C37 116 40 120 40 127 C40 133 38 137 36 135Z" stroke="#C9A44A" stroke-width="0.65" fill="none"/>
+      <path d="M36 115 C30 109 29 102 33 99 C37 96 40 100 40 107 C40 113 38 117 36 115Z" stroke="#C9A44A" stroke-width="0.65" fill="none"/>
+      <path d="M35 95 C29 89 28 82 32 79 C36 76 39 80 39 87 C39 93 37 97 35 95Z" stroke="#C9A44A" stroke-width="0.6" fill="none"/>
+      <path d="M35 75 C29 69 28 63 32 60 C36 57 39 61 39 68 C39 74 37 77 35 75Z" stroke="#C9A44A" stroke-width="0.6" fill="none"/>
+      <circle cx="35" cy="24" r="3.5" stroke="#C9A44A" stroke-width="0.7"/>
+      <circle cx="31" cy="16" r="2.5" stroke="#C9A44A" stroke-width="0.6"/>
+      <circle cx="39" cy="17" r="2.5" stroke="#C9A44A" stroke-width="0.6"/>
+      <path d="M72 215 C70 182 72 149 70 116 C68 83 70 52 69 18" stroke="#C9A44A" stroke-width="1.1" stroke-linecap="round"/>
+      <path d="M70 193 C64 187 63 180 67 177 C71 174 74 178 74 185 C74 191 72 195 70 193Z" stroke="#C9A44A" stroke-width="0.7" fill="none"/>
+      <path d="M70 170 C64 164 63 157 67 154 C71 151 74 155 74 162 C74 168 72 172 70 170Z" stroke="#C9A44A" stroke-width="0.7" fill="none"/>
+      <path d="M70 148 C64 142 63 135 67 132 C71 129 74 133 74 140 C74 146 72 150 70 148Z" stroke="#C9A44A" stroke-width="0.65" fill="none"/>
+      <path d="M70 126 C64 120 63 113 67 110 C71 107 74 111 74 118 C74 124 72 128 70 126Z" stroke="#C9A44A" stroke-width="0.65" fill="none"/>
+      <circle cx="69" cy="12" r="3.5" stroke="#C9A44A" stroke-width="0.7"/>
+      <circle cx="65" cy="5"  r="2.5" stroke="#C9A44A" stroke-width="0.6"/>
+      <circle cx="74" cy="6"  r="2.5" stroke="#C9A44A" stroke-width="0.6"/>
+      <path d="M108 215 C106 186 108 157 106 128 C104 99 106 72 105 40" stroke="#C9A44A" stroke-width="1" stroke-linecap="round"/>
+      <path d="M106 194 C100 188 99 181 103 178 C107 175 110 179 110 186 C110 192 108 196 106 194Z" stroke="#C9A44A" stroke-width="0.65" fill="none"/>
+      <path d="M106 172 C100 166 99 159 103 156 C107 153 110 157 110 164 C110 170 108 174 106 172Z" stroke="#C9A44A" stroke-width="0.65" fill="none"/>
+      <path d="M106 150 C100 144 99 137 103 134 C107 131 110 135 110 142 C110 148 108 152 106 150Z" stroke="#C9A44A" stroke-width="0.6" fill="none"/>
+      <circle cx="105" cy="34" r="3" stroke="#C9A44A" stroke-width="0.65"/>
+      <circle cx="101" cy="26" r="2" stroke="#C9A44A" stroke-width="0.55"/>
+      <circle cx="109" cy="27" r="2" stroke="#C9A44A" stroke-width="0.55"/>
+    </svg>
+  </div>
+
+  <!-- ─── Ornements dorés fixes (z-index 3) ─── -->
+  <div class="hero-ornaments" aria-hidden="true">
+    <div class="orn-line-v orn-left"></div>
+    <div class="orn-line-v orn-right"></div>
+    <svg class="orn-corner orn-corner-bl" width="60" height="60" viewBox="0 0 60 60" fill="none">
+      <path d="M2 58 L2 20 Q2 2 20 2" stroke="#C9A44A" stroke-width="0.7" opacity="0.4"/>
+      <circle cx="6" cy="54" r="1.5" fill="#C9A44A" opacity="0.35"/>
+    </svg>
+    <svg class="orn-corner orn-corner-br" width="60" height="60" viewBox="0 0 60 60" fill="none">
+      <path d="M58 58 L58 20 Q58 2 40 2" stroke="#C9A44A" stroke-width="0.7" opacity="0.4"/>
+      <circle cx="54" cy="54" r="1.5" fill="#C9A44A" opacity="0.35"/>
+    </svg>
+  </div>
+
+  <!-- ─── Contenu centré (z-index 10) ─── -->
+  <div class="hero-content container">
+    <div class="hero-inner">
+
+      <!-- Bib Gourmand badge -->
+      <div class="hero-michelin-badge">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M6 1 L7.4 4.2 L11 4.5 L8.5 6.8 L9.3 10.5 L6 8.7 L2.7 10.5 L3.5 6.8 L1 4.5 L4.6 4.2 Z" stroke="#C9A44A" stroke-width="0.7" fill="none"/>
+        </svg>
+        <span>Bib Gourmand Guide Michelin</span>
+      </div>
+
+      <span class="section-label hero-label">
+        Restaurant Gastronomique &bull; La Baule
+      </span>
+
+      <div class="gold-rule gold-rule-center" style="margin:1.2rem auto;"></div>
+
+      <h1 class="hero-title">
+        L'Art de<br>
+        <em class="hero-title-gold">Cuisiner</em><br>
+        Autrement
+      </h1>
+
+      <p class="hero-subtitle">
+        Guillaume Brisard vous invite à redécouvrir la gastronomie artisanale
+        au rythme des saisons — au restaurant ou lors de ses cours de cuisine à La Baule.
+      </p>
+
+      <!-- Social proof — composant standalone -->
+      <HeroReviews badges={[
+        {
+          platform: 'google',
+          score: '4,8',
+          count: '156 avis',
+          url: "https://www.google.com/maps/place/Bris'Art+Culinaire/@47.2843,2.3917,17z",
+          label: 'Google',
+        },
+        {
+          platform: 'tripadvisor',
+          score: '5,0',
+          count: 'N°1 La Baule',
+          url: 'https://www.tripadvisor.fr/Attraction_Review-g187194-d32557898-Reviews-Bris_art_Culinaire-La_Baule_Escoublac_Loire_Atlantique_Pays_de_la_Loire.html',
+          label: 'TripAdvisor',
+        },
+        {
+          platform: 'michelin',
+          score: '',
+          count: 'Bib Gourmand',
+          label: 'Guide Michelin 2026',
+        },
+      ]} />
+
+      <div class="hero-ctas">
+        <a
+          href="https://reservation.laddition.com/booking/brisartculinaire"
+          class="btn-gold"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Réserver une table
+        </a>
+        <a href="/cours-de-cuisine" class="btn-ghost-gold">Cours de cuisine</a>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-line"></div>
+        <span class="scroll-label">Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fondu bas -->
+  <div class="hero-fade" aria-hidden="true"></div>
+</section>
+
+<style>
+  .hero-parallax {
+    position: relative;
+    min-height: 100svh; /* svh : exclut la barre d'adresse mobile Safari */
+    overflow: hidden;
+    background: var(--ink-deep);
+    display: flex;
+    align-items: center;
+  }
+
+  /* ─── Vidéo background ─── */
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  /* Fallback poster si la vidéo ne charge pas (tous écrans) */
+  .hero-parallax {
+    background-image: url('/images/hero-poster.jpg');
+    background-size: cover;
+    background-position: center top;
+  }
+
+  /* ─── Overlay ─── */
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 14, 11, 0.55);
+    z-index: 1;
+  }
+
+  /* ─── Couches parallax ─── */
+  .parallax-layer {
+    position: absolute;
+    pointer-events: none;
+    will-change: transform;
+    z-index: 2;
+  }
+
+  /* ─── Ornements ─── */
+  .hero-ornaments { position: absolute; inset: 0; pointer-events: none; z-index: 3; }
+  .orn-line-v {
+    position: absolute;
+    top: 15%; bottom: 15%; width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(201,164,74,0.22) 30%, rgba(201,164,74,0.22) 70%, transparent);
+  }
+  .orn-left  { left: clamp(1rem, 4vw, 3.5rem); }
+  .orn-right { right: clamp(1rem, 4vw, 3.5rem); }
+  .orn-corner { position: absolute; z-index: 3; }
+  .orn-corner-bl { bottom: 1.5rem; left: 1.5rem; }
+  .orn-corner-br { bottom: 1.5rem; right: 1.5rem; }
+
+  /* ─── Contenu ─── */
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+  }
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 8rem 0 6rem;
+  }
+
+  /* Badge Michelin */
+  .hero-michelin-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(201,164,74,0.12);
+    border: 1px solid rgba(201,164,74,0.25);
+    border-radius: 20px;
+    padding: 0.4rem 1rem;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-base);
+  }
+
+  .hero-label { letter-spacing: 0.28em; display: block; }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(3.8rem, 9vw, 7.5rem);
+    line-height: 0.88;
+    color: var(--parchment);
+    letter-spacing: -0.01em;
+    margin: 0 0 1.8rem;
+  }
+  .hero-title-gold { color: var(--gold-base); font-weight: 400; }
+
+  .hero-subtitle {
+    font-family: var(--font-body);
+    color: rgba(245,240,232,0.65);
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+    line-height: 1.75;
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3.5rem;
+  }
+
+  .scroll-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .scroll-line { width: 36px; height: 1px; background: rgba(201,164,74,0.3); }
+  .scroll-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(201,164,74,0.4);
+  }
+
+  .hero-fade {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent 0%, rgba(28,26,24,0.7) 70%, var(--ink-deep) 100%);
+    pointer-events: none;
+    z-index: 4;
+  }
+
+  /* Styles reviews → voir HeroReviews.astro */
+</style>
+
+<script>
+  (function () {
+    const layers = document.querySelectorAll<HTMLElement>('.parallax-layer[data-speed]');
+    const hero   = document.getElementById('hero-parallax');
+    if (!hero || !layers.length) return;
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    let scrollY = 0;
+    let dirty   = false;
+
+    function apply() {
+      const heroH = hero!.offsetHeight;
+      if (scrollY > heroH) return;
+      layers.forEach(layer => {
+        const speed = parseFloat(layer.dataset.speed || '0');
+        layer.style.transform = `translateY(${scrollY * speed}px)`;
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      scrollY = window.scrollY;
+      if (!dirty) {
+        dirty = true;
+        requestAnimationFrame(() => { apply(); dirty = false; });
+      }
+    }, { passive: true });
+
+    apply();
+  })();
+</script>

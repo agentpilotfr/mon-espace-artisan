@@ -1,0 +1,28 @@
+---
+import BaseLayout    from '../layouts/BaseLayout.astro';
+import Header        from '../components/Header.astro';
+import HeroParallax  from '../components/HeroParallax.astro';
+import ServicesRail  from '../components/ServicesRail.astro';
+import AboutSection  from '../components/AboutSection.astro';
+import StatsBand     from '../components/StatsBand.astro';
+import Testimonials  from '../components/Testimonials.astro';
+import ReservationCTA from '../components/ReservationCTA.astro';
+import Footer        from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Restaurant Gastronomique La Baule — Bris'Art Culinaire | Bib Gourmand Michelin"
+  description="Restaurant gastronomique Bib Gourmand Michelin et cours de cuisine à La Baule. Chef Guillaume Brisard : menu du marché, table du chef en 6 services, bar à huîtres. Réservation en ligne."
+  canonical="https://www.brisartculinaire.fr/"
+>
+  <Header transparent />
+  <main>
+    <HeroParallax />
+    <ServicesRail />
+    <AboutSection />
+    <StatsBand />
+    <Testimonials />
+    <ReservationCTA />
+  </main>
+  <Footer />
+</BaseLayout>

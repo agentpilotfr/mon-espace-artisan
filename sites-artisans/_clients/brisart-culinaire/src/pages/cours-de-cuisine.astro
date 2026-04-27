@@ -1,0 +1,606 @@
+---
+import BaseLayout     from '../layouts/BaseLayout.astro';
+import Header         from '../components/Header.astro';
+import StatsBand      from '../components/StatsBand.astro';
+import ReservationCTA from '../components/ReservationCTA.astro';
+import Footer         from '../components/Footer.astro';
+
+// Formules réelles Bris'Art Culinaire (scrape 2026-04-26)
+const formules = [
+  {
+    label:    'Cours n°1',
+    titre:    'Cours de Cuisine',
+    duree:    '2 heures',
+    places:   'Tous niveaux',
+    prix:     95,
+    featured: false,
+    description: 'Deux heures de cours de cuisine au fourneau du restaurant. Guillaume partage ses techniques, trucs et astuces — peu importe votre niveau, vous repartez avec des recettes.',
+    inclus: [
+      'Tablier fourni sur place',
+      'Accès cuisine professionnelle',
+      'Techniques du chef',
+      'Recettes de la séance',
+    ],
+    sessions: ['RV 9h30 au restaurant — 39 Av. Louis Lajarrige, La Baule'],
+  },
+  {
+    label:    'Cours n°2',
+    titre:    'Cours + Dégustation',
+    duree:    '2h + repas',
+    places:   'Tous niveaux',
+    prix:     125,
+    featured: true,
+    description: 'Deux heures de cours de cuisine suivies d\'une dégustation sur place. Convivial et gourmand. Accompagnants bienvenus (35 €, arrivée 12h30).',
+    inclus: [
+      'Tablier fourni sur place',
+      'Cours de 2 heures',
+      'Dégustation sur place incluse',
+      'Recettes du chef',
+      'Accompagnant possible (35 €)',
+    ],
+    sessions: ['Mercredi & Samedi · 9h30 – 14h30'],
+  },
+  {
+    label:    'Cours n°3 ⭐ Coup de cœur',
+    titre:    'Marché + Cours + Déjeuner',
+    duree:    'Matinée complète',
+    places:   'Tous niveaux',
+    prix:     155,
+    featured: false,
+    description: 'Visite du marché de Pornichet pour la sélection des produits, puis 2h de cours de cuisine suivies du déjeuner sur place. L\'expérience complète, de A à Z.',
+    inclus: [
+      'Visite guidée marché de Pornichet',
+      'Tablier fourni sur place',
+      'Cours de cuisine 2 heures',
+      'Déjeuner sur place inclus',
+      'Accompagnant possible (35 €, arrivée 12h30)',
+    ],
+    sessions: ['Mercredi & Samedi · 8h30 – 14h30'],
+  },
+  {
+    label:    'Immersion',
+    titre:    'Journée Chef',
+    duree:    'Journée complète',
+    places:   'Sur-mesure',
+    prix:     299,
+    featured: false,
+    description: 'Vivez une journée dans la peau d\'un chef. Guillaume Brisard, anciennement étoilé au Fort de l\'Océan, vous propose une immersion gastronomique exclusive et entièrement sur-mesure.',
+    inclus: [
+      'Tablier professionnel',
+      'Programme 100 % sur-mesure',
+      'De la sélection produits à la mise en assiette',
+      'Déjeuner gastronomique inclus',
+      'Expertise d\'un ancien étoilé Michelin',
+    ],
+    sessions: ['Sur réservation — journée complète'],
+  },
+];
+
+// Infos pratiques
+const pratiques = [
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#C9A44A" stroke-width="1.1" stroke-linecap="round">
+      <circle cx="14" cy="10" r="5"/><path d="M5 26 C5 19 23 19 23 26"/>
+      <line x1="14" y1="15" x2="14" y2="19"/>
+    </svg>`,
+    titre: 'Tous niveaux acceptés',
+    texte: 'Débutant ou amateur confirmé, Guillaume adapte son enseignement à chacun.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#C9A44A" stroke-width="1.1" stroke-linecap="round">
+      <rect x="4" y="6" width="20" height="16" rx="2" stroke-width="0.9"/>
+      <line x1="4" y1="11" x2="24" y2="11"/>
+      <line x1="10" y1="6" x2="10" y2="3"/>
+      <line x1="18" y1="6" x2="18" y2="3"/>
+    </svg>`,
+    titre: 'Tabliers fournis',
+    texte: 'Venez les mains dans les poches. Tabliers et matériel professionnel fournis sur place.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#C9A44A" stroke-width="1.1" stroke-linecap="round">
+      <path d="M5 10 C5 7 8 5 11 6.5 C12 5 14.5 4.5 17 6 C18.5 5 21 6 22 8.5 C24.5 9.5 25 12.5 23.5 14.5 C22 17 18.5 17 17 15.5 C15.5 17 12 17 10.5 15.5 C7.5 16 4 13.5 5 10Z"/>
+      <line x1="14" y1="15" x2="14" y2="22"/>
+    </svg>`,
+    titre: 'Produits du marché',
+    texte: 'Cours n°3 : visite du marché de Pornichet pour sélectionner les produits ensemble.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#C9A44A" stroke-width="1.1" stroke-linecap="round">
+      <circle cx="10" cy="10" r="6"/><circle cx="18" cy="10" r="6"/>
+      <line x1="14" y1="4" x2="14" y2="16"/>
+    </svg>`,
+    titre: 'Accompagnants bienvenus',
+    texte: 'Cours n°2 & 3 : accompagnant possible pour le déjeuner (35 €, arrivée à 12h30).',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#C9A44A" stroke-width="1.1" stroke-linecap="round">
+      <path d="M14 4 L16.2 9.8 L22.5 9.8 L17.6 13.4 L19.8 19.2 L14 15.8 L8.2 19.2 L10.4 13.4 L5.5 9.8 L11.8 9.8 Z" stroke-width="0.9"/>
+    </svg>`,
+    titre: 'Expertise Michelin',
+    texte: 'Guillaume Brisard, anciennement étoilé au Fort de l\'Océan, transmet 20 ans de cuisine gastronomique.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#C9A44A" stroke-width="1.1" stroke-linecap="round">
+      <rect x="4" y="8" width="20" height="16" rx="2"/>
+      <path d="M9 8 V5 M19 8 V5"/>
+      <path d="M9 17 L11.5 19.5 L19 13"/>
+    </svg>`,
+    titre: 'Réservation simple',
+    texte: 'Par téléphone au 02 85 95 94 57 ou via le formulaire de contact en ligne.',
+  },
+];
+
+const temoignages_cours = [
+  {
+    texte: 'J\'ai offert le cours n°3 (marché + cuisine + déjeuner) pour l\'anniversaire de ma sœur. Tout le monde est reparti avec le sourire, des recettes et l\'envie de cuisiner. Un souvenir magnifique.',
+    nom:   'Anaïs T.', lieu: 'La Baule',
+  },
+  {
+    texte: 'La journée Chef était une expérience unique. On sent l\'expertise d\'un ancien étoilé : les techniques, le soin du détail, la générosité. Je recommande à 100 %.',
+    nom:   'Romain D.', lieu: 'Nantes',
+  },
+];
+---
+
+<BaseLayout
+  title="Cours de Cuisine La Baule — Bris'Art Culinaire | Guillaume Brisard"
+  description="Cours de cuisine à La Baule avec le Chef Guillaume Brisard : cours 2h (95 €), cours + dégustation (125 €), marché + cours + déjeuner (155 €), immersion journée (299 €). Tabliers fournis."
+  canonical="https://www.brisartculinaire.fr/cours-de-cuisine"
+>
+  <Header />
+  <main>
+
+    <!-- ─── Hero page ─── -->
+    <section class="page-hero">
+      <div class="page-hero-botanical" aria-hidden="true">
+        <svg width="260" height="350" viewBox="0 0 180 300" fill="none" style="opacity:0.1;">
+          <path d="M90 300 C88 235 92 170 90 105 C88 55 90 18 90 0" stroke="#C9A44A" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M90 260 C72 242 54 233 36 225" stroke="#C9A44A" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+          <path d="M90 260 C110 242 128 234 146 226" stroke="#C9A44A" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+          <path d="M90 220 C70 200 50 190 30 182" stroke="#C9A44A" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+          <path d="M90 220 C112 200 132 191 152 183" stroke="#C9A44A" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+          <path d="M90 180 C70 158 50 148 30 140" stroke="#C9A44A" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+          <path d="M90 180 C112 158 132 149 152 141" stroke="#C9A44A" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+          <path d="M90 140 C74 120 58 111 42 104" stroke="#C9A44A" stroke-width="0.65" fill="none" stroke-linecap="round"/>
+          <path d="M90 140 C108 120 124 112 140 105" stroke="#C9A44A" stroke-width="0.65" fill="none" stroke-linecap="round"/>
+          <ellipse cx="90" cy="16" rx="7" ry="10" stroke="#C9A44A" stroke-width="0.8"/>
+          <ellipse cx="83" cy="24" rx="4.5" ry="7" stroke="#C9A44A" stroke-width="0.7"/>
+          <ellipse cx="97" cy="22" rx="4.5" ry="7" stroke="#C9A44A" stroke-width="0.7"/>
+        </svg>
+      </div>
+
+      <div class="container page-hero-content">
+        <span class="section-label">Transmission & Partage</span>
+        <div class="gold-rule" style="margin:1rem 0;"></div>
+        <h1>Cours de<br><em style="color:var(--gold-base);">Cuisine</em></h1>
+        <p class="page-hero-sub">
+          Apprenez à cuisiner avec Guillaume Brisard à La Baule :
+          cours 2h, dégustation incluse, visite du marché de Pornichet,
+          ou immersion journée complète.
+        </p>
+      </div>
+      <div class="page-hero-line" aria-hidden="true"></div>
+    </section>
+
+    <!-- ─── Intro philosophie ─── -->
+    <section class="section bg-cream">
+      <div class="container cours-intro-grid">
+        <div data-reveal>
+          <span class="section-label">Notre Philosophie</span>
+          <div class="gold-rule" style="margin:1rem 0;"></div>
+          <h2>Cuisiner, ça <em style="color:var(--gold-base);">s'apprend</em></h2>
+          <p style="color:var(--stone); margin:1.5rem 0 1.2rem; max-width:420px;">
+            Ancien chef étoilé au <strong style="color:var(--ink);">Fort de l'Océan</strong>,
+            Guillaume Brisard partage depuis 5 ans sa passion culinaire au restaurant et en cours,
+            de Nantes à La Baule. Peu importe votre niveau : ici, on apprend en faisant.
+          </p>
+          <p style="color:var(--stone); max-width:420px;">
+            Les cours ne sont pas des démonstrations.
+            Ce sont des pratiques : les mains dans la pâte, les erreurs acceptées, les progrès célébrés.
+            Tabliers fournis sur place.
+          </p>
+        </div>
+
+        <!-- Illustration cours -->
+        <div class="cours-illustration" data-reveal="right">
+          <div class="img-wrap">
+            <div class="img-placeholder" style="background:var(--parchment-bg); min-height:320px; border-radius:var(--radius-card);">
+              <svg width="240" height="220" viewBox="0 0 240 220" fill="none" aria-label="Cours de cuisine — Bris'Art Culinaire">
+                <rect width="240" height="220" fill="#e8e3d4"/>
+                <!-- Plan de travail -->
+                <rect x="20" y="110" width="200" height="80" rx="4" fill="none" stroke="#A98A3C" stroke-width="1"/>
+                <!-- Bol -->
+                <ellipse cx="80" cy="110" rx="30" ry="14" fill="none" stroke="#A98A3C" stroke-width="1"/>
+                <path d="M50 110 C50 126 110 126 110 110" fill="none" stroke="#A98A3C" stroke-width="1"/>
+                <!-- Fouet -->
+                <line x1="80" y1="80" x2="80" y2="110" stroke="#A98A3C" stroke-width="1.2"/>
+                <path d="M74 85 C74 95 86 95 86 85" fill="none" stroke="#A98A3C" stroke-width="0.8"/>
+                <path d="M76 85 C76 92 84 92 84 85" fill="none" stroke="#A98A3C" stroke-width="0.6"/>
+                <!-- Planche à découper -->
+                <rect x="130" y="105" width="70" height="40" rx="3" fill="none" stroke="#A98A3C" stroke-width="0.9"/>
+                <!-- Couteau -->
+                <line x1="145" y1="115" x2="185" y2="115" stroke="#A98A3C" stroke-width="1.1"/>
+                <path d="M185 112 L196 115 L185 118" fill="none" stroke="#A98A3C" stroke-width="0.8"/>
+                <!-- Herbes sur planche -->
+                <path d="M150 125 C152 120 156 118 158 122" stroke="#C9A44A" stroke-width="0.7" fill="none"/>
+                <path d="M158 122 C160 118 164 116 166 120" stroke="#C9A44A" stroke-width="0.7" fill="none"/>
+                <path d="M166 120 C168 116 172 115 173 119" stroke="#C9A44A" stroke-width="0.7" fill="none"/>
+                <!-- Mains des apprenants (stylisées) -->
+                <path d="M60 108 C58 100 62 94 66 92 C70 90 74 94 74 100" fill="none" stroke="#A98A3C" stroke-width="0.9"/>
+                <path d="M90 108 C88 100 92 94 96 92 C100 90 104 94 104 100" fill="none" stroke="#A98A3C" stroke-width="0.9"/>
+                <!-- Label -->
+                <text x="120" y="212" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="9" fill="#A98A3C" opacity="0.6">Atelier en groupe — Bris'Art Culinaire</text>
+              </svg>
+            </div>
+          </div>
+          <!-- Badge ancienneté -->
+          <div class="cours-badge">
+            <span class="stat-num" style="font-size:2rem;">5</span>
+            <span class="stat-label" style="color:var(--stone-light);">ans de cours</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Formules ─── -->
+    <section class="section parchment-section" id="formules">
+      <div class="container">
+        <div style="text-align:center; max-width:520px; margin:0 auto 3.5rem;" data-reveal>
+          <span class="section-label">Formules</span>
+          <div class="gold-rule gold-rule-center" style="margin:1rem auto;"></div>
+          <h2>Choisissez votre<br><em style="color:var(--gold-base);">parcours</em></h2>
+        </div>
+
+        <div class="formules-grid">
+          {formules.map((f, i) => (
+            <article
+              class:list={['formule-card', f.featured && 'formule-card-featured']}
+              data-reveal
+              style={`transition-delay:${i * 0.15}s`}
+            >
+              {f.featured && <div class="formule-badge">Le plus populaire</div>}
+              <header class="formule-header">
+                <span class="section-label" style={f.featured ? 'color:rgba(255,255,255,0.5);' : ''}>{f.label}</span>
+                <h3 class="formule-titre" style={f.featured ? 'color:white;' : ''}>{f.titre}</h3>
+                <div class="formule-meta">
+                  <span class="formule-meta-item">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true">
+                      <circle cx="6" cy="6" r="5"/><line x1="6" y1="3" x2="6" y2="6.5"/><line x1="6" y1="6.5" x2="8" y2="8"/>
+                    </svg>
+                    {f.duree}
+                  </span>
+                  <span class="formule-meta-item">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true">
+                      <circle cx="5" cy="4" r="2.5"/><circle cx="9" cy="4" r="2" stroke-width="0.9"/>
+                      <path d="M1 10 C1 7.5 9 7.5 9 10"/><path d="M7 8.5 C7 7 11 7 11 8.5" stroke-width="0.9"/>
+                    </svg>
+                    {f.places}
+                  </span>
+                </div>
+              </header>
+
+              <p class="formule-desc" style={f.featured ? 'color:rgba(255,255,255,0.75);' : ''}>{f.description}</p>
+
+              <ul class="formule-inclus">
+                {f.inclus.map(inc => (
+                  <li class="formule-inclus-item" style={f.featured ? 'color:rgba(255,255,255,0.7);' : ''}>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#C9A44A" stroke-width="1.3" aria-hidden="true" style="flex-shrink:0; margin-top:1px;">
+                      <circle cx="7" cy="7" r="6"/><path d="M4.5 7 L6.5 9 L10 5"/>
+                    </svg>
+                    {inc}
+                  </li>
+                ))}
+              </ul>
+
+              <div class="formule-footer">
+                <div class="formule-sessions">
+                  {f.sessions.map(s => (
+                    <p class="formule-session" style={f.featured ? 'color:rgba(255,255,255,0.45);' : ''}>{s}</p>
+                  ))}
+                </div>
+                <div class="formule-prix-block">
+                  <span class="formule-prix" style={f.featured ? 'color:var(--gold-bright);' : ''}>{f.prix} €</span>
+                  <span class="formule-prix-unit" style={f.featured ? 'color:rgba(255,255,255,0.4);' : ''}>/ pers</span>
+                </div>
+              </div>
+
+              <a
+                href="#reservation"
+                class:list={[f.featured ? 'btn-gold' : 'btn-ghost-gold']}
+                style="text-align:center; display:block; margin-top:1.5rem;"
+              >
+                Réserver
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Infos pratiques ─── -->
+    <section class="section bg-cream" id="infos">
+      <div class="container">
+        <div style="max-width:540px; margin-bottom:3rem;" data-reveal>
+          <span class="section-label">Infos pratiques</span>
+          <div class="gold-rule" style="margin:1rem 0;"></div>
+          <h2>Tout ce qu'il faut<br><em style="color:var(--gold-base);">savoir</em></h2>
+          <p style="color:var(--stone-light); margin-top:1rem; font-size:0.92rem;">
+            39, Avenue Louis Lajarrige — 44500 La Baule-Escoublac · Tél. 02 85 95 94 57
+          </p>
+        </div>
+
+        <div class="themes-grid">
+          {pratiques.map((p, i) => (
+            <div class="theme-card card" data-reveal style={`transition-delay:${(i % 3) * 0.1}s`}>
+              <div class="valeur-icon" set:html={p.icon} style="width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:rgba(201,164,74,0.1); border-radius:50%; margin-bottom:1rem;" />
+              <h3 class="theme-titre">{p.titre}</h3>
+              <p class="theme-desc">{p.texte}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Témoignages cours ─── -->
+    <section class="section bg-ink-deep">
+      <div class="container">
+        <div style="text-align:center; margin-bottom:3rem;" data-reveal>
+          <span class="section-label">Ils ont appris avec Guillaume</span>
+          <div class="gold-rule gold-rule-center" style="margin:1rem auto;"></div>
+          <h2 style="color:var(--parchment);">Retours<br><em style="color:var(--gold-base);">d'élèves</em></h2>
+        </div>
+
+        <div class="temoignages-cours-grid">
+          {temoignages_cours.map((t, i) => (
+            <article class="temoignage-card" data-reveal style={`transition-delay:${i * 0.15}s`}>
+              <div class="stars">★★★★★</div>
+              <blockquote>
+                <p class="temoignage-texte">«&nbsp;{t.texte}&nbsp;»</p>
+              </blockquote>
+              <footer class="temoignage-footer">
+                <div class="temoignage-avatar">{t.nom.charAt(0)}</div>
+                <div>
+                  <strong class="temoignage-nom">{t.nom}</strong>
+                  <span class="temoignage-meta">{t.lieu}</span>
+                </div>
+              </footer>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <StatsBand />
+    <ReservationCTA />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* Page hero (réutilisé) */
+  .page-hero {
+    min-height: 60vh;
+    background: var(--ink-deep);
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 4rem;
+  }
+  .page-hero-botanical {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+  }
+  .page-hero-content {
+    padding-top: 9rem;
+    position: relative;
+    z-index: 1;
+  }
+  .page-hero h1 { color: var(--parchment); margin: 0.5rem 0 1.25rem; }
+  .page-hero-sub { color: var(--stone-light); max-width: 480px; font-size: 1rem; line-height: 1.75; }
+  .page-hero-line {
+    position: absolute;
+    bottom: 0; left: 0; right: 0; height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--cream));
+  }
+
+  /* Cours intro */
+  .cours-intro-grid {
+    display: grid;
+    gap: 4rem;
+    align-items: center;
+  }
+  @media (min-width: 900px) { .cours-intro-grid { grid-template-columns: 1fr 1fr; } }
+
+  .cours-illustration { position: relative; }
+  .cours-badge {
+    position: absolute;
+    bottom: -1.5rem;
+    left: -1.5rem;
+    background: var(--ink);
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius-card);
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  }
+
+  /* Formules */
+  .formules-grid {
+    display: grid;
+    gap: 1.5rem;
+    align-items: start;
+  }
+  @media (min-width: 640px) { .formules-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1100px) { .formules-grid { grid-template-columns: repeat(4, 1fr); } }
+
+  .formule-card {
+    background: white;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    position: relative;
+  }
+  .formule-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+  .formule-card-featured {
+    background: var(--ink);
+    border: 1px solid rgba(201,164,74,0.3);
+  }
+  .formule-badge {
+    position: absolute;
+    top: 0; right: 0;
+    background: var(--gold-base);
+    color: var(--ink-deep);
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 13px;
+    border-radius: 0 var(--radius-card) 0 8px;
+  }
+
+  .formule-titre {
+    font-size: 1.35rem;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+  .formule-meta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  .formule-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: var(--stone-light);
+  }
+  .formule-card-featured .formule-meta-item { color: rgba(255,255,255,0.4); }
+
+  .formule-desc { font-size: 0.88rem; color: var(--stone); line-height: 1.7; }
+  .formule-inclus {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    border-top: 1px solid var(--parchment-bg);
+    padding-top: 1rem;
+  }
+  .formule-card-featured .formule-inclus { border-color: rgba(255,255,255,0.08); }
+  .formule-inclus-item {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    font-size: 0.84rem;
+    color: var(--stone);
+    line-height: 1.5;
+  }
+
+  .formule-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 1rem;
+    border-top: 1px solid var(--parchment-bg);
+    margin-top: auto;
+  }
+  .formule-card-featured .formule-footer { border-color: rgba(255,255,255,0.08); }
+
+  .formule-sessions { display: flex; flex-direction: column; gap: 0.3rem; }
+  .formule-session {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    color: var(--stone-light);
+    line-height: 1.5;
+  }
+
+  .formule-prix-block { text-align: right; }
+  .formule-prix {
+    display: block;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.8rem;
+    color: var(--gold-base);
+    line-height: 1;
+  }
+  .formule-prix-unit {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    color: var(--stone-light);
+    letter-spacing: 0.1em;
+  }
+
+  /* Themes */
+  .themes-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (min-width: 768px) { .themes-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .theme-card { padding: 1.75rem; }
+  .theme-icone { font-size: 1.75rem; margin-bottom: 1rem; }
+  .theme-titre { font-size: 1.05rem; color: var(--ink); margin-bottom: 0.5rem; font-style: normal; }
+  .theme-desc { font-size: 0.83rem; color: var(--stone-light); line-height: 1.65; }
+
+  /* Temoignages cours */
+  .temoignages-cours-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+  @media (min-width: 680px) { .temoignages-cours-grid { grid-template-columns: 1fr 1fr; } }
+
+  .temoignage-card {
+    background: rgba(245,240,232,0.05);
+    border: 1px solid rgba(201,164,74,0.15);
+    border-radius: var(--radius-card);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .temoignage-texte {
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.7);
+    line-height: 1.8;
+    font-style: italic;
+  }
+  blockquote { margin: 0; flex: 1; }
+  .temoignage-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(201,164,74,0.1);
+  }
+  .temoignage-avatar {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: rgba(201,164,74,0.15);
+    border: 1px solid rgba(201,164,74,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-style: italic;
+    font-size: 1.1rem; color: var(--gold-base); flex-shrink: 0;
+  }
+  .temoignage-nom {
+    display: block; font-size: 0.88rem;
+    font-weight: 600; color: var(--parchment);
+  }
+  .temoignage-meta {
+    display: block; font-family: var(--font-mono);
+    font-size: 0.62rem; color: rgba(245,240,232,0.35);
+    letter-spacing: 0.1em; margin-top: 0.15rem;
+  }
+</style>

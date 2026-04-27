@@ -1,0 +1,274 @@
+---
+interface Props {
+  transparent?: boolean;
+}
+const { transparent = true } = Astro.props;
+---
+
+<header id="site-header" class:list={['w-full px-6 md:px-10', { 'is-scrolled': !transparent }]}>
+  <div class="flex items-center justify-between h-16 md:h-20 max-w-[1320px] mx-auto">
+
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-3 group" aria-label="Bris'Art Culinaire — Accueil">
+      <div class="logo-mark" aria-hidden="true">
+        <svg width="38" height="38" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="64" height="64" rx="4" fill="#1c1a18"/>
+          <circle cx="32" cy="32" r="26" stroke="#C9A44A" stroke-width="0.9"/>
+          <circle cx="32" cy="32" r="22" stroke="#C9A44A" stroke-width="0.35" stroke-dasharray="3 2"/>
+          <path d="M32 13 C25 18 23 25 25.5 31 C28 37 32 39 32 39 C32 39 36 37 38.5 31 C41 25 39 18 32 13Z"
+                fill="none" stroke="#C9A44A" stroke-width="0.85" stroke-linejoin="round"/>
+          <line x1="32" y1="13" x2="32" y2="39" stroke="#C9A44A" stroke-width="0.5"/>
+          <path d="M32 21 Q28 22.5 27 26" stroke="#C9A44A" stroke-width="0.4" fill="none"/>
+          <path d="M32 21 Q36 22.5 37 26" stroke="#C9A44A" stroke-width="0.4" fill="none"/>
+          <path d="M32 27 Q28.5 28.5 28 32" stroke="#C9A44A" stroke-width="0.4" fill="none"/>
+          <path d="M32 27 Q35.5 28.5 36 32" stroke="#C9A44A" stroke-width="0.4" fill="none"/>
+          <line x1="32" y1="39" x2="32" y2="51" stroke="#C9A44A" stroke-width="0.85"/>
+          <line x1="26" y1="46" x2="38" y2="46" stroke="#C9A44A" stroke-width="0.35"/>
+        </svg>
+      </div>
+      <div>
+        <span class="block font-display italic text-[1.1rem] leading-none text-parchment group-hover:text-[#E8CC7A] transition-colors duration-200">
+          Bris'Art
+        </span>
+        <span class="block font-mono-sm text-[0.6rem] tracking-[0.2em] uppercase text-[rgba(245,240,232,0.5)] mt-0.5">
+          Culinaire
+        </span>
+      </div>
+    </a>
+
+    <!-- Desktop Nav (≥ 1024px) -->
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Navigation principale">
+      <a href="/" class="nav-link">Accueil</a>
+      <a href="/le-restaurant" class="nav-link">Le Restaurant</a>
+      <a href="/cours-de-cuisine" class="nav-link">Cours</a>
+
+      <!-- Bouton RÉSERVER + dropdown -->
+      <div class="resa-wrap">
+        <button
+          id="resa-btn"
+          class="btn-gold resa-btn-inner"
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          Réserver
+          <svg class="resa-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M2 3.5 L5 6.5 L8 3.5"/>
+          </svg>
+        </button>
+
+        <div id="resa-dropdown" class="resa-dropdown" aria-hidden="true">
+          <a
+            href="https://reservation.laddition.com/booking/brisartculinaire"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="resa-option resa-option-primary"
+          >
+            <span>Réserver une table en ligne</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true">
+              <path d="M2 7 L12 7 M8.5 3.5 L12 7 L8.5 10.5"/>
+            </svg>
+          </a>
+
+          <div class="resa-sep">
+            <div class="resa-sep-line"></div>
+            <span class="resa-sep-text">ou</span>
+            <div class="resa-sep-line"></div>
+          </div>
+
+          <a href="/cours-de-cuisine" class="resa-option resa-option-secondary">
+            <span>Réserver ou offrir un cours</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true">
+              <path d="M2 7 L12 7 M8.5 3.5 L12 7 L8.5 10.5"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hamburger (mobile < 1024px) -->
+    <button
+      id="hamburger-btn"
+      class="hamburger lg:hidden"
+      aria-label="Menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<nav id="mobile-menu" class="mobile-menu" aria-label="Menu mobile" aria-hidden="true">
+  <button
+    id="mobile-close"
+    class="absolute top-5 right-6 text-parchment opacity-60 hover:opacity-100 transition-opacity"
+    aria-label="Fermer le menu"
+  >
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+
+  <div class="text-center">
+    <div class="gold-rule gold-rule-center mb-8"></div>
+    <div class="flex flex-col items-center gap-7">
+      <a href="/" class="nav-link text-base">Accueil</a>
+      <a href="/le-restaurant" class="nav-link text-base">Le Restaurant</a>
+      <a href="/cours-de-cuisine" class="nav-link text-base">Cours de Cuisine</a>
+    </div>
+    <div class="gold-rule gold-rule-center mt-8 mb-8"></div>
+    <a
+      href="https://reservation.laddition.com/booking/brisartculinaire"
+      class="btn-gold"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Réserver une table</a>
+    <p class="font-mono-sm text-[rgba(245,240,232,0.35)] mt-6 tracking-widest text-[0.65rem] uppercase">
+      La Baule · Gastronomie Artisanale
+    </p>
+  </div>
+</nav>
+
+<script>
+  /* ── Hamburger ── */
+  const btn   = document.getElementById('hamburger-btn');
+  const menu  = document.getElementById('mobile-menu');
+  const close = document.getElementById('mobile-close');
+  const links = menu?.querySelectorAll('a');
+
+  function openMenu() {
+    btn?.classList.add('is-open');
+    menu?.classList.add('is-open');
+    btn?.setAttribute('aria-expanded', 'true');
+    menu?.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    btn?.classList.remove('is-open');
+    menu?.classList.remove('is-open');
+    btn?.setAttribute('aria-expanded', 'false');
+    menu?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  btn?.addEventListener('click', () => menu?.classList.contains('is-open') ? closeMenu() : openMenu());
+  close?.addEventListener('click', closeMenu);
+  links?.forEach(l => l.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+  /* ── Dropdown Réserver (desktop) ── */
+  const resaBtn      = document.getElementById('resa-btn');
+  const resaDrop     = document.getElementById('resa-dropdown');
+
+  function openDrop() {
+    resaDrop?.classList.add('is-open');
+    resaBtn?.setAttribute('aria-expanded', 'true');
+    resaDrop?.setAttribute('aria-hidden', 'false');
+  }
+  function closeDrop() {
+    resaDrop?.classList.remove('is-open');
+    resaBtn?.setAttribute('aria-expanded', 'false');
+    resaDrop?.setAttribute('aria-hidden', 'true');
+  }
+
+  resaBtn?.addEventListener('click', e => {
+    e.stopPropagation();
+    resaDrop?.classList.contains('is-open') ? closeDrop() : openDrop();
+  });
+
+  document.addEventListener('click', e => {
+    if (!resaBtn?.contains(e.target as Node) && !resaDrop?.contains(e.target as Node)) {
+      closeDrop();
+    }
+  });
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrop(); });
+</script>
+
+<style>
+  .logo-mark { transition: transform 0.3s ease; }
+  a:hover .logo-mark { transform: rotate(5deg) scale(1.04); }
+
+  /* ── Bouton Réserver ── */
+  .resa-wrap { position: relative; }
+  .resa-btn-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.75rem;
+    padding: 0.625rem 1.5rem;
+  }
+  .resa-chevron {
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+  #resa-btn[aria-expanded="true"] .resa-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* ── Dropdown ── */
+  .resa-dropdown {
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    right: 0;
+    min-width: 290px;
+    background: var(--ink);
+    border: 1px solid rgba(201, 164, 74, 0.3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 200;
+  }
+  .resa-dropdown.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .resa-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    text-decoration: none;
+    padding: 0.2rem 0;
+    transition: opacity 0.15s;
+  }
+  .resa-option-primary {
+    font-size: 0.9rem;
+    color: var(--gold-base);
+  }
+  .resa-option-primary:hover { color: var(--gold-bright); }
+
+  .resa-option-secondary {
+    font-size: 0.8rem;
+    color: var(--parchment);
+    opacity: 0.65;
+  }
+  .resa-option-secondary:hover { opacity: 1; }
+
+  .resa-sep {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+  .resa-sep-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(201, 164, 74, 0.15);
+  }
+  .resa-sep-text {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: rgba(245, 240, 232, 0.3);
+    text-transform: uppercase;
+  }
+</style>

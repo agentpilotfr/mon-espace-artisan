@@ -1,0 +1,209 @@
+---
+interface ReviewBadge {
+  platform: 'google' | 'tripadvisor' | 'michelin' | 'custom';
+  score: string;
+  count: string;
+  url?: string;
+  label: string;
+}
+
+interface Props {
+  badges: ReviewBadge[];
+}
+
+const { badges } = Astro.props;
+
+const svgs: Record<string, string> = {
+  google: `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="flex-shrink:0;">
+    <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908C16.658 14.103 17.64 11.851 17.64 9.2Z" fill="#4285F4"/>
+    <path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18Z" fill="#34A853"/>
+    <path d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332Z" fill="#FBBC05"/>
+    <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58Z" fill="#EA4335"/>
+  </svg>`,
+  tripadvisor: `<svg width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden="true" style="flex-shrink:0;">
+    <circle cx="5" cy="7" r="4.5" fill="#00AA6C" opacity="0.9"/>
+    <circle cx="15" cy="7" r="4.5" fill="#00AA6C" opacity="0.9"/>
+    <circle cx="5" cy="7" r="2" fill="white"/>
+    <circle cx="15" cy="7" r="2" fill="white"/>
+    <circle cx="5" cy="7" r="0.9" fill="#00AA6C"/>
+    <circle cx="15" cy="7" r="0.9" fill="#00AA6C"/>
+    <path d="M10 2.5 L7.5 5 L10 3.5 L12.5 5 Z" fill="#00AA6C"/>
+  </svg>`,
+};
+---
+
+<div class="hero-reviews" role="list" aria-label="Avis et distinctions">
+  {badges.map((badge, i) => (
+    <>
+      {i > 0 && <div class="review-divider" aria-hidden="true"></div>}
+
+      {badge.platform === 'michelin' ? (
+        <div
+          class="review-badge review-badge--michelin"
+          role="listitem"
+          aria-label={`${badge.count} — ${badge.label}`}
+        >
+          <span class="michelin-icon" aria-hidden="true">✦</span>
+          <div class="review-content">
+            <span class="michelin-label">{badge.count}</span>
+            <span class="michelin-sub">{badge.label}</span>
+          </div>
+        </div>
+      ) : (
+        <a
+          href={badge.url}
+          target="_blank"
+          rel="noopener"
+          class:list={['review-badge', i === 0 && 'review-badge--primary']}
+          role="listitem"
+          aria-label={`${badge.score ? badge.score + ' sur 5 — ' : ''}${badge.count} ${badge.label}`}
+        >
+          {svgs[badge.platform]
+            ? <Fragment set:html={svgs[badge.platform]} />
+            : <span class="review-custom-icon" aria-hidden="true">★</span>
+          }
+          <div class="review-content">
+            {badge.score && (
+              <div class="review-stars-row">
+                <span class="review-stars" aria-hidden="true">★★★★★</span>
+                <span class="review-score">{badge.score}</span>
+              </div>
+            )}
+            <div class="review-meta">
+              <span class="review-count">{badge.count}</span>
+              <span class="review-platform">{badge.label}</span>
+            </div>
+          </div>
+        </a>
+      )}
+    </>
+  ))}
+</div>
+
+<style>
+  .hero-reviews {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.75rem 0 2.25rem;
+  }
+
+  .review-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(15, 14, 11, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(201, 164, 74, 0.2);
+    border-radius: 50px;
+    padding: 0.5rem 1.1rem 0.5rem 0.75rem;
+    text-decoration: none;
+    transition: border-color 0.25s, background 0.25s;
+    cursor: pointer;
+  }
+  a.review-badge:hover {
+    border-color: rgba(201, 164, 74, 0.55);
+    background: rgba(15, 14, 11, 0.75);
+  }
+  .review-badge--primary {
+    border-color: rgba(201, 164, 74, 0.35);
+  }
+  .review-badge--michelin {
+    border-color: rgba(201, 164, 74, 0.15);
+    cursor: default;
+  }
+  .review-badge--michelin:hover {
+    border-color: rgba(201, 164, 74, 0.15);
+    background: rgba(15, 14, 11, 0.55);
+  }
+
+  .review-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  .review-stars-row {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .review-stars {
+    color: var(--gold-base);
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    line-height: 1;
+  }
+  .review-score {
+    color: var(--parchment);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .review-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .review-count {
+    color: var(--parchment);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+  }
+  .review-platform {
+    color: var(--stone-light);
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+  }
+  .review-custom-icon {
+    color: var(--gold-base);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .review-divider {
+    width: 1px;
+    height: 2.5rem;
+    background: rgba(201, 164, 74, 0.15);
+    flex-shrink: 0;
+  }
+
+  .michelin-icon {
+    color: var(--gold-base);
+    font-size: 1rem;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .michelin-label {
+    color: var(--parchment);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.2;
+    display: block;
+  }
+  .michelin-sub {
+    color: var(--stone-light);
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    display: block;
+  }
+
+  @media (max-width: 480px) {
+    .hero-reviews { gap: 0.5rem; }
+    .review-divider { display: none; }
+    .review-badge { padding: 0.45rem 0.9rem 0.45rem 0.65rem; }
+  }
+</style>

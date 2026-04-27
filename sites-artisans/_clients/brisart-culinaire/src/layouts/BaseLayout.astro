@@ -1,0 +1,164 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+}
+const {
+  title,
+  description,
+  canonical = 'https://www.brisartculinaire.fr/',
+  ogImage  = 'https://www.brisartculinaire.fr/og.jpg',
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1c1a18" />
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content={canonical} />
+  <meta property="og:image"       content={ogImage} />
+  <meta property="og:locale"      content="fr_FR" />
+
+  <!-- Favicon -->
+  <link rel="icon"             type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;700&family=Caveat:wght@400;600&family=DM+Mono:wght@300;400&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Schema.org — FoodEstablishment -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "name": "Bris'Art Culinaire",
+    "description": "Restaurant gastronomique Bib Gourmand Michelin et école de cuisine à La Baule. Chef Guillaume Brisard, anciennement étoilé au Fort de l'Océan. Cuisine sincère, précise et généreuse, produits du marché.",
+    "url": "https://www.brisartculinaire.fr/",
+    "telephone": "+33285959457",
+    "email": "contact@brisartculinaire.fr",
+    "priceRange": "€€",
+    "servesCuisine": ["Gastronomique", "Française", "De saison", "Produits locaux"],
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": "Cash, Credit Card",
+    "award": "Bib Gourmand Guide Michelin",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "39 Avenue Louis Lajarrige",
+      "addressLocality": "La Baule-Escoublac",
+      "postalCode": "44500",
+      "addressRegion": "Loire-Atlantique",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 47.2843,
+      "longitude": -2.3917
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "10:00",
+        "closes": "16:00"
+      }
+    ],
+    "specialOpeningHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "name": "Dîner gastronomique 6 services (sur réservation)",
+        "dayOfWeek": ["Wednesday","Friday"],
+        "opens": "19:00",
+        "closes": "22:30"
+      }
+    ],
+    "areaServed": ["La Baule", "Pornichet", "Saint-Nazaire", "Nantes", "Le Croisic", "Guérande", "La Baule-Escoublac"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Prestations Bris'Art Culinaire",
+      "itemListElement": [
+        {"@type": "Offer", "name": "Menu Déjeuner (entrée-plat-dessert)", "price": "35", "priceCurrency": "EUR"},
+        {"@type": "Offer", "name": "Table du Chef — Menu dégustation 6 services", "price": "125", "priceCurrency": "EUR"},
+        {"@type": "Offer", "name": "Cours de cuisine n°1 (2h)", "price": "95", "priceCurrency": "EUR"},
+        {"@type": "Offer", "name": "Cours de cuisine n°2 (2h + dégustation)", "price": "125", "priceCurrency": "EUR"},
+        {"@type": "Offer", "name": "Cours de cuisine n°3 — Marché + cours + déjeuner", "price": "155", "priceCurrency": "EUR"},
+        {"@type": "Offer", "name": "Atelier Immersion journée chef", "price": "299", "priceCurrency": "EUR"}
+      ]
+    }
+  }
+  </script>
+
+  <slot name="head" />
+</head>
+<body>
+  <slot />
+
+  <!-- ─── Global Scripts ─── -->
+  <script>
+    // Reveal on scroll
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+    // Header scroll behavior
+    const header = document.getElementById('site-header');
+    if (header) {
+      let lastScrollY = 0;
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        header.classList.toggle('is-scrolled', y > 60);
+        header.classList.toggle('is-hidden', y > lastScrollY && y > 350);
+        lastScrollY = y;
+      }, { passive: true });
+    }
+
+    // Animated counters
+    function animateCount(el: Element) {
+      const target   = parseInt((el as HTMLElement).dataset.target || '0', 10);
+      const suffix   = (el as HTMLElement).dataset.suffix || '';
+      const duration = 2200;
+      const start    = Date.now();
+      const tick = () => {
+        const p = Math.min((Date.now() - start) / duration, 1);
+        const v = Math.round((1 - Math.pow(1 - p, 3)) * target);
+        el.textContent = v.toLocaleString('fr-FR') + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          animateCount(e.target);
+          counterObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observe(el));
+  </script>
+</body>
+</html>

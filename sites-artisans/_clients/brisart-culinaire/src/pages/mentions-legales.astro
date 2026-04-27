@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header     from '../components/Header.astro';
+import Footer     from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Mentions Légales — Bris'Art Culinaire | La Baule"
+  description="Mentions légales du site Bris'Art Culinaire, restaurant gastronomique Bib Gourmand Michelin et école de cuisine à La Baule-Escoublac (44500)."
+  canonical="https://www.brisartculinaire.fr/mentions-legales"
+>
+  <Header />
+  <main>
+    <section class="legal-hero">
+      <div class="container">
+        <span class="section-label">Informations légales</span>
+        <div class="gold-rule" style="margin:1rem 0;"></div>
+        <h1 style="color:var(--parchment);">Mentions<br><em style="color:var(--gold-base);">Légales</em></h1>
+      </div>
+    </section>
+
+    <section class="section bg-cream">
+      <div class="container legal-content">
+
+        <h2>Éditeur du site</h2>
+        <p>
+          <strong>Bris'Art Culinaire</strong><br>
+          Entreprise individuelle — Guillaume Brisard<br>
+          39, Avenue Louis Lajarrige<br>
+          44500 La Baule-Escoublac<br>
+          Téléphone : <a href="tel:+33285959457">02 85 95 94 57</a><br>
+          Email : <a href="mailto:contact@brisartculinaire.fr">contact@brisartculinaire.fr</a><br>
+          Site : <a href="https://www.brisartculinaire.fr" rel="canonical">www.brisartculinaire.fr</a>
+        </p>
+
+        <h2>Hébergement</h2>
+        <p>
+          Ce site est hébergé par <strong>Cloudflare Pages</strong><br>
+          101 Townsend St., San Francisco, CA 94107 — États-Unis<br>
+          <a href="https://www.cloudflare.com" rel="noopener" target="_blank">cloudflare.com</a>
+        </p>
+
+        <h2>Propriété intellectuelle</h2>
+        <p>
+          L'ensemble du contenu de ce site (textes, graphismes, illustrations, photographies, sons, vidéos, logos)
+          est la propriété exclusive de Bris'Art Culinaire ou de ses partenaires. Toute reproduction,
+          distribution, modification ou utilisation sans autorisation expresse est strictement interdite.
+        </p>
+
+        <h2>Données personnelles (RGPD)</h2>
+        <p>
+          Les informations recueillies via le formulaire de contact sont utilisées uniquement dans le cadre
+          du traitement de votre demande de réservation. Elles ne sont transmises à aucun tiers.
+          Conformément au RGPD (Règlement Général sur la Protection des Données), vous disposez d'un droit
+          d'accès, de rectification, de suppression et de portabilité de vos données.
+        </p>
+        <p>
+          Pour exercer ces droits : <a href="mailto:contact@brisartculinaire.fr">contact@brisartculinaire.fr</a>
+        </p>
+
+        <h2>Cookies</h2>
+        <p>
+          Ce site utilise des cookies techniques nécessaires à son bon fonctionnement.
+          Aucun cookie de traçage publicitaire n'est utilisé sans votre consentement préalable.
+        </p>
+
+        <h2>Réservation en ligne</h2>
+        <p>
+          Les réservations au restaurant sont traitées via la plateforme <strong>L'Addition</strong>
+          (https://reservation.laddition.com). Leurs conditions générales s'appliquent lors de
+          l'utilisation de ce service externe.
+        </p>
+
+        <h2>Crédits</h2>
+        <p>
+          Site conçu et développé par <a href="https://mon-espace-artisan.fr" rel="noopener" target="_blank">Mon Espace Artisan</a>.
+        </p>
+
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .legal-hero {
+    min-height: 40vh;
+    background: var(--ink-deep);
+    display: flex;
+    align-items: flex-end;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+  }
+  .legal-content { max-width: 720px; }
+  .legal-content h2 {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin: 2.5rem 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--parchment-bg);
+  }
+  .legal-content h2:first-child { margin-top: 0; }
+  .legal-content p {
+    color: var(--stone);
+    font-size: 0.92rem;
+    line-height: 1.85;
+    margin-bottom: 1rem;
+  }
+  .legal-content a { color: var(--gold-base); text-decoration: underline; }
+  .legal-content a:hover { color: var(--gold-bright); }
+</style>

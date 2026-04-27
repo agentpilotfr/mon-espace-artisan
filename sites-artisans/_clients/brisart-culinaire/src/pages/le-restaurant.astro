@@ -1,0 +1,566 @@
+---
+import BaseLayout     from '../layouts/BaseLayout.astro';
+import Header         from '../components/Header.astro';
+import StatsBand      from '../components/StatsBand.astro';
+import Testimonials   from '../components/Testimonials.astro';
+import ReservationCTA from '../components/ReservationCTA.astro';
+import Footer         from '../components/Footer.astro';
+
+// Galerie — placeholders SVG en attendant photos réelles
+const galerie = [
+  { titre: 'Salle principale',     desc: 'Ambiance chaleureuse, cuisine ouverte',   aspect: '4/3'  },
+  { titre: 'Table du chef',        desc: 'Vue directe sur le fourneau du chef',      aspect: '3/4'  },
+  { titre: 'Accord mets & vins',   desc: 'Sélection de vins naturels et locaux',     aspect: '1/1'  },
+  { titre: 'Mise en place',        desc: 'Chaque détail compte, table par table',    aspect: '4/3'  },
+  { titre: 'Cuisine ouverte',      desc: 'Le cœur battant de Bris\'Art Culinaire',  aspect: '4/3'  },
+  { titre: 'Bar à Huîtres',        desc: 'Huîtres de Mesquer — David Retailleau',   aspect: '3/4'  },
+];
+
+// Huîtres & produits de la mer — données réelles (scrape 2026-04-26)
+const huitres = [
+  { produit: '6 huîtres n°3',                              prix: '12 €' },
+  { produit: '12 huîtres n°3',                             prix: '19 €' },
+  { produit: 'Assiette de crevettes de Madagascar & Aïoli', prix: '12 €' },
+  { produit: 'Assiette de coques au naturel',               prix: '12 €' },
+  { produit: 'Pâté à l\'ancienne — Boucherie Le Coz',       prix: '9 €'  },
+];
+
+// Menus réels Bris'Art Culinaire (scrape 2026-04-26)
+const menus = [
+  {
+    nom:       'Menu du Marché',
+    services:  3,
+    prix:      35,
+    detail:    'Mercredi — Dimanche · 10h – 16h',
+    accroche:  'Menu unique élaboré chaque jour selon les produits du marché et l\'inspiration du chef.',
+    plats: [
+      'Entrée du marché',
+      'Plat selon les arrivages',
+      'Dessert maison',
+    ],
+  },
+  {
+    nom:       'Table du Chef',
+    services:  6,
+    prix:      125,
+    detail:    'Mercredi & Vendredi soir · Sur réservation',
+    accroche:  'Une parenthèse intimiste, en quelques plats d\'exception, où vous serez les invités privilégiés d\'un moment rare.',
+    plats: [
+      'Amuse-bouches de saison',
+      'Mise en bouche',
+      'Entrée du chef',
+      'Poisson ou plat intermédiaire',
+      'Viande de sélection',
+      'Dessert & mignardises',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Le Restaurant — Bris'Art Culinaire | Bib Gourmand Michelin La Baule"
+  description="Découvrez le restaurant Bris'Art Culinaire à La Baule : menu du marché (35 €), table du chef en 6 services (125 €), bar à huîtres. Bib Gourmand Michelin. Chef Guillaume Brisard."
+  canonical="https://www.brisartculinaire.fr/le-restaurant"
+>
+  <Header />
+  <main>
+
+    <!-- ─── Hero page ─── -->
+    <section class="page-hero">
+      <!-- Décoration botanique fond -->
+      <div class="page-hero-botanical" aria-hidden="true">
+        <svg width="280" height="320" viewBox="0 0 200 280" fill="none" style="opacity:0.1;">
+          <path d="M100 280 C98 220 102 160 100 100 C98 50 100 15 100 0" stroke="#C9A44A" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M100 240 C82 224 64 214 46 206" stroke="#C9A44A" stroke-width="1" fill="none" stroke-linecap="round"/>
+          <path d="M100 240 C120 224 138 215 156 207" stroke="#C9A44A" stroke-width="1" fill="none" stroke-linecap="round"/>
+          <path d="M100 200 C80 182 60 172 40 164" stroke="#C9A44A" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+          <path d="M100 200 C122 182 142 173 162 165" stroke="#C9A44A" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+          <path d="M100 160 C78 140 56 130 36 122" stroke="#C9A44A" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+          <path d="M100 160 C124 140 146 131 166 123" stroke="#C9A44A" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+          <path d="M100 120 C80 102 62 93 44 86" stroke="#C9A44A" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+          <path d="M100 120 C122 102 140 94 158 87" stroke="#C9A44A" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+          <ellipse cx="100" cy="18" rx="7" ry="10" stroke="#C9A44A" stroke-width="0.8"/>
+          <ellipse cx="92" cy="26" rx="4.5" ry="7.5" stroke="#C9A44A" stroke-width="0.7"/>
+          <ellipse cx="108" cy="24" rx="4.5" ry="7.5" stroke="#C9A44A" stroke-width="0.7"/>
+        </svg>
+      </div>
+
+      <div class="container page-hero-content">
+        <span class="section-label">Bris'Art Culinaire</span>
+        <div class="gold-rule" style="margin:1rem 0;"></div>
+        <h1>Le<br><em style="color:var(--gold-base);">Restaurant</em></h1>
+        <p class="page-hero-sub">
+          À La Baule, une cuisine ouverte, des produits du marché et une philosophie simple :
+          bien manger commence par bien choisir. Bib Gourmand Michelin.
+        </p>
+      </div>
+
+      <!-- Scroll line décorative -->
+      <div class="page-hero-line" aria-hidden="true"></div>
+    </section>
+
+    <!-- ─── L'Espace ─── -->
+    <section class="section bg-cream" id="espace">
+      <div class="container">
+        <div class="restaurant-intro-grid">
+          <div data-reveal="left">
+            <span class="section-label">L'Espace</span>
+            <div class="gold-rule" style="margin:1rem 0;"></div>
+            <h2>Un écrin intimiste<br><em style="color:var(--gold-base);">conçu pour l'échange</em></h2>
+            <p style="color:var(--stone); margin:1.5rem 0 1.2rem;">
+              Bris'Art Culinaire a été pensé comme un prolongement naturel de la cuisine.
+              Vingt couverts seulement, pour que chaque tablée soit unique. La salle principale,
+              avec ses pierres apparentes et son parquet chêne, respire la douceur artisanale.
+            </p>
+            <p style="color:var(--stone); margin-bottom:1.5rem;">
+              La cuisine ouverte, visible depuis chaque table, invite au dialogue.
+              Guillaume compose ses plats à vue, comme un peintre qui travaille à la lumière.
+            </p>
+            <a href="#reservation" class="btn-ghost-gold">Réserver une table</a>
+          </div>
+
+          <div class="restaurant-gallery-pair" data-reveal="right">
+            <!-- Placeholder grande image -->
+            <div class="img-wrap restaurant-img-main">
+              <div class="img-placeholder" style="min-height:300px; background:var(--parchment-bg);">
+                <svg width="200" height="160" viewBox="0 0 200 160" fill="none" aria-label="Salle principale Bris'Art Culinaire">
+                  <rect width="200" height="160" fill="#e8e3d4"/>
+                  <!-- Fenêtre -->
+                  <rect x="20" y="15" width="55" height="70" rx="2" fill="none" stroke="#A98A3C" stroke-width="1"/>
+                  <line x1="47" y1="15" x2="47" y2="85" stroke="#A98A3C" stroke-width="0.6"/>
+                  <line x1="20" y1="50" x2="75" y2="50" stroke="#A98A3C" stroke-width="0.6"/>
+                  <!-- Table ronde -->
+                  <ellipse cx="140" cy="90" rx="40" ry="18" fill="none" stroke="#A98A3C" stroke-width="1.1"/>
+                  <!-- Couverts -->
+                  <line x1="110" y1="78" x2="110" y2="102" stroke="#A98A3C" stroke-width="0.8"/>
+                  <line x1="170" y1="78" x2="170" y2="102" stroke="#A98A3C" stroke-width="0.8"/>
+                  <ellipse cx="140" cy="90" rx="12" ry="8" fill="none" stroke="#A98A3C" stroke-width="0.6"/>
+                  <!-- Chaises esquissées -->
+                  <ellipse cx="140" cy="115" rx="14" ry="6" fill="none" stroke="#A98A3C" stroke-width="0.7"/>
+                  <ellipse cx="140" cy="68" rx="14" ry="6" fill="none" stroke="#A98A3C" stroke-width="0.7"/>
+                  <!-- Suspension lumière -->
+                  <line x1="140" y1="0" x2="140" y2="55" stroke="#C9A44A" stroke-width="0.7"/>
+                  <ellipse cx="140" cy="60" rx="18" ry="8" fill="none" stroke="#C9A44A" stroke-width="0.8"/>
+                  <!-- Sol -->
+                  <line x1="0" y1="130" x2="200" y2="130" stroke="#A98A3C" stroke-width="0.5" stroke-dasharray="8 4"/>
+                  <!-- Label -->
+                  <text x="100" y="150" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="9" fill="#A98A3C" opacity="0.6">Salle principale — 20 couverts</text>
+                </svg>
+              </div>
+            </div>
+            <!-- Placeholder petite image -->
+            <div class="img-wrap restaurant-img-secondary">
+              <div class="img-placeholder" style="min-height:180px; background:var(--ink);">
+                <svg width="160" height="130" viewBox="0 0 160 130" fill="none" aria-label="Cuisine ouverte Bris'Art Culinaire">
+                  <rect width="160" height="130" fill="#2a2824"/>
+                  <!-- Plans de travail -->
+                  <rect x="10" y="60" width="140" height="12" rx="2" fill="none" stroke="#C9A44A" stroke-width="0.8" opacity="0.5"/>
+                  <!-- Casseroles -->
+                  <circle cx="40" cy="55" r="14" fill="none" stroke="#C9A44A" stroke-width="0.7" opacity="0.4"/>
+                  <circle cx="75" cy="55" r="11" fill="none" stroke="#C9A44A" stroke-width="0.7" opacity="0.4"/>
+                  <circle cx="105" cy="57" r="9"  fill="none" stroke="#C9A44A" stroke-width="0.7" opacity="0.4"/>
+                  <!-- Suspensions cuisine -->
+                  <line x1="30" y1="0" x2="30" y2="32" stroke="#C9A44A" stroke-width="0.6" opacity="0.35"/>
+                  <line x1="60" y1="0" x2="60" y2="28" stroke="#C9A44A" stroke-width="0.6" opacity="0.35"/>
+                  <line x1="90" y1="0" x2="90" y2="35" stroke="#C9A44A" stroke-width="0.6" opacity="0.35"/>
+                  <line x1="120" y1="0" x2="120" y2="30" stroke="#C9A44A" stroke-width="0.6" opacity="0.35"/>
+                  <!-- Flammes stylisées -->
+                  <path d="M40 52 C38 46 42 40 40 35 C38 40 35 44 37 52" fill="none" stroke="#C9A44A" stroke-width="0.7" opacity="0.4"/>
+                  <path d="M75 50 C73 44 77 38 75 33 C73 38 70 42 72 50" fill="none" stroke="#C9A44A" stroke-width="0.7" opacity="0.4"/>
+                  <!-- Label -->
+                  <text x="80" y="122" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="8" fill="#C9A44A" opacity="0.45">Cuisine ouverte</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Galerie ─── -->
+    <section class="section parchment-section" id="galerie">
+      <div class="container">
+        <div style="max-width:480px; margin-bottom:3rem;" data-reveal>
+          <span class="section-label">Galerie</span>
+          <div class="gold-rule" style="margin:1rem 0;"></div>
+          <h2>L'ambiance<br><em style="color:var(--gold-base);">en images</em></h2>
+        </div>
+
+        <div class="galerie-grid">
+          {galerie.map((item, i) => (
+            <div
+              class={`galerie-item galerie-item-${i + 1}`}
+              data-reveal
+              style={`transition-delay:${(i % 3) * 0.1}s;`}
+            >
+              <div class="img-wrap" style="height:100%;">
+                <div
+                  class="img-placeholder galerie-placeholder"
+                  aria-label={`${item.titre} — Bris'Art Culinaire`}
+                  style={`aspect-ratio:${item.aspect}; background:var(--ink-deep); min-height:140px;`}
+                >
+                  <div style="text-align:center; padding:1.5rem;">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" style="margin:0 auto 0.6rem;">
+                      <rect x="3" y="5" width="22" height="18" rx="2" stroke="#C9A44A" stroke-width="0.9" opacity="0.4"/>
+                      <circle cx="14" cy="13" r="5" stroke="#C9A44A" stroke-width="0.8" opacity="0.4"/>
+                      <circle cx="21" cy="8"  r="1.5" fill="#C9A44A" opacity="0.35"/>
+                    </svg>
+                    <p style="font-family:var(--font-display); font-style:italic; font-size:0.85rem; color:rgba(245,240,232,0.4); margin:0 0 0.25rem;">{item.titre}</p>
+                    <p style="font-family:var(--font-mono); font-size:0.6rem; color:rgba(245,240,232,0.22); letter-spacing:0.08em; margin:0;">{item.desc}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Bar à Huîtres ─── -->
+    <section class="section bg-cream" id="bar-a-huitres">
+      <div class="container">
+        <div class="bah-grid">
+          <div data-reveal="left">
+            <span class="section-label">Bar à Huîtres</span>
+            <div class="gold-rule" style="margin:1rem 0;"></div>
+            <h2>Huîtres & <em style="color:var(--gold-base);">Produits de la mer</em></h2>
+            <p style="color:var(--stone); margin:1.5rem 0 1.2rem;">
+              Guillaume s'est associé à <strong style="color:var(--ink);">David Retailleau</strong>,
+              ostréiculteur à Mesquer, pour proposer des huîtres fraîches, directement sorties des claires
+              de la Loire-Atlantique.
+            </p>
+            <p style="color:var(--stone); margin-bottom:1.5rem;">
+              À déguster en salle ou en terrasse, accompagnées d'une sélection de produits de la mer
+              et de charcuteries locales.
+            </p>
+            <a href="#reservation" class="btn-ghost-gold">Réserver une table</a>
+          </div>
+
+          <div data-reveal="right">
+            <div class="huitres-carte">
+              <div class="huitres-header">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#C9A44A" stroke-width="1.1" stroke-linecap="round" aria-hidden="true">
+                  <path d="M3 8 C3 5 5.5 4 8 5.5 C9 4.5 11.5 4 13.5 5.5 C15 4.5 17.5 5 18 7.5 C20 8.5 20 11 18.5 12.5 C17 14.5 14 14.5 12.5 13 C11 14.5 8 14.5 6.5 13 C4 13.5 2 11.5 3 8Z"/>
+                  <line x1="10" y1="13" x2="10" y2="17"/>
+                </svg>
+                <span class="section-label">Carte du Bar à Huîtres</span>
+              </div>
+              {huitres.map((h) => (
+                <div class="huitre-ligne">
+                  <span class="huitre-produit">{h.produit}</span>
+                  <span class="huitre-prix">{h.prix}</span>
+                </div>
+              ))}
+              <p class="huitres-note">Huîtres de Mesquer · David Retailleau · Service Mer–Dim</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Menus ─── -->
+    <section class="section bg-ink-deep" id="menus">
+      <div class="container">
+        <div style="text-align:center; max-width:560px; margin:0 auto 3.5rem;" data-reveal>
+          <span class="section-label">La Carte</span>
+          <div class="gold-rule gold-rule-center" style="margin:1rem auto;"></div>
+          <h2 style="color:var(--parchment);">Nos <em style="color:var(--gold-base);">menus</em></h2>
+          <p style="color:var(--stone-light); margin-top:1rem; font-size:0.95rem;">
+            La carte change chaque semaine selon les arrivages. Les prix ci-dessous sont indicatifs.
+          </p>
+        </div>
+
+        <div class="menus-grid">
+          {menus.map((menu, i) => (
+            <article class="menu-card" data-reveal style={`transition-delay:${i * 0.15}s`}>
+              <div class="menu-header">
+                <div>
+                  <h3 class="menu-title">{menu.nom}</h3>
+                  {menu.services && (
+                    <span class="menu-services">{menu.services} services</span>
+                  )}
+                </div>
+                <div class="menu-prix-block">
+                  <span class="menu-prix">{menu.prix} €</span>
+                  <span class="menu-prix-label">/ pers</span>
+                </div>
+              </div>
+
+              <p class="menu-accroche">{menu.accroche}</p>
+
+              <ul class="menu-plats">
+                {menu.plats.map(plat => (
+                  <li class="menu-plat">
+                    <span class="menu-plat-dot" aria-hidden="true">·</span>
+                    {plat}
+                  </li>
+                ))}
+              </ul>
+
+              <div class="menu-detail">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#C9A44A" stroke-width="1.1" aria-hidden="true" style="flex-shrink:0;">
+                  <circle cx="6" cy="6" r="5"/><line x1="6" y1="3" x2="6" y2="6.5"/><line x1="6" y1="6.5" x2="8" y2="8"/>
+                </svg>
+                {menu.detail}
+              </div>
+
+              <a href="#reservation" class="menu-cta">Réserver ce menu →</a>
+            </article>
+          ))}
+        </div>
+
+        <p style="text-align:center; color:rgba(245,240,232,0.3); font-family:var(--font-mono); font-size:0.65rem; letter-spacing:0.1em; margin-top:3rem;" data-reveal>
+          Allergènes disponibles sur demande · Accord mets &amp; vins naturels proposé par notre sommelier
+        </p>
+      </div>
+    </section>
+
+    <StatsBand />
+    <Testimonials />
+    <ReservationCTA />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* Page Hero */
+  .page-hero {
+    min-height: 60vh;
+    background: var(--ink-deep);
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 4rem;
+  }
+  .page-hero-botanical {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+  }
+  .page-hero-content {
+    padding-top: 9rem;
+    position: relative;
+    z-index: 1;
+  }
+  .page-hero h1 {
+    color: var(--parchment);
+    margin: 0.5rem 0 1.25rem;
+  }
+  .page-hero-sub {
+    color: var(--stone-light);
+    max-width: 480px;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+  .page-hero-line {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--cream));
+  }
+
+  /* Restaurant sections */
+  .restaurant-intro-grid {
+    display: grid;
+    gap: 4rem;
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .restaurant-intro-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .restaurant-gallery-pair {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 1rem;
+    align-items: start;
+  }
+  .restaurant-img-main  { border-radius: var(--radius-card); overflow: hidden; }
+  .restaurant-img-secondary { border-radius: var(--radius-card); overflow: hidden; margin-top: 3rem; }
+
+  /* Galerie */
+  .galerie-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 768px) {
+    .galerie-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .galerie-item { border-radius: var(--radius-card); overflow: hidden; }
+  .galerie-item-1 { grid-column: span 2; }
+  @media (min-width: 768px) { .galerie-item-1 { grid-column: span 1; } }
+  .galerie-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* Menus */
+  /* Bar à Huîtres */
+  .bah-grid {
+    display: grid;
+    gap: 4rem;
+    align-items: center;
+  }
+  @media (min-width: 900px) { .bah-grid { grid-template-columns: 1fr 1fr; } }
+
+  .huitres-carte {
+    background: var(--ink);
+    border: 1px solid rgba(201,164,74,0.2);
+    border-radius: var(--radius-card);
+    padding: 2rem;
+  }
+  .huitres-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(201,164,74,0.15);
+  }
+  .huitre-ligne {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid rgba(245,240,232,0.06);
+    gap: 1rem;
+  }
+  .huitre-ligne:last-of-type { border-bottom: none; }
+  .huitre-produit {
+    font-size: 0.88rem;
+    color: rgba(245,240,232,0.7);
+    line-height: 1.4;
+  }
+  .huitre-prix {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--gold-base);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .huitres-note {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.09em;
+    color: rgba(245,240,232,0.22);
+    text-transform: uppercase;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(201,164,74,0.1);
+  }
+
+  .menus-grid {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  @media (min-width: 640px) { .menus-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .menu-card {
+    background: rgba(245,240,232,0.04);
+    border: 1px solid rgba(201,164,74,0.14);
+    border-radius: var(--radius-card);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .menu-card:hover {
+    border-color: rgba(201,164,74,0.28);
+    background: rgba(245,240,232,0.06);
+  }
+  .menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .menu-title {
+    font-size: 1.2rem;
+    color: var(--parchment);
+    margin-bottom: 0.3rem;
+  }
+  .menu-services {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    color: var(--gold-mat);
+    text-transform: uppercase;
+  }
+  .menu-prix-block { text-align: right; flex-shrink: 0; }
+  .menu-prix {
+    display: block;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.9rem;
+    color: var(--gold-base);
+    line-height: 1;
+  }
+  .menu-prix-label {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    color: var(--stone-light);
+    letter-spacing: 0.1em;
+  }
+  .menu-accroche {
+    font-style: italic;
+    color: rgba(245,240,232,0.55);
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+  .menu-plats {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    flex: 1;
+    border-top: 1px solid rgba(201,164,74,0.1);
+    padding-top: 1rem;
+  }
+  .menu-plat {
+    display: flex;
+    gap: 0.6rem;
+    font-size: 0.83rem;
+    color: rgba(245,240,232,0.5);
+    line-height: 1.5;
+  }
+  .menu-plat-dot {
+    color: var(--gold-mat);
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+  .menu-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.08em;
+    color: rgba(245,240,232,0.3);
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(201,164,74,0.08);
+  }
+  .menu-cta {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-base);
+    transition: color 0.2s, letter-spacing 0.2s;
+  }
+  .menu-cta:hover {
+    color: var(--gold-bright);
+    letter-spacing: 0.16em;
+  }
+</style>
