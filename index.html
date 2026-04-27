@@ -1701,21 +1701,31 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 
 <script>
 (function() {
-  var lastY = 0;
-  var nav = document.querySelector('header');
-  if (!nav) return;
-  nav.style.transition = 'transform 0.25s ease';
-  document.addEventListener('scroll', function() {
-    var y = window.scrollY || window.pageYOffset;
-    if (y < 60) {
-      nav.style.transform = '';
-    } else if (y > lastY) {
-      nav.style.transform = 'translateY(-120%)';
-    } else {
-      nav.style.transform = 'translateY(0)';
-    }
-    lastY = y;
-  }, {passive: true});
+  function initNavbar() {
+    var nav = document.querySelector('header');
+    if (!nav) return false;
+    var lastY = 0;
+    nav.style.transition = 'transform 0.25s ease';
+    document.addEventListener('scroll', function() {
+      var y = window.scrollY || window.pageYOffset;
+      if (y < 60) {
+        nav.style.transform = '';
+      } else if (y > lastY) {
+        nav.style.transform = 'translateY(-120%)';
+      } else {
+        nav.style.transform = 'translateY(0)';
+      }
+      lastY = y;
+    }, {passive: true});
+    return true;
+  }
+
+  if (!initNavbar()) {
+    var observer = new MutationObserver(function() {
+      if (initNavbar()) observer.disconnect();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
 })();
 </script>
 </body>
