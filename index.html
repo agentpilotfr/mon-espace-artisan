@@ -1447,9 +1447,10 @@ function CTA() {
   const [date, setDate] = useState(null);
 
   useEffect(() => {
-    if (step !== 2) return;
-    const t = setTimeout(() => { window.location.href = '/merci'; }, 1500);
-    return () => clearTimeout(t);
+    if (step === 2) {
+      const t = setTimeout(() => { window.location.href = '/merci'; }, 1500);
+      return () => clearTimeout(t);
+    }
   }, [step]);
 
   const days = useMemo(() => {
