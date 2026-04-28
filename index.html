@@ -347,7 +347,7 @@ function Navbar() {
       transition: 'transform 0.25s ease, background 0.25s ease',
     }}>
       <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0.9rem 1.75rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '2rem' }}>
-        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', minWidth: 'fit-content', flexShrink: 0, whiteSpace: 'nowrap', textDecoration: 'none' }}>
+        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', minWidth: 'fit-content', flexShrink: 0, whiteSpace: 'nowrap', textDecoration: 'none' }}>
           <span className="display" style={{ fontSize: '2rem', lineHeight: 1, letterSpacing: '-0.03em', color: 'var(--mea-dark)' }}>
             M<span style={{ color: 'var(--mea-orange)' }}>E</span>A
           </span>
@@ -365,7 +365,7 @@ function Navbar() {
           <a href="tel:+33629817069" className="mono uppercase nav-phone" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.7rem', color: 'var(--mea-dark)', letterSpacing: '0.1em' }}>
             📞 06 29 81 70 69
           </a>
-          <a href="https://calendly.com/contact-mon-espace-artisan/appel-decouverte-gratuit-mea" target="_blank" rel="noopener" className="btn-primary nav-cta-desktop" style={{ padding: '0.7rem 1.1rem', fontSize: '0.72rem' }}>
+          <a href="/#rdv" className="btn-primary nav-cta-desktop" style={{ padding: '0.7rem 1.1rem', fontSize: '0.72rem' }}>
             Prendre rdv <span style={{ fontSize: '1rem' }}>↗</span>
           </a>
           {/* Burger — mobile uniquement */}
@@ -405,7 +405,7 @@ function Navbar() {
             style={{ fontSize: '1.25rem', color: 'var(--mea-dark)', letterSpacing: '-0.01em', borderBottom: '1px solid rgba(28,28,28,0.1)', paddingBottom: '0.75rem' }}
           >{l.label}</a>
         ))}
-        <a href="https://calendly.com/contact-mon-espace-artisan/appel-decouverte-gratuit-mea" target="_blank" rel="noopener" onClick={closeMenu} className="btn-primary" style={{ fontSize: '0.82rem', alignSelf: 'flex-start' }}>
+        <a href="/#rdv" onClick={closeMenu} className="btn-primary" style={{ fontSize: '0.82rem', alignSelf: 'flex-start' }}>
           Prendre rdv ↗
         </a>
         <a href="tel:+33629817069" className="mono uppercase" style={{ fontSize: '0.7rem', color: 'var(--mea-gray)', letterSpacing: '0.14em' }}>
@@ -473,7 +473,7 @@ function Hero() {
         </p>
 
         <div style={{ display: 'flex', gap: '0.8rem', marginTop: '2.25rem', flexWrap: 'wrap' }}>
-          <a href="https://calendly.com/contact-mon-espace-artisan/appel-decouverte-gratuit-mea" target="_blank" rel="noopener" className="btn-primary">Caler un appel de 20 min <span>→</span></a>
+          <a href="/#rdv" className="btn-primary">Caler un appel de 20 min <span>→</span></a>
           <a href="https://mea-menuisier.pages.dev" target="_blank" rel="noopener noreferrer" className="btn-ghost" style={{ borderColor: 'var(--mea-cream)', color: 'var(--mea-cream)' }}>Voir un exemple →</a>
         </div>
 
@@ -1446,13 +1446,6 @@ function CTA() {
   const [ville, setVille] = useState('');
   const [date, setDate] = useState(null);
 
-  useEffect(() => {
-    if (step === 2) {
-      const t = setTimeout(() => { window.location.href = '/merci'; }, 1500);
-      return () => clearTimeout(t);
-    }
-  }, [step]);
-
   const days = useMemo(() => {
     const d = [];
     const now = new Date();
@@ -1570,9 +1563,9 @@ function Footer() {
             <div className="mono uppercase" style={{ fontSize: '0.62rem', color: 'var(--mea-gray-2)', marginTop: 2 }}>Votre Atelier Numérique ⚒</div>
             <p style={{ marginTop: '1.25rem', fontSize: '0.88rem', color: 'var(--mea-gray-2)', maxWidth: 280, lineHeight: 1.5 }}>Votre site internet en 48h, créé par un humain. Sans jargon, sans engagement.</p>
           </div>
-          <FootCol title="Naviguer" links={[{ l: 'Accueil', h: '#' }, { l: 'Tarifs', h: '#offre' }, { l: 'Nos métiers', h: 'nos-metiers.html' }, { l: 'À propos', h: '#equipe' }, { l: 'Contact', h: '#rdv' }]}/>
+          <FootCol title="Naviguer" links={[{ l: 'Accueil', h: '/' }, { l: 'Tarifs', h: '#offre' }, { l: 'Nos métiers', h: 'nos-metiers.html' }, { l: 'À propos', h: '#equipe' }, { l: 'Contact', h: '#rdv' }]}/>
           <FootCol title="Nos métiers" links={[{ l: 'Plombier', h: 'nos-metiers.html#plombier' }, { l: 'Électricien', h: 'nos-metiers.html#electricien' }, { l: 'Peintre', h: 'nos-metiers.html#peintre' }, { l: 'Menuisier', h: 'nos-metiers.html#menuisier' }, { l: 'Couvreur', h: 'nos-metiers.html#couvreur' }, { l: 'Paysagiste', h: 'nos-metiers.html#paysagiste' }]}/>
-          <FootCol title="Contact & légal" links={[{ l: '06 29 81 70 69', h: 'tel:+33629817069' }, { l: 'contact@mon-espace-artisan.fr', h: 'mailto:contact@mon-espace-artisan.fr' }, { l: 'Mentions légales', h: '#' }, { l: 'CGV', h: 'cgv.html' }, { l: 'Confidentialité', h: 'confidentialite.html' }]}/>
+          <FootCol title="Contact & légal" links={[{ l: '06 29 81 70 69', h: 'tel:+33629817069' }, { l: 'contact@mon-espace-artisan.fr', h: 'mailto:contact@mon-espace-artisan.fr' }, { l: 'Mentions légales', h: '/' }, { l: 'CGV', h: 'cgv.html' }, { l: 'Confidentialité', h: 'confidentialite.html' }]}/>
         </div>
         <div style={{ borderTop: '1px solid rgba(244,239,230,0.2)', paddingTop: '1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }} className="mono uppercase">
           <div style={{ fontSize: '0.65rem', color: 'var(--mea-gray-2)' }}>© 2026 Mon Espace Artisan · Basé en Normandie (76)</div>
