@@ -1519,16 +1519,12 @@ function CTA() {
                 </>)}
                 <button onClick={() => {
                   if (!date || !date.slot) return;
-                  fetch('https://script.google.com/macros/s/AKfycbzdJs42KmWmLN5Vr4KSWz6pmq8fY4UcmmFwS6RiFGJtkfauIxpqof2eqlMHOrDrqUyKyQ/exec', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                      metier: metier,
-                      ville: ville,
-                      date: date.d.toLocaleDateString('fr-FR'),
-                      slot: date.slot
-                    })
-                  }).catch(() => {});
+                  const url = new URL('https://script.google.com/macros/s/AKfycbzdJs42KmWmLN5Vr4KSWz6pmq8fY4UcmmFwS6RiFGJtkfauIxpqof2eqlMHOrDrqUyKyQ/exec');
+                  url.searchParams.set('metier', metier);
+                  url.searchParams.set('ville', ville);
+                  url.searchParams.set('date', date.d.toLocaleDateString('fr-FR'));
+                  url.searchParams.set('slot', date.slot);
+                  fetch(url.toString()).catch(() => {});
                   setStep(2);
                   setTimeout(() => { window.location.href = '/merci'; }, 2000);
                 }} disabled={!date || !date.slot} className="btn-primary" style={{ marginTop: '1.25rem', width: '100%', justifyContent: 'center', opacity: (!date || !date.slot) ? 0.35 : 1, cursor: (!date || !date.slot) ? 'not-allowed' : 'pointer' }}>Valider ce créneau →</button>
