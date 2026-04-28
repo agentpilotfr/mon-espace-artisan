@@ -1517,7 +1517,15 @@ function CTA() {
                     ))}
                   </div>
                 </>)}
-                <button onClick={() => date && date.slot && setStep(2)} disabled={!date || !date.slot} className="btn-primary" style={{ marginTop: '1.25rem', width: '100%', justifyContent: 'center', opacity: (!date || !date.slot) ? 0.35 : 1, cursor: (!date || !date.slot) ? 'not-allowed' : 'pointer' }}>Valider ce créneau →</button>
+                <button onClick={() => {
+                  if (!date || !date.slot) return;
+                  fetch('/rdv-confirm', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ metier, ville, date: date.d.toLocaleDateString('fr-FR'), slot: date.slot })
+                  });
+                  setStep(2);
+                }} disabled={!date || !date.slot} className="btn-primary" style={{ marginTop: '1.25rem', width: '100%', justifyContent: 'center', opacity: (!date || !date.slot) ? 0.35 : 1, cursor: (!date || !date.slot) ? 'not-allowed' : 'pointer' }}>Valider ce créneau →</button>
               </>)}
               {step === 2 && (
                 <div style={{ textAlign: 'center', paddingTop: '2rem' }}>
