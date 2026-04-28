@@ -544,7 +544,7 @@ function Process() {
         </div>
         <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }} className="mono uppercase">
           <span style={{ fontSize: '0.72rem', color: 'var(--mea-gray)' }}>* délai ferme. Si on dépasse, on vous rembourse la moitié. Ça n'est jamais arrivé.</span>
-          <a href="https://calendly.com/contact-mon-espace-artisan/appel-decouverte-gratuit-mea" target="_blank" rel="noopener" style={{ fontSize: '0.72rem', color: 'var(--mea-orange-deep)', borderBottom: '1.5px solid var(--mea-orange-deep)', paddingBottom: 2 }}>lancer mon chantier →</a>
+          <a href="/#rdv" style={{ fontSize: '0.72rem', color: 'var(--mea-orange-deep)', borderBottom: '1.5px solid var(--mea-orange-deep)', paddingBottom: 2 }}>lancer mon chantier →</a>
         </div>
       </div>
       <style>{`@media (max-width: 900px) { .process-grid { grid-template-columns: 1fr !important; } }`}</style>
@@ -890,7 +890,7 @@ function ExempleCard({ metier, icon, bg, badge, accent, tags, url, featured, mob
           onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--mea-dark)'; }}>
           Voir ↗
         </a>
-        <a href="https://calendly.com/contact-mon-espace-artisan/appel-decouverte-gratuit-mea" target="_blank" rel="noopener"
+        <a href="/#rdv"
           style={{ flex: 2, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '0.6rem 0.5rem', border: '1.5px solid var(--mea-dark)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.68rem', background: 'var(--mea-orange)', color: 'var(--mea-dark)', boxShadow: '3px 3px 0 0 var(--mea-dark)', fontFamily: 'inherit', cursor: 'pointer' }}
           onMouseEnter={(e) => { e.currentTarget.style.transform = 'translate(-1px,-1px)'; e.currentTarget.style.boxShadow = '5px 5px 0 0 var(--mea-dark)'; }}
           onMouseLeave={(e) => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '3px 3px 0 0 var(--mea-dark)'; }}>
@@ -1003,7 +1003,7 @@ function ExemplesArtisans() {
 
         {/* CTA centré */}
         <div style={{ marginTop: '1.75rem', textAlign: 'center' }}>
-          <a href="https://calendly.com/contact-mon-espace-artisan/appel-decouverte-gratuit-mea" target="_blank" rel="noopener" className="btn-ghost" style={{ padding: '0.9rem 2rem', fontSize: '0.82rem' }}>
+          <a href="/#rdv" className="btn-ghost" style={{ padding: '0.9rem 2rem', fontSize: '0.82rem' }}>
             Je veux ce site pour mon activité →
           </a>
         </div>
@@ -1063,7 +1063,7 @@ function PriceCard({ name, price, monthly, popular, features }) {
           </li>
         ))}
       </ul>
-      <a href="https://calendly.com/contact-mon-espace-artisan/appel-decouverte-gratuit-mea" target="_blank" rel="noopener" className={popular ? 'btn-primary' : 'btn-ghost'} style={{ justifyContent: 'center', background: popular ? 'var(--mea-orange)' : 'transparent', color: popular ? 'var(--mea-dark)' : 'inherit', border: popular ? '1.5px solid var(--mea-dark)' : `1.5px solid ${popular ? 'var(--mea-dark)' : 'var(--mea-cream)'}` }}>
+      <a href="/#rdv" className={popular ? 'btn-primary' : 'btn-ghost'} style={{ justifyContent: 'center', background: popular ? 'var(--mea-orange)' : 'transparent', color: popular ? 'var(--mea-dark)' : 'inherit', border: popular ? '1.5px solid var(--mea-dark)' : `1.5px solid ${popular ? 'var(--mea-dark)' : 'var(--mea-cream)'}` }}>
         Choisir ce pack →
       </a>
     </div>
@@ -1179,7 +1179,7 @@ function Offer() {
           </div>
         </div>
         <div style={{ marginTop: '2rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
-          <a href="https://calendly.com/contact-mon-espace-artisan/appel-decouverte-gratuit-mea" target="_blank" rel="noopener" className="btn-primary" style={{ padding: '1.2rem 2rem', fontSize: '0.9rem' }}>Je veux mon Pack Pro <span>→</span></a>
+          <a href="/#rdv" className="btn-primary" style={{ padding: '1.2rem 2rem', fontSize: '0.9rem' }}>Je veux mon Pack Pro <span>→</span></a>
           <div className="mono" style={{ fontSize: '0.7rem', color: 'var(--mea-gray)' }}>
             Pack Essentiel dès 290€ · Pack Premium dès 790€{' '}
             <a href="#offre" style={{ color: 'var(--mea-orange-deep)', borderBottom: '1px solid var(--mea-orange-deep)' }}>→ voir tous les tarifs</a>
