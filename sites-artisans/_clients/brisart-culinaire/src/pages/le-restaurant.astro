@@ -6,14 +6,15 @@ import Testimonials   from '../components/Testimonials.astro';
 import ReservationCTA from '../components/ReservationCTA.astro';
 import Footer         from '../components/Footer.astro';
 
-// Galerie — placeholders SVG en attendant photos réelles
 const galerie = [
-  { titre: 'Salle principale',     desc: 'Ambiance chaleureuse, cuisine ouverte',   aspect: '4/3'  },
-  { titre: 'Table du chef',        desc: 'Vue directe sur le fourneau du chef',      aspect: '3/4'  },
-  { titre: 'Accord mets & vins',   desc: 'Sélection de vins naturels et locaux',     aspect: '1/1'  },
-  { titre: 'Mise en place',        desc: 'Chaque détail compte, table par table',    aspect: '4/3'  },
-  { titre: 'Cuisine ouverte',      desc: 'Le cœur battant de Bris\'Art Culinaire',  aspect: '4/3'  },
-  { titre: 'Bar à Huîtres',        desc: 'Huîtres de Mesquer — David Retailleau',   aspect: '3/4'  },
+  { src: '/images/guillaume/action-flambage-pro.webp',        alt: 'Flambage en cuisine — Restaurant gastronomique Bris\'Art Culinaire La Baule',  aspect: '3/4' },
+  { src: '/images/guillaume/cuisine-caviar-dressage-pro.webp', alt: 'Dressage caviar — Restaurant gastronomique Bris\'Art Culinaire La Baule',      aspect: '4/3' },
+  { src: '/images/guillaume/cuisine-deux-chefs-pro.webp',     alt: 'Brigade en action — Restaurant gastronomique Bris\'Art Culinaire La Baule',    aspect: '4/3' },
+  { src: '/images/guillaume/restaurant-cave-vins.webp',       alt: 'Cave à vins — Restaurant gastronomique Bris\'Art Culinaire La Baule',          aspect: '4/3' },
+  { src: '/images/guillaume/restaurant-menu-violet.webp',     alt: 'Carte Bris\'Art — Restaurant gastronomique Bris\'Art Culinaire La Baule',      aspect: '3/4' },
+  { src: '/images/guillaume/restaurant-verre-bokeh.webp',     alt: 'L\'instant du repas — Restaurant gastronomique Bris\'Art Culinaire La Baule',  aspect: '4/3' },
+  { src: '/images/guillaume/restaurant-groupe-diner.webp',    alt: 'Tablée complète — Restaurant gastronomique Bris\'Art Culinaire La Baule',      aspect: '4/3' },
+  { src: '/images/guillaume/restaurant-enseigne-nuit.webp',   alt: 'Bris\'Art la nuit — Restaurant gastronomique Bris\'Art Culinaire La Baule',    aspect: '1/1' },
 ];
 
 // Huîtres & produits de la mer — données réelles (scrape 2026-04-26)
@@ -194,21 +195,14 @@ const menus = [
               style={`transition-delay:${(i % 3) * 0.1}s;`}
             >
               <div class="img-wrap" style="height:100%;">
-                <div
-                  class="img-placeholder galerie-placeholder"
-                  aria-label={`${item.titre} — Bris'Art Culinaire`}
-                  style={`aspect-ratio:${item.aspect}; background:var(--ink-deep); min-height:140px;`}
-                >
-                  <div style="text-align:center; padding:1.5rem;">
-                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" style="margin:0 auto 0.6rem;">
-                      <rect x="3" y="5" width="22" height="18" rx="2" stroke="#C9A44A" stroke-width="0.9" opacity="0.4"/>
-                      <circle cx="14" cy="13" r="5" stroke="#C9A44A" stroke-width="0.8" opacity="0.4"/>
-                      <circle cx="21" cy="8"  r="1.5" fill="#C9A44A" opacity="0.35"/>
-                    </svg>
-                    <p style="font-family:var(--font-display); font-style:italic; font-size:0.85rem; color:rgba(245,240,232,0.4); margin:0 0 0.25rem;">{item.titre}</p>
-                    <p style="font-family:var(--font-mono); font-size:0.6rem; color:rgba(245,240,232,0.22); letter-spacing:0.08em; margin:0;">{item.desc}</p>
-                  </div>
-                </div>
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  width="900"
+                  height="675"
+                  loading="lazy"
+                  style={`aspect-ratio:${item.aspect}; width:100%; height:100%; object-fit:cover; display:block;`}
+                />
               </div>
             </div>
           ))}
