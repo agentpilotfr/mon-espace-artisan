@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<title>Rendez-vous confirmé — Mon Espace Artisan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --mea-orange: #dd8142;
+    --mea-orange-deep: #b8632a;
+    --mea-dark: #1c1c1c;
+    --mea-dark-2: #2d2d2d;
+    --mea-gray: #777777;
+    --mea-gray-2: #a8a39b;
+    --mea-cream: #f4efe6;
+    --mea-paper: #eee7d8;
+    --mea-white: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--mea-cream);
+    color: var(--mea-dark);
+    font-family: 'Archivo', system-ui, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+  body { font-size: 16px; line-height: 1.5; display: flex; flex-direction: column; }
+  h1, h2, h3, .display { font-family: 'Archivo Black', 'Archivo', sans-serif; letter-spacing: -0.01em; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .uppercase { text-transform: uppercase; letter-spacing: 0.12em; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  ::selection { background: var(--mea-orange); color: var(--mea-dark); }
+
+  .stamp {
+    display: inline-block;
+    border: 3px solid currentColor;
+    padding: 0.15em 0.55em;
+    font-family: 'Archivo Black', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    transform: rotate(-6deg);
+    color: var(--mea-orange-deep);
+    opacity: 0.92;
+    position: relative;
+  }
+  .stamp::before {
+    content: '';
+    position: absolute; inset: -2px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='40'><filter id='r'><feTurbulence baseFrequency='0.7' numOctaves='2'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23r)'/></svg>");
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    background: var(--mea-orange);
+    color: var(--mea-dark);
+    padding: 1rem 1.5rem;
+    border: 1.5px solid var(--mea-dark);
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 5px 5px 0 0 var(--mea-dark);
+  }
+  .btn-primary:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 0 var(--mea-dark); }
+  .btn-primary:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 0 var(--mea-dark); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    padding: 0.9rem 1.5rem;
+    border: 1.5px solid var(--mea-dark);
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+    font-size: 0.82rem;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .btn-ghost:hover { background: var(--mea-dark); color: var(--mea-cream); }
+
+  /* ── NAVBAR ── */
+  #site-header {
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+    background: rgba(244,239,230,0.82);
+    border-bottom: 1.5px solid var(--mea-dark);
+    box-shadow: 0 2px 0 0 rgba(28,28,28,0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .nav-inner {
+    max-width: 1360px; margin: 0 auto;
+    padding: 0.9rem 1.75rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 0.55rem;
+    min-width: fit-content; flex-shrink: 0; white-space: nowrap;
+  }
+  .nav-logo-mark {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem; line-height: 1; letter-spacing: -0.03em; color: var(--mea-dark);
+  }
+  .nav-logo-mark span { color: var(--mea-orange); }
+  .nav-logo-text {
+    display: flex; flex-direction: column; line-height: 1.15;
+    border-left: 1.5px solid var(--mea-dark); padding-left: 0.55rem;
+    font-family: 'Archivo Black', sans-serif; font-size: 0.85rem; letter-spacing: 0.02em; color: var(--mea-dark);
+  }
+  .nav-desktop { display: flex; gap: 2rem; align-items: center; }
+  .nav-desktop a { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em; }
+  .nav-actions { display: flex; align-items: center; gap: 0.85rem; }
+  .nav-phone { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mea-dark); display: flex; align-items: center; gap: 0.4rem; }
+  .nav-burger { display: none; flex-direction: column; justify-content: center; gap: 5px; padding: 0.35rem; cursor: pointer; background: none; border: none; flex-shrink: 0; }
+  .nav-burger span { display: block; width: 24px; height: 2px; background: var(--mea-dark); transition: transform 0.2s, opacity 0.2s; }
+  .nav-burger span:nth-child(2) { width: 18px; margin-left: auto; }
+
+  #mobile-menu {
+    display: none;
+    position: fixed; top: 72px; left: 0; right: 0;
+    background: var(--mea-cream);
+    border-bottom: 1.5px solid var(--mea-dark);
+    padding: 1.5rem 1.75rem;
+    z-index: 999;
+    flex-direction: column; gap: 1.25rem;
+    box-shadow: 0 4px 0 0 var(--mea-dark);
+  }
+  #mobile-menu.open { display: flex; }
+  #mobile-menu a.display { font-family: 'Archivo Black', sans-serif; font-size: 1.25rem; color: var(--mea-dark); letter-spacing: -0.01em; border-bottom: 1px solid rgba(28,28,28,0.1); padding-bottom: 0.75rem; }
+  #mobile-menu-close { background: none; border: none; color: var(--mea-dark); font-size: 1.4rem; cursor: pointer; padding: 0; line-height: 1; align-self: flex-end; }
+
+  @media (max-width: 960px) {
+    .nav-desktop { display: none !important; }
+    .nav-phone { display: none !important; }
+    .nav-cta-desktop { display: none !important; }
+    .nav-burger { display: flex !important; }
+  }
+
+  /* ── MAIN CONTENT ── */
+  main {
+    flex: 1;
+    display: flex; align-items: center; justify-content: center;
+    padding: 8rem 1.75rem 4rem;
+  }
+  .confirm-card {
+    text-align: center;
+    max-width: 520px;
+    width: 100%;
+  }
+  .stamp-wrap {
+    display: inline-block;
+    transform: rotate(-6deg);
+    margin-bottom: 1.75rem;
+  }
+  .stamp-wrap .stamp {
+    font-size: 1.4rem;
+    padding: 0.35rem 1.1rem;
+  }
+  .confirm-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+  .confirm-text {
+    font-size: 1rem;
+    color: var(--mea-dark-2);
+    line-height: 1.6;
+    max-width: 380px;
+    margin: 0 auto 2rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--mea-dark);
+    color: var(--mea-cream);
+    padding: 3rem 1.75rem 1.5rem;
+    border-top: 1.5px solid var(--mea-orange);
+  }
+  .foot-inner { max-width: 1360px; margin: 0 auto; }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .foot-brand-mark { font-family: 'Archivo Black', sans-serif; font-size: clamp(3rem, 6vw, 5rem); line-height: 0.9; letter-spacing: -0.03em; }
+  .foot-brand-mark span { color: var(--mea-orange); }
+  .foot-brand-line { height: 3px; width: 60px; background: var(--mea-orange); margin: 0.5rem 0 1rem; }
+  .foot-brand-name { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.16em; }
+  .foot-brand-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: var(--mea-gray-2); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.12em; }
+  .foot-brand-desc { margin-top: 1.25rem; font-size: 0.88rem; color: var(--mea-gray-2); max-width: 280px; line-height: 1.5; }
+  .foot-col-title { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--mea-orange); margin-bottom: 1rem; letter-spacing: 0.14em; text-transform: uppercase; }
+  .foot-col ul { list-style: none; }
+  .foot-col ul li { padding: 0.35rem 0; }
+  .foot-col ul li a { font-size: 0.88rem; }
+  .foot-bottom {
+    border-top: 1px solid rgba(244,239,230,0.2);
+    padding-top: 1.25rem;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--mea-gray-2);
+  }
+  @media (max-width: 900px) { .foot-grid { grid-template-columns: 1fr 1fr !important; } }
+  @media (max-width: 560px) { .foot-grid { grid-template-columns: 1fr !important; } }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header id="site-header">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-mark">M<span>E</span>A</span>
+      <div class="nav-logo-text">
+        <span>Mon Espace</span>
+        <span>Artisan</span>
+      </div>
+    </a>
+    <nav class="nav-desktop">
+      <a href="/#exemples" class="mono uppercase">Exemples</a>
+      <a href="/#process" class="mono uppercase">Process</a>
+      <a href="/#offre" class="mono uppercase">Offre</a>
+      <a href="/#equipe" class="mono uppercase">Équipe</a>
+      <a href="/#faq" class="mono uppercase">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="tel:+33629817069" class="nav-phone">📞 06 29 81 70 69</a>
+      <a href="https://calendly.com/contact-mon-espace-artisan/appel-decouverte-gratuit-mea" target="_blank" rel="noopener" class="btn-primary nav-cta-desktop" style="padding: 0.7rem 1.1rem; font-size: 0.72rem;">
+        Prendre rdv <span style="font-size: 1rem;">↗</span>
+      </a>
+      <button class="nav-burger" id="burger-btn" aria-label="Ouvrir le menu">
+        <span id="burger-top"></span>
+        <span id="burger-mid"></span>
+        <span id="burger-bot"></span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu">
+    <button id="mobile-menu-close">✕</button>
+    <a href="/#exemples" class="display">Exemples</a>
+    <a href="/#process" class="display">Process</a>
+    <a href="/#offre" class="display">Offre</a>
+    <a href="/#equipe" class="display">Équipe</a>
+    <a href="/#faq" class="display">FAQ</a>
+    <a href="https://calendly.com/contact-mon-espace-artisan/appel-decouverte-gratuit-mea" target="_blank" rel="noopener" class="btn-primary" style="font-size: 0.82rem; align-self: flex-start;">
+      Prendre rdv ↗
+    </a>
+    <a href="tel:+33629817069" class="mono uppercase" style="font-size: 0.7rem; color: var(--mea-gray); letter-spacing: 0.14em;">
+      📞 06 29 81 70 69
+    </a>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+  <div class="confirm-card">
+    <div class="stamp-wrap">
+      <span class="stamp">CALÉ ✓</span>
+    </div>
+    <h1 class="confirm-title display">Votre RDV est confirmé.</h1>
+    <p class="confirm-text">
+      Aurélie ou Alexandre vous contacte dans les 24h.<br>
+      Un SMS de rappel part la veille.
+    </p>
+    <a href="/" class="btn-ghost">← Retour au site</a>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand-mark">M<span>E</span>A</div>
+        <div class="foot-brand-line"></div>
+        <div class="foot-brand-name">Mon Espace Artisan</div>
+        <div class="foot-brand-sub">Votre Atelier Numérique ⚒</div>
+        <p class="foot-brand-desc">Votre site internet en 48h, créé par un humain. Sans jargon, sans engagement.</p>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title">Naviguer</div>
+        <ul>
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/#offre">Tarifs</a></li>
+          <li><a href="nos-metiers.html">Nos métiers</a></li>
+          <li><a href="/#equipe">À propos</a></li>
+          <li><a href="/#rdv">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title">Nos métiers</div>
+        <ul>
+          <li><a href="nos-metiers.html#plombier">Plombier</a></li>
+          <li><a href="nos-metiers.html#electricien">Électricien</a></li>
+          <li><a href="nos-metiers.html#peintre">Peintre</a></li>
+          <li><a href="nos-metiers.html#menuisier">Menuisier</a></li>
+          <li><a href="nos-metiers.html#couvreur">Couvreur</a></li>
+          <li><a href="nos-metiers.html#paysagiste">Paysagiste</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title">Contact & légal</div>
+        <ul>
+          <li><a href="tel:+33629817069">06 29 81 70 69</a></li>
+          <li><a href="mailto:contact@mon-espace-artisan.fr">contact@mon-espace-artisan.fr</a></li>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="cgv.html">CGV</a></li>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Mon Espace Artisan · Basé en Normandie (76)</span>
+      <span>Assemblé à la main · hébergé sur Cloudflare</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var burger = document.getElementById('burger-btn');
+    var menu = document.getElementById('mobile-menu');
+    var close = document.getElementById('mobile-menu-close');
+    var top = document.getElementById('burger-top');
+    var mid = document.getElementById('burger-mid');
+    var bot = document.getElementById('burger-bot');
+    function open() {
+      menu.classList.add('open');
+      top.style.transform = 'rotate(45deg) translate(5px, 5px)';
+      mid.style.opacity = '0';
+      bot.style.transform = 'rotate(-45deg) translate(5px, -5px)';
+      burger.setAttribute('aria-label', 'Fermer le menu');
+    }
+    function closeMenu() {
+      menu.classList.remove('open');
+      top.style.transform = '';
+      mid.style.opacity = '';
+      bot.style.transform = '';
+      burger.setAttribute('aria-label', 'Ouvrir le menu');
+    }
+    burger.addEventListener('click', function() {
+      menu.classList.contains('open') ? closeMenu() : open();
+    });
+    close.addEventListener('click', closeMenu);
+    menu.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+  })();
+</script>
+
+</body>
+</html>
