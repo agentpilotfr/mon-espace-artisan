@@ -1525,6 +1525,7 @@ function CTA() {
                     body: JSON.stringify({ metier, ville, date: date.d.toLocaleDateString('fr-FR'), slot: date.slot })
                   });
                   setStep(2);
+                  setTimeout(() => { window.location.href = '/merci'; }, 2000);
                 }} disabled={!date || !date.slot} className="btn-primary" style={{ marginTop: '1.25rem', width: '100%', justifyContent: 'center', opacity: (!date || !date.slot) ? 0.35 : 1, cursor: (!date || !date.slot) ? 'not-allowed' : 'pointer' }}>Valider ce créneau →</button>
               </>)}
               {step === 2 && (
