@@ -1444,6 +1444,10 @@ function CTA() {
   const [step, setStep] = useState(0);
   const [metier, setMetier] = useState('');
   const [ville, setVille] = useState('');
+  const [prenom, setPrenom] = useState('');
+  const [nom, setNom] = useState('');
+  const [tel, setTel] = useState('');
+  const [email, setEmail] = useState('');
   const [date, setDate] = useState(null);
 
   const days = useMemo(() => {
@@ -1493,7 +1497,15 @@ function CTA() {
                 <div className="mono uppercase" style={{ fontSize: '0.7rem', marginBottom: '1rem', letterSpacing: '0.12em' }}>1. Dites-nous qui vous êtes</div>
                 <Field label="Votre métier" value={metier} setValue={setMetier} placeholder="ex : plombier, kiné, boulanger…" />
                 <Field label="Votre ville" value={ville} setValue={setVille} placeholder="ex : Rennes" />
-                <button onClick={() => setStep(1)} disabled={!metier || !ville} className="btn-primary" style={{ marginTop: '1.25rem', width: '100%', justifyContent: 'center', opacity: (!metier || !ville) ? 0.35 : 1, cursor: (!metier || !ville) ? 'not-allowed' : 'pointer' }}>Continuer → choisir un créneau</button>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 0.75rem' }}>
+                  <Field label="Prénom" value={prenom} setValue={setPrenom} placeholder="ex : Jean" />
+                  <Field label="Nom" value={nom} setValue={setNom} placeholder="ex : Dupont" />
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 0.75rem' }}>
+                  <Field label="Téléphone" value={tel} setValue={setTel} placeholder="06 12 34 56 78" type="tel" />
+                  <Field label="Email" value={email} setValue={setEmail} placeholder="jean@mail.fr" type="email" />
+                </div>
+                <button onClick={() => setStep(1)} disabled={!metier || !ville || !prenom || !nom || !tel || !email} className="btn-primary" style={{ marginTop: '1.25rem', width: '100%', justifyContent: 'center', opacity: (!metier || !ville || !prenom || !nom || !tel || !email) ? 0.35 : 1, cursor: (!metier || !ville || !prenom || !nom || !tel || !email) ? 'not-allowed' : 'pointer' }}>Continuer → choisir un créneau</button>
               </>)}
               {step === 1 && (<>
                 <div className="mono uppercase" style={{ fontSize: '0.7rem', marginBottom: '1rem', letterSpacing: '0.12em' }}>2. Choisissez un créneau</div>
@@ -1522,6 +1534,10 @@ function CTA() {
                   const url = new URL('https://script.google.com/macros/s/AKfycbzdJs42KmWmLN5Vr4KSWz6pmq8fY4UcmmFwS6RiFGJtkfauIxpqof2eqlMHOrDrqUyKyQ/exec');
                   url.searchParams.set('metier', metier);
                   url.searchParams.set('ville', ville);
+                  url.searchParams.set('prenom', prenom);
+                  url.searchParams.set('nom', nom);
+                  url.searchParams.set('tel', tel);
+                  url.searchParams.set('email', email);
                   url.searchParams.set('date', date.d.toLocaleDateString('fr-FR'));
                   url.searchParams.set('slot', date.slot);
                   fetch(url.toString()).catch(() => {});
@@ -1534,9 +1550,9 @@ function CTA() {
                   <div style={{ display: 'inline-block', transform: 'rotate(-6deg)', marginBottom: '1.5rem' }}>
                     <span className="stamp" style={{ fontSize: '1.1rem', padding: '0.3rem 0.9rem', color: 'var(--mea-orange-deep)' }}>Calé ✓</span>
                   </div>
-                  <h3 className="display" style={{ fontSize: '1.6rem', lineHeight: 1.1, marginBottom: '0.5rem' }}>À {date.slot}, le {date.d.getDate()} {months[date.d.getMonth()]}</h3>
+                  <h3 className="display" style={{ fontSize: '1.4rem', lineHeight: 1.2, marginBottom: '0.5rem' }}>À {date.slot}, le {date.d.getDate()} {months[date.d.getMonth()]} — On vous appelle au {tel}</h3>
                   <p style={{ fontSize: '0.92rem', color: 'var(--mea-dark-2)', maxWidth: 320, margin: '0 auto', lineHeight: 1.5 }}>Aurélie vous appelle ({metier} à {ville}). Un SMS de rappel arrive la veille. Si vous devez annuler, un simple mot suffit.</p>
-                  <button onClick={() => { setStep(0); setMetier(''); setVille(''); setDate(null); }} className="mono uppercase" style={{ marginTop: '1.5rem', fontSize: '0.7rem', color: 'var(--mea-gray)', borderBottom: '1px solid var(--mea-gray)' }}>recommencer</button>
+                  <button onClick={() => { setStep(0); setMetier(''); setVille(''); setPrenom(''); setNom(''); setTel(''); setEmail(''); setDate(null); }} className="mono uppercase" style={{ marginTop: '1.5rem', fontSize: '0.7rem', color: 'var(--mea-gray)', borderBottom: '1px solid var(--mea-gray)' }}>recommencer</button>
                 </div>
               )}
             </div>
@@ -1548,11 +1564,11 @@ function CTA() {
   );
 }
 
-function Field({ label, value, setValue, placeholder }) {
+function Field({ label, value, setValue, placeholder, type = 'text' }) {
   return (
     <div style={{ marginBottom: '0.9rem' }}>
       <label className="mono uppercase" style={{ fontSize: '0.65rem', color: 'var(--mea-gray)', display: 'block', marginBottom: 4, letterSpacing: '0.12em' }}>{label}</label>
-      <input type="text" value={value} onChange={(e) => setValue(e.target.value)} placeholder={placeholder} style={{ width: '100%', padding: '0.75rem 0.9rem', border: '1.5px solid var(--mea-dark)', background: 'var(--mea-white)', fontFamily: 'Archivo, sans-serif', fontSize: '0.95rem', outline: 'none' }}
+      <input type={type} value={value} onChange={(e) => setValue(e.target.value)} placeholder={placeholder} style={{ width: '100%', padding: '0.75rem 0.9rem', border: '1.5px solid var(--mea-dark)', background: 'var(--mea-white)', fontFamily: 'Archivo, sans-serif', fontSize: '0.95rem', outline: 'none' }}
         onFocus={(e) => e.target.style.boxShadow = '4px 4px 0 0 var(--mea-orange)'}
         onBlur={(e) => e.target.style.boxShadow = 'none'}
       />
