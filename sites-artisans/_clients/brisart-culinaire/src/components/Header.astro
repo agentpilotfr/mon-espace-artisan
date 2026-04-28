@@ -9,31 +9,14 @@ const { transparent = true } = Astro.props;
   <div class="flex items-center justify-between h-16 md:h-20 max-w-[1320px] mx-auto">
 
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-3 group" aria-label="Bris'Art Culinaire — Accueil">
-      <div class="logo-mark" aria-hidden="true">
-        <svg width="38" height="38" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="64" height="64" rx="4" fill="#1c1a18"/>
-          <circle cx="32" cy="32" r="26" stroke="#C9A44A" stroke-width="0.9"/>
-          <circle cx="32" cy="32" r="22" stroke="#C9A44A" stroke-width="0.35" stroke-dasharray="3 2"/>
-          <path d="M32 13 C25 18 23 25 25.5 31 C28 37 32 39 32 39 C32 39 36 37 38.5 31 C41 25 39 18 32 13Z"
-                fill="none" stroke="#C9A44A" stroke-width="0.85" stroke-linejoin="round"/>
-          <line x1="32" y1="13" x2="32" y2="39" stroke="#C9A44A" stroke-width="0.5"/>
-          <path d="M32 21 Q28 22.5 27 26" stroke="#C9A44A" stroke-width="0.4" fill="none"/>
-          <path d="M32 21 Q36 22.5 37 26" stroke="#C9A44A" stroke-width="0.4" fill="none"/>
-          <path d="M32 27 Q28.5 28.5 28 32" stroke="#C9A44A" stroke-width="0.4" fill="none"/>
-          <path d="M32 27 Q35.5 28.5 36 32" stroke="#C9A44A" stroke-width="0.4" fill="none"/>
-          <line x1="32" y1="39" x2="32" y2="51" stroke="#C9A44A" stroke-width="0.85"/>
-          <line x1="26" y1="46" x2="38" y2="46" stroke="#C9A44A" stroke-width="0.35"/>
-        </svg>
-      </div>
-      <div>
-        <span class="block font-display italic text-[1.1rem] leading-none text-parchment group-hover:text-[#E8CC7A] transition-colors duration-200">
-          Bris'Art
-        </span>
-        <span class="block font-mono-sm text-[0.6rem] tracking-[0.2em] uppercase text-[rgba(245,240,232,0.5)] mt-0.5">
-          Culinaire
-        </span>
-      </div>
+    <a href="/" class="logo-link" aria-label="Bris'Art Culinaire — Accueil">
+      <img
+        src="/images/logos/logo_lettrage_white.svg"
+        alt="Bris'Art Culinaire"
+        width="140"
+        height="40"
+        class="logo-img"
+      />
     </a>
 
     <!-- Desktop Nav (≥ 1024px) -->
@@ -189,8 +172,9 @@ const { transparent = true } = Astro.props;
 </script>
 
 <style>
-  .logo-mark { transition: transform 0.3s ease; }
-  a:hover .logo-mark { transform: rotate(5deg) scale(1.04); }
+  .logo-link { display: flex; align-items: center; }
+  .logo-img { transition: opacity 0.2s ease; height: 40px; width: auto; }
+  .logo-link:hover .logo-img { opacity: 0.8; }
 
   /* ── Bouton Réserver ── */
   .resa-wrap { position: relative; }

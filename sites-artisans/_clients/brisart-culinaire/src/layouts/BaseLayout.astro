@@ -11,7 +11,7 @@ const {
   title,
   description,
   canonical = 'https://www.brisartculinaire.fr/',
-  ogImage  = 'https://www.brisartculinaire.fr/og.jpg',
+  ogImage  = 'https://www.brisartculinaire.fr/images/logos/full_logo.svg',
 } = Astro.props;
 ---
 <!DOCTYPE html>
@@ -32,6 +32,12 @@ const {
   <meta property="og:url"         content={canonical} />
   <meta property="og:image"       content={ogImage} />
   <meta property="og:locale"      content="fr_FR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:title"       content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image"       content={ogImage} />
 
   <!-- Favicon -->
   <link rel="icon"             type="image/svg+xml" href="/favicon.svg" />
