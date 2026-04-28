@@ -1446,6 +1446,12 @@ function CTA() {
   const [ville, setVille] = useState('');
   const [date, setDate] = useState(null);
 
+  useEffect(() => {
+    if (step !== 2) return;
+    const t = setTimeout(() => { window.location.href = '/merci'; }, 1500);
+    return () => clearTimeout(t);
+  }, [step]);
+
   const days = useMemo(() => {
     const d = [];
     const now = new Date();
