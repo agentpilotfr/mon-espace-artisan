@@ -83,9 +83,10 @@ const svgs: Record<string, string> = {
 <style>
   .hero-reviews {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 0.75rem;
     margin: 1.75rem 0 2.25rem;
   }
@@ -202,8 +203,23 @@ const svgs: Record<string, string> = {
   }
 
   @media (max-width: 480px) {
-    .hero-reviews { gap: 0.5rem; }
-    .review-divider { display: none; }
-    .review-badge { padding: 0.45rem 0.9rem 0.45rem 0.65rem; }
+    .hero-reviews {
+      gap: 0.35rem;
+    }
+    .review-badge {
+      padding: 0.4rem 0.65rem 0.4rem 0.55rem;
+    }
+    .review-score {
+      font-size: 0.8rem;
+    }
+    .review-count {
+      display: none;
+    }
+    .review-divider {
+      display: none;
+    }
+    .review-label {
+      font-size: 0.52rem;
+    }
   }
 </style>
