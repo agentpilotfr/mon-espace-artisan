@@ -1,0 +1,329 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header     from '../components/Header.astro';
+import Footer     from '../components/Footer.astro';
+
+const menus = [
+  {
+    num: '01',
+    prix: '95',
+    plats: [
+      { cat: 'Amuse-bouche', desc: 'Carotte confite aux agrumes, patate douce, chips d\'oignon, fanes croustillantes' },
+      { cat: 'Entrée', desc: 'Cannelloni de courgette et canard, petit pois en cru cuit, jus au miso' },
+      { cat: 'Plat', desc: 'Dos de cabillaud, petits légumes, chips d\'algues, beurre soja' },
+      { cat: 'Fromage', desc: 'Plateau sélectionné par Richard Teil' },
+      { cat: 'Dessert', desc: 'Tartare de fraise à l\'estragon, sorbet framboise' },
+    ],
+  },
+  {
+    num: '02',
+    prix: '125',
+    plats: [
+      { cat: 'Amuse-bouche', desc: 'Carotte confite aux agrumes, patate douce, chips d\'oignon' },
+      { cat: 'Entrée', desc: 'Araignée du Croisic, mayonnaise japonaise, gelée de dashi' },
+      { cat: 'Poisson', desc: 'Poisson du marché, petit pois, courgette marinée, beurre soja' },
+      { cat: 'Viande', desc: 'Moelleux de volaille au thym, pressé de pomme de terre aux algues' },
+      { cat: 'Fromage', desc: 'Plateau Richard Teil' },
+      { cat: 'Dessert', desc: 'Tartare de fraise à l\'estragon, sorbet framboise' },
+    ],
+  },
+  {
+    num: '03',
+    prix: '155',
+    plats: [
+      { cat: 'Prélude', desc: 'Algues de la ferme marine du Croisic (3 bouchées)' },
+      { cat: 'Amuse-bouche', desc: 'Saumon fumé, œuf de hareng, gel de citron' },
+      { cat: 'Entrée', desc: 'Bar mariné au miso, grosse frite, purée de carotte jaune' },
+      { cat: 'Plat', desc: 'Langoustine du Croisic, fromage blanc herbes et citron vert' },
+      { cat: 'Plat', desc: 'Homard façon couscous, petit légumes, merguez' },
+      { cat: 'Poisson', desc: 'Dos de lieu, aubergine, jus de poivron' },
+      { cat: 'Viande', desc: 'Veau confit, velouté d\'épinard, mille-feuille de pomme de terre' },
+      { cat: 'Fromage', desc: 'Sélection Richard Teil' },
+      { cat: 'Dessert', desc: 'Tartare de fraises à l\'estragon, sorbet framboise' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Chef à Domicile La Baule Nantes — Menus Gastronomiques | Bris'Art Culinaire"
+  description="Chef Guillaume Brisard à domicile de Nantes à La Baule. Menus gastronomiques de 95 € à 155 €/personne pour mariages, anniversaires, EVJF, repas d'affaires. Bib Gourmand Michelin."
+  canonical="https://www.brisartculinaire.fr/chef-a-domicile"
+>
+  <Header transparent={false} />
+  <main>
+
+    <!-- Hero -->
+    <section class="page-hero">
+      <div class="hero-bg-img" style="background-image:url('/images/guillaume/chef-domicile/chef-domicile-1.webp');" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <span class="section-label" style="color:var(--gold-bright);">Prestation privée</span>
+        <div class="gold-rule" style="margin:1rem 0;"></div>
+        <h1 style="color:white;">Chef à<br><em style="color:var(--gold-bright);">Domicile</em></h1>
+        <p class="hero-sub">Vos menus à domicile comme dans un restaurant étoilé.</p>
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="section" style="background:var(--color-bg);">
+      <div class="container">
+        <div class="intro-grid">
+          <div data-reveal="left">
+            <span class="section-label">Prestation sur-mesure</span>
+            <div class="gold-rule" style="margin:1rem 0;"></div>
+            <h2>L'excellence<br><em style="color:var(--gold-base);">chez vous</em></h2>
+            <p style="color:var(--color-ink-secondary); margin-top:1.5rem; max-width:500px; line-height:1.8;">
+              Chef Guillaume Brisard, Bib Gourmand Michelin 2026, se déplace de Nantes à Pornic
+              en passant par La Baule pour transformer votre domicile en restaurant gastronomique.
+              Mariages, anniversaires, EVJF, repas d'affaires — chaque occasion mérite une cuisine
+              d'exception.
+            </p>
+            <blockquote class="chef-quote">
+              <p>« La mémoire nourrit une culture, alimente l'espoir et donne à chaque être sa dimension humaine. »</p>
+              <cite>— Elie Wiesel</cite>
+            </blockquote>
+          </div>
+          <div data-reveal="right" class="intro-img-col">
+            <div class="img-wrap" style="aspect-ratio:3/4; border-radius:8px; max-height:500px;">
+              <img
+                src="/images/guillaume/portrait-pro-amuse-bouches.webp"
+                alt="Chef Guillaume Brisard service à domicile gastronomique"
+                width="500"
+                height="650"
+                loading="lazy"
+                style="width:100%;height:100%;object-fit:cover;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menus -->
+    <section class="section" style="background:var(--color-bg-secondary);">
+      <div class="container">
+        <div style="text-align:center; margin-bottom:3.5rem;" data-reveal>
+          <span class="section-label">Carte des menus</span>
+          <div class="gold-rule gold-rule-center" style="margin:1rem auto;"></div>
+          <h2>Des menus pensés<br><em style="color:var(--gold-base);">pour chaque moment</em></h2>
+        </div>
+
+        <div class="menus-grid">
+          {menus.map((m) => (
+            <article class="menu-card card" data-reveal>
+              <div class="menu-header">
+                <span class="menu-num">{m.num}</span>
+                <div class="menu-prix-wrap">
+                  <strong class="menu-prix">{m.prix} €</strong>
+                  <span class="menu-prix-unit">/ personne</span>
+                </div>
+              </div>
+              <ul class="menu-plats">
+                {m.plats.map(p => (
+                  <li class="menu-plat">
+                    <span class="plat-cat">{p.cat}</span>
+                    <span class="plat-desc">{p.desc}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <p class="menus-note" data-reveal>
+          Menus indicatifs — Guillaume adapte sa carte selon les saisons, les arrivages et vos préférences.
+          Accord mets-vins disponible sur demande.
+        </p>
+      </div>
+    </section>
+
+    <!-- Occasions -->
+    <section class="section" style="background:var(--color-bg);">
+      <div class="container">
+        <div style="text-align:center; margin-bottom:3rem;" data-reveal>
+          <span class="section-label">Occasions</span>
+          <div class="gold-rule gold-rule-center" style="margin:1rem auto;"></div>
+          <h2>Pour chaque<br><em style="color:var(--gold-base);">célébration</em></h2>
+        </div>
+        <div class="occasions-grid">
+          {[
+            { icon: '💍', label: 'Mariage' },
+            { icon: '🎂', label: 'Anniversaire' },
+            { icon: '🥂', label: 'EVJF / EVG' },
+            { icon: '💼', label: 'Repas d\'affaires' },
+            { icon: '🎉', label: 'Soirée privée' },
+            { icon: '👨‍👩‍👧', label: 'Repas en famille' },
+          ].map(o => (
+            <div class="occasion-item" data-reveal>
+              <span class="occasion-icon" aria-hidden="true">{o.icon}</span>
+              <span class="occasion-label">{o.label}</span>
+            </div>
+          ))}
+        </div>
+        <p style="text-align:center; color:var(--color-steel); font-size:0.85rem; margin-top:1.5rem;">
+          Zone d'intervention : La Baule, Nantes, Vannes et rayon 100 km
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background:var(--ink-deep); padding:4rem 0; text-align:center;">
+      <div class="container">
+        <h2 style="color:white; margin-bottom:1rem;">Organisons votre repas ensemble</h2>
+        <p style="color:rgba(245,240,232,0.55); margin-bottom:2rem; max-width:480px; margin-inline:auto;">
+          Parlez-nous de votre projet, du nombre de convives et de la date souhaitée. Guillaume
+          vous proposera un menu personnalisé.
+        </p>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+          <a href="/#rdv" class="btn-gold">Demander un devis</a>
+          <a href="tel:+33285959457" class="btn-ghost-light">02 85 95 94 57</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 8rem 0 4rem;
+    overflow: hidden;
+  }
+  .hero-bg-img {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.04);
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(20,18,16,0.85) 0%, rgba(20,18,16,0.45) 60%, rgba(20,18,16,0.25) 100%);
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-sub { color: rgba(245,240,232,0.7); font-size: 1.05rem; margin-top:1rem; max-width:480px; }
+
+  .intro-grid {
+    display: grid;
+    gap: 4rem;
+    align-items: center;
+  }
+  @media (min-width: 900px) { .intro-grid { grid-template-columns: 1fr 1fr; } }
+  .intro-img-col { display: flex; justify-content: center; }
+
+  .chef-quote {
+    margin: 2rem 0 0;
+    padding: 1.25rem 1.5rem;
+    border-left: 2px solid var(--gold-base);
+    background: var(--color-bg-secondary);
+    border-radius: 0 6px 6px 0;
+  }
+  .chef-quote p {
+    font-family: var(--font-accent);
+    font-size: 1.1rem;
+    color: var(--color-ink);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+  .chef-quote cite {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--color-steel);
+    text-transform: uppercase;
+  }
+
+  .menus-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+  @media (min-width: 900px) { .menus-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .menu-card { padding: 2rem; background: white; }
+  .menu-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 1.25rem;
+  }
+  .menu-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 2.5rem;
+    color: var(--color-bg-tertiary);
+    line-height: 1;
+  }
+  .menu-prix-wrap { text-align: right; }
+  .menu-prix {
+    display: block;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 2rem;
+    color: var(--gold-base);
+    line-height: 1;
+  }
+  .menu-prix-unit {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--color-steel);
+    text-transform: uppercase;
+  }
+
+  .menu-plats { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem; }
+  .menu-plat { display: flex; flex-direction: column; gap: 0.1rem; }
+  .plat-cat {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-base);
+  }
+  .plat-desc { font-size: 0.825rem; color: var(--color-ink-secondary); line-height: 1.5; }
+
+  .menus-note {
+    text-align: center;
+    margin-top: 2.5rem;
+    font-size: 0.85rem;
+    color: var(--color-steel);
+    font-style: italic;
+  }
+
+  .occasions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  @media (min-width: 640px) { .occasions-grid { grid-template-columns: repeat(6, 1fr); max-width: 800px; } }
+
+  .occasion-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.25rem 0.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    background: white;
+    text-align: center;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .occasion-item:hover {
+    border-color: var(--color-border-gold);
+    box-shadow: 0 4px 16px rgba(201,164,74,0.12);
+  }
+  .occasion-icon { font-size: 1.5rem; }
+  .occasion-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-ink-secondary); }
+</style>

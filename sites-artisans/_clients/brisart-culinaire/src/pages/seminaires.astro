@@ -1,0 +1,314 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header     from '../components/Header.astro';
+import Footer     from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Séminaires & Team Building Culinaire — Bris'Art Culinaire La Baule"
+  description="Ateliers de cuisine et team cooking pour entreprises entre Nantes et La Baule. Chef Guillaume Brisard privatise l'espace pour vos séminaires. Dès 79 € HT/personne."
+  canonical="https://www.brisartculinaire.fr/seminaires"
+>
+  <Header transparent={false} />
+  <main>
+
+    <!-- Hero -->
+    <section class="seminaires-hero">
+      <div class="hero-bg-img" style="background-image:url('/images/guillaume/seminaires/ateliers-seminaires.webp');" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <span class="section-label" style="color:var(--gold-bright);">Entreprises & Équipes</span>
+        <div class="gold-rule" style="margin:1rem 0;"></div>
+        <h1 style="color:white;">Séminaires<br><em style="color:var(--gold-bright);">Culinaires</em></h1>
+        <p class="hero-sub">Une expérience fédératrice autour de la gastronomie artisanale.</p>
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="section" style="background:var(--color-bg);">
+      <div class="container">
+        <div class="seminaires-intro-grid">
+          <div data-reveal="left">
+            <span class="section-label">Team Building</span>
+            <div class="gold-rule" style="margin:1rem 0;"></div>
+            <h2>Renforcez la cohésion<br>de vos équipes</h2>
+            <p style="color:var(--color-ink-secondary); margin-top:1.5rem; max-width:540px;">
+              Offrez à vos collaborateurs une expérience originale, gourmande et fédératrice grâce
+              aux ateliers de cuisine pour entreprises, organisés entre Nantes et La Baule.
+              Chez Bris'Art Culinaire, le séminaire d'équipe devient une aventure humaine,
+              sensorielle et culinaire.
+            </p>
+            <p style="color:var(--color-ink-secondary); margin-top:1rem; max-width:540px;">
+              L'espace à La Baule, entièrement privatisé, accueille vos événements professionnels
+              dans une ambiance à la fois professionnelle, détendue et inspirante. Le chef
+              Guillaume Brisard accompagne vos équipes autour de la cuisine pour renforcer
+              les liens et créer une expérience mémorable.
+            </p>
+          </div>
+          <div class="seminaires-img-col" data-reveal="right">
+            <div class="img-wrap" style="aspect-ratio:4/3; border-radius:8px;">
+              <img
+                src="/images/guillaume/seminaires/ateliers-seminaires.webp"
+                alt="Atelier de cuisine team building Bris'Art Culinaire La Baule"
+                width="600"
+                height="450"
+                loading="lazy"
+                style="width:100%;height:100%;object-fit:cover;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ateliers -->
+    <section class="section" style="background:var(--color-bg-secondary);">
+      <div class="container">
+        <div style="text-align:center; margin-bottom:3.5rem;" data-reveal>
+          <span class="section-label">Nos ateliers</span>
+          <div class="gold-rule gold-rule-center" style="margin:1rem auto;"></div>
+          <h2>Nos ateliers s'adaptent<br><em style="color:var(--gold-base);">à vos objectifs</em></h2>
+        </div>
+        <div class="ateliers-grid">
+          {[
+            {
+              icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#C9A44A" stroke-width="1.2" stroke-linecap="round"><path d="M16 4 C16 4 8 10 8 18 C8 22 11.5 27 16 27 C20.5 27 24 22 24 18 C24 10 16 4 16 4Z"/><path d="M16 27 L16 14" stroke-dasharray="2 2"/></svg>`,
+              titre: 'Atelier gastronomique',
+              texte: 'Cuisinez aux côtés du chef Guillaume Brisard et découvrez les techniques de la gastronomie française dans un cadre professionnel et inspirant.',
+            },
+            {
+              icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#C9A44A" stroke-width="1.2" stroke-linecap="round"><circle cx="16" cy="16" r="12"/><path d="M16 10 L18 14 L22 14 L19 17 L20 21 L16 18.5 L12 21 L13 17 L10 14 L14 14 Z"/></svg>`,
+              titre: 'Défi culinaire en équipe',
+              texte: 'Relevez le défi : chaque équipe compose un plat avec les mêmes ingrédients. Créativité, communication et bonne humeur au programme.',
+            },
+            {
+              icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#C9A44A" stroke-width="1.2" stroke-linecap="round"><path d="M8 20 C8 12 14 6 16 4 C18 6 24 12 24 20 C24 24 20.4 28 16 28 C11.6 28 8 24 8 20Z"/><path d="M12 18 Q16 22 20 18"/></svg>`,
+              titre: 'Menus collaboratifs',
+              texte: 'Ensemble, vos équipes conçoivent et cuisinent un menu complet. De l\'amuse-bouche au dessert, chacun apporte sa pierre à l\'édifice.',
+            },
+            {
+              icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#C9A44A" stroke-width="1.2" stroke-linecap="round"><circle cx="10" cy="10" r="6"/><circle cx="22" cy="10" r="6"/><circle cx="16" cy="22" r="6"/></svg>`,
+              titre: 'Produits du terroir',
+              texte: 'Découvrez les producteurs locaux et les techniques du chef. Un ancrage dans le territoire ligérien et une cuisine en circuit court.',
+            },
+          ].map((a) => (
+            <div class="atelier-card card" data-reveal>
+              <div class="atelier-icon" set:html={a.icon} />
+              <h3 style="font-size:1.15rem; margin-bottom:0.75rem; color:var(--color-ink);">{a.titre}</h3>
+              <p style="font-size:0.875rem; color:var(--color-ink-secondary); line-height:1.7;">{a.texte}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Bénéfices -->
+    <section class="section" style="background:var(--color-bg);">
+      <div class="container">
+        <div class="benefices-wrap">
+          <div data-reveal="left">
+            <span class="section-label">Pourquoi choisir Bris'Art</span>
+            <div class="gold-rule" style="margin:1rem 0;"></div>
+            <h2>Un team building qui<br><em style="color:var(--gold-base);">laisse une marque</em></h2>
+            <ul class="benefices-list">
+              <li>Renforce la cohésion d'équipe autour d'un projet commun</li>
+              <li>Stimule la créativité et la communication inter-équipes</li>
+              <li>Valorise les compétences individuelles dans un contexte ludique</li>
+              <li>Espace entièrement privatisé à La Baule</li>
+              <li>Chef étoilé passé au Fort de l'Océan, Bib Gourmand Michelin 2026</li>
+              <li>Possibilité de déjeuner ou dîner gastronomique en fin d'atelier</li>
+            </ul>
+          </div>
+
+          <!-- Tarif -->
+          <div class="tarif-card" data-reveal="right">
+            <span class="section-label" style="color:var(--gold-bright);">Tarifs</span>
+            <div class="tarif-price">
+              <span class="tarif-from">À partir de</span>
+              <strong class="tarif-num">79 €</strong>
+              <span class="tarif-unit">HT / personne</span>
+            </div>
+            <ul class="tarif-details">
+              <li>Privatisation dès 12 participants</li>
+              <li>Repas gastronomique en option</li>
+              <li>Cocktail dînatoire en option</li>
+              <li>Devis sur-mesure disponible</li>
+            </ul>
+            <a href="/#rdv" class="btn-gold" style="width:100%; text-align:center; margin-top:1.5rem; display:block;">
+              Demander un devis
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background:var(--ink-deep); padding:4rem 0; text-align:center;">
+      <div class="container">
+        <h2 style="color:white; margin-bottom:1rem;">Prêt à organiser votre séminaire ?</h2>
+        <p style="color:rgba(245,240,232,0.55); margin-bottom:2rem; max-width:480px; margin-inline:auto;">
+          Contactez-nous pour construire ensemble une expérience culinaire sur-mesure pour vos équipes.
+        </p>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+          <a href="/#rdv" class="btn-gold">Demander un devis</a>
+          <a href="tel:+33285959457" class="btn-ghost-light">02 85 95 94 57</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .seminaires-hero {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 8rem 0 4rem;
+    overflow: hidden;
+  }
+  .hero-bg-img {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.04);
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(20,18,16,0.85) 0%, rgba(20,18,16,0.5) 50%, rgba(20,18,16,0.3) 100%);
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-sub {
+    color: rgba(245,240,232,0.7);
+    font-size: 1.05rem;
+    margin-top: 1rem;
+    max-width: 480px;
+  }
+
+  .seminaires-intro-grid {
+    display: grid;
+    gap: 4rem;
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .seminaires-intro-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .seminaires-img-col { display: flex; align-items: center; justify-content: center; }
+
+  .ateliers-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 640px) { .ateliers-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .atelier-card {
+    padding: 2rem;
+    background: white;
+  }
+  .atelier-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(201,164,74,0.08);
+    border-radius: 50%;
+    margin-bottom: 1.25rem;
+  }
+
+  .benefices-wrap {
+    display: grid;
+    gap: 4rem;
+    align-items: start;
+  }
+  @media (min-width: 900px) { .benefices-wrap { grid-template-columns: 1fr 1fr; } }
+
+  .benefices-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .benefices-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--color-ink-secondary);
+    line-height: 1.6;
+  }
+  .benefices-list li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 16px;
+    height: 1px;
+    background: var(--gold-base);
+    margin-top: 0.65rem;
+  }
+
+  .tarif-card {
+    background: var(--ink-deep);
+    border-radius: 8px;
+    padding: 2.5rem;
+    color: white;
+  }
+  .tarif-price {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem 0;
+  }
+  .tarif-from {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: rgba(245,240,232,0.4);
+    text-transform: uppercase;
+  }
+  .tarif-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 3.5rem;
+    color: var(--gold-base);
+    line-height: 1;
+  }
+  .tarif-unit {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: rgba(245,240,232,0.4);
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+  }
+  .tarif-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 1.25rem;
+  }
+  .tarif-details li {
+    font-size: 0.85rem;
+    color: rgba(245,240,232,0.55);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .tarif-details li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: var(--gold-base);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+</style>

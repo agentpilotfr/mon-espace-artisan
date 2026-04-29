@@ -244,11 +244,16 @@ import HeroReviews from './HeroReviews.astro';
     background-position: center top;
   }
 
-  /* ─── Overlay ─── */
+  /* ─── Overlay — max 0.35 pour laisser la vidéo respirer ─── */
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(15, 14, 11, 0.55);
+    background: linear-gradient(
+      to bottom,
+      rgba(15, 14, 11, 0.25) 0%,
+      rgba(15, 14, 11, 0.35) 50%,
+      rgba(15, 14, 11, 0.72) 100%
+    );
     z-index: 1;
   }
 

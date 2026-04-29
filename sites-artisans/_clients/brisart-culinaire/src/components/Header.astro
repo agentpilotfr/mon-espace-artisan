@@ -8,14 +8,24 @@ const { transparent = true } = Astro.props;
 <header id="site-header" class:list={['w-full px-6 md:px-10', { 'is-scrolled': !transparent }]}>
   <div class="flex items-center justify-between h-16 md:h-20 max-w-[1320px] mx-auto">
 
-    <!-- Logo -->
+    <!-- Logo — blanc sur hero transparent, noir sur header scrollé -->
     <a href="/" class="logo-link" aria-label="Bris'Art Culinaire — Accueil">
       <img
+        id="logo-white"
         src="/images/logos/logo_lettrage_white.svg"
         alt="Bris'Art Culinaire"
-        width="140"
-        height="40"
-        class="logo-img"
+        width="200"
+        height="56"
+        class="logo-img logo-white"
+      />
+      <img
+        id="logo-dark"
+        src="/images/logos/logo_lettrage.svg"
+        alt="Bris'Art Culinaire"
+        width="200"
+        height="56"
+        class="logo-img logo-dark"
+        aria-hidden="true"
       />
     </a>
 
@@ -23,7 +33,44 @@ const { transparent = true } = Astro.props;
     <nav class="hidden lg:flex items-center gap-8" aria-label="Navigation principale">
       <a href="/" class="nav-link">Accueil</a>
       <a href="/le-restaurant" class="nav-link">Le Restaurant</a>
-      <a href="/cours-de-cuisine" class="nav-link">Cours</a>
+
+      <!-- Dropdown Prestations -->
+      <div class="prestations-wrap">
+        <button
+          id="prestations-btn"
+          class="nav-link prestations-btn-inner"
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          Prestations
+          <svg class="prest-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M2 3.5 L5 6.5 L8 3.5"/>
+          </svg>
+        </button>
+
+        <div id="prestations-dropdown" class="prest-dropdown" aria-hidden="true">
+          <a href="/cours-de-cuisine" class="prest-option">
+            <span>Cours de cuisine</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M2 6 L10 6 M7 3 L10 6 L7 9"/></svg>
+          </a>
+          <a href="/seminaires" class="prest-option">
+            <span>Séminaires</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M2 6 L10 6 M7 3 L10 6 L7 9"/></svg>
+          </a>
+          <a href="/evjf" class="prest-option">
+            <span>EVJF</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M2 6 L10 6 M7 3 L10 6 L7 9"/></svg>
+          </a>
+          <a href="/cocktail-dinatoire" class="prest-option">
+            <span>Cocktail dînatoire</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M2 6 L10 6 M7 3 L10 6 L7 9"/></svg>
+          </a>
+          <a href="/chef-a-domicile" class="prest-option">
+            <span>Chef à domicile</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M2 6 L10 6 M7 3 L10 6 L7 9"/></svg>
+          </a>
+        </div>
+      </div>
 
       <!-- Bouton RÉSERVER + dropdown -->
       <div class="resa-wrap">
@@ -97,10 +144,19 @@ const { transparent = true } = Astro.props;
 
   <div class="text-center">
     <div class="gold-rule gold-rule-center mb-8"></div>
-    <div class="flex flex-col items-center gap-7">
+    <div class="flex flex-col items-center gap-6">
       <a href="/" class="nav-link text-base">Accueil</a>
       <a href="/le-restaurant" class="nav-link text-base">Le Restaurant</a>
-      <a href="/cours-de-cuisine" class="nav-link text-base">Cours de Cuisine</a>
+      <div class="mob-prest-group">
+        <span class="mob-prest-title">Prestations</span>
+        <div class="flex flex-col items-center gap-4 mt-3">
+          <a href="/cours-de-cuisine" class="nav-link text-sm">Cours de cuisine</a>
+          <a href="/seminaires" class="nav-link text-sm">Séminaires</a>
+          <a href="/evjf" class="nav-link text-sm">EVJF</a>
+          <a href="/cocktail-dinatoire" class="nav-link text-sm">Cocktail dînatoire</a>
+          <a href="/chef-a-domicile" class="nav-link text-sm">Chef à domicile</a>
+        </div>
+      </div>
     </div>
     <div class="gold-rule gold-rule-center mt-8 mb-8"></div>
     <a
@@ -109,13 +165,52 @@ const { transparent = true } = Astro.props;
       target="_blank"
       rel="noopener noreferrer"
     >Réserver une table</a>
-    <p class="font-mono-sm text-[rgba(245,240,232,0.35)] mt-6 tracking-widest text-[0.65rem] uppercase">
+    <p class="font-mono-sm mt-6 tracking-widest text-[0.65rem] uppercase" style="color:rgba(245,240,232,0.35);">
       La Baule · Gastronomie Artisanale
     </p>
   </div>
 </nav>
 
 <script>
+  /* ── Logo swap on scroll ── */
+  const logoWhite = document.getElementById('logo-white') as HTMLImageElement | null;
+  const logoDark  = document.getElementById('logo-dark')  as HTMLImageElement | null;
+
+  function updateLogo(scrolled: boolean) {
+    if (!logoWhite || !logoDark) return;
+    if (scrolled) {
+      logoWhite.style.display = 'none';
+      logoDark.style.display  = 'block';
+      logoDark.removeAttribute('aria-hidden');
+      logoWhite.setAttribute('aria-hidden', 'true');
+    } else {
+      logoWhite.style.display = 'block';
+      logoDark.style.display  = 'none';
+      logoWhite.removeAttribute('aria-hidden');
+      logoDark.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  /* ── Header scroll ── */
+  const header = document.getElementById('site-header');
+  let lastY = 0;
+  let isScrolled = header?.classList.contains('is-scrolled') ?? false;
+  updateLogo(isScrolled);
+
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    const nowScrolled = y > 60;
+
+    if (nowScrolled !== isScrolled) {
+      isScrolled = nowScrolled;
+      header?.classList.toggle('is-scrolled', isScrolled);
+      updateLogo(isScrolled);
+    }
+
+    header?.classList.toggle('is-hidden', y > lastY + 8 && y > 300);
+    lastY = y;
+  }, { passive: true });
+
   /* ── Hamburger ── */
   const btn   = document.getElementById('hamburger-btn');
   const menu  = document.getElementById('mobile-menu');
@@ -140,16 +235,38 @@ const { transparent = true } = Astro.props;
   btn?.addEventListener('click', () => menu?.classList.contains('is-open') ? closeMenu() : openMenu());
   close?.addEventListener('click', closeMenu);
   links?.forEach(l => l.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeMenu(); closeDrop(); closePrest(); } });
 
-  /* ── Dropdown Réserver (desktop) ── */
-  const resaBtn      = document.getElementById('resa-btn');
-  const resaDrop     = document.getElementById('resa-dropdown');
+  /* ── Dropdown Prestations ── */
+  const prestBtn  = document.getElementById('prestations-btn');
+  const prestDrop = document.getElementById('prestations-dropdown');
+
+  function openPrest() {
+    prestDrop?.classList.add('is-open');
+    prestBtn?.setAttribute('aria-expanded', 'true');
+    prestDrop?.setAttribute('aria-hidden', 'false');
+    closeDrop();
+  }
+  function closePrest() {
+    prestDrop?.classList.remove('is-open');
+    prestBtn?.setAttribute('aria-expanded', 'false');
+    prestDrop?.setAttribute('aria-hidden', 'true');
+  }
+
+  prestBtn?.addEventListener('click', e => {
+    e.stopPropagation();
+    prestDrop?.classList.contains('is-open') ? closePrest() : openPrest();
+  });
+
+  /* ── Dropdown Réserver ── */
+  const resaBtn  = document.getElementById('resa-btn');
+  const resaDrop = document.getElementById('resa-dropdown');
 
   function openDrop() {
     resaDrop?.classList.add('is-open');
     resaBtn?.setAttribute('aria-expanded', 'true');
     resaDrop?.setAttribute('aria-hidden', 'false');
+    closePrest();
   }
   function closeDrop() {
     resaDrop?.classList.remove('is-open');
@@ -163,18 +280,97 @@ const { transparent = true } = Astro.props;
   });
 
   document.addEventListener('click', e => {
-    if (!resaBtn?.contains(e.target as Node) && !resaDrop?.contains(e.target as Node)) {
-      closeDrop();
-    }
+    if (!prestBtn?.contains(e.target as Node) && !prestDrop?.contains(e.target as Node)) closePrest();
+    if (!resaBtn?.contains(e.target as Node) && !resaDrop?.contains(e.target as Node)) closeDrop();
   });
-
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrop(); });
 </script>
 
 <style>
+  /* ── Logo ── */
   .logo-link { display: flex; align-items: center; }
-  .logo-img { transition: opacity 0.2s ease; height: 40px; width: auto; }
+  .logo-img {
+    height: 44px;
+    width: auto;
+    transition: opacity 0.2s ease;
+  }
+  @media (min-width: 1024px) {
+    .logo-img { height: 56px; }
+  }
+  .logo-dark { display: none; }
   .logo-link:hover .logo-img { opacity: 0.8; }
+
+  /* ── Prestations dropdown ── */
+  .prestations-wrap { position: relative; }
+  .prestations-btn-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .prest-chevron {
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+  #prestations-btn[aria-expanded="true"] .prest-chevron {
+    transform: rotate(180deg);
+  }
+
+  .prest-dropdown {
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    min-width: 220px;
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.75rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 200;
+    box-shadow: 0 8px 32px rgba(26,25,22,0.1);
+  }
+  .prest-dropdown.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .prest-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--color-ink-secondary);
+    transition: background 0.15s, color 0.15s;
+    text-decoration: none;
+  }
+  .prest-option:hover {
+    background: var(--color-bg-secondary);
+    color: var(--gold-base);
+  }
+
+  /* Mobile prestations group */
+  .mob-prest-group { text-align: center; }
+  .mob-prest-title {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-base);
+    display: block;
+  }
 
   /* ── Bouton Réserver ── */
   .resa-wrap { position: relative; }
@@ -193,21 +389,22 @@ const { transparent = true } = Astro.props;
     transform: rotate(180deg);
   }
 
-  /* ── Dropdown ── */
+  /* ── Dropdown Réserver ── */
   .resa-dropdown {
     position: absolute;
     top: calc(100% + 0.6rem);
     right: 0;
     min-width: 290px;
-    background: var(--ink);
-    border: 1px solid rgba(201, 164, 74, 0.3);
-    border-radius: 4px;
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
     padding: 1.5rem;
     opacity: 0;
     pointer-events: none;
     transform: translateY(-6px);
     transition: opacity 0.2s ease, transform 0.2s ease;
     z-index: 200;
+    box-shadow: 0 8px 32px rgba(26,25,22,0.1);
   }
   .resa-dropdown.is-open {
     opacity: 1;
@@ -228,11 +425,11 @@ const { transparent = true } = Astro.props;
     font-size: 0.9rem;
     color: var(--gold-base);
   }
-  .resa-option-primary:hover { color: var(--gold-bright); }
+  .resa-option-primary:hover { color: var(--gold-mat); }
 
   .resa-option-secondary {
     font-size: 0.8rem;
-    color: var(--parchment);
+    color: var(--color-ink-secondary);
     opacity: 0.65;
   }
   .resa-option-secondary:hover { opacity: 1; }
@@ -246,13 +443,13 @@ const { transparent = true } = Astro.props;
   .resa-sep-line {
     flex: 1;
     height: 1px;
-    background: rgba(201, 164, 74, 0.15);
+    background: var(--color-border);
   }
   .resa-sep-text {
     font-family: var(--font-mono);
     font-size: 0.65rem;
     letter-spacing: 0.12em;
-    color: rgba(245, 240, 232, 0.3);
+    color: var(--color-steel);
     text-transform: uppercase;
   }
 </style>
