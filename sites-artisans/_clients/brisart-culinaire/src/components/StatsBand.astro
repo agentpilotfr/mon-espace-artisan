@@ -1,9 +1,9 @@
 ---
 const stats = [
-  { value: 15,   suffix: ' ans',  label: "D'expérience culinaire" },
-  { value: 300,  suffix: '+',     label: 'Recettes créées' },
-  { value: 98,   suffix: '%',     label: 'De satisfaction client' },
-  { value: 1200, suffix: '+',     label: 'Élèves formés' },
+  { kind: 'counter', value: 10,  suffix: ' ans',       label: "d'expérience gastronomique" },
+  { kind: 'counter', value: 156, suffix: '+',           label: 'avis Google'               },
+  { kind: 'static',  text: '4,8★',                label: 'note moyenne Google'        },
+  { kind: 'static',  text: 'Bib Gourmand',       label: 'Guide Michelin 2026'        },
 ];
 ---
 
@@ -12,14 +12,18 @@ const stats = [
     <div class="stats-grid">
       {stats.map((s, i) => (
         <div class="stat-item" data-reveal style={`transition-delay:${i * 0.12}s`}>
-          <strong
-            class="stat-num"
-            data-counter
-            data-target={s.value}
-            data-suffix={s.suffix}
-          >
-            0{s.suffix}
-          </strong>
+          {s.kind === 'counter' ? (
+            <strong
+              class="stat-num"
+              data-counter
+              data-target={s.value}
+              data-suffix={s.suffix}
+            >
+              0{s.suffix}
+            </strong>
+          ) : (
+            <strong class="stat-num stat-num--static">{s.text}</strong>
+          )}
           <span class="stat-label">{s.label}</span>
         </div>
       ))}
@@ -72,5 +76,31 @@ const stats = [
     .stat-item:nth-child(4) {
       border-top: 1px solid rgba(255,255,255,0.07);
     }
+  }
+
+  .stat-num {
+    display: block;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    color: var(--gold-base);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+  }
+  .stat-num--static {
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    letter-spacing: -0.01em;
+  }
+  .stat-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+    line-height: 1.4;
+    max-width: 120px;
+    margin: 0 auto;
   }
 </style>

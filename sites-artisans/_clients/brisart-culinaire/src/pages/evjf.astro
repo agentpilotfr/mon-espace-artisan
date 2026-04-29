@@ -5,7 +5,7 @@ import Footer     from '../components/Footer.astro';
 ---
 
 <BaseLayout
-  title="EVJF La Baule — Atelier Cuisine Enterrement de Vie de Jeune Fille | Bris'Art Culinaire"
+  title="EVJF Culinaire La Baule — Chef à Domicile Guillaume Brisard | Bib Gourmand"
   description="EVJF inoubliable avec Chef Guillaume Brisard entre Nantes et La Baule. Atelier culinaire sur-mesure 3-4h pour 6 à 12 personnes. Accueil bulles, cours ludique, dîner gastronomique."
   canonical="https://www.brisartculinaire.fr/evjf"
 >
@@ -101,6 +101,19 @@ import Footer     from '../components/Footer.astro';
               </div>
             </div>
           ))}
+        </div>
+
+        <!-- Galerie photos programme -->
+        <div class="programme-photos" data-reveal>
+          <div class="prog-photo-wrap">
+            <img src="/images/guillaume/cours-groupe-tabliers.webp" alt="Groupe atelier cuisine EVJF Bris'Art Culinaire" width="400" height="200" loading="lazy" />
+          </div>
+          <div class="prog-photo-wrap">
+            <img src="/images/guillaume/cours-convives-souriant.webp" alt="Convives souriants cours cuisine La Baule" width="400" height="200" loading="lazy" />
+          </div>
+          <div class="prog-photo-wrap">
+            <img src="/images/guillaume/cours-tabliers-alignes.webp" alt="Tabliers alignés atelier culinaire EVJF" width="400" height="200" loading="lazy" />
+          </div>
         </div>
       </div>
     </section>
@@ -241,6 +254,24 @@ import Footer     from '../components/Footer.astro';
     max-width: 700px;
     margin: 0 auto;
   }
+
+  .programme-photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 3rem;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .prog-photo-wrap { border-radius: 4px; overflow: hidden; }
+  .prog-photo-wrap img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .prog-photo-wrap:hover img { transform: scale(1.04); }
   .step-item {
     display: grid;
     grid-template-columns: 60px 1fr;

@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://brisart-culinaire.fr/sitemap.xml
+Sitemap: https://www.brisartculinaire.fr/sitemap-index.xml

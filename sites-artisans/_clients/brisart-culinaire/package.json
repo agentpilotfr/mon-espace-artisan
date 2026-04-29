@@ -12,6 +12,7 @@
     "deploy": "wrangler pages deploy dist --project-name=brisart-culinaire --commit-dirty=true"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.2",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.1.7",
     "tailwindcss": "^4.2.2",

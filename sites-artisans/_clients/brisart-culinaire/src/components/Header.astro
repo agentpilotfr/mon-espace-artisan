@@ -8,23 +8,25 @@ const { transparent = true } = Astro.props;
 <header id="site-header" class:list={['w-full px-6 md:px-10', { 'is-scrolled': !transparent }]}>
   <div class="flex items-center justify-between h-16 md:h-20 max-w-[1320px] mx-auto">
 
-    <!-- Logo — blanc sur hero transparent, noir sur header scrollé -->
+    <!-- Logo — plein logo blanc sur hero transparent, lettrage sombre scrollé, lettrage sur mobile -->
     <a href="/" class="logo-link" aria-label="Bris'Art Culinaire — Accueil">
       <img
         id="logo-white"
-        src="/images/logos/logo_lettrage_white.svg"
+        src="/images/logos/full_logo_white.svg"
         alt="Bris'Art Culinaire"
-        width="200"
-        height="56"
+        width="180"
+        height="60"
         class="logo-img logo-white"
+        loading="eager"
       />
       <img
         id="logo-dark"
         src="/images/logos/logo_lettrage.svg"
         alt="Bris'Art Culinaire"
-        width="200"
-        height="56"
+        width="160"
+        height="44"
         class="logo-img logo-dark"
+        loading="eager"
         aria-hidden="true"
       />
     </a>
@@ -178,6 +180,14 @@ const { transparent = true } = Astro.props;
 
   function updateLogo(scrolled: boolean) {
     if (!logoWhite || !logoDark) return;
+    if (window.innerWidth < 1024) {
+      // Mobile : toujours lettrage sombre
+      logoWhite.style.display = 'none';
+      logoDark.style.display  = 'block';
+      logoDark.removeAttribute('aria-hidden');
+      logoWhite.setAttribute('aria-hidden', 'true');
+      return;
+    }
     if (scrolled) {
       logoWhite.style.display = 'none';
       logoDark.style.display  = 'block';
@@ -196,10 +206,11 @@ const { transparent = true } = Astro.props;
   let lastY = 0;
   let isScrolled = header?.classList.contains('is-scrolled') ?? false;
   updateLogo(isScrolled);
+  window.addEventListener('resize', () => updateLogo(isScrolled), { passive: true });
 
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
-    const nowScrolled = y > 60;
+    const nowScrolled = y > 80;
 
     if (nowScrolled !== isScrolled) {
       isScrolled = nowScrolled;
@@ -288,16 +299,18 @@ const { transparent = true } = Astro.props;
 <style>
   /* ── Logo ── */
   .logo-link { display: flex; align-items: center; }
-  .logo-img {
-    height: 44px;
-    width: auto;
-    transition: opacity 0.2s ease;
-  }
-  @media (min-width: 1024px) {
-    .logo-img { height: 56px; }
-  }
-  .logo-dark { display: none; }
+  .logo-img { height: auto; transition: opacity 0.2s ease; }
   .logo-link:hover .logo-img { opacity: 0.8; }
+
+  /* Mobile (<1024px) : toujours lettrage sombre */
+  .logo-white { display: none; width: 140px; }
+  .logo-dark  { display: block; width: 140px; }
+
+  /* Desktop (≥1024px) : plein logo blanc par défaut, JS swap au scroll */
+  @media (min-width: 1024px) {
+    .logo-white { display: block; width: 180px; }
+    .logo-dark  { display: none;  width: 160px; }
+  }
 
   /* ── Prestations dropdown ── */
   .prestations-wrap { position: relative; }
