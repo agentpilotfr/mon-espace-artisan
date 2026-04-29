@@ -29,10 +29,9 @@ const legal = [
         <div class="footer-brand">
           <a href="/" class="footer-logo-wrap" aria-label="Bris'Art Culinaire — Accueil">
             <img
-              src="/images/logos/full_logo_white.svg"
+              src="/images/logos/full_logo.svg"
               alt="Bris'Art Culinaire"
               class="footer-logo"
-              width="160"
               loading="lazy"
             />
           </a>
@@ -161,11 +160,12 @@ const legal = [
 
   /* Brand */
   .footer-logo {
-    width: 160px;
+    width: 180px;
     height: auto;
-    opacity: 0.9;
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
     display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
   }
   .footer-logo-wrap {
     display: inline-flex;

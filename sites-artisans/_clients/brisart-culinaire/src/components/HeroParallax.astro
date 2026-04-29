@@ -302,13 +302,19 @@ import HeroReviews from './HeroReviews.astro';
   .hero-label { letter-spacing: 0.28em; display: block; }
 
   .hero-logo-main {
-    width: clamp(320px, 48vw, 580px);
+    width: clamp(420px, 60vw, 720px);
     height: auto;
-    max-height: 160px;
+    max-height: 200px;
     object-fit: contain;
-    filter: drop-shadow(0 2px 20px rgba(0,0,0,0.5));
+    filter: drop-shadow(0 2px 24px rgba(0,0,0,0.6));
     margin: 0 auto 2rem;
     display: block;
+  }
+  @media (max-width: 768px) {
+    .hero-logo-main {
+      width: clamp(280px, 75vw, 420px);
+      max-height: 160px;
+    }
   }
 
   .hero-title {
