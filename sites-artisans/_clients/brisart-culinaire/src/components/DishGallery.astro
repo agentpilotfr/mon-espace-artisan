@@ -1,252 +1,168 @@
 ---
-const items = [
-  { src: '/images/guillaume/cuisine_plat/photo-7.webp',              text: 'Gastronomie'   },
-  { src: '/images/guillaume/cuisine_plat/photo-6.webp',              text: 'Dressage'      },
-  { src: '/images/guillaume/cuisine_plat/photo-4.webp',              text: 'Précision'     },
-  { src: '/images/guillaume/cuisine_plat/photo-3.webp',              text: 'Saison'        },
-  { src: '/images/guillaume/cuisine_plat/langoustine-croisic.webp',  text: 'Langoustine'   },
-  { src: '/images/guillaume/cuisine_plat/coursdecuisinelabaule.webp',text: 'La Baule'      },
-  { src: '/images/guillaume/cuisine_plat/8.webp',                    text: 'Création'      },
+const dishes = [
+  { src: '/images/guillaume/cuisine_plat/photo-7.webp',               label: 'Gastronomie'  },
+  { src: '/images/guillaume/cuisine_plat/photo-6.webp',               label: 'Dressage'     },
+  { src: '/images/guillaume/cuisine_plat/photo-4.webp',               label: 'Précision'    },
+  { src: '/images/guillaume/cuisine_plat/photo-3.webp',               label: 'Saison'       },
+  { src: '/images/guillaume/cuisine_plat/langoustine-croisic.webp',   label: 'Langoustine'  },
+  { src: '/images/guillaume/cuisine_plat/coursdecuisinelabaule.webp', label: 'La Baule'     },
+  { src: '/images/guillaume/cuisine_plat/8.webp',                     label: 'Création'     },
+  { src: '/images/guillaume/cuisine_plat/photo-7.webp',               label: 'Gastronomie'  },
+  { src: '/images/guillaume/cuisine_plat/photo-6.webp',               label: 'Dressage'     },
+  { src: '/images/guillaume/cuisine_plat/photo-4.webp',               label: 'Précision'    },
+  { src: '/images/guillaume/cuisine_plat/photo-3.webp',               label: 'Saison'       },
+  { src: '/images/guillaume/cuisine_plat/langoustine-croisic.webp',   label: 'Langoustine'  },
 ];
 ---
 
-<div id="dish-gallery" style="position:relative;width:100%;height:500px;overflow:hidden;cursor:grab;">
-  <canvas id="dish-canvas" style="position:absolute;inset:0;width:100%;height:100%;"></canvas>
-  <!-- Labels HTML synchronisés par JS via projection 3D→2D -->
-  <div id="dish-labels" style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
-    {items.map((item, i) => (
-      <div class="dish-label" data-idx={i} style="position:absolute;opacity:0;transition:opacity 0.25s;transform:translateX(-50%);">
-        <span class="dish-label-text">{item.text}</span>
+<section class="dish-gallery-section">
+  <div class="dish-gallery-track" id="dish-track">
+    {dishes.map((dish) => (
+      <div class="dish-card" data-tilt>
+        <div class="dish-card-inner">
+          <img
+            src={dish.src}
+            alt={`Gastronomie Bris'Art — ${dish.label}`}
+            loading="lazy"
+          />
+          <div class="dish-card-shine"></div>
+          <div class="dish-card-label">{dish.label}</div>
+        </div>
       </div>
     ))}
   </div>
-  <!-- Hint scroll -->
-  <div id="dish-hint" style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);opacity:0.45;pointer-events:none;display:flex;align-items:center;gap:0.4rem;">
-    <svg width="18" height="10" viewBox="0 0 18 10" fill="none" stroke="#C9A44A" stroke-width="1.2" stroke-linecap="round">
-      <path d="M1 5 L8 5 M8 2 L11 5 L8 8"/>
-      <path d="M10 5 L17 5"/>
-    </svg>
-    <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:#C9A44A;">Faire défiler</span>
-  </div>
-</div>
+</section>
 
 <style>
-  .dish-label-text {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
-    font-size: 0.88rem;
-    color: #C9A44A;
-    letter-spacing: 0.08em;
-    white-space: nowrap;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  .dish-gallery-section {
+    width: 100%;
+    overflow: hidden;
+    padding: 0 0 2rem;
+    background: transparent;
+  }
+
+  .dish-gallery-track {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1rem 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+  }
+  .dish-gallery-track::-webkit-scrollbar { display: none; }
+  .dish-gallery-track:active { cursor: grabbing; }
+
+  .dish-card {
+    flex-shrink: 0;
+    width: clamp(260px, 28vw, 380px);
+    height: clamp(300px, 32vw, 440px);
+    scroll-snap-align: start;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .dish-card-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.15s ease;
+    transform-style: preserve-3d;
+    box-shadow: 0 8px 32px rgba(26,25,22,0.12);
+  }
+
+  .dish-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .dish-card-shine {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at var(--mx, 50%) var(--my, 50%),
+      rgba(201,164,74,0.18) 0%,
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .dish-card:hover .dish-card-shine { opacity: 1; }
+  .dish-card:hover img { transform: scale(1.04); }
+
+  .dish-card-label {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--cream);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: all 0.3s;
+    z-index: 3;
+  }
+
+  .dish-card:hover .dish-card-label {
+    opacity: 1;
+    transform: translateY(0);
   }
 </style>
 
 <script>
 // @ts-nocheck
-import {
-  Renderer, Camera, Transform, Plane, Mesh, Program, Texture
-} from 'ogl';
+(function () {
+  /* ── Tilt 3D hover ── */
+  document.querySelectorAll('[data-tilt]').forEach(card => {
+    const inner = card.querySelector('.dish-card-inner');
+    const shine = card.querySelector('.dish-card-shine');
+    if (!inner || !shine) return;
 
-(function initDishGallery() {
-  const container = document.getElementById('dish-gallery');
-  const canvas    = document.getElementById('dish-canvas');
-  const labelsEl  = document.getElementById('dish-labels');
-  if (!container || !canvas || !labelsEl) return;
-
-  /* ── Config ── */
-  const BEND        = 2;
-  const BORDER_R    = 0.08;
-  const EASE        = 0.04;
-  const ITEM_W      = 3.0;
-  const ITEM_H      = 2.0;
-  const ITEM_GAP    = 0.45;
-  const STRIDE      = ITEM_W + ITEM_GAP;
-  const FOV         = 35;
-  const CAM_Z       = 10;
-  const PX_PER_UNIT = 90;
-
-  const itemsData = [
-    { src: '/images/guillaume/cuisine_plat/photo-7.webp',              text: 'Gastronomie' },
-    { src: '/images/guillaume/cuisine_plat/photo-6.webp',              text: 'Dressage'    },
-    { src: '/images/guillaume/cuisine_plat/photo-4.webp',              text: 'Précision'   },
-    { src: '/images/guillaume/cuisine_plat/photo-3.webp',              text: 'Saison'      },
-    { src: '/images/guillaume/cuisine_plat/langoustine-croisic.webp',  text: 'Langoustine' },
-    { src: '/images/guillaume/cuisine_plat/coursdecuisinelabaule.webp',text: 'La Baule'    },
-    { src: '/images/guillaume/cuisine_plat/8.webp',                    text: 'Création'    },
-  ];
-
-  /* ── Renderer ── */
-  const renderer = new Renderer({
-    canvas,
-    alpha: true,
-    dpr: Math.min(window.devicePixelRatio, 2),
-  });
-  const gl = renderer.gl;
-  gl.clearColor(0, 0, 0, 0);
-
-  const camera = new Camera(gl, { fov: FOV });
-  camera.position.z = CAM_Z;
-  const scene = new Transform();
-
-  /* ── Shaders ── */
-  const vertex = /* glsl */`
-    attribute vec3 position;
-    attribute vec2 uv;
-    uniform mat4 modelViewMatrix;
-    uniform mat4 projectionMatrix;
-    uniform float uBend;
-    uniform float uWorldX;
-    varying vec2 vUv;
-    void main() {
-      vUv = uv;
-      vec3 pos = position;
-      float wx = pos.x + uWorldX;
-      pos.y -= wx * wx * uBend * 0.011;
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
-    }
-  `;
-
-  const fragment = /* glsl */`
-    precision highp float;
-    uniform sampler2D tMap;
-    uniform float uRadius;
-    varying vec2 vUv;
-    float sdRoundRect(vec2 p, float r) {
-      vec2 q = abs(p * 2.0 - 1.0) - 1.0 + r;
-      return length(max(q, 0.0)) - r;
-    }
-    void main() {
-      float d = sdRoundRect(vUv, uRadius);
-      float a = 1.0 - smoothstep(-0.01, 0.015, d);
-      if (a < 0.01) discard;
-      vec4 col = texture2D(tMap, vUv);
-      gl_FragColor = vec4(col.rgb, col.a * a);
-    }
-  `;
-
-  /* ── Meshes ── */
-  const geometry = new Plane(gl, {
-    width: ITEM_W, height: ITEM_H,
-    widthSegments: 30, heightSegments: 1,
-  });
-
-  const meshes = [];
-  const labelEls = Array.from(labelsEl.querySelectorAll('.dish-label'));
-
-  itemsData.forEach((item, i) => {
-    const texture = new Texture(gl, { generateMipmaps: false });
-    const img = new Image();
-    img.onload = () => { texture.image = img; };
-    img.src = item.src;
-
-    const program = new Program(gl, {
-      vertex, fragment,
-      uniforms: {
-        tMap:    { value: texture },
-        uBend:   { value: BEND },
-        uWorldX: { value: 0 },
-        uRadius: { value: BORDER_R },
-      },
-      transparent: true,
-      cullFace: null,
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width;
+      const y = (e.clientY - r.top) / r.height;
+      const rx = (y - 0.5) * -16;
+      const ry = (x - 0.5) * 16;
+      inner.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) scale(1.02)`;
+      shine.style.setProperty('--mx', x * 100 + '%');
+      shine.style.setProperty('--my', y * 100 + '%');
     });
 
-    const mesh = new Mesh(gl, { geometry, program });
-    mesh.position.x = i * STRIDE;
-    mesh.setParent(scene);
-    meshes.push(mesh);
+    card.addEventListener('mouseleave', () => {
+      inner.style.transform = '';
+    });
   });
 
-  /* Center */
-  const totalW = itemsData.length * STRIDE - ITEM_GAP;
-  meshes.forEach(m => { m.position.x -= totalW / 2; });
+  /* ── Drag scroll ── */
+  const track = document.getElementById('dish-track');
+  if (!track) return;
 
-  /* ── Scroll / Drag ── */
-  let scrollPx = 0, targetPx = 0;
-  const maxPx = (itemsData.length - 1) * STRIDE * PX_PER_UNIT;
+  let isDown = false, startX = 0, scrollLeft = 0;
 
-  let dragging = false, dragStartX = 0, dragBase = 0;
-
-  container.addEventListener('wheel', e => {
+  track.addEventListener('mousedown', e => {
+    isDown = true;
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+  });
+  track.addEventListener('mouseleave', () => { isDown = false; });
+  track.addEventListener('mouseup',    () => { isDown = false; });
+  track.addEventListener('mousemove', e => {
+    if (!isDown) return;
     e.preventDefault();
-    targetPx = Math.max(0, Math.min(maxPx, targetPx + (e.deltaX || e.deltaY) * 0.9));
-  }, { passive: false });
-
-  container.addEventListener('mousedown', e => {
-    dragging = true; dragStartX = e.clientX; dragBase = targetPx;
-    container.style.cursor = 'grabbing';
+    const x = e.pageX - track.offsetLeft;
+    track.scrollLeft = scrollLeft - (x - startX) * 1.5;
   });
-  window.addEventListener('mouseup', () => {
-    dragging = false;
-    container.style.cursor = 'grab';
-  });
-  window.addEventListener('mousemove', e => {
-    if (!dragging) return;
-    targetPx = Math.max(0, Math.min(maxPx, dragBase + (dragStartX - e.clientX) * 2.2));
-  });
-
-  let touchX = 0, touchBase = 0;
-  container.addEventListener('touchstart', e => {
-    touchX = e.touches[0].clientX; touchBase = targetPx;
-  }, { passive: true });
-  container.addEventListener('touchmove', e => {
-    targetPx = Math.max(0, Math.min(maxPx, touchBase + (touchX - e.touches[0].clientX) * 2.2));
-  }, { passive: true });
-
-  /* ── Resize ── */
-  function resize() {
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    camera.perspective({ aspect: container.clientWidth / container.clientHeight });
-  }
-  window.addEventListener('resize', resize, { passive: true });
-  resize();
-
-  /* ── Projection helper ── */
-  function worldToScreen(wx, wy) {
-    const W = container.clientWidth;
-    const H = container.clientHeight;
-    const halfH = Math.tan((FOV * Math.PI) / 360) * CAM_Z;
-    const halfW = halfH * (W / H);
-    return {
-      x:  ((wx / halfW) * 0.5 + 0.5) * W,
-      y: ((-wy / halfH) * 0.5 + 0.5) * H,
-    };
-  }
-
-  /* ── Hint fade ── */
-  const hint = document.getElementById('dish-hint');
-  let hintFaded = false;
-
-  /* ── RAF loop ── */
-  function tick() {
-    requestAnimationFrame(tick);
-    scrollPx += (targetPx - scrollPx) * EASE;
-    const offsetW = scrollPx / PX_PER_UNIT;
-
-    meshes.forEach((mesh, i) => {
-      const baseX = i * STRIDE - totalW / 2;
-      const x = baseX - offsetW;
-      mesh.position.x = x;
-      mesh.program.uniforms.uWorldX.value = x;
-
-      const label = labelEls[i];
-      if (label) {
-        const s = worldToScreen(x, mesh.position.y - ITEM_H / 2 - 0.22);
-        label.style.left = `${s.x}px`;
-        label.style.top  = `${s.y}px`;
-        const visible = s.x > -120 && s.x < container.clientWidth + 120;
-        label.style.opacity = visible ? '1' : '0';
-      }
-    });
-
-    renderer.render({ scene, camera });
-
-    if (!hintFaded && Math.abs(targetPx) > 20) {
-      hintFaded = true;
-      if (hint) hint.style.opacity = '0';
-    }
-  }
-  tick();
 })();
 </script>

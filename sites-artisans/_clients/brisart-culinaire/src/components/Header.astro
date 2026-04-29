@@ -8,26 +8,15 @@ const { transparent = true } = Astro.props;
 <header id="site-header" class:list={['w-full px-6 md:px-10', { 'is-scrolled': !transparent }]}>
   <div class="flex items-center justify-between h-16 md:h-20 max-w-[1320px] mx-auto">
 
-    <!-- Logo — lettrage blanc sur hero, lettrage sombre scrollé, lettrage sombre mobile -->
+    <!-- Logo — lettrage blanc sur fond sombre (transparent ou noir encre) -->
     <a href="/" class="logo-link" aria-label="Bris'Art Culinaire — Accueil">
       <img
-        id="logo-white"
         src="/images/logos/logo_lettrage_white.svg"
         alt="Bris'Art Culinaire"
-        width="160"
-        height="44"
-        class="logo-img logo-white"
+        width="150"
+        height="40"
+        class="logo-img"
         loading="eager"
-      />
-      <img
-        id="logo-dark"
-        src="/images/logos/logo_lettrage.svg"
-        alt="Bris'Art Culinaire"
-        width="160"
-        height="44"
-        class="logo-img logo-dark"
-        loading="eager"
-        aria-hidden="true"
       />
     </a>
 
@@ -174,48 +163,20 @@ const { transparent = true } = Astro.props;
 </nav>
 
 <script>
-  /* ── Logo swap on scroll ── */
-  const logoWhite = document.getElementById('logo-white') as HTMLImageElement | null;
-  const logoDark  = document.getElementById('logo-dark')  as HTMLImageElement | null;
-
-  function updateLogo(scrolled: boolean) {
-    if (!logoWhite || !logoDark) return;
-    if (window.innerWidth < 1024) {
-      // Mobile : toujours lettrage sombre
-      logoWhite.style.display = 'none';
-      logoDark.style.display  = 'block';
-      logoDark.removeAttribute('aria-hidden');
-      logoWhite.setAttribute('aria-hidden', 'true');
-      return;
-    }
-    if (scrolled) {
-      logoWhite.style.display = 'none';
-      logoDark.style.display  = 'block';
-      logoDark.removeAttribute('aria-hidden');
-      logoWhite.setAttribute('aria-hidden', 'true');
-    } else {
-      logoWhite.style.display = 'block';
-      logoDark.style.display  = 'none';
-      logoWhite.removeAttribute('aria-hidden');
-      logoDark.setAttribute('aria-hidden', 'true');
-    }
-  }
-
   /* ── Header scroll ── */
   const header = document.getElementById('site-header');
+  const isHome = window.location.pathname === '/';
   let lastY = 0;
   let isScrolled = header?.classList.contains('is-scrolled') ?? false;
-  updateLogo(isScrolled);
-  window.addEventListener('resize', () => updateLogo(isScrolled), { passive: true });
 
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
-    const nowScrolled = y > 80;
+    // Pages intérieures : fond noir encre permanent (jamais retiré)
+    const nowScrolled = isHome ? y > 80 : true;
 
     if (nowScrolled !== isScrolled) {
       isScrolled = nowScrolled;
       header?.classList.toggle('is-scrolled', isScrolled);
-      updateLogo(isScrolled);
     }
 
     header?.classList.toggle('is-hidden', y > lastY + 8 && y > 300);
@@ -299,18 +260,15 @@ const { transparent = true } = Astro.props;
 <style>
   /* ── Logo ── */
   .logo-link { display: flex; align-items: center; }
-  .logo-img { height: auto; transition: opacity 0.2s ease; }
-  .logo-link:hover .logo-img { opacity: 0.8; }
-
-  /* Mobile (<1024px) : toujours lettrage sombre */
-  .logo-white { display: none; width: 140px; }
-  .logo-dark  { display: block; width: 140px; }
-
-  /* Desktop (≥1024px) : plein logo blanc par défaut, JS swap au scroll */
-  @media (min-width: 1024px) {
-    .logo-white { display: block; width: 160px; }
-    .logo-dark  { display: none;  width: 160px; }
+  .logo-img {
+    width: 150px;
+    height: auto;
+    max-height: 40px;
+    object-fit: contain;
+    display: block;
+    transition: opacity 0.2s ease;
   }
+  .logo-link:hover .logo-img { opacity: 0.8; }
 
   /* ── Prestations dropdown ── */
   .prestations-wrap { position: relative; }

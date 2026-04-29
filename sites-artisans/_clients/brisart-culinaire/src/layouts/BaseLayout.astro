@@ -134,18 +134,6 @@ const {
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
 
-    // Header scroll behavior
-    const header = document.getElementById('site-header');
-    if (header) {
-      let lastScrollY = 0;
-      window.addEventListener('scroll', () => {
-        const y = window.scrollY;
-        header.classList.toggle('is-scrolled', y > 60);
-        header.classList.toggle('is-hidden', y > lastScrollY && y > 350);
-        lastScrollY = y;
-      }, { passive: true });
-    }
-
     // Animated counters
     function animateCount(el: Element) {
       const target   = parseInt((el as HTMLElement).dataset.target || '0', 10);
