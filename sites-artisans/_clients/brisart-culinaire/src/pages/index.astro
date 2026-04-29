@@ -3,9 +3,9 @@ import BaseLayout      from '../layouts/BaseLayout.astro';
 import Header          from '../components/Header.astro';
 import HeroParallax    from '../components/HeroParallax.astro';
 import ServicesRail    from '../components/ServicesRail.astro';
-import DishGallery     from '../components/DishGallery.astro';
-import AboutSection    from '../components/AboutSection.astro';
-import MichelinTiltCard from '../components/MichelinTiltCard.astro';
+import DishGallery        from '../components/DishGallery.astro';
+import ChefAbout          from '../components/ChefAbout.astro';
+import DistinctionSection from '../components/DistinctionSection.astro';
 import StatsBand       from '../components/StatsBand.astro';
 import Testimonials    from '../components/Testimonials.astro';
 import ReservationCTA  from '../components/ReservationCTA.astro';
@@ -47,31 +47,8 @@ import Footer          from '../components/Footer.astro';
       </div>
     </section>
 
-    <AboutSection />
-
-    <!-- Section Distinction Michelin -->
-    <section class="distinction-section" data-reveal>
-      <div class="distinction-inner">
-        <div class="distinction-text">
-          <span class="section-label">Distinction 2026</span>
-          <div class="gold-rule" style="margin:1rem 0;"></div>
-          <h2>Reconnu par le <em style="color:var(--gold-base);">Guide Michelin</em></h2>
-          <p style="margin-top:1.25rem; max-width:480px; font-size:0.85rem; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;">
-            Bris'Art Culinaire figure au Guide Michelin 2026, récompensé du Bib Gourmand pour la qualité exceptionnelle de sa cuisine au meilleur rapport qualité-prix.
-          </p>
-          <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap; align-items:center;">
-            <a href="/le-restaurant" class="btn-ghost-gold">Découvrir le restaurant</a>
-            <a
-              href="https://reservation.laddition.com/booking/brisartculinaire"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-gold"
-            >Réserver une table</a>
-          </div>
-        </div>
-        <MichelinTiltCard />
-      </div>
-    </section>
+    <ChefAbout />
+    <DistinctionSection />
 
     <StatsBand />
     <Testimonials />
@@ -106,7 +83,7 @@ import Footer          from '../components/Footer.astro';
     min-height: 520px;
     display: flex;
     align-items: center;
-    background-image: url('/images/guillaume/cuisine-caviar-dressage-pro.webp');
+    background-image: url('/images/guillaume/platlanding.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

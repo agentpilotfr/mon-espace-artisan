@@ -1,9 +1,10 @@
 ---
-import BaseLayout     from '../layouts/BaseLayout.astro';
-import Header         from '../components/Header.astro';
-import StatsBand      from '../components/StatsBand.astro';
-import ReservationCTA from '../components/ReservationCTA.astro';
-import Footer         from '../components/Footer.astro';
+import BaseLayout          from '../layouts/BaseLayout.astro';
+import Header              from '../components/Header.astro';
+import DistinctionSection  from '../components/DistinctionSection.astro';
+import StatsBand           from '../components/StatsBand.astro';
+import ReservationCTA      from '../components/ReservationCTA.astro';
+import Footer              from '../components/Footer.astro';
 
 // Formules réelles Bris'Art Culinaire (scrape 2026-04-26)
 const formules = [
@@ -372,6 +373,7 @@ const temoignages_cours = [
       </div>
     </section>
 
+    <DistinctionSection />
     <StatsBand />
     <ReservationCTA />
   </main>

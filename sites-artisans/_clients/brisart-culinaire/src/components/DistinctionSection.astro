@@ -1,0 +1,37 @@
+---
+import MichelinTiltCard from './MichelinTiltCard.astro';
+---
+
+<section class="distinction-section" data-reveal>
+  <div class="distinction-inner">
+    <div class="distinction-text">
+      <span class="section-label">Distinction 2026</span>
+      <div class="gold-rule" style="margin:1rem 0;"></div>
+      <h2>Reconnu par le <em style="color:var(--gold-base);">Guide Michelin</em></h2>
+      <p>
+        Bris'Art Culinaire figure au Guide Michelin 2026, récompensé du Bib Gourmand
+        pour la qualité exceptionnelle de sa cuisine au meilleur rapport qualité-prix.
+      </p>
+      <div class="distinction-ctas">
+        <a href="/le-restaurant" class="btn-ghost-gold">Découvrir le restaurant</a>
+        <a
+          href="https://reservation.laddition.com/booking/brisartculinaire"
+          class="btn-gold"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Réserver une table</a>
+      </div>
+    </div>
+    <MichelinTiltCard />
+  </div>
+</section>
+
+<style>
+  .distinction-ctas {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+</style>

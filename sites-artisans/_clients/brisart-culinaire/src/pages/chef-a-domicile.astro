@@ -1,7 +1,8 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header     from '../components/Header.astro';
-import Footer     from '../components/Footer.astro';
+import BaseLayout          from '../layouts/BaseLayout.astro';
+import Header              from '../components/Header.astro';
+import DistinctionSection  from '../components/DistinctionSection.astro';
+import Footer              from '../components/Footer.astro';
 
 const menus = [
   {
@@ -55,7 +56,7 @@ const menus = [
 
     <!-- Hero -->
     <section class="page-hero">
-      <div class="hero-bg-img" style="background-image:url('/images/guillaume/chef-domicile/chef-domicile-1.webp');" aria-hidden="true"></div>
+      <div class="hero-bg-img" style="background-image:url('/images/guillaume/portrait-pro-amuse-bouches.webp');" aria-hidden="true"></div>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="container hero-content">
         <span class="section-label" style="color:var(--gold-bright);">Prestation privée</span>
@@ -182,6 +183,7 @@ const menus = [
       </div>
     </section>
 
+    <DistinctionSection />
   </main>
   <Footer />
 </BaseLayout>
