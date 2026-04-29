@@ -153,10 +153,9 @@ import HeroReviews from './HeroReviews.astro';
 
       <!-- Logo principal hero -->
       <img
-        src="/images/logos/full_logo_white.svg"
+        src="/images/logos/logo_lettrage_white.svg"
         alt="Bris'Art Culinaire"
         class="hero-logo-main"
-        width="420"
         loading="eager"
       />
 
@@ -303,9 +302,11 @@ import HeroReviews from './HeroReviews.astro';
   .hero-label { letter-spacing: 0.28em; display: block; }
 
   .hero-logo-main {
-    width: clamp(340px, 45vw, 560px);
+    width: clamp(280px, 38vw, 460px);
     height: auto;
-    filter: drop-shadow(0 2px 20px rgba(0,0,0,0.4)) brightness(1.05);
+    max-height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 20px rgba(0,0,0,0.5));
     margin: 0 auto 2rem;
     display: block;
   }
