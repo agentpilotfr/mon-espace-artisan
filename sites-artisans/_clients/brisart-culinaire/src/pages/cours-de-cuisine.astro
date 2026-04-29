@@ -152,35 +152,30 @@ const temoignages_cours = [
   <main>
 
     <!-- ─── Hero page ─── -->
-    <section class="page-hero">
-      <div class="page-hero-botanical" aria-hidden="true">
-        <svg width="260" height="350" viewBox="0 0 180 300" fill="none" style="opacity:0.1;">
-          <path d="M90 300 C88 235 92 170 90 105 C88 55 90 18 90 0" stroke="#C9A44A" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M90 260 C72 242 54 233 36 225" stroke="#C9A44A" stroke-width="0.9" fill="none" stroke-linecap="round"/>
-          <path d="M90 260 C110 242 128 234 146 226" stroke="#C9A44A" stroke-width="0.9" fill="none" stroke-linecap="round"/>
-          <path d="M90 220 C70 200 50 190 30 182" stroke="#C9A44A" stroke-width="0.8" fill="none" stroke-linecap="round"/>
-          <path d="M90 220 C112 200 132 191 152 183" stroke="#C9A44A" stroke-width="0.8" fill="none" stroke-linecap="round"/>
-          <path d="M90 180 C70 158 50 148 30 140" stroke="#C9A44A" stroke-width="0.7" fill="none" stroke-linecap="round"/>
-          <path d="M90 180 C112 158 132 149 152 141" stroke="#C9A44A" stroke-width="0.7" fill="none" stroke-linecap="round"/>
-          <path d="M90 140 C74 120 58 111 42 104" stroke="#C9A44A" stroke-width="0.65" fill="none" stroke-linecap="round"/>
-          <path d="M90 140 C108 120 124 112 140 105" stroke="#C9A44A" stroke-width="0.65" fill="none" stroke-linecap="round"/>
-          <ellipse cx="90" cy="16" rx="7" ry="10" stroke="#C9A44A" stroke-width="0.8"/>
-          <ellipse cx="83" cy="24" rx="4.5" ry="7" stroke="#C9A44A" stroke-width="0.7"/>
-          <ellipse cx="97" cy="22" rx="4.5" ry="7" stroke="#C9A44A" stroke-width="0.7"/>
-        </svg>
+    <section class="page-hero cours-hero">
+      <div class="cours-hero-video-wrapper">
+        <video
+          autoplay
+          loop
+          muted
+          playsinline
+          webkit-playsinline
+          poster="/images/hero-poster.jpg"
+          class="cours-hero-video"
+        >
+          <source src="/videos/hero-guillaume.mp4" type="video/mp4" />
+        </video>
+        <div class="cours-hero-overlay"></div>
       </div>
-
-      <div class="container page-hero-content">
+      <div class="page-hero-content container">
         <span class="section-label">Transmission & Partage</span>
-        <div class="gold-rule" style="margin:1rem 0;"></div>
-        <h1>Cours de<br><em style="color:var(--gold-base);">Cuisine</em></h1>
-        <p class="page-hero-sub">
-          Apprenez à cuisiner avec Guillaume Brisard à La Baule :
-          cours 2h, dégustation incluse, visite du marché de Pornichet,
-          ou immersion journée complète.
-        </p>
+        <h1>Cours de <em>Cuisine</em></h1>
+        <p>Apprenez aux côtés du Chef Guillaume Brisard à La Baule — Cours de 95€ à 299€</p>
+        <div class="hero-ctas">
+          <a href="#reservation" class="btn-gold">Réserver un cours</a>
+          <a href="#formules" class="btn-ghost-gold">Voir les formules</a>
+        </div>
       </div>
-      <div class="page-hero-line" aria-hidden="true"></div>
     </section>
 
     <!-- ─── Intro philosophie ─── -->
@@ -375,39 +370,55 @@ const temoignages_cours = [
 
     <DistinctionSection />
     <StatsBand />
-    <ReservationCTA />
+    <section id="reservation">
+      <ReservationCTA />
+    </section>
   </main>
   <Footer />
 </BaseLayout>
 
 <style>
-  /* Page hero (réutilisé) */
-  .page-hero {
-    min-height: 60vh;
-    background: var(--ink-deep);
-    display: flex;
-    align-items: flex-end;
+  /* Hero vidéo cours */
+  .cours-hero {
     position: relative;
+    height: 65vh;
+    min-height: 480px;
     overflow: hidden;
-    padding-bottom: 4rem;
-  }
-  .page-hero-botanical {
-    position: absolute;
-    right: 0; top: 0; bottom: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
+  }
+  .cours-hero-video-wrapper {
+    position: absolute;
+    inset: 0;
+  }
+  .cours-hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .cours-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15,14,11,0.55);
   }
   .page-hero-content {
-    padding-top: 9rem;
     position: relative;
     z-index: 1;
+    text-align: center;
+    padding: 2rem 1rem;
   }
-  .page-hero h1 { color: var(--parchment); margin: 0.5rem 0 1.25rem; }
-  .page-hero-sub { color: var(--stone-light); max-width: 480px; font-size: 1rem; line-height: 1.75; }
-  .page-hero-line {
-    position: absolute;
-    bottom: 0; left: 0; right: 0; height: 80px;
-    background: linear-gradient(to bottom, transparent, var(--cream));
+  .page-hero-content h1 { color: var(--parchment); margin: 0.75rem 0 1rem; }
+  .page-hero-content h1 em { color: var(--gold-base); font-style: italic; }
+  .page-hero-content p { color: rgba(245,240,232,0.75); max-width: 480px; font-size: 1rem; line-height: 1.75; margin: 0 auto; }
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
   }
 
   /* Cours intro */
