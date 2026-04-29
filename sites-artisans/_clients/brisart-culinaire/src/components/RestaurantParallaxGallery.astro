@@ -1,0 +1,173 @@
+---
+const rows = [
+  {
+    direction: 'left',
+    speed: 0.4,
+    images: [
+      { src: '/images/guillaume/cuisine-caviar-dressage-pro.webp', label: 'Dressage caviar' },
+      { src: '/images/guillaume/cuisine-canapes-colores.webp',     label: 'Canapés colorés' },
+      { src: '/images/guillaume/cuisine-deux-chefs-pro.webp',      label: 'En brigade' },
+      { src: '/images/guillaume/action-flambage-pro.webp',         label: 'Flambage' },
+      { src: '/images/guillaume/cuisine-plaque-couleur.webp',      label: 'Mise en assiette' },
+    ],
+  },
+  {
+    direction: 'right',
+    speed: 0.3,
+    images: [
+      { src: '/images/guillaume/restaurant/restaurant.webp',    label: 'La salle' },
+      { src: '/images/guillaume/restaurant-cave-vins.webp',     label: 'Cave à vins' },
+      { src: '/images/guillaume/restaurant-menu-violet.webp',   label: 'Le menu' },
+      { src: '/images/guillaume/restaurant-verre-bokeh.webp',   label: 'Accord mets-vins' },
+      { src: '/images/guillaume/restaurant-groupe-diner.webp',  label: 'Dîner en groupe' },
+    ],
+  },
+  {
+    direction: 'left',
+    speed: 0.5,
+    images: [
+      { src: '/images/guillaume/cuisine-mains-huitres-nb.webp',    label: 'Huîtres du Croisic' },
+      { src: '/images/guillaume/action-couteau-desserts.webp',      label: 'Précision' },
+      { src: '/images/guillaume/cuisine-casseroles.webp',           label: 'En cuisine' },
+      { src: '/images/guillaume/restaurant-menu-bouteilles.webp',   label: 'Sélection vins' },
+      { src: '/images/guillaume/cuisine-huitres-nb.webp',           label: 'Mer & terroir' },
+    ],
+  },
+];
+---
+
+<div class="parallax-gallery" id="parallax-gallery" aria-label="Galerie du restaurant">
+  {rows.map((row, i) => (
+    <div
+      class="parallax-track"
+      data-speed={row.speed}
+      data-direction={row.direction}
+      data-row={i}
+    >
+      <div class="track-inner">
+        {row.images.map(img => (
+          <div class="gallery-card">
+            <img
+              src={img.src}
+              alt={img.label}
+              width="320"
+              height="220"
+              loading="lazy"
+            />
+            <div class="card-overlay" aria-hidden="true">
+              <span class="card-label">{img.label}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .parallax-gallery {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+
+  .parallax-track {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .track-inner {
+    display: flex;
+    gap: 1rem;
+    will-change: transform;
+    transition: transform 0.05s linear;
+  }
+
+  .gallery-card {
+    position: relative;
+    width: 320px;
+    height: 220px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .gallery-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(20,18,16,0.65) 0%, transparent 55%);
+    display: flex;
+    align-items: flex-end;
+    padding: 0.9rem 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-card:hover .card-overlay {
+    opacity: 1;
+  }
+
+  .card-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.9);
+  }
+</style>
+
+<script>
+  (function () {
+    const gallery = document.getElementById('parallax-gallery');
+    if (!gallery) return;
+
+    const tracks = Array.from(gallery.querySelectorAll<HTMLElement>('.parallax-track'));
+    let ticking = false;
+    let lastY = window.scrollY;
+
+    function update() {
+      const scrollY = window.scrollY;
+      const rect = gallery.getBoundingClientRect();
+      const sectionTop = scrollY + rect.top;
+      const relativeScroll = scrollY - sectionTop + window.innerHeight * 0.5;
+
+      tracks.forEach(track => {
+        const speed = parseFloat(track.dataset.speed ?? '0.3');
+        const dir = track.dataset.direction === 'right' ? 1 : -1;
+        const inner = track.querySelector<HTMLElement>('.track-inner');
+        if (inner) {
+          const offset = relativeScroll * speed * dir;
+          inner.style.transform = `translateX(${offset}px)`;
+        }
+      });
+
+      lastY = scrollY;
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    update();
+  })();
+</script>

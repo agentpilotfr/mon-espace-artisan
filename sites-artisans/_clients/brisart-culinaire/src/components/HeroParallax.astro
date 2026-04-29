@@ -151,22 +151,14 @@ import HeroReviews from './HeroReviews.astro';
         <span>Bib Gourmand Guide Michelin</span>
       </div>
 
-      <span class="section-label hero-label">
-        Restaurant Gastronomique &bull; La Baule
-      </span>
-
-      <div class="gold-rule gold-rule-center" style="margin:1.2rem auto;"></div>
-
-      <h1 class="hero-title">
-        L'Art de<br>
-        <em class="hero-title-gold">Cuisiner</em><br>
-        Autrement
-      </h1>
-
-      <p class="hero-subtitle">
-        Guillaume Brisard vous invite à redécouvrir la gastronomie artisanale
-        au rythme des saisons — au restaurant ou lors de ses cours de cuisine à La Baule.
-      </p>
+      <!-- Logo principal hero -->
+      <img
+        src="/images/logos/full_logo_white.svg"
+        alt="Bris'Art Culinaire"
+        class="hero-logo-main"
+        width="420"
+        loading="eager"
+      />
 
       <!-- Social proof — composant standalone -->
       <HeroReviews badges={[
@@ -309,6 +301,14 @@ import HeroReviews from './HeroReviews.astro';
   }
 
   .hero-label { letter-spacing: 0.28em; display: block; }
+
+  .hero-logo-main {
+    width: clamp(280px, 40vw, 480px);
+    height: auto;
+    filter: brightness(1.05);
+    margin: 0 auto 2rem;
+    display: block;
+  }
 
   .hero-title {
     font-family: var(--font-display);
