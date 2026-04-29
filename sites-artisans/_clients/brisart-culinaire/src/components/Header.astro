@@ -8,14 +8,14 @@ const { transparent = true } = Astro.props;
 <header id="site-header" class:list={['w-full px-6 md:px-10', { 'is-scrolled': !transparent }]}>
   <div class="flex items-center justify-between h-16 md:h-20 max-w-[1320px] mx-auto">
 
-    <!-- Logo — plein logo blanc sur hero transparent, lettrage sombre scrollé, lettrage sur mobile -->
+    <!-- Logo — lettrage blanc sur hero, lettrage sombre scrollé, lettrage sombre mobile -->
     <a href="/" class="logo-link" aria-label="Bris'Art Culinaire — Accueil">
       <img
         id="logo-white"
-        src="/images/logos/full_logo_white.svg"
+        src="/images/logos/logo_lettrage_white.svg"
         alt="Bris'Art Culinaire"
-        width="180"
-        height="60"
+        width="160"
+        height="44"
         class="logo-img logo-white"
         loading="eager"
       />
@@ -308,7 +308,7 @@ const { transparent = true } = Astro.props;
 
   /* Desktop (≥1024px) : plein logo blanc par défaut, JS swap au scroll */
   @media (min-width: 1024px) {
-    .logo-white { display: block; width: 180px; }
+    .logo-white { display: block; width: 160px; }
     .logo-dark  { display: none;  width: 160px; }
   }
 
