@@ -1,34 +1,4 @@
 ---
-const valeurs = [
-  {
-    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#C9A44A" stroke-width="1.1" stroke-linecap="round">
-      <path d="M14 3 C14 3 6 8 6 15 C6 20 9.5 24 14 24 C18.5 24 22 20 22 15 C22 8 14 3 14 3Z"/>
-      <path d="M14 24 L14 12" stroke-dasharray="2 2"/>
-      <circle cx="14" cy="11" r="1.5" fill="#C9A44A" stroke="none"/>
-    </svg>`,
-    titre: 'Produits du marché',
-    texte: 'La carte change au fil des arrivages. Légumes de saison, poissons de la côte, éleveurs locaux — Guillaume compose chaque semaine selon ce que la nature propose.',
-  },
-  {
-    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#C9A44A" stroke-width="1.1" stroke-linecap="round">
-      <path d="M14 4 L16 10 L22 10 L17.5 13.5 L19.5 20 L14 16.5 L8.5 20 L10.5 13.5 L6 10 L12 10 Z" stroke-width="0.9"/>
-    </svg>`,
-    titre: 'Bib Gourmand Michelin',
-    texte: 'Cuisine sincère, précise et généreuse — accessible aux prix justes. La reconnaissance d\'un travail d\'artisan au quotidien.',
-  },
-  {
-    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#C9A44A" stroke-width="1.1" stroke-linecap="round">
-      <circle cx="10" cy="10" r="6" stroke-width="0.9"/>
-      <path d="M10 4 C10 4 6 7 6 10 C6 13 8 15.5 10 16"/>
-      <path d="M10 4 C10 4 14 7 14 10 C14 13 12 15.5 10 16"/>
-      <line x1="4" y1="10" x2="16" y2="10" stroke-width="0.6"/>
-      <line x1="16" y1="18" x2="26" y2="18" stroke-width="1.2"/>
-      <line x1="16" y1="22" x2="24" y2="22" stroke-width="1.2"/>
-    </svg>`,
-    titre: 'Transmission & partage',
-    texte: 'Cours de cuisine, ateliers en groupe, immersion journée : Guillaume partage ses techniques depuis 5 ans, de La Baule jusqu\'à Nantes.',
-  },
-];
 ---
 
 <section id="a-propos" class="about-section clip-bottom">
@@ -109,24 +79,17 @@ const valeurs = [
           distinction qui vient saluer une cuisine sincère, précise et généreuse — à l'image du chef qui la compose
           chaque jour selon les arrivages du marché.
         </p>
+        <p style="color:var(--stone); margin-bottom:1.2rem;">
+          Obtenu en seulement 6 mois après l'ouverture — une distinction qui vient saluer l'exigence
+          et la régularité d'un chef qui ne transige jamais sur la qualité des produits ni sur le prix juste.
+        </p>
         <p style="color:var(--stone); margin-bottom:1.75rem;">
-          Depuis 5 ans, Guillaume partage aussi sa passion lors de cours de cuisine au restaurant ou chez vous,
-          de Nantes à La Baule. Peu importe votre niveau : ici, on apprend en faisant, avec le sourire.
+          Depuis plus de 30 ans aux fourneaux, Guillaume forge son art. C'est cette expérience qu'il partage
+          aujourd'hui, lors de cours de cuisine au restaurant ou chez vous, de Nantes à La Baule.
+          Peu importe votre niveau : ici, on apprend en faisant, avec le sourire.
         </p>
 
-        <div class="about-valeurs">
-          {valeurs.map((v) => (
-            <div class="valeur-item">
-              <div class="valeur-icon" set:html={v.icon} />
-              <div>
-                <strong class="valeur-titre">{v.titre}</strong>
-                <p class="valeur-texte">{v.texte}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div style="margin-top:2.5rem;">
+        <div class="about-cta-wrap">
           <a href="/le-restaurant" class="btn-ghost-gold">Voir le restaurant</a>
         </div>
       </div>
@@ -138,7 +101,8 @@ const valeurs = [
   .about-section {
     background: var(--parchment);
     position: relative;
-    overflow: hidden;
+    overflow-x: clip;
+    overflow-y: visible;
     padding: clamp(5rem, 9vw, 9rem) 0;
   }
   .about-section::before {
@@ -184,25 +148,19 @@ const valeurs = [
 
   .about-text { padding-top: 1rem; }
 
-  .about-valeurs {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding-top: 0.5rem;
-    border-top: 1px solid var(--parchment-bg);
+  .about-cta-wrap {
+    margin-top: 2.5rem;
+    overflow: visible;
   }
-  .valeur-item { display: flex; gap: 1.1rem; align-items: flex-start; }
-  .valeur-icon {
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    display: flex;
+
+  .about-cta-wrap a {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    background: rgba(201,164,74,0.1);
-    border-radius: 50%;
-    margin-top: 0.1rem;
+    white-space: nowrap;
+    overflow: visible;
+    width: auto;
+    min-width: fit-content;
+    padding: 0.75rem 2rem;
+    box-sizing: border-box;
   }
-  .valeur-titre { display: block; font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; }
-  .valeur-texte { font-size: 0.875rem; color: var(--stone-light); line-height: 1.65; }
 </style>

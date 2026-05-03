@@ -11,11 +11,11 @@ const formules = [
   {
     label:    'Cours n°1',
     titre:    'Cours de Cuisine',
-    duree:    '2 heures',
+    duree:    '2h30',
     places:   'Tous niveaux',
     prix:     95,
     featured: false,
-    description: 'Deux heures de cours de cuisine au fourneau du restaurant. Guillaume partage ses techniques, trucs et astuces — peu importe votre niveau, vous repartez avec des recettes.',
+    description: '2h30 de cours de cuisine au fourneau du restaurant. Guillaume partage ses techniques, trucs et astuces — peu importe votre niveau, vous repartez avec des recettes.',
     inclus: [
       'Tablier fourni sur place',
       'Accès cuisine professionnelle',
@@ -118,7 +118,7 @@ const pratiques = [
       <path d="M14 4 L16.2 9.8 L22.5 9.8 L17.6 13.4 L19.8 19.2 L14 15.8 L8.2 19.2 L10.4 13.4 L5.5 9.8 L11.8 9.8 Z" stroke-width="0.9"/>
     </svg>`,
     titre: 'Expertise Michelin',
-    texte: 'Guillaume Brisard, anciennement étoilé au Fort de l\'Océan, transmet 20 ans de cuisine gastronomique.',
+    texte: 'Guillaume Brisard, anciennement étoilé au Fort de l\'Océan, transmet 30 ans de cuisine gastronomique.',
   },
   {
     icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#C9A44A" stroke-width="1.1" stroke-linecap="round">
@@ -127,7 +127,7 @@ const pratiques = [
       <path d="M9 17 L11.5 19.5 L19 13"/>
     </svg>`,
     titre: 'Réservation simple',
-    texte: 'Par téléphone au 02 85 95 94 57 ou via le formulaire de contact en ligne.',
+    texte: 'Via le formulaire de contact en ligne ou par email à contact@brisartculinaire.fr.',
   },
 ];
 
@@ -187,7 +187,7 @@ const temoignages_cours = [
           <h2>Cuisiner, ça <em style="color:var(--gold-base);">s'apprend</em></h2>
           <p style="color:var(--stone); margin:1.5rem 0 1.2rem; max-width:420px;">
             Ancien chef étoilé au <strong style="color:var(--ink);">Fort de l'Océan</strong>,
-            Guillaume Brisard partage depuis 5 ans sa passion culinaire au restaurant et en cours,
+            Guillaume Brisard partage depuis plus de 30 ans sa passion culinaire au restaurant et en cours,
             de Nantes à La Baule. Peu importe votre niveau : ici, on apprend en faisant.
           </p>
           <p style="color:var(--stone); max-width:420px;">
@@ -233,8 +233,8 @@ const temoignages_cours = [
           </div>
           <!-- Badge ancienneté -->
           <div class="cours-badge">
-            <span class="stat-num" style="font-size:2rem;">5</span>
-            <span class="stat-label" style="color:var(--stone-light);">ans de cours</span>
+            <span class="stat-num" style="font-size:2rem;">30</span>
+            <span class="stat-label" style="color:var(--stone-light);">ans d'expérience</span>
           </div>
         </div>
       </div>
@@ -323,7 +323,7 @@ const temoignages_cours = [
           <div class="gold-rule" style="margin:1rem 0;"></div>
           <h2>Tout ce qu'il faut<br><em style="color:var(--gold-base);">savoir</em></h2>
           <p style="color:var(--stone-light); margin-top:1rem; font-size:0.92rem;">
-            39, Avenue Louis Lajarrige — 44500 La Baule-Escoublac · Tél. 02 85 95 94 57
+            39, Avenue Louis Lajarrige — 44500 La Baule-Escoublac
           </p>
         </div>
 
@@ -336,6 +336,31 @@ const temoignages_cours = [
             </div>
           ))}
         </div>
+      </div>
+    </section>
+
+    <!-- ─── Valeurs ─── -->
+    <section class="cours-values">
+      <div class="cours-values-inner">
+
+        <div class="cours-value-item">
+          <div class="cours-value-icon">◎</div>
+          <h3>Produits du marché</h3>
+          <p>La carte change au fil des arrivages.
+          Légumes de saison, poissons de la côte,
+          éleveurs locaux — Guillaume compose chaque
+          semaine selon ce que la nature propose.</p>
+        </div>
+
+        <div class="cours-value-item">
+          <div class="cours-value-icon">◈</div>
+          <h3>Transmission & partage</h3>
+          <p>Cours de cuisine, ateliers en groupe,
+          immersion journée : Guillaume partage ses
+          techniques depuis plus de 30 ans,
+          de La Baule jusqu'à Nantes.</p>
+        </div>
+
       </div>
     </section>
 
@@ -570,6 +595,45 @@ const temoignages_cours = [
   .theme-icone { font-size: 1.75rem; margin-bottom: 1rem; }
   .theme-titre { font-size: 1.05rem; color: var(--ink); margin-bottom: 0.5rem; font-style: normal; }
   .theme-desc { font-size: 0.83rem; color: var(--stone-light); line-height: 1.65; }
+
+  /* Valeurs */
+  .cours-values {
+    padding: 3rem 2rem;
+    background: var(--color-bg-secondary, var(--parchment));
+  }
+  .cours-values-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .cours-value-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .cours-value-icon {
+    font-size: 1.2rem;
+    color: var(--gold-base);
+  }
+  .cours-value-item h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--ink);
+  }
+  .cours-value-item p {
+    font-size: 0.8rem;
+    color: var(--stone-light);
+    line-height: 1.8;
+  }
+  @media (max-width: 640px) {
+    .cours-values-inner {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
 
   /* Temoignages cours */
   .temoignages-cours-grid {

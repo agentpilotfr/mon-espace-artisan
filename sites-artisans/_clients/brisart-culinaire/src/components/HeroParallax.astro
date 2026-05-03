@@ -1,12 +1,11 @@
 ---
-// HeroParallax — variante botanical + vidéo background
-// Couches : vidéo(0) → overlay(1) → botanical SVG(2) → ornements(3) → contenu(10)
-import HeroReviews from './HeroReviews.astro';
+// HeroParallax — botanical + vidéo — mobile-first 100svh
+// z-index: vidéo(0) → overlay(1) → botanical(2) → ornements(3) → hero-content(10)
 ---
 
 <section id="hero-parallax" class="hero-parallax" aria-label="Bris'Art Culinaire — Restaurant et Cours de Cuisine à La Baule">
 
-  <!-- ─── Vidéo background (z-index 0) ─── -->
+  <!-- ─── Vidéo background ─── -->
   <video
     class="hero-video"
     autoplay
@@ -20,11 +19,11 @@ import HeroReviews from './HeroReviews.astro';
     <source src="/videos/hero-guillaume.mp4" type="video/mp4">
   </video>
 
-  <!-- ─── Overlay sombre (z-index 1) ─── -->
+  <!-- ─── Overlay sombre ─── -->
   <div class="hero-overlay" aria-hidden="true"></div>
 
-  <!-- ─── Couche 0 : Grand herbier (droite, lent 0.15×, z-index 2) ─── -->
-  <div class="parallax-layer" data-speed="0.15" style="right:-40px; bottom:-60px; width:420px; height:620px; opacity:0.10;" aria-hidden="true">
+  <!-- ─── Couche 0 : Grand herbier (droite, 0.15×) ─── -->
+  <div class="parallax-layer parallax-herbier" data-speed="0.15" style="right:-40px; bottom:-60px; width:420px; height:620px; opacity:0.10;" aria-hidden="true">
     <svg viewBox="0 0 280 520" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M140 520 C138 450 142 380 140 310 C138 240 142 170 140 80 C139 40 140 10 140 0" stroke="#C9A44A" stroke-width="1.8" stroke-linecap="round"/>
       <ellipse cx="140" cy="18" rx="6" ry="10" stroke="#C9A44A" stroke-width="0.8"/>
@@ -61,8 +60,8 @@ import HeroReviews from './HeroReviews.astro';
     </svg>
   </div>
 
-  <!-- ─── Couche 1 : Branche de laurier (gauche, 0.32×, z-index 2) ─── -->
-  <div class="parallax-layer" data-speed="0.32" style="left:-30px; top:8%; width:320px; height:480px; opacity:0.14;" aria-hidden="true">
+  <!-- ─── Couche 1 : Branche de laurier (gauche, 0.32×) — masquée mobile ─── -->
+  <div class="parallax-layer parallax-laurier" data-speed="0.32" style="left:-30px; top:8%; width:320px; height:480px; opacity:0.14;" aria-hidden="true">
     <svg viewBox="0 0 220 400" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M20 390 C40 340 65 300 90 260 C115 220 145 185 170 145 C190 112 205 78 215 40" stroke="#C9A44A" stroke-width="1.6" stroke-linecap="round" fill="none"/>
       <path d="M55 315 C38 295 35 270 48 258 C58 248 72 250 80 264 C88 278 82 302 55 315Z" stroke="#C9A44A" stroke-width="0.85" fill="none"/>
@@ -93,8 +92,8 @@ import HeroReviews from './HeroReviews.astro';
     </svg>
   </div>
 
-  <!-- ─── Couche 2 : Thym (haut-droite, rapide 0.55×, z-index 2) ─── -->
-  <div class="parallax-layer" data-speed="0.55" style="right:8%; top:6%; width:180px; height:260px; opacity:0.18;" aria-hidden="true">
+  <!-- ─── Couche 2 : Thym (haut-droite, 0.55×) ─── -->
+  <div class="parallax-layer parallax-thym" data-speed="0.55" style="right:8%; top:6%; width:180px; height:260px; opacity:0.18;" aria-hidden="true">
     <svg viewBox="0 0 140 220" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M38 215 C36 185 38 155 36 125 C34 95 36 65 35 30" stroke="#C9A44A" stroke-width="1.1" stroke-linecap="round"/>
       <path d="M36 195 C30 189 29 182 33 179 C37 176 40 180 40 187 C40 193 38 197 36 195Z" stroke="#C9A44A" stroke-width="0.7" fill="none"/>
@@ -125,7 +124,7 @@ import HeroReviews from './HeroReviews.astro';
     </svg>
   </div>
 
-  <!-- ─── Ornements dorés fixes (z-index 3) ─── -->
+  <!-- ─── Ornements dorés fixes ─── -->
   <div class="hero-ornaments" aria-hidden="true">
     <div class="orn-line-v orn-left"></div>
     <div class="orn-line-v orn-right"></div>
@@ -139,51 +138,22 @@ import HeroReviews from './HeroReviews.astro';
     </svg>
   </div>
 
-  <!-- ─── Contenu centré (z-index 10) ─── -->
-  <div class="hero-content container">
-    <div class="hero-inner">
+  <!-- ─── Contenu hero — flex column mobile-first ─── -->
+  <div class="hero-content">
 
-      <!-- Bib Gourmand badge -->
-      <div class="hero-michelin-badge">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-          <path d="M6 1 L7.4 4.2 L11 4.5 L8.5 6.8 L9.3 10.5 L6 8.7 L2.7 10.5 L3.5 6.8 L1 4.5 L4.6 4.2 Z" stroke="#C9A44A" stroke-width="0.7" fill="none"/>
-        </svg>
-        <span>Bib Gourmand Guide Michelin</span>
-      </div>
-
-      <!-- Logo principal hero -->
+    <!-- Logo -->
+    <div class="hero-logo-wrap">
       <img
-        src="/images/logos/logo_lettrage_white.svg"
+        src="/images/logos/full_logo_white.svg"
         alt="Bris'Art Culinaire"
         class="hero-logo-main"
         loading="eager"
       />
+    </div>
 
-      <!-- Social proof — composant standalone -->
-      <HeroReviews badges={[
-        {
-          platform: 'google',
-          score: '5,0',
-          count: '156 avis',
-          url: "https://www.google.com/maps/place/Restaurant+-+Cooking+Classes+-+Chief+%C3%80+Domicile/@47.2805406,-2.3720943,17z/data=!4m8!3m7!1s0x48056563b40d5503:0x58946115719e9647!8m2!3d47.280537!4d-2.3695194!9m1!1b1!16s%2Fg%2F11jclm71pg?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D",
-          label: 'Google',
-        },
-        {
-          platform: 'tripadvisor',
-          score: '5,0',
-          count: 'N°1 La Baule',
-          url: 'https://www.tripadvisor.fr/Attraction_Review-g187194-d32557898-Reviews-Bris_art_Culinaire-La_Baule_Escoublac_Loire_Atlantique_Pays_de_la_Loire.html',
-          label: 'TripAdvisor',
-        },
-        {
-          platform: 'michelin',
-          score: '',
-          count: 'Bib Gourmand',
-          label: 'Guide Michelin 2026',
-        },
-      ]} />
-
-      <div class="hero-ctas">
+    <!-- CTAs -->
+    <div class="hero-cta-group">
+      <div class="hero-cta-row hero-ctas-row-1">
         <a
           href="https://reservation.laddition.com/booking/brisartculinaire"
           class="btn-gold"
@@ -194,48 +164,152 @@ import HeroReviews from './HeroReviews.astro';
         </a>
         <a href="/cours-de-cuisine" class="btn-ghost-gold">Cours de cuisine</a>
       </div>
+      <div class="hero-ctas-row-2">
+        <a href="/bon-cadeau" class="btn-gift hero-cta-gift">
+          🎁 J'ai reçu un bon cadeau
+        </a>
+      </div>
+    </div>
 
-      <!-- Scroll indicator -->
-      <div class="scroll-indicator" aria-hidden="true">
+    <!-- Badges avis -->
+    <div class="hero-badges-row" role="list" aria-label="Avis et distinctions">
+
+      <!-- Google -->
+      <a
+        href="https://www.google.com/maps/place/Restaurant+-+Cooking+Classes+-+Chief+%C3%80+Domicile/@47.2805406,-2.3720943,17z/data=!4m8!3m7!1s0x48056563b40d5503:0x58946115719e9647!8m2!3d47.280537!4d-2.3695194!9m1!1b1!16s%2Fg%2F11jclm71pg"
+        target="_blank"
+        rel="noopener"
+        class="hero-badge hero-badge--primary hero-badge--google"
+        role="listitem"
+        aria-label="5,0 sur 5 — 156 avis Google"
+      >
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="flex-shrink:0;">
+          <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908C16.658 14.103 17.64 11.851 17.64 9.2Z" fill="#4285F4"/>
+          <path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18Z" fill="#34A853"/>
+          <path d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332Z" fill="#FBBC05"/>
+          <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58Z" fill="#EA4335"/>
+        </svg>
+        <div class="review-content">
+          <div class="review-stars-row">
+            <span class="review-stars" aria-hidden="true">★★★★★</span>
+            <span class="review-score">5,0</span>
+          </div>
+          <div class="review-meta">
+            <span class="review-count">156 avis</span>
+            <span class="review-platform">Google</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Bib Gourmand Michelin -->
+      <a
+        href="https://actu.fr/pays-de-la-loire/la-baule-escoublac_44055/ce-restaurant-de-loire-atlantique-recompense-par-le-guide-michelin-six-mois-seulement-apres-son-ouverture_63844228.html"
+        target="_blank"
+        rel="noopener"
+        class="hero-bib-link"
+        aria-label="Lire l'article Bib Gourmand Michelin 2026"
+        role="listitem"
+      >
+        <div class="hero-bib-tilt" id="hero-bib-tilt">
+          <div class="hero-bib-tilt__shine" aria-hidden="true"></div>
+          <div class="hero-bib-tilt__inner">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              class="hero-bib-tilt__svg"
+              fill="none"
+              stroke="#ffffff"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-label="Bib Gourmand Michelin"
+            >
+              <path d="M4.97 20c-2.395 -1.947 -4.763 -5.245 -1.005 -8c-.52 -4 3.442 -7.5 5.524 -7.5c.347 -1 1.499 -1.5 2.54 -1.5c1.04 0 2.135 .5 2.482 1.5c2.082 0 6.044 3.5 5.524 7.5c3.758 2.755 1.39 6.053 -1.005 8" />
+              <path d="M9 11m-1 0a1 2 0 1 0 2 0a1 2 0 1 0 -2 0" />
+              <path d="M15 11m-1 0a1 2 0 1 0 2 0a1 2 0 1 0 -2 0" />
+              <path d="M8 17.085c3.5 2.712 6.5 2.712 9 -1.085" />
+              <path d="M13 18.5c.815 -2.337 1.881 -1.472 2 -.55" />
+            </svg>
+            <div class="hero-bib-tilt__label">
+              <span class="hero-bib-tilt__name">Bib Gourmand</span>
+              <span class="hero-bib-tilt__year">2026</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- TripAdvisor -->
+      <a
+        href="https://www.tripadvisor.fr/Attraction_Review-g187194-d32557898-Reviews-Bris_art_Culinaire-La_Baule_Escoublac_Loire_Atlantique_Pays_de_la_Loire.html"
+        target="_blank"
+        rel="noopener"
+        class="hero-badge hero-badge--tripadvisor"
+        role="listitem"
+        aria-label="5,0 sur 5 — N°1 La Baule TripAdvisor"
+      >
+        <svg width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden="true" style="flex-shrink:0;">
+          <circle cx="5" cy="7" r="4.5" fill="#00AA6C" opacity="0.9"/>
+          <circle cx="15" cy="7" r="4.5" fill="#00AA6C" opacity="0.9"/>
+          <circle cx="5" cy="7" r="2" fill="white"/>
+          <circle cx="15" cy="7" r="2" fill="white"/>
+          <circle cx="5" cy="7" r="0.9" fill="#00AA6C"/>
+          <circle cx="15" cy="7" r="0.9" fill="#00AA6C"/>
+          <path d="M10 2.5 L7.5 5 L10 3.5 L12.5 5 Z" fill="#00AA6C"/>
+        </svg>
+        <div class="review-content">
+          <div class="review-stars-row">
+            <span class="review-stars" aria-hidden="true">★★★★★</span>
+            <span class="review-score">5,0</span>
+          </div>
+          <div class="review-meta">
+            <span class="review-count">N°1 La Baule</span>
+            <span class="review-platform">TripAdvisor</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll-wrap" aria-hidden="true">
+      <div class="scroll-indicator">
         <div class="scroll-line"></div>
         <span class="scroll-label">Scroll</span>
         <div class="scroll-line"></div>
       </div>
     </div>
-  </div>
 
-  <!-- Fondu bas -->
+  </div><!-- /hero-content -->
+
+  <!-- ─── Fondu bas ─── -->
   <div class="hero-fade" aria-hidden="true"></div>
 </section>
 
 <style>
+  /* ─── Hero container ─── */
   .hero-parallax {
     position: relative;
-    min-height: 100svh; /* svh : exclut la barre d'adresse mobile Safari */
+    width: 100%;
+    height: 100svh;
+    min-height: 600px;
+    display: flex;
+    align-items: stretch;
     overflow: hidden;
     background: var(--ink-deep);
-    display: flex;
-    align-items: center;
-  }
-
-  /* ─── Vidéo background ─── */
-  .hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-  }
-  /* Fallback poster si la vidéo ne charge pas (tous écrans) */
-  .hero-parallax {
     background-image: url('/images/hero-poster.jpg');
     background-size: cover;
     background-position: center top;
   }
 
-  /* ─── Overlay — max 0.35 pour laisser la vidéo respirer ─── */
+  /* ─── Vidéo background ─── */
+  .hero-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  /* ─── Overlay ─── */
   .hero-overlay {
     position: absolute;
     inset: 0;
@@ -269,98 +343,256 @@ import HeroReviews from './HeroReviews.astro';
   .orn-corner-bl { bottom: 1.5rem; left: 1.5rem; }
   .orn-corner-br { bottom: 1.5rem; right: 1.5rem; }
 
-  /* ─── Contenu ─── */
+  /* ─────────────────────────────────────────── */
+  /* CONTENU — FLEX COLUMN MOBILE FIRST          */
+  /* ─────────────────────────────────────────── */
   .hero-content {
     position: relative;
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    /* top = navbar height, bottom = safe area */
+    padding: 5rem 1.5rem 2rem;
+    gap: 0;
+    box-sizing: border-box;
+  }
+
+  /* ─── Logo mobile ─── */
+  .hero-logo-wrap {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-logo-main {
+    width: clamp(180px, 55vw, 280px);
+    height: auto;
+    max-height: 110px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 16px rgba(0,0,0,0.5));
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* ─── CTAs mobile ─── */
+  .hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: min(340px, 90vw);
+  }
+  .hero-cta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-cta-row a {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    pointer-events: all;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-ctas-row-2 {
     width: 100%;
   }
-  .hero-inner {
-    max-width: 720px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 8rem 0 6rem;
+  .hero-cta-gift {
+    pointer-events: all;
+    position: relative;
+    z-index: 10;
   }
 
-  /* Badge Michelin */
-  .hero-michelin-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(201,164,74,0.12);
-    border: 1px solid rgba(201,164,74,0.25);
-    border-radius: 20px;
-    padding: 0.4rem 1rem;
-    margin-bottom: 1.25rem;
+  /* ─── Bouton cadeau ─── */
+  .btn-gift {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.85);
     font-family: var(--font-mono);
-    font-size: 0.62rem;
+    font-size: 0.65rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--gold-base);
-  }
-
-  .hero-label { letter-spacing: 0.28em; display: block; }
-
-  .hero-logo-main {
-    width: clamp(420px, 60vw, 720px);
-    height: auto;
-    max-height: 200px;
-    object-fit: contain;
-    filter: drop-shadow(0 2px 24px rgba(0,0,0,0.6));
-    margin: 0 auto 2rem;
-    display: block;
-  }
-  @media (max-width: 768px) {
-    .hero-logo-main {
-      width: clamp(280px, 75vw, 420px);
-      max-height: 160px;
-    }
-  }
-
-  .hero-title {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: 300;
-    font-size: clamp(3.8rem, 9vw, 7.5rem);
-    line-height: 0.88;
-    color: var(--parchment);
-    letter-spacing: -0.01em;
-    margin: 0 0 1.8rem;
-  }
-  .hero-title-gold { color: var(--gold-base); font-weight: 400; }
-
-  .hero-subtitle {
-    font-family: var(--font-body);
-    color: rgba(245,240,232,0.65);
-    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-    line-height: 1.75;
-    max-width: 520px;
-    margin: 0 auto 2.5rem;
-  }
-
-  .hero-ctas {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 3.5rem;
-  }
-
-  .scroll-indicator {
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    transition: all 0.25s;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.5rem;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
   }
-  .scroll-line { width: 36px; height: 1px; background: rgba(201,164,74,0.3); }
+  .btn-gift:hover {
+    border-color: rgba(255,255,255,0.9);
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+  }
+
+  /* ─── Badges row mobile ─── */
+  .hero-badges-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: nowrap;
+    width: 100%;
+    pointer-events: none;
+  }
+  .hero-badges-row a,
+  .hero-bib-link {
+    pointer-events: all;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Review badges */
+  .hero-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 8px 5px 6px;
+    background: rgba(15,14,11,0.72);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 999px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    text-decoration: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    pointer-events: all;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+  .hero-badge:hover {
+    border-color: rgba(201,164,74,0.50);
+    box-shadow: 0 0 12px rgba(201,164,74,0.15);
+  }
+  .hero-badge--primary { border-color: rgba(201,164,74,0.35); }
+
+  .review-content { display: flex; flex-direction: column; gap: 0.1rem; min-width: 0; }
+  .review-stars-row { display: flex; align-items: center; gap: 0.25rem; }
+  .review-stars { color: var(--gold-base); font-size: 0.6rem; letter-spacing: 0.5px; line-height: 1; }
+  .review-score { color: var(--parchment); font-family: var(--font-body); font-size: 0.78rem; font-weight: 700; line-height: 1; white-space: nowrap; }
+  .review-meta { display: flex; align-items: center; gap: 0.3rem; }
+  .review-count { color: var(--parchment); font-family: var(--font-mono); font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.9; }
+  .review-platform { color: var(--stone-light); font-family: var(--font-mono); font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; max-width: 52px; overflow: hidden; text-overflow: ellipsis; }
+
+  .review-divider {
+    width: 1px;
+    height: 2.5rem;
+    background: rgba(201, 164, 74, 0.15);
+    flex-shrink: 0;
+  }
+
+  /* ─── Bib Gourmand mobile ─── */
+  .hero-bib-link { display: inline-block; flex-shrink: 0; }
+
+  .hero-bib-tilt {
+    position: relative;
+    width: 60px;
+    height: 74px;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #b91c1c 0%, #dc2626 50%, #991b1b 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transform: perspective(400px) rotateX(0deg) rotateY(0deg);
+    cursor: pointer;
+    animation: bibFloat 4s ease-in-out infinite;
+  }
+  .hero-bib-link:hover .hero-bib-tilt { animation-play-state: paused; }
+
+  .hero-bib-tilt__shine {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.20) 50%, transparent 70%);
+    background-size: 200% 200%;
+    animation: bibShimmer 3.5s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .hero-bib-tilt__inner {
+    position: relative;
+    z-index: 2;
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 6px 4px;
+  }
+  .hero-bib-tilt__svg {
+    width: 30px; height: 30px;
+    flex-shrink: 0;
+    transform: translateZ(8px);
+    transition: transform 0.1s ease;
+    filter: drop-shadow(0 1px 4px rgba(0,0,0,0.35));
+  }
+  .hero-bib-tilt__label { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+  .hero-bib-tilt__name {
+    font-family: 'Jost', sans-serif;
+    font-size: 6.5px; font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    line-height: 1.2;
+  }
+  .hero-bib-tilt__year {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px; font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+  }
+
+  @keyframes bibFloat {
+    0%, 100% {
+      box-shadow: 0 4px 20px rgba(185,28,28,0.45), 0 0 0 1px rgba(255,255,255,0.08);
+      transform: perspective(400px) rotateX(0deg) rotateY(0deg) translateY(0px);
+    }
+    50% {
+      box-shadow: 0 8px 32px rgba(185,28,28,0.65), 0 0 0 1px rgba(255,255,255,0.14);
+      transform: perspective(400px) rotateX(2deg) rotateY(-2deg) translateY(-3px);
+    }
+  }
+  @keyframes bibShimmer {
+    0%   { background-position: -200% -200%; opacity: 0.6; }
+    50%  { background-position: 200% 200%;  opacity: 1; }
+    100% { background-position: -200% -200%; opacity: 0.6; }
+  }
+
+  /* ─── Scroll indicator mobile ─── */
+  .hero-scroll-wrap {
+    /* in flex flow, no absolute positioning */
+  }
+  .scroll-indicator { display: flex; align-items: center; justify-content: center; gap: 0.75rem; }
+  .scroll-line { width: 28px; height: 1px; background: rgba(201,164,74,0.3); }
   .scroll-label {
     font-family: var(--font-mono);
-    font-size: 0.6rem;
+    font-size: 0.55rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: rgba(201,164,74,0.4);
   }
 
+  /* ─── Fondu bas ─── */
   .hero-fade {
     position: absolute;
     bottom: 0; left: 0; right: 0;
@@ -370,38 +602,153 @@ import HeroReviews from './HeroReviews.astro';
     z-index: 4;
   }
 
-  /* Styles reviews → voir HeroReviews.astro */
+  /* ─── Botanical — mobile : masquer la couche qui chevauche le logo ─── */
+  @media (max-width: 767px) {
+    .parallax-laurier {
+      display: none !important;
+    }
+    .parallax-thym {
+      opacity: 0.10 !important;
+    }
+  }
+
+  /* ─────────────────────────────────────────── */
+  /* DESKTOP ≥ 768px                             */
+  /* ─────────────────────────────────────────── */
+  @media (min-width: 768px) {
+    .hero-content {
+      justify-content: center;
+      gap: 2rem;
+      padding: 5rem 2rem 2rem;
+    }
+
+    /* Logo desktop */
+    .hero-logo-main {
+      width: clamp(340px, 48vw, 580px);
+      max-height: 200px;
+    }
+
+    /* CTAs desktop */
+    .hero-cta-group {
+      max-width: none;
+    }
+    .hero-cta-row {
+      flex-direction: row;
+      width: auto;
+      gap: 1rem;
+    }
+    .hero-cta-row a {
+      width: 220px;
+    }
+    .hero-ctas-row-2 {
+      width: auto;
+    }
+    .hero-ctas-row-2 .btn-gift {
+      width: 458px;
+    }
+
+    /* Badges desktop */
+    .hero-badges-row {
+      gap: 10px;
+      width: auto;
+    }
+    .hero-badge {
+      padding: 7px 14px 7px 10px;
+      gap: 8px;
+    }
+    .review-score { font-size: 0.9rem; }
+    .review-stars { font-size: 0.7rem; letter-spacing: 1.5px; }
+    .review-count { font-size: 0.62rem; }
+    .review-platform { font-size: 0.58rem; max-width: none; }
+
+    /* Bib Gourmand desktop */
+    .hero-bib-tilt        { width: 80px; height: 96px; border-radius: 14px; }
+    .hero-bib-tilt__inner { gap: 4px; padding: 8px 6px; }
+    .hero-bib-tilt__svg   { width: 40px; height: 40px; }
+    .hero-bib-tilt__name  { font-size: 7.5px; }
+    .hero-bib-tilt__year  { font-size: 10px; }
+
+    /* Scroll desktop */
+    .scroll-line { width: 36px; }
+
+    /* Botanical — toutes les couches visibles desktop */
+    .parallax-layer {
+      opacity: revert !important;
+    }
+    .parallax-laurier {
+      display: block !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-content {
+      padding: 0 2rem;
+    }
+    .hero-bib-tilt { width: 90px; height: 110px; }
+    .hero-bib-tilt__svg { width: 48px; height: 48px; }
+    .hero-bib-tilt__name { font-size: 8px; }
+    .hero-bib-tilt__year { font-size: 11px; }
+  }
+
+  /* ─── Extra small (≤380px) : review label raccourci ─── */
+  @media (max-width: 380px) {
+    .hero-cta-group { max-width: 95vw; }
+    .review-count { display: none; }
+    .hero-badge { padding: 4px 6px 4px 5px; gap: 4px; }
+  }
 </style>
 
 <script>
   (function () {
+    /* ─── Parallax scroll ─── */
     const layers = document.querySelectorAll<HTMLElement>('.parallax-layer[data-speed]');
     const hero   = document.getElementById('hero-parallax');
-    if (!hero || !layers.length) return;
-
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) return;
-
-    let scrollY = 0;
-    let dirty   = false;
-
-    function apply() {
-      const heroH = hero!.offsetHeight;
-      if (scrollY > heroH) return;
-      layers.forEach(layer => {
-        const speed = parseFloat(layer.dataset.speed || '0');
-        layer.style.transform = `translateY(${scrollY * speed}px)`;
-      });
+    if (hero && layers.length) {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReduced) {
+        let scrollY = 0;
+        let dirty   = false;
+        function apply() {
+          const heroH = hero!.offsetHeight;
+          if (scrollY > heroH) return;
+          layers.forEach(layer => {
+            const speed = parseFloat(layer.dataset.speed || '0');
+            layer.style.transform = `translateY(${scrollY * speed}px)`;
+          });
+        }
+        window.addEventListener('scroll', () => {
+          scrollY = window.scrollY;
+          if (!dirty) { dirty = true; requestAnimationFrame(() => { apply(); dirty = false; }); }
+        }, { passive: true });
+        apply();
+      }
     }
 
-    window.addEventListener('scroll', () => {
-      scrollY = window.scrollY;
-      if (!dirty) {
-        dirty = true;
-        requestAnimationFrame(() => { apply(); dirty = false; });
+    /* ─── Bib parallax tilt ─── */
+    const bibCard = document.getElementById('hero-bib-tilt');
+    if (!bibCard) return;
+    bibCard.addEventListener('mousemove', (e: MouseEvent) => {
+      const rect = bibCard.getBoundingClientRect();
+      const dx = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+      const dy = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+      const rotX = -dy * 18;
+      const rotY =  dx * 18;
+      (bibCard as HTMLElement).style.transition = 'transform 0.05s linear, box-shadow 0.05s linear';
+      (bibCard as HTMLElement).style.transform = `perspective(400px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      const svgEl = bibCard.querySelector<HTMLElement>('.hero-bib-tilt__svg');
+      if (svgEl) {
+        svgEl.style.transition = 'transform 0.05s linear';
+        svgEl.style.transform = `translateZ(14px) translateX(${(dx*5).toFixed(1)}px) translateY(${(dy*5).toFixed(1)}px)`;
       }
-    }, { passive: true });
-
-    apply();
+    });
+    bibCard.addEventListener('mouseleave', () => {
+      (bibCard as HTMLElement).style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+      (bibCard as HTMLElement).style.transform = 'perspective(400px) rotateX(0deg) rotateY(0deg)';
+      const svgEl = bibCard.querySelector<HTMLElement>('.hero-bib-tilt__svg');
+      if (svgEl) {
+        svgEl.style.transition = 'transform 0.5s ease';
+        svgEl.style.transform = 'translateZ(8px)';
+      }
+    });
   })();
 </script>

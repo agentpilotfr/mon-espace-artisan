@@ -1,6 +1,6 @@
 ---
 const stats = [
-  { kind: 'counter', value: 10,  suffix: ' ans',       label: "d'expérience gastronomique" },
+  { kind: 'counter', value: 30,  suffix: ' ans',       label: "d'expérience gastronomique" },
   { kind: 'counter', value: 156, suffix: '+',           label: 'avis Google'               },
   { kind: 'static',  text: '5,0★',                label: 'note moyenne Google'        },
   { kind: 'static',  text: 'Bib Gourmand',       label: 'Guide Michelin 2026'        },
@@ -104,3 +104,35 @@ const stats = [
     margin: 0 auto;
   }
 </style>
+
+<script>
+  (function () {
+    const counters = document.querySelectorAll<HTMLElement>('.stat-num[data-counter]');
+    if (!counters.length) return;
+
+    function runCount(el: HTMLElement) {
+      const target   = parseInt(el.dataset.target  || '0', 10);
+      const suffix   = el.dataset.suffix || '';
+      const duration = 1800;
+      const start    = performance.now();
+      const tick = (now: number) => {
+        const p = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(ease * target) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = target + suffix;
+      };
+      requestAnimationFrame(tick);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        runCount(entry.target as HTMLElement);
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.2 });
+
+    counters.forEach(el => observer.observe(el));
+  })();
+</script>

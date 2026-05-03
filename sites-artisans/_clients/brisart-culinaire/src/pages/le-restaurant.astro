@@ -24,7 +24,7 @@ const menus = [
     nom:      'Menu du Marché',
     services: 3,
     prix:     35,
-    detail:   'Mercredi — Dimanche · 10h – 16h',
+    detail:   'Mercredi — Samedi · 10h – 16h',
     accroche: 'Menu unique élaboré chaque jour selon les produits du marché et l\'inspiration du chef.',
     plats: [
       'Entrée du marché',
@@ -40,12 +40,12 @@ const menus = [
     detail:   'Mercredi & Vendredi soir · Sur réservation',
     accroche: 'Une parenthèse intimiste en quelques plats d\'exception — vous êtes les invités privilégiés d\'un moment rare.',
     plats: [
-      'Amuse-bouches de saison',
-      'Mise en bouche',
-      'Entrée du chef',
-      'Poisson ou plat intermédiaire',
-      'Viande de sélection',
-      'Dessert & mignardises',
+      'Amuse-bouche',
+      'Entrée',
+      'Poisson',
+      'Viande',
+      'Fromage — Affiné par Richard Teil',
+      'Dessert',
     ],
     img: '/images/guillaume/action-flambage-pro.webp',
   },
@@ -62,26 +62,20 @@ const menus = [
 
     <!-- ─── Hero photo ─── -->
     <section class="restaurant-hero">
-      <div
-        class="hero-bg"
-        style="background-image:url('/images/guillaume/restaurant/restaurant.webp');"
-        aria-hidden="true"
-      ></div>
+      <img
+        src="/images/guillaume/restaurant/restaurant-hero.jpeg"
+        alt="Restaurant Bris'Art Culinaire — La Baule"
+        class="restaurant-hero__bg"
+        loading="eager"
+        fetchpriority="high"
+      />
       <div class="hero-overlay" aria-hidden="true"></div>
 
       <div class="container hero-content">
-        <div class="michelin-badge-hero">
-          <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-            <circle cx="7" cy="7" r="6" stroke="#C9A44A" stroke-width="0.8"/>
-            <path d="M5 7 L6.5 8.5 L10 5" stroke="#C9A44A" stroke-width="1.1" stroke-linecap="round"/>
-          </svg>
-          <span>Bib Gourmand — Guide Michelin 2026</span>
-        </div>
         <h1>Le<br><em class="h1-gold">Restaurant</em></h1>
         <p class="hero-sub">Gastronomie &bull; Bar à Huîtres &bull; La Baule-Escoublac</p>
         <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
           <a href="https://reservation.laddition.com/booking/brisartculinaire" class="btn-gold" rel="noopener noreferrer" target="_blank">Réserver une table</a>
-          <a href="tel:+33285959457" class="btn-ghost-light">02 85 95 94 57</a>
         </div>
       </div>
     </section>
@@ -123,12 +117,16 @@ const menus = [
                   <dd>Fermé</dd>
                 </div>
                 <div class="h-row">
-                  <dt>Mercredi — Dimanche</dt>
+                  <dt>Mercredi — Samedi</dt>
                   <dd>10h – 16h <small>déjeuner</small></dd>
                 </div>
                 <div class="h-row h-row--special">
                   <dt>Mercredi & Vendredi soir</dt>
                   <dd>Sur réservation <small>dîner gastronomique</small></dd>
+                </div>
+                <div class="h-row h-row--special">
+                  <dt>Dimanche</dt>
+                  <dd>11h – 16h <small>Bar à Huîtres</small></dd>
                 </div>
               </dl>
               <div class="horaires-card-footer">
@@ -225,6 +223,27 @@ const menus = [
       </div>
     </section>
 
+    <!-- ─── Bar à Huîtres ─── -->
+    <section class="section" style="background:var(--color-bg);" id="bar-a-huitres-intro">
+      <div class="container">
+        <div style="max-width:680px;" data-reveal>
+          <span class="section-label">Bar à Huîtres — Le Dimanche</span>
+          <div class="gold-rule" style="margin:1rem 0;"></div>
+          <h2>Huîtres &amp;<br><em style="color:var(--gold-base);">Dimanche matin</em></h2>
+          <p style="color:var(--color-ink-secondary); margin:1.5rem 0 1.2rem; line-height:1.8;">
+            Chaque dimanche de 11h à 16h, Guillaume ouvre son bar à huîtres.
+            Sorties des claires de Mesquer, ouvertes à la minute.
+            Plateau de la mer, vins blancs de Loire — une parenthèse iodée
+            pour commencer le week-end en douceur.
+          </p>
+          <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(201,164,74,0.1); border:1px solid rgba(201,164,74,0.25); border-radius:20px; padding:0.4rem 1rem; font-family:var(--font-mono); font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-mat); margin-top:0.5rem;">
+            Dimanche · 11h – 16h · Sans réservation
+          </div>
+          <!-- TODO: Photos bar à huîtres — en attente -->
+        </div>
+      </div>
+    </section>
+
     <!-- ─── Dîners Gastronomiques ─── -->
     <DinersCalendar />
 
@@ -294,7 +313,6 @@ const menus = [
           <a href="https://reservation.laddition.com/booking/brisartculinaire" class="btn-gold" rel="noopener noreferrer" target="_blank">
             Réserver en ligne
           </a>
-          <a href="tel:+33285959457" class="btn-ghost-light">02 85 95 94 57</a>
         </div>
       </div>
     </section>
@@ -324,17 +342,13 @@ const menus = [
       min-height: 480px;
     }
   }
-  .hero-bg {
+  .restaurant-hero__bg {
     position: absolute;
     inset: 0;
-    background-size: cover;
-    background-position: center top;
-    transform: scale(1.03);
-  }
-  @media (max-width: 768px) {
-    .hero-bg {
-      background-position: 65% top;
-    }
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
   .hero-overlay {
     position: absolute;
@@ -357,22 +371,6 @@ const menus = [
     margin-top: 0.5rem;
   }
 
-  /* Michelin badge dans le hero */
-  .michelin-badge-hero {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    background: rgba(201,164,74,0.12);
-    border: 1px solid rgba(201,164,74,0.3);
-    border-radius: 20px;
-    padding: 0.3rem 0.8rem;
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold-mat);
-    margin-bottom: 1.5rem;
-  }
 
   /* ── Intro / Horaires ── */
   .intro-grid {
