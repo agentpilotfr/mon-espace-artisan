@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TemplateGallery from '../components/TemplateGallery.astro';
+import { SITE } from '../config';
+---
+
+<Layout
+  title="Templates sites internet pour artisans — Mon Espace Artisan"
+  description="8 templates professionnels pour artisans : plombier, électricien, menuisier, peintre, maçon, couvreur, paysagiste, chauffagiste. Design mobile-first, SEO local, livré en 24h à partir de 290€ HT."
+>
+
+  <!-- ── Hero ──────────────────────────────── -->
+  <section class="section-padding" style="background-color: var(--color-navy);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+
+      <div
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6"
+        style="background-color: rgba(217,116,67,0.15); color: var(--color-terra);"
+      >
+        <span
+          class="w-2 h-2 rounded-full"
+          style="background-color: var(--color-terra);"
+          aria-hidden="true"
+        ></span>
+        8 métiers disponibles
+      </div>
+
+      <h1
+        class="text-4xl md:text-5xl font-bold text-white mb-5"
+        style="font-family: var(--font-fraunces);"
+      >
+        Exemples de sites artisans
+      </h1>
+
+      <p class="text-lg max-w-2xl mx-auto" style="color: rgba(250,247,242,0.75);">
+        Découvrez nos réalisations pour chaque corps de métier.
+      </p>
+
+      <!-- Chiffres rapides -->
+      <div class="grid grid-cols-3 gap-4 max-w-sm mx-auto mt-10">
+        {[
+          { val: '8', label: 'Templates métiers' },
+          { val: '24h', label: 'Livraison' },
+          { val: '100%', label: 'Sur mesure' },
+        ].map(({ val, label }) => (
+          <div class="text-center">
+            <div class="text-2xl font-bold mb-0.5" style="font-family: var(--font-fraunces); color: var(--color-terra);">{val}</div>
+            <div class="text-xs" style="color: rgba(250,247,242,0.5);">{label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Galerie ───────────────────────────── -->
+  <section class="section-padding" style="background-color: var(--color-cream);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <TemplateGallery />
+    </div>
+  </section>
+
+  <!-- ── CTA bas de page ───────────────────── -->
+  <section class="section-padding" style="background-color: var(--color-navy);">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2
+        class="text-2xl md:text-3xl font-bold text-white mb-4"
+        style="font-family: var(--font-fraunces);"
+      >
+        Vous ne trouvez pas votre métier ?
+      </h2>
+      <p class="text-base mb-8" style="color: rgba(250,247,242,0.7);">
+        Contactez-nous, on peut créer un template sur mesure pour votre activité.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/contact" class="btn-primary text-base px-8 py-4 w-full sm:w-auto">
+          Nous contacter
+        </a>
+        <a href={`tel:${SITE.phone}`} class="btn-outline-white text-base px-8 py-4 w-full sm:w-auto">
+          {SITE.phoneDisplay}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

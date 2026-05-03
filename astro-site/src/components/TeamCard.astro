@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  name: string;
+  role: string;
+  description: string;
+  imagePath: ImageMetadata;
+  /** "small" = home page (~80 mots), "large" = /a-propos (~150 mots) */
+  size?: 'small' | 'large';
+  /** CSS object-position pour cadrer la tête dans la bulle, ex. "center 20%" */
+  imagePosition?: string;
+}
+
+const { name, role, description, imagePath, size = 'small', imagePosition = 'center center' } = Astro.props;
+---
+
+<div
+  class="flex flex-col items-center text-center rounded-2xl p-8"
+  style="background: white; box-shadow: var(--shadow-card);"
+>
+  <!-- Photo ronde -->
+  <div
+    class="mb-5 flex-shrink-0 rounded-full overflow-hidden"
+    style="width: 160px; height: 160px;"
+  >
+    <Image
+      src={imagePath}
+      alt={`Photo de ${name}`}
+      width={200}
+      height={200}
+      class="w-full h-full object-cover"
+      style={`object-position: ${imagePosition};`}
+      loading="lazy"
+    />
+  </div>
+
+  <!-- Nom -->
+  <h3
+    class={`font-bold mb-1 ${size === 'large' ? 'text-2xl' : 'text-xl'}`}
+    style="font-family: var(--font-fraunces); color: var(--color-navy);"
+  >
+    {name}
+  </h3>
+
+  <!-- Rôle -->
+  <p
+    class="text-xs font-bold tracking-widest uppercase mb-4"
+    style="color: var(--color-terra);"
+  >
+    {role}
+  </p>
+
+  <!-- Description -->
+  <p
+    class={`leading-relaxed ${size === 'large' ? 'text-base' : 'text-sm'}`}
+    style={`color: var(--color-gray-soft); ${size === 'small' ? 'min-height: 7rem;' : ''}`}
+  >
+    {description}
+  </p>
+</div>

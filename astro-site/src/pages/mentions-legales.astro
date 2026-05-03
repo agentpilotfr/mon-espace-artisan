@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE } from '../config';
+---
+
+<Layout
+  title="Mentions légales — Mon Espace Artisan"
+  description="Mentions légales du site mon-espace-artisan.fr — éditeur, hébergeur, propriété intellectuelle."
+  noindex={true}
+>
+  <section class="section-padding" style="background-color: var(--color-cream);">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h1 class="text-3xl md:text-4xl font-bold mb-10" style="font-family: var(--font-fraunces); color: var(--color-navy);">Mentions légales</h1>
+
+      <div class="flex flex-col gap-8 text-sm leading-relaxed" style="color: var(--color-navy);">
+
+        <div>
+          <h2 class="text-lg font-bold mb-3" style="font-family: var(--font-fraunces);">Éditeur du site</h2>
+          <p>{SITE.ownerName}<br />
+          {SITE.legalForm} — SIRET : {SITE.siret}<br />
+          {SITE.address} ({SITE.postalCode}), {SITE.country}<br />
+          Téléphone : {SITE.phoneDisplay}<br />
+          E-mail : <a href={`mailto:${SITE.email}`} class="underline">{SITE.email}</a><br />
+          Directeur de la publication : {SITE.ownerName}</p>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-bold mb-3" style="font-family: var(--font-fraunces);">Hébergement</h2>
+          <p>Ce site est hébergé par Cloudflare, Inc.<br />
+          101 Townsend St, San Francisco, CA 94107, États-Unis<br />
+          <a href="https://www.cloudflare.com" class="underline">www.cloudflare.com</a></p>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-bold mb-3" style="font-family: var(--font-fraunces);">Propriété intellectuelle</h2>
+          <p>L'ensemble du contenu de ce site (textes, images, logos, structure) est protégé par le droit d'auteur. Toute reproduction, même partielle, est interdite sans autorisation écrite préalable de l'éditeur.</p>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-bold mb-3" style="font-family: var(--font-fraunces);">Données personnelles</h2>
+          <p>Les données collectées via les formulaires de contact sont utilisées uniquement pour répondre à vos demandes. Elles ne sont jamais cédées à des tiers. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression. Pour l'exercer : <a href={`mailto:${SITE.email}`} class="underline">{SITE.email}</a></p>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-bold mb-3" style="font-family: var(--font-fraunces);">Cookies</h2>
+          <p>Ce site n'utilise pas de cookies de tracking tiers. Seuls des cookies techniques strictement nécessaires au fonctionnement du site peuvent être déposés.</p>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-bold mb-3" style="font-family: var(--font-fraunces);">Liens hypertextes</h2>
+          <p>Mon Espace Artisan ne peut être tenu responsable du contenu des sites externes vers lesquels des liens sont établis depuis ce site.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</Layout>

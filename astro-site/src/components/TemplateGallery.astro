@@ -1,0 +1,121 @@
+---
+import { templates, categories } from '../data/templates';
+import TemplateCard from './TemplateCard.astro';
+---
+
+<div class="tpl-gallery">
+
+  <!-- Filtres catégories -->
+  <div class="tpl-filters" role="group" aria-label="Filtrer les templates par catégorie">
+    {categories.map(({ id, label }) => (
+      <button
+        class={`filter-btn${id === 'all' ? ' active' : ''}`}
+        data-filter={id}
+        aria-pressed={id === 'all' ? 'true' : 'false'}
+      >
+        {label}
+      </button>
+    ))}
+  </div>
+
+  <!-- Grille -->
+  <div class="tpl-grid" aria-label="Galerie des templates">
+    {templates.map((template) => (
+      <TemplateCard template={template} />
+    ))}
+  </div>
+</div>
+
+<script>
+  // ── Filtrage par catégorie ─────────────────
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const cards = document.querySelectorAll<HTMLElement>('[data-category]');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter!;
+
+      filterBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // ── Toggle desktop / mobile ────────────────
+  const toggleBtns = document.querySelectorAll<HTMLButtonElement>('[data-toggle]');
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const card = btn.closest<HTMLElement>('[data-card]')!;
+      const preview = card.querySelector<HTMLElement>('[data-preview]')!;
+      const mode = btn.dataset.toggle!;
+      preview.dataset.mode = mode;
+      card.querySelectorAll('[data-toggle]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+
+<style>
+.tpl-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Filtres */
+.tpl-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1.5px solid rgba(15,30,61,0.2);
+  background: transparent;
+  color: var(--color-navy);
+  transition: background 200ms ease, color 200ms ease, border-color 200ms ease, transform 150ms ease;
+  font-family: var(--font-inter);
+}
+.filter-btn:hover {
+  border-color: var(--color-terra);
+  color: var(--color-terra);
+}
+.filter-btn.active {
+  background: var(--color-terra);
+  color: #fff;
+  border-color: var(--color-terra);
+}
+
+/* Grille responsive */
+.tpl-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .tpl-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .tpl-grid { grid-template-columns: 1fr; }
+}
+</style>

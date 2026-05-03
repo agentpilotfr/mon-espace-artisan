@@ -1,0 +1,128 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../config';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = "Site internet clé en main en 24h pour artisans à Saint-Nazaire et en Loire-Atlantique. À partir de 290€, sans engagement. Créé en local par un humain. Rejoignez des centaines de professionnels qui ont lancé leur site.",
+  canonical,
+  ogImage = "/og-image.jpg",
+  noindex = false,
+} = Astro.props;
+
+const canonicalURL = canonical
+  ? new URL(canonical, Astro.site)
+  : new URL(Astro.url.pathname, Astro.site);
+
+const fullTitle = title.includes('Mon Espace Artisan')
+  ? title
+  : `${title} — Mon Espace Artisan`;
+
+// Schema.org LocalBusiness JSON-LD
+const schemaOrg = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Mon Espace Artisan",
+  "url": "https://mon-espace-artisan.fr",
+  "logo": "https://mon-espace-artisan.fr/logo.svg",
+  "image": "https://mon-espace-artisan.fr/og-image.jpg",
+  "description": "Création de sites internet pour artisans à Saint-Nazaire et en Loire-Atlantique. Site livré en 24h à partir de 290€.",
+  "telephone": "+33781078963",
+  "email": "contact@mon-espace-artisan.fr",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Saint-Nazaire",
+    "addressRegion": "Loire-Atlantique",
+    "postalCode": "44600",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 47.2736,
+    "longitude": -2.2135
+  },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Loire-Atlantique"
+  },
+  "priceRange": "€€",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/company/mon-espace-artisan"
+  ]
+};
+---
+
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- SEO primaire -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {!noindex && <meta name="robots" content="index, follow" />}
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Mon Espace Artisan" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Google Fonts — preconnect puis chargement optimisé -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap"
+    />
+
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+
+    <!-- Thème navigateur -->
+    <meta name="theme-color" content="#0F1E3D" />
+  </head>
+  <body class="min-h-screen flex flex-col" style="background-color: var(--color-cream);">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

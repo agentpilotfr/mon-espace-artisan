@@ -1,0 +1,701 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TeamCard from '../components/TeamCard.astro';
+import { SITE } from '../config';
+import { Image } from 'astro:assets';
+
+import aurelieImg from '../assets/team/aurelie.jpg';
+import alexandreImg from '../assets/team/alexandre.jpg';
+import outilsImg from '../assets/metiers/outils-generiques.jpg';
+import TemplateCard from '../components/TemplateCard.astro';
+import { templates } from '../data/templates';
+---
+
+<Layout
+  title="Site internet pour artisans à Saint-Nazaire — Mon Espace Artisan"
+  description="Site internet clé en main en 24h pour artisans à Saint-Nazaire et en Loire-Atlantique. À partir de 290€, sans engagement. Créé en local par un humain. Rejoignez des centaines de professionnels qui ont lancé leur site."
+>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════ -->
+  <section
+    class="relative overflow-hidden"
+    style="background-color: var(--color-navy);"
+  >
+    <!-- Photo outils en fond -->
+    <Image
+      src={outilsImg}
+      alt=""
+      aria-hidden="true"
+      width={1600}
+      height={900}
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      style="filter: saturate(0.45) brightness(0.35);"
+      loading="eager"
+      quality={75}
+    />
+
+<div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-20 md:pt-24 md:pb-28 text-center">
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-8" style="background-color: rgba(217,116,67,0.15); color: var(--color-terra);">
+        <span class="w-2 h-2 rounded-full animate-pulse" style="background-color: var(--color-terra);"></span>
+        Disponible en Loire-Atlantique (44)
+      </div>
+
+      <!-- Titre principal -->
+      <h1
+        class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 text-white"
+        style="font-family: var(--font-fraunces);"
+      >
+        Votre site clé en main
+        <br /><span style="color: var(--color-terra);">en 24h</span>
+      </h1>
+
+      <!-- Accroche courte -->
+      <p class="text-xl md:text-2xl font-medium mb-5 text-white" style="font-family: var(--font-fraunces);">
+        Pensé pour les artisans, sans engagement.
+      </p>
+
+      <!-- Pitch -->
+      <p class="text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed" style="color: rgba(250,247,242,0.7);">
+        À partir de <strong class="text-white">290&nbsp;€&nbsp;HT</strong>, créé en local par un humain.
+        Rejoignez des centaines de professionnels de Saint-Nazaire et de Loire-Atlantique
+        qui ont créé et mis en ligne leur site en 24h.
+      </p>
+
+      <!-- CTA bloc -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        <a href={SITE.calendly} class="btn-primary text-base px-8 py-4 w-full sm:w-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Prendre RDV gratuit (15 min)
+        </a>
+        <a href={`tel:${SITE.phone}`} class="btn-outline-white text-base px-8 py-4 w-full sm:w-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.9 1.17h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.99 5.99l1.07-1.07a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Appeler {SITE.phoneDisplay}
+        </a>
+      </div>
+
+      <!-- Chiffres rassurance -->
+      <div class="grid grid-cols-3 gap-4 md:gap-8 max-w-lg mx-auto">
+        {[
+          { val: '24h', label: 'Livraison' },
+          { val: '290€ HT', label: 'À partir de' },
+          { val: '100%', label: 'Local & humain' },
+        ].map(({ val, label }) => (
+          <div class="text-center">
+            <div class="text-2xl md:text-3xl font-bold mb-1" style="font-family: var(--font-fraunces); color: var(--color-terra);">{val}</div>
+            <div class="text-xs md:text-sm" style="color: rgba(250,247,242,0.5);">{label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       EXEMPLES DE SITES
+       ═══════════════════════════════════════════ -->
+  <section class="section-padding" style="background-color: var(--color-cream-dark);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center mb-10">
+        <h2 class="text-3xl md:text-4xl font-bold mb-3" style="font-family: var(--font-fraunces); color: var(--color-navy);">
+          Exemples de sites artisans
+        </h2>
+        <p class="text-base" style="color: var(--color-gray-soft);">
+          Des sites clés en main, pensés pour chaque métier.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        {templates.slice(0, 3).map((t) => (
+          <TemplateCard template={t} />
+        ))}
+      </div>
+
+      <div class="text-center">
+        <a href="/templates" class="btn-secondary">
+          Voir tous les exemples →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       BANDE DE CONFIANCE — MÉTIERS
+       ═══════════════════════════════════════════ -->
+  <section class="py-10 border-b" style="background-color: var(--color-cream-dark); border-color: rgba(15,30,61,0.08);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <p class="text-center text-sm font-medium mb-6" style="color: var(--color-gray-soft);">
+        DÉJÀ CHEZ NOUS : plombiers · électriciens · peintres · menuisiers · couvreurs · maçons · paysagistes · chauffagistes
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        {[
+          '🔧 Plombier', '⚡ Électricien', '🎨 Peintre', '🪚 Menuisier',
+          '🏗️ Maçon', '🌿 Paysagiste', '🏠 Couvreur', '🔥 Chauffagiste',
+        ].map((item) => (
+          <span
+            class="px-4 py-2 rounded-full text-sm font-medium"
+            style="background-color: white; color: var(--color-navy); border: 1px solid rgba(15,30,61,0.1);"
+          >
+            {item}
+          </span>
+        ))}
+      </div>
+
+      <!-- Sous-section 250 métiers -->
+      <div class="text-center max-w-2xl mx-auto">
+        <p class="text-base font-semibold mb-2" style="color: var(--color-navy);">
+          Et 250 autres métiers de l'artisanat en France
+        </p>
+        <p class="text-sm leading-relaxed" style="color: var(--color-gray-soft);">
+          L'artisanat français compte plus de 250 métiers différents. Que vous soyez zingueur, tapissier,
+          ébéniste, ferronnier, ramoneur ou toute autre profession manuelle, nous adaptons votre site
+          à votre métier et votre clientèle.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROBLÈME / SOLUTION
+       ═══════════════════════════════════════════ -->
+  <section class="section-padding" style="background-color: var(--color-cream);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-fraunces); color: var(--color-navy);">
+          Vous méritez mieux qu'une page Facebook
+        </h2>
+        <p class="text-base md:text-lg max-w-2xl mx-auto" style="color: var(--color-gray-soft);">
+          Vos clients vous cherchent sur Google. Si vous n'êtes pas là, c'est votre concurrent qui récupère le chantier.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+
+        <!-- Réalité -->
+        <div class="rounded-2xl p-8" style="background-color: #fff3f0; border: 1px solid rgba(217,116,67,0.2);">
+          <h3 class="text-lg font-semibold mb-5" style="color: #9B3A1A;">😤 La réalité de beaucoup d'artisans</h3>
+          <ul class="flex flex-col gap-3">
+            {[
+              'Pas de site = invisible sur Google',
+              'Vos clients partent à la concurrence qui est trouvable en ligne',
+              'Les agences vous demandent 2 500€ et 3 mois de délai',
+              'Les formulaires ne fonctionnent jamais sur mobile',
+              'Personne pour répondre quand vous avez une question',
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-sm" style="color: #7A3520;">
+                <span class="mt-0.5 flex-shrink-0 text-base">✗</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Solution -->
+        <div class="rounded-2xl p-8" style="background-color: #f0faf5; border: 1px solid rgba(16,185,129,0.2);">
+          <h3 class="text-lg font-semibold mb-5" style="color: #065F46;">✅ Avec Mon Espace Artisan</h3>
+          <ul class="flex flex-col gap-3">
+            {[
+              'En ligne et trouvable en 24h chrono',
+              'Votre téléphone sonne grâce aux vrais clients locaux',
+              'Tarif clair dès le départ : à partir de 290€, sans surprise',
+              'Formulaire de contact qui fonctionne vraiment (mobile inclus)',
+              'Un humain à Saint-Nazaire au bout du fil, pas un chatbot',
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-sm" style="color: #064E3B;">
+                <span class="mt-0.5 flex-shrink-0 text-base">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       VOS DEMANDES DE DEVIS SONT À VOUS
+       ═══════════════════════════════════════════ -->
+  <section class="section-padding" style="background-color: var(--color-navy);" id="leads-directs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white" style="font-family: var(--font-fraunces);">
+          Vos demandes de devis arrivent directement chez vous
+        </h2>
+        <p class="text-base md:text-lg" style="color: rgba(250,247,242,0.6);">
+          Pas d'intermédiaire. Pas de commission. Pas de surprise.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 mb-10">
+
+        <!-- Négatif — plateformes -->
+        <div class="rounded-2xl p-8" style="background-color: rgba(127,29,29,0.4); border: 1px solid rgba(239,68,68,0.3);">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-2xl" aria-hidden="true">⚠️</span>
+            <h3 class="text-lg font-semibold text-white" style="font-family: var(--font-fraunces);">
+              Les plateformes de mise en relation
+            </h3>
+          </div>
+          <ul class="flex flex-col gap-3 mb-6">
+            {[
+              "Vous payez pour OBTENIR le contact d'un prospect",
+              "Plusieurs artisans reçoivent la même demande = concurrence féroce",
+              "Aucune garantie que le prospect vous rappelle",
+              "Commissions sur chaque chantier signé",
+              "Votre visibilité dépend de votre abonnement",
+              "Vous dépendez de la plateforme pour exister",
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-sm" style="color: rgba(250,247,242,0.8);">
+                <span class="mt-0.5 flex-shrink-0 font-bold" style="color: #EF4444;">✗</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div class="rounded-xl p-4" style="background-color: rgba(0,0,0,0.3); border: 1px solid rgba(239,68,68,0.2);">
+            <p class="text-xs leading-relaxed" style="color: rgba(250,247,242,0.6);">
+              <strong style="color: rgba(250,247,242,0.85);">Exemple :</strong> Travaux.com facture entre 10€ et 40€ par contact sans garantie de résultat. Une campagne classique = 500€ pour quelques contacts froids.
+            </p>
+          </div>
+        </div>
+
+        <!-- Positif — Mon Espace Artisan -->
+        <div class="rounded-2xl p-8" style="background-color: rgba(6,78,59,0.4); border: 1px solid rgba(16,185,129,0.3);">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-2xl" aria-hidden="true">✅</span>
+            <h3 class="text-lg font-semibold text-white" style="font-family: var(--font-fraunces);">
+              Avec Mon Espace Artisan
+            </h3>
+          </div>
+          <ul class="flex flex-col gap-3 mb-6">
+            {[
+              "Les demandes arrivent directement sur VOTRE site",
+              "Vous êtes le seul destinataire du message",
+              "Zéro commission sur vos chantiers — jamais",
+              "Vos prospects vous cherchent VOUS, pas une plateforme",
+              "Votre visibilité Google vous appartient pour toujours",
+              "Votre site = votre actif, pas votre location",
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-sm" style="color: rgba(250,247,242,0.8);">
+                <span class="mt-0.5 flex-shrink-0 font-bold" style="color: #10B981;">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p class="text-base font-semibold leading-snug" style="color: var(--color-terra);">
+            Vous payez UNE fois la création de votre site.<br />
+            Ensuite, chaque client qui vous appelle est 100% à vous.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href={SITE.calendly} class="btn-primary text-base px-8 py-4">
+          Je veux mes propres leads →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TARIFS
+       ═══════════════════════════════════════════ -->
+  <section class="section-padding" style="background-color: var(--color-navy);" id="tarifs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white" style="font-family: var(--font-fraunces);">
+          Des tarifs clairs, dès le départ
+        </h2>
+        <p class="text-base md:text-lg" style="color: rgba(250,247,242,0.65);">
+          Pas de surprise, pas de devis interminable. Vous choisissez votre pack, on livre en 24h.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+
+        <!-- Pack Essentiel -->
+        <div class="card-tarif">
+          <div class="mb-6">
+            <h3 class="text-xl font-bold mb-1" style="font-family: var(--font-fraunces); color: var(--color-navy);">Essentiel</h3>
+            <p class="text-sm" style="color: var(--color-gray-soft);">Pour démarrer sur le web</p>
+          </div>
+          <div class="mb-6">
+            <span class="text-4xl font-bold" style="font-family: var(--font-fraunces); color: var(--color-navy);">290€ HT</span>
+            <span class="text-sm" style="color: var(--color-gray-soft);"> création +&nbsp;</span>
+            <span class="text-lg font-semibold" style="color: var(--color-navy);">19€&nbsp;HT/mois</span>
+            <p class="text-xs mt-2" style="color: #9CA3AF;">TVA non applicable — art. 293 B du CGI</p>
+          </div>
+          <ul class="flex flex-col gap-2.5 mb-8">
+            {[
+              '1 page vitrine professionnelle',
+              'Formulaire de contact',
+              'Bouton appel cliquable',
+              'Adapté mobile et tablette',
+              'Livraison en 24h',
+              'Hébergement inclus',
+              'Sans engagement',
+            ].map((item) => (
+              <li class="flex items-center gap-2.5 text-sm" style="color: var(--color-navy);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: #10B981; flex-shrink: 0;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a href={SITE.calendly} class="btn-secondary text-sm w-full justify-center">Choisir l'Essentiel</a>
+        </div>
+
+        <!-- Pack Pro — POPULAIRE -->
+        <div class="card-tarif popular" style="transform: scale(1.03);">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+            <span class="px-4 py-1.5 rounded-full text-xs font-bold text-white" style="background-color: var(--color-terra);">
+              ⭐ LE PLUS POPULAIRE
+            </span>
+          </div>
+          <div class="mb-6 mt-2">
+            <h3 class="text-xl font-bold mb-1" style="font-family: var(--font-fraunces); color: var(--color-navy);">Pro</h3>
+            <p class="text-sm" style="color: var(--color-gray-soft);">Pour décrocher plus de chantiers</p>
+          </div>
+          <div class="mb-6">
+            <span class="text-4xl font-bold" style="font-family: var(--font-fraunces); color: var(--color-navy);">490€ HT</span>
+            <span class="text-sm" style="color: var(--color-gray-soft);"> création +&nbsp;</span>
+            <span class="text-lg font-semibold" style="color: var(--color-navy);">29€&nbsp;HT/mois</span>
+            <p class="text-xs mt-2" style="color: #9CA3AF;">TVA non applicable — art. 293 B du CGI</p>
+          </div>
+          <ul class="flex flex-col gap-2.5 mb-8">
+            {[
+              '5 pages (accueil, services, réalisations, contact…)',
+              'SEO local optimisé Saint-Nazaire / 44',
+              'Fiche Google Business Profile',
+              'Formulaire de devis en ligne',
+              'Photos de vos réalisations',
+              'Adapté mobile et tablette',
+              'Livraison en 24h',
+              'Hébergement inclus',
+              'Sans engagement',
+            ].map((item) => (
+              <li class="flex items-center gap-2.5 text-sm" style="color: var(--color-navy);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-terra); flex-shrink: 0;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a href={SITE.calendly} class="btn-primary text-sm w-full justify-center">Choisir le Pro</a>
+        </div>
+
+        <!-- Pack Premium -->
+        <div class="card-tarif">
+          <div class="mb-6">
+            <h3 class="text-xl font-bold mb-1" style="font-family: var(--font-fraunces); color: var(--color-navy);">Premium</h3>
+            <p class="text-sm" style="color: var(--color-gray-soft);">Pour dominer votre secteur</p>
+          </div>
+          <div class="mb-6">
+            <span class="text-4xl font-bold" style="font-family: var(--font-fraunces); color: var(--color-navy);">790€ HT</span>
+            <span class="text-sm" style="color: var(--color-gray-soft);"> création +&nbsp;</span>
+            <span class="text-lg font-semibold" style="color: var(--color-navy);">49€&nbsp;HT/mois</span>
+            <p class="text-xs mt-2" style="color: #9CA3AF;">TVA non applicable — art. 293 B du CGI</p>
+          </div>
+          <ul class="flex flex-col gap-2.5 mb-8">
+            {[
+              "Jusqu'à 10 pages sur mesure",
+              'Blog pour le SEO long terme',
+              'Devis en ligne interactif',
+              'Tout ce qui est dans le Pro',
+              'Suivi SEO mensuel',
+              'Mises à jour prioritaires',
+              'Hébergement inclus',
+              'Sans engagement',
+            ].map((item) => (
+              <li class="flex items-center gap-2.5 text-sm" style="color: var(--color-navy);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: #10B981; flex-shrink: 0;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a href={SITE.calendly} class="btn-secondary text-sm w-full justify-center">Choisir le Premium</a>
+        </div>
+      </div>
+
+      <p class="text-center text-sm mt-10" style="color: rgba(250,247,242,0.5);">
+        Pas de contrat annuel. Vous pouvez arrêter à tout moment avec 1 mois de préavis.
+        <a href="/tarifs" class="underline hover:text-white transition-colors" style="color: rgba(250,247,242,0.65);">Voir le détail complet des packs →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       MÉTHODE 4 ÉTAPES
+       ═══════════════════════════════════════════ -->
+  <section class="section-padding" style="background-color: var(--color-cream);" id="methode">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-fraunces); color: var(--color-navy);">
+          Comment ça marche ?
+        </h2>
+        <p class="text-base md:text-lg max-w-xl mx-auto" style="color: var(--color-gray-soft);">
+          Quatre étapes simples, de l'appel initial à la mise en ligne.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        {[
+          {
+            step: '01',
+            icon: '📞',
+            title: 'On se parle',
+            desc: "Un appel de 15 minutes pour comprendre votre métier, votre zone et ce que vous attendez. Gratuit, sans engagement.",
+          },
+          {
+            step: '02',
+            icon: '✏️',
+            title: 'On crée',
+            desc: "On rédige et conçoit votre site en tenant compte de votre façon de travailler. Vous êtes dans la boucle à chaque étape.",
+          },
+          {
+            step: '03',
+            icon: '✅',
+            title: 'Vous validez',
+            desc: "On vous présente le site fini. Vous demandez les ajustements que vous souhaitez — jusqu'à ce que ça vous convienne.",
+          },
+          {
+            step: '04',
+            icon: '🚀',
+            title: "C'est en ligne",
+            desc: "Votre site est mis en ligne en moins de 24h. Vos clients peuvent vous trouver sur Google dès le lendemain.",
+          },
+        ].map(({ step, icon, title, desc }) => (
+          <div class="rounded-2xl p-6 h-full" style="background: white; box-shadow: var(--shadow-card);">
+            <div class="text-4xl mb-4" aria-hidden="true">{icon}</div>
+            <div class="text-xs font-bold tracking-widest mb-2" style="color: var(--color-terra);">ÉTAPE {step}</div>
+            <h3 class="text-lg font-bold mb-3" style="font-family: var(--font-fraunces); color: var(--color-navy);">{title}</h3>
+            <p class="text-sm leading-relaxed" style="color: var(--color-gray-soft);">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       QUI SOMMES-NOUS — ÉQUIPE
+       ═══════════════════════════════════════════ -->
+  <section class="section-padding" style="background-color: var(--color-cream-dark);" id="equipe">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-fraunces); color: var(--color-navy);">
+          Qui sommes-nous ?
+        </h2>
+        <p class="text-base md:text-lg max-w-xl mx-auto" style="color: var(--color-gray-soft);">
+          Pas une agence, pas un robot. Deux personnes de Loire-Atlantique qui ont décidé de mettre leurs compétences au service des artisans.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <TeamCard
+          name="Aurélie Jarnet"
+          role="Commerciale · Visibilité locale"
+          description="Après plusieurs années dans la communication digitale, je mets mes compétences au service des artisans que j'accompagne au quotidien, en parallèle de mon activité d'agent immobilier. Mon aspiration : aider les entreprises du secteur à développer leur notoriété en simplifiant la partie visibilité. Je crois qu'un artisan sérieux mérite d'être trouvé, recommandé, et reconnu sur son secteur — pas noyé dans les résultats Google."
+          imagePath={aurelieImg}
+          size="small"
+        />
+        <TeamCard
+          name="Alexandre Denel"
+          role="Développeur · Systèmes IA"
+          imagePosition="center 20%"
+          description="J'ai grandi avec internet comme terrain de jeu. La technologie m'a toujours fasciné — pas pour ce qu'elle est, mais pour ce qu'elle libère : du temps, de l'énergie, de la clarté. Après trois ans comme créateur de contenu et community manager, j'ai compris que les outils modernes ne devaient pas rester un privilège d'ingénieur. Ce sont des proches artisans qui m'ont ouvert les yeux : des professionnels sérieux, engloutis par des tâches chronophages. Mon rôle : leur rendre le temps qu'ils méritent."
+          imagePath={alexandreImg}
+          size="small"
+        />
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="/a-propos" class="btn-secondary">En savoir plus sur notre histoire →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TÉMOIGNAGES
+       ═══════════════════════════════════════════ -->
+  <section class="section-padding" style="background-color: var(--color-cream);" id="avis">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-fraunces); color: var(--color-navy);">
+          Ce qu'en pensent nos artisans
+        </h2>
+        <p class="text-base" style="color: var(--color-gray-soft);">
+          Par des vrais artisans.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          {
+            name: 'Thierry M.',
+            job: 'Plombier — Saint-Nazaire',
+            stars: 5,
+            text: "J'étais méfiant au départ. Mais en 24h mon site était en ligne, et la semaine suivante j'avais déjà deux appels de nouveaux clients. C'est concret, ça marche.",
+          },
+          {
+            name: 'Isabelle R.',
+            job: 'Peintre — Pornic',
+            stars: 5,
+            text: "Ils ont tout géré sans me prendre la tête avec des termes techniques. J'ai juste donné mes photos et mes infos, le reste c'est eux. Résultat pro, tarif honnête.",
+          },
+          {
+            name: 'Franck D.',
+            job: 'Électricien — Saint-Brevin',
+            stars: 5,
+            text: "J'avais peur d'être coincé avec un contrat. Pas du tout ici. Et le fait que ce soit quelqu'un du coin, ça fait une vraie différence — il comprend notre réalité.",
+          },
+        ].map(({ name, job, stars, text }) => (
+          <div class="rounded-2xl p-7" style="background: white; box-shadow: var(--shadow-card);">
+            <div class="flex gap-1 mb-4" aria-label={`${stars} étoiles sur 5`}>
+              {Array.from({ length: stars }).map(() => (
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: #F59E0B;" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              ))}
+            </div>
+            <p class="text-sm leading-relaxed mb-5" style="color: var(--color-navy);">"{text}"</p>
+            <div>
+              <div class="text-sm font-semibold" style="color: var(--color-navy);">{name}</div>
+              <div class="text-xs" style="color: var(--color-gray-soft);">{job}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FAQ
+       ═══════════════════════════════════════════ -->
+  <section class="section-padding" style="background-color: var(--color-cream-dark);" id="faq">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-fraunces); color: var(--color-navy);">
+          Vos questions, nos réponses
+        </h2>
+      </div>
+
+      <div class="flex flex-col gap-3" x-data="{ open: null }">
+        {[
+          {
+            q: 'Vraiment livré en 24h ?',
+            a: 'Oui, à condition que vous nous fournissiez vos infos rapidement (textes, photos, coordonnées). On lance la création dès notre premier appel, et on vise 24h ouvrées pour la mise en ligne.',
+          },
+          {
+            q: "Que se passe-t-il si je veux m'arrêter ?",
+            a: "Rien de compliqué : vous prévenez un mois à l'avance et c'est terminé. Aucune pénalité, aucun frais cachés. Le site vous appartient si vous avez choisi de le récupérer.",
+          },
+          {
+            q: "Je ne m'y connais pas en informatique, c'est un problème ?",
+            a: "Pas du tout — c'est même fait pour ça. Vous nous expliquez votre métier, on s'occupe du reste. Vous n'avez pas besoin de savoir ce qu'est un hébergeur ou un nom de domaine.",
+          },
+          {
+            q: 'La mensualité sert à quoi ?',
+            a: "Elle couvre l'hébergement de votre site, la maintenance technique, les mises à jour de sécurité et le support. C'est nous qui gérons tout ça en arrière-plan pour que vous n'ayez rien à faire.",
+          },
+          {
+            q: 'Vous êtes vraiment de Saint-Nazaire ?',
+            a: "Oui, on est une micro-entreprise locale. On connaît la région, les artisans d'ici et leurs besoins. Vous pouvez nous appeler directement — pas un centre d'appels.",
+          },
+          {
+            q: 'Mon site sera-t-il visible sur Google ?',
+            a: "Tous nos sites sont optimisés pour le référencement local (SEO). Le pack Pro inclut la création et l'optimisation de votre fiche Google Business Profile. Les résultats SEO se confirment en 2 à 3 mois.",
+          },
+          {
+            q: "Ai-je un droit de rétractation ?",
+            a: "Oui, absolument. Conformément à la loi française, vous disposez d'un délai de rétractation de 14 jours à compter de la signature du devis, durant lequel vous pouvez annuler sans frais. Nous n'engageons aucun développement avant la fin de ce délai si vous le souhaitez, ou nous pouvons commencer immédiatement avec votre accord explicite (renonciation au délai).",
+          },
+        ].map(({ q, a }, i) => (
+          <div
+            class="rounded-xl overflow-hidden"
+            style="background: white; border: 1px solid rgba(15,30,61,0.08);"
+          >
+            <button
+              class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold text-sm md:text-base"
+              style="color: var(--color-navy);"
+              x-on:click={`open === ${i} ? open = null : open = ${i}`}
+              x-bind:aria-expanded={`open === ${i}`}
+            >
+              <span>{q}</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18" height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                class="flex-shrink-0 transition-transform duration-200"
+                x-bind:style={`open === ${i} ? 'transform: rotate(180deg); color: var(--color-terra);' : 'color: var(--color-terra);'`}
+              >
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div
+              x-show={`open === ${i}`}
+              x-collapse
+              class="px-6 pb-5 text-sm leading-relaxed"
+              style="color: var(--color-gray-soft);"
+            >
+              {a}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CTA FINAL
+       ═══════════════════════════════════════════ -->
+  <section class="section-padding relative overflow-hidden" style="background-color: var(--color-terra);">
+    <div
+      class="absolute inset-0 opacity-10"
+      style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 28px 28px;"
+      aria-hidden="true"
+    ></div>
+
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white" style="font-family: var(--font-fraunces);">
+        Rejoignez des centaines de professionnels<br class="hidden md:block" />
+        qui ont lancé leur site en 24h
+      </h2>
+      <p class="text-lg mb-10 max-w-xl mx-auto" style="color: rgba(255,255,255,0.85);">
+        Votre nom de domaine, votre marque, pour toujours.
+        On s'installe pour discuter de votre projet.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href={SITE.calendly}
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-base transition-all hover:shadow-lg hover:-translate-y-0.5 w-full sm:w-auto"
+          style="background-color: var(--color-navy); color: white;"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Réserver mon RDV gratuit
+        </a>
+        <a
+          href={`tel:${SITE.phone}`}
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-base border-2 border-white text-white transition-all hover:bg-white hover:text-orange-700 w-full sm:w-auto"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.9 1.17h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.99 5.99l1.07-1.07a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Appeler le {SITE.phoneDisplay}
+        </a>
+      </div>
+      <p class="text-sm mt-8" style="color: rgba(255,255,255,0.6);">
+        {SITE.hours} · Basé à {SITE.address} ({SITE.postalCode})
+      </p>
+    </div>
+  </section>
+
+</Layout>

@@ -1,0 +1,378 @@
+---
+import type { Template } from '../data/templates';
+
+interface Props {
+  template: Template;
+}
+
+const { template } = Astro.props;
+const { slug, name, emoji, category, colorPrimary, colorAccent, tags, urgency, sections, previewUrl } = template;
+---
+
+<div
+  class="tpl-card"
+  style={`--accent: ${colorAccent};`}
+  data-category={category}
+  data-card
+>
+
+  <!-- ── Preview ──────────────────────────── -->
+  <div
+    class="tpl-preview"
+    data-preview
+    data-mode="desktop"
+    style={`background-color: ${colorPrimary};`}
+  >
+    <!-- Device frame (animated by JS toggle) -->
+    <div class="tpl-device">
+
+      <!-- Fake browser chrome — masqué en mobile -->
+      <div class="tpl-chrome">
+        <span class="chrome-dot" style="background:#ff5f57;"></span>
+        <span class="chrome-dot" style="background:#ffbd2e;"></span>
+        <span class="chrome-dot" style="background:#28c840;"></span>
+        <div class="chrome-url"></div>
+      </div>
+
+      <!-- Fake nav -->
+      <div class="tpl-nav" style={`border-bottom: 2px solid ${colorAccent}66;`}>
+        <div class="nav-logo" style={`background:${colorAccent};`}></div>
+        <div class="nav-links">
+          <span class="nav-link"></span>
+          <span class="nav-link"></span>
+          <span class="nav-link"></span>
+        </div>
+        <div class="nav-cta" style={`background:${colorAccent};`}></div>
+      </div>
+
+      <!-- Hero simulé -->
+      <div class="tpl-hero">
+        <span class="tpl-emoji" role="img" aria-label={name}>{emoji}</span>
+        <span class="tpl-site-name" style={`color:${colorAccent};`}>{name}</span>
+        <div class="hero-bar" style={`background:${colorAccent}44;`}></div>
+      </div>
+
+      <!-- Fake content rows -->
+      <div class="tpl-rows" style="background:rgba(0,0,0,0.22);">
+        <div class="content-row" style="width:68%;"></div>
+        <div class="content-row" style="width:48%;"></div>
+        <div class="content-row cta-row" style={`background:${colorAccent}55; width:72px;`}></div>
+      </div>
+    </div>
+
+    <!-- Toggle desktop / mobile -->
+    <div class="tpl-toggle" role="group" aria-label="Mode d'aperçu">
+      <button class="toggle-btn active" data-toggle="desktop" aria-label="Vue bureau" title="Bureau">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+      </button>
+      <button class="toggle-btn" data-toggle="mobile" aria-label="Vue mobile" title="Mobile">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Badge urgence -->
+    {urgency && (
+      <div class="urgency-badge" aria-label="Urgence 24/7 disponible">
+        🚨 URGENCE 24/7
+      </div>
+    )}
+  </div>
+
+  <!-- ── Body ─────────────────────────────── -->
+  <div class="tpl-body">
+    <div class="tpl-header-row">
+      <h3 class="tpl-title">{emoji} {name}</h3>
+      <div class="tpl-palette" aria-hidden="true">
+        <span class="palette-dot" style={`background:${colorPrimary};`}></span>
+        <span class="palette-dot" style={`background:${colorAccent};`}></span>
+      </div>
+    </div>
+
+    <div class="tpl-tags" role="list">
+      {tags.map((tag) => (
+        <span
+          class="tpl-tag"
+          role="listitem"
+          style={`background:${colorAccent}18; color:${colorAccent}; border-color:${colorAccent}55;`}
+        >
+          {tag}
+        </span>
+      ))}
+    </div>
+
+    <p class="tpl-meta">{sections} sections · SEO local · Mobile-first</p>
+  </div>
+
+  <!-- ── Footer ───────────────────────────── -->
+  <div class="tpl-footer">
+    <a href={previewUrl} class="tpl-btn-outline" target="_blank" rel="noopener" aria-label={`Aperçu du modèle ${name}`}>
+      Voir l'exemple
+    </a>
+    <a href={`/tarifs?template=${slug}`} class="tpl-btn-primary" aria-label={`Choisir le site ${name}`}>
+      Je veux ce site
+    </a>
+  </div>
+</div>
+
+<style>
+/* ── Carte ──────────────────────────────────── */
+.tpl-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-card);
+  border: 2px solid transparent;
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.tpl-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ── Zone preview ───────────────────────────── */
+.tpl-preview {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+  background-size: 18px 18px;
+}
+
+/* Device frame — transition sur toggle */
+.tpl-device {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+[data-mode="mobile"] .tpl-device {
+  width: 92px;
+  height: 188px;
+  margin: 14px auto 0;
+  border-radius: 18px;
+  border: 3px solid rgba(255,255,255,0.22);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.45);
+}
+
+/* Chrome bar */
+.tpl-chrome {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 8px;
+  background: rgba(0,0,0,0.35);
+  flex-shrink: 0;
+}
+[data-mode="mobile"] .tpl-chrome { display: none; }
+.chrome-dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.chrome-url {
+  flex: 1;
+  height: 10px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.1);
+  margin-left: 6px;
+}
+
+/* Nav */
+.tpl-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: rgba(0,0,0,0.2);
+  flex-shrink: 0;
+}
+[data-mode="mobile"] .tpl-nav { padding: 5px 7px; gap: 4px; }
+.nav-logo { width: 22px; height: 8px; border-radius: 3px; flex-shrink: 0; }
+[data-mode="mobile"] .nav-logo { width: 14px; height: 6px; }
+.nav-links { display: flex; gap: 5px; flex: 1; }
+[data-mode="mobile"] .nav-links { display: none; }
+.nav-link { width: 22px; height: 5px; border-radius: 2px; background: rgba(255,255,255,0.18); }
+.nav-cta { width: 36px; height: 14px; border-radius: 3px; flex-shrink: 0; }
+[data-mode="mobile"] .nav-cta { width: 20px; height: 10px; }
+
+/* Hero simulé */
+.tpl-hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px;
+}
+.tpl-emoji { font-size: 30px; line-height: 1; transition: font-size 300ms ease; }
+[data-mode="mobile"] .tpl-emoji { font-size: 20px; }
+.tpl-site-name {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: font-size 300ms ease;
+}
+[data-mode="mobile"] .tpl-site-name { font-size: 7px; letter-spacing: 0.06em; }
+.hero-bar { width: 55%; height: 5px; border-radius: 3px; margin-top: 3px; }
+[data-mode="mobile"] .hero-bar { width: 65%; height: 3px; }
+
+/* Content rows */
+.tpl-rows {
+  padding: 6px 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-shrink: 0;
+}
+[data-mode="mobile"] .tpl-rows { padding: 4px 7px 6px; gap: 3px; }
+.content-row { height: 5px; border-radius: 2px; background: rgba(255,255,255,0.1); }
+[data-mode="mobile"] .content-row { height: 4px; }
+.cta-row { height: 14px; border-radius: 4px; }
+[data-mode="mobile"] .cta-row { height: 10px; width: 44px !important; }
+
+/* Toggle buttons */
+.tpl-toggle {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 2px;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  border-radius: 6px;
+  padding: 3px;
+  z-index: 10;
+}
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,0.55);
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+}
+.toggle-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
+.toggle-btn.active { background: rgba(255,255,255,0.2); color: #fff; }
+
+/* Urgence badge */
+.urgency-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: #DC2626;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 3px 7px;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+/* ── Body ──────────────────────────────────── */
+.tpl-body {
+  padding: 1rem 1.125rem 0.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.tpl-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.tpl-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  font-family: var(--font-fraunces);
+  margin: 0;
+}
+.tpl-palette { display: flex; gap: 4px; flex-shrink: 0; }
+.palette-dot {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(15,30,61,0.12);
+}
+.tpl-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.tpl-tag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+.tpl-meta { font-size: 11px; color: var(--color-gray-soft); margin: 0; }
+
+/* ── Footer ────────────────────────────────── */
+.tpl-footer {
+  padding: 0.625rem 1.125rem 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.tpl-btn-outline {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1.5px solid rgba(15,30,61,0.3);
+  color: var(--color-navy);
+  transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+  white-space: nowrap;
+}
+.tpl-btn-outline:hover {
+  background: var(--color-navy);
+  color: #fff;
+  border-color: var(--color-navy);
+}
+.tpl-btn-primary {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: var(--color-terra);
+  color: #fff;
+  transition: background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  white-space: nowrap;
+}
+.tpl-btn-primary:hover {
+  background: var(--color-terra-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(217,116,67,0.35);
+}
+</style>

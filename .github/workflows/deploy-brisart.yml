@@ -24,8 +24,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: npm
-          cache-dependency-path: sites-artisans/_clients/brisart-culinaire/package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -40,9 +38,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: >
-            pages deploy sites-artisans/_clients/brisart-culinaire/dist
-            --project-name=mea-brisartculinaire
-            --branch=${{ github.head_ref || github.ref_name }}
-            --commit-hash=${{ github.sha }}
-            --commit-message="${{ github.event.head_commit.message || 'PR preview' }}"
+          command: pages deploy sites-artisans/_clients/brisart-culinaire/dist --project-name=mea-brisartculinaire --branch=${{ github.head_ref || github.ref_name }}
