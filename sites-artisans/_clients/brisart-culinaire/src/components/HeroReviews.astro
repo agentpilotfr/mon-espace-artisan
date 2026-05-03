@@ -39,15 +39,18 @@ const svgs: Record<string, string> = {
 
       {badge.platform === 'michelin' ? (
         <div
-          class="review-badge review-badge--michelin"
+          class="bib-distinction-card bib-distinction-card--hero"
           role="listitem"
-          aria-label={`${badge.count} — ${badge.label}`}
+          aria-label="Bib Gourmand Michelin 2026"
         >
-          <span class="michelin-icon" aria-hidden="true">✦</span>
-          <div class="review-content">
-            <span class="michelin-label">{badge.count}</span>
-            <span class="michelin-sub">{badge.label}</span>
-          </div>
+          <div class="bib-distinction-card__shine" aria-hidden="true"></div>
+          <img
+            src="/images/guillaume/distinctions/bib.png"
+            alt="Bib Gourmand Michelin 2026"
+            class="bib-distinction-card__img"
+            width="26"
+            height="26"
+          />
         </div>
       ) : (
         <a
@@ -178,48 +181,120 @@ const svgs: Record<string, string> = {
     flex-shrink: 0;
   }
 
-  .michelin-icon {
-    color: var(--gold-base);
-    font-size: 1rem;
+  /* ─── Bib Distinction Card — logo seul, carré arrondi rouge Michelin ─── */
+  .bib-distinction-card {
+    position: relative;
+    border-radius: 14px;
+    background: linear-gradient(145deg, #b30000 0%, #CC0000 55%, #990000 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
-    line-height: 1;
+    cursor: default;
+    animation: bibDistinctionGlow 5s ease-in-out infinite;
   }
-  .michelin-label {
-    color: var(--parchment);
-    font-family: var(--font-body);
-    font-size: 0.78rem;
-    font-weight: 600;
-    line-height: 1.2;
-    display: block;
+
+  .bib-distinction-card--hero {
+    width: 40px;
+    height: 40px;
   }
-  .michelin-sub {
-    color: var(--stone-light);
-    font-family: var(--font-mono);
-    font-size: 0.58rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.7;
-    display: block;
+
+  .bib-distinction-card__shine {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      transparent 25%,
+      rgba(255, 255, 255, 0.18) 50%,
+      transparent 75%
+    );
+    background-size: 200% 200%;
+    animation: bibDistinctionShimmer 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .bib-distinction-card__img {
+    position: relative;
+    z-index: 1;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  .bib-distinction-card--hero .bib-distinction-card__img {
+    width: 26px;
+    height: 26px;
+  }
+
+  @keyframes bibDistinctionGlow {
+    0%, 100% { box-shadow: 0 0 0 rgba(204, 0, 0, 0); }
+    50%       { box-shadow: 0 4px 20px rgba(204, 0, 0, 0.55),
+                            0 2px 8px  rgba(204, 0, 0, 0.30); }
+  }
+
+  @keyframes bibDistinctionShimmer {
+    0%   { background-position: -200% -200%; }
+    60%  { background-position: 200% 200%; }
+    100% { background-position: 200% 200%; }
   }
 
   @media (max-width: 480px) {
     .hero-reviews {
-      gap: 0.35rem;
+      gap: 5px;
+      flex-wrap: nowrap;
+      max-width: calc(100vw - 24px);
+      overflow: hidden;
     }
     .review-badge {
-      padding: 0.4rem 0.65rem 0.4rem 0.55rem;
+      padding: 5px 9px 5px 6px;
+      gap: 4px;
+      flex-shrink: 1;
+      min-width: 0;
     }
     .review-score {
-      font-size: 0.8rem;
+      font-size: 11px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .review-stars {
+      font-size: 7px;
+      letter-spacing: -1px;
+      white-space: nowrap;
+      overflow: hidden;
     }
     .review-count {
       display: none;
     }
+    .review-platform {
+      font-size: 7px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 52px;
+    }
     .review-divider {
       display: none;
     }
-    .review-label {
-      font-size: 0.52rem;
+    .bib-distinction-card--hero {
+      width: 34px;
+      height: 34px;
+    }
+    .bib-distinction-card--hero .bib-distinction-card__img {
+      width: 22px;
+      height: 22px;
+    }
+  }
+  @media (max-width: 390px) {
+    .hero-reviews {
+      gap: 3px;
+    }
+    .review-badge {
+      padding: 4px 7px 4px 5px;
+      gap: 3px;
+    }
+    .review-score {
+      font-size: 10px;
     }
   }
 </style>

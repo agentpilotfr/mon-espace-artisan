@@ -78,6 +78,15 @@ const { transparent = false } = Astro.props;
         </button>
 
         <div id="resa-dropdown" class="resa-dropdown" aria-hidden="true">
+          <a href="/bon-cadeau" class="resa-option dropdown-item--highlight">
+            <span>🎁 J'ai reçu un bon cadeau</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true">
+              <path d="M2 7 L12 7 M8.5 3.5 L12 7 L8.5 10.5"/>
+            </svg>
+          </a>
+          <div class="resa-sep">
+            <div class="resa-sep-line"></div>
+          </div>
           <a
             href="https://reservation.laddition.com/booking/brisartculinaire"
             target="_blank"
@@ -150,6 +159,8 @@ const { transparent = false } = Astro.props;
       </div>
     </div>
     <div class="gold-rule gold-rule-center mt-8 mb-8"></div>
+    <a href="/bon-cadeau" class="nav-link text-sm mob-bon-cadeau">🎁 Bon cadeau → Comment réserver</a>
+    <div style="height:1.5rem;"></div>
     <a
       href="https://reservation.laddition.com/booking/brisartculinaire"
       class="btn-gold"
@@ -392,6 +403,12 @@ const { transparent = false } = Astro.props;
     padding: 0.2rem 0;
     transition: opacity 0.15s;
   }
+  .dropdown-item--highlight {
+    color: var(--gold-base) !important;
+    font-weight: 400;
+    font-size: 0.875rem;
+  }
+
   .resa-option-primary {
     font-size: 0.9rem;
     color: var(--gold-base);

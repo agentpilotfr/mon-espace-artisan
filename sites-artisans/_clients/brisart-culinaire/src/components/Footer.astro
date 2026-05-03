@@ -4,6 +4,7 @@ const currentYear = new Date().getFullYear();
 const liens = [
   { href: '/', label: 'Accueil' },
   { href: '/le-restaurant', label: 'Le Restaurant' },
+  { href: '/bar-a-huitres', label: 'Bar à Huîtres' },
   { href: '/cours-de-cuisine', label: 'Cours de Cuisine' },
   { href: '/seminaires', label: 'Séminaires' },
   { href: '/evjf', label: 'EVJF' },
@@ -13,8 +14,8 @@ const liens = [
 
 const legal = [
   { href: '/mentions-legales', label: 'Mentions légales' },
-  { href: 'https://www.brisartculinaire.fr/cgv', label: 'CGV' },
-  { href: 'https://www.brisartculinaire.fr/politique-de-confidentialite', label: 'Confidentialité' },
+  { href: '/cgv', label: 'CGV' },
+  { href: '/confidentialite', label: 'Confidentialité' },
 ];
 ---
 
@@ -27,22 +28,26 @@ const legal = [
 
         <!-- Brand -->
         <div class="footer-brand">
-          <a href="/" class="footer-logo-wrap" aria-label="Bris'Art Culinaire — Accueil">
-            <img
-              src="/images/logos/full_logo.svg"
-              alt="Bris'Art Culinaire"
-              class="footer-logo"
-              loading="lazy"
-            />
-          </a>
-
-          <!-- Bib Gourmand badge -->
-          <div class="michelin-badge">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <circle cx="7" cy="7" r="6" stroke="#C9A44A" stroke-width="0.8"/>
-              <path d="M5 7 L6.5 8.5 L10 5" stroke="#C9A44A" stroke-width="1.1" stroke-linecap="round"/>
-            </svg>
-            <span>Bib Gourmand — Guide Michelin</span>
+          <div class="footer-logo-group">
+            <a href="/" aria-label="Bris'Art Culinaire — Accueil">
+              <img
+                src="/images/logos/full_logo_white.svg"
+                alt="Bris'Art Culinaire"
+                class="footer-logo"
+                loading="lazy"
+              />
+            </a>
+            <div class="bib-distinction-card bib-distinction-card--footer" aria-label="Bib Gourmand Michelin 2026">
+              <div class="bib-distinction-card__shine" aria-hidden="true"></div>
+              <img
+                src="/images/guillaume/distinctions/bib.png"
+                alt="Bib Gourmand Michelin 2026"
+                class="bib-distinction-card__img"
+                loading="lazy"
+                width="46"
+                height="46"
+              />
+            </div>
           </div>
 
           <p class="footer-tagline">
@@ -54,7 +59,7 @@ const legal = [
             <div>39, Avenue Louis Lajarrige</div>
             <div>44500 La Baule-Escoublac</div>
             <div style="margin-top:0.5rem;">
-              <a href="tel:+33285959457" class="footer-link">02 85 95 94 57</a>
+              02 85 95 94 57
             </div>
             <div>
               <a href="mailto:contact@brisartculinaire.fr" class="footer-link">
@@ -85,12 +90,16 @@ const legal = [
               <dd style="color:var(--stone-light);">Fermé</dd>
             </div>
             <div class="horaire-row">
-              <dt>Mer — Dim</dt>
+              <dt>Mer — Sam</dt>
               <dd>10h – 16h<br><small>(déjeuner)</small></dd>
             </div>
             <div class="horaire-row">
               <dt>Mer & Ven soir</dt>
               <dd>Sur réservation<br><small>(dîner gastronomique)</small></dd>
+            </div>
+            <div class="horaire-row">
+              <dt>Dimanche</dt>
+              <dd>11h – 16h<br><small>(Bar à Huîtres)</small></dd>
             </div>
           </dl>
 
@@ -159,54 +168,71 @@ const legal = [
   @media (min-width: 1024px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
 
   /* Brand */
-  .footer-logo {
-    width: 180px;
-    height: auto;
-    filter: brightness(0) invert(1);
-    opacity: 0.95;
-    display: block;
-    margin-bottom: 1.25rem;
-  }
-  .footer-logo-wrap {
-    display: inline-flex;
+  .footer-logo-group {
+    display: flex;
     align-items: center;
-    margin-bottom: 1.25rem;
+    gap: 20px;
+    margin-bottom: 1.5rem;
+  }
+  .footer-logo {
+    width: 160px;
+    height: auto;
+    display: block;
+    opacity: 0.92;
     transition: opacity 0.2s;
   }
-  .footer-logo-wrap:hover { opacity: 0.8; }
-  .footer-brand-name {
-    display: block;
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 1.15rem;
-    color: var(--parchment);
-    line-height: 1.1;
-  }
-  .footer-brand-sub {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(245,240,232,0.35);
-    margin-top: 0.25rem;
-  }
+  .footer-logo:hover { opacity: 0.7; }
 
-  /* Michelin badge */
-  .michelin-badge {
-    display: inline-flex;
+  /* ─── Bib Distinction Card — logo seul, carré arrondi rouge Michelin ─── */
+  .bib-distinction-card {
+    position: relative;
+    border-radius: 14px;
+    background: linear-gradient(145deg, #b30000 0%, #CC0000 55%, #990000 100%);
+    overflow: hidden;
+    display: flex;
     align-items: center;
-    gap: 0.5rem;
-    background: rgba(201,164,74,0.1);
-    border: 1px solid rgba(201,164,74,0.25);
-    border-radius: 20px;
-    padding: 0.35rem 0.85rem;
-    margin-bottom: 1.1rem;
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold-mat);
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: default;
+    animation: bibDistinctionGlow 5s ease-in-out infinite;
+  }
+  .bib-distinction-card--footer {
+    width: 68px;
+    height: 68px;
+  }
+  .bib-distinction-card__shine {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      transparent 25%,
+      rgba(255, 255, 255, 0.18) 50%,
+      transparent 75%
+    );
+    background-size: 200% 200%;
+    animation: bibDistinctionShimmer 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .bib-distinction-card__img {
+    position: relative;
+    z-index: 1;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+  .bib-distinction-card--footer .bib-distinction-card__img {
+    width: 46px;
+    height: 46px;
+  }
+  @keyframes bibDistinctionGlow {
+    0%, 100% { box-shadow: 0 0 0 rgba(204, 0, 0, 0); }
+    50%       { box-shadow: 0 4px 20px rgba(204, 0, 0, 0.55),
+                            0 2px 8px  rgba(204, 0, 0, 0.30); }
+  }
+  @keyframes bibDistinctionShimmer {
+    0%   { background-position: -200% -200%; }
+    60%  { background-position: 200% 200%; }
+    100% { background-position: 200% 200%; }
   }
 
   .footer-tagline {
