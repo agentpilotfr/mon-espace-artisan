@@ -1,0 +1,48 @@
+name: Deploy mea-brisartculinaire
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'sites-artisans/_clients/brisart-culinaire/**'
+      - '.github/workflows/deploy-brisart.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'sites-artisans/_clients/brisart-culinaire/**'
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: sites-artisans/_clients/brisart-culinaire/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: sites-artisans/_clients/brisart-culinaire
+
+      - name: Build
+        run: npm run build
+        working-directory: sites-artisans/_clients/brisart-culinaire
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: >
+            pages deploy sites-artisans/_clients/brisart-culinaire/dist
+            --project-name=mea-brisartculinaire
+            --branch=${{ github.head_ref || github.ref_name }}
+            --commit-hash=${{ github.sha }}
+            --commit-message="${{ github.event.head_commit.message || 'PR preview' }}"
