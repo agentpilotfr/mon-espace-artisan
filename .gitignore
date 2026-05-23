@@ -2,9 +2,6 @@
 node_modules/
 .astro/
 
-# Outils internes archivés
-_archive/
-
 # Tooling Claude (non versionnable dans ce repo)
 .claude/
 
