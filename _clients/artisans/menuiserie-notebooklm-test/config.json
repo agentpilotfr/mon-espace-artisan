@@ -1,0 +1,52 @@
+{
+  "businessName": "L'Art du Bois Français",
+  "ownerName": "Thomas Lefebvre",
+  "tagline": "L'excellence de la menuiserie artisanale sur mesure",
+  "description": "Artisan menuisier passionné, je mets mon savoir-faire au service de vos projets d'aménagement intérieur et extérieur. De la conception d'escaliers uniques à la pose de parquets prestigieux, nous allions tradition et modernité.",
+  "yearsExperience": 15,
+  "city": "Lyon",
+  "radiusKm": 40,
+  "services": [
+    { "label": "Pose de parquet massif et stratifié", "icon": "parquet", "featured": true },
+    { "label": "Fabrication de meubles sur mesure", "icon": "fabrication" },
+    { "label": "Création d'escaliers artisanaux", "icon": "escaliers", "featured": true },
+    { "label": "Aménagement de dressings et placards", "icon": "dressing" },
+    { "label": "Pose de fenêtres bois et mixtes", "icon": "fenetres" },
+    { "label": "Portes d'entrée et intérieures", "icon": "portes" },
+    { "label": "Terrasses en bois et bois composite", "icon": "terrasse" },
+    { "label": "Restauration de menuiseries anciennes", "icon": "restoration" }
+  ],
+  "testimonials": [
+    {
+      "name": "Sophie",
+      "city": "Villeurbanne",
+      "service": "Escaliers sur mesure",
+      "text": "Un travail d'orfèvre ! Notre escalier est devenu la pièce centrale de la maison. Thomas a su comprendre exactement ce que nous voulions tout en respectant les délais."
+    },
+    {
+      "name": "Marc",
+      "city": "Écully",
+      "service": "Aménagement de dressing",
+      "text": "Optimisation parfaite de l'espace dans notre suite parentale. Les finitions sont impeccables et la qualité du bois est remarquable."
+    },
+    {
+      "name": "Julie",
+      "city": "Limonest",
+      "service": "Terrasse bois",
+      "text": "Magnifique réalisation pour notre extérieur. L'artisan est de très bon conseil sur le choix des essences de bois durables. Je recommande vivement !"
+    }
+  ],
+  "certifications": [
+    "Artisan Menuisier Qualifié",
+    "Label Qualibat RGE",
+    "Garantie Décennale",
+    "Certification PEFC / Eco-responsable"
+  ],
+  "sellingPoints": [
+    "Conception 100% personnalisée et sur mesure",
+    "Utilisation de bois issus de forêts gérées durablement",
+    "0% de sous-traitance : suivi de A à Z par le patron",
+    "Garantie de 10 ans sur l'ensemble de nos ouvrages",
+    "Conseils personnalisés et devis détaillé sous 48h"
+  ]
+}

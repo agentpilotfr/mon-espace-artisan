@@ -1,0 +1,499 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header     from '../components/Header.astro';
+import Footer     from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Bon Cadeau Cours de Cuisine — Comment Réserver | Bris'Art Culinaire La Baule"
+  description="Vous avez reçu un bon cadeau pour un cours de cuisine chez Guillaume Brisard ? Réservez votre session en 2 minutes — choisissez votre date, entrez votre référence."
+  canonical="https://www.brisartculinaire.fr/bon-cadeau"
+>
+  <Header />
+  <main>
+
+    <!-- ─── Hero ─── -->
+    <section class="bc-hero">
+      <div
+        class="bc-hero-bg"
+        style="background-image:url('/images/guillaume/cours/gift-hero.jpg');"
+        aria-hidden="true"
+      ></div>
+      <div class="bc-hero-overlay" aria-hidden="true"></div>
+      <div class="container bc-hero-content">
+        <span class="section-label bc-label">Bon Cadeau</span>
+        <div class="gold-rule" style="margin:1rem 0;"></div>
+        <h1>Votre bon cadeau,<br><em class="h1-gold">activé en 2 minutes</em></h1>
+        <p class="bc-hero-sub">Choisissez votre date, entrez votre référence — c'est confirmé.</p>
+      </div>
+    </section>
+
+    <!-- ─── Formulaire self-service ─── -->
+    <section class="section bc-form-section" style="background:var(--color-bg-secondary);">
+      <div class="container">
+
+        <!-- Progress indicator -->
+        <div class="form-progress" aria-hidden="true">
+          <div class="form-progress-step active" data-progress="1">
+            <span class="fp-num">1</span>
+            <span class="fp-label">Votre bon</span>
+          </div>
+          <div class="form-progress-line"></div>
+          <div class="form-progress-step" data-progress="2">
+            <span class="fp-num">2</span>
+            <span class="fp-label">Votre cours</span>
+          </div>
+          <div class="form-progress-line"></div>
+          <div class="form-progress-step" data-progress="3">
+            <span class="fp-num">3</span>
+            <span class="fp-label">Confirmation</span>
+          </div>
+        </div>
+
+        <form class="bon-cadeau-form" id="bon-cadeau-form" novalidate>
+
+          <!-- ── Étape 1 — Identification ── -->
+          <div class="form-step active" data-step="1">
+            <h3>Votre bon cadeau</h3>
+
+            <div class="form-group">
+              <label for="bc-reference">Numéro de référence *</label>
+              <input
+                type="text"
+                id="bc-reference"
+                name="reference"
+                placeholder="ex: BC-2024-001234"
+                pattern="[A-Za-z0-9\-]+"
+                required
+                autocomplete="off"
+              >
+              <span class="form-hint">Indiqué sur votre bon cadeau imprimé ou email</span>
+            </div>
+
+            <div class="form-group">
+              <label for="bc-nom">Votre prénom et nom *</label>
+              <input
+                type="text"
+                id="bc-nom"
+                name="nom"
+                placeholder="Marie Dupont"
+                required
+                autocomplete="name"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="bc-email">Email de confirmation *</label>
+              <input
+                type="email"
+                id="bc-email"
+                name="email"
+                placeholder="marie@exemple.fr"
+                required
+                autocomplete="email"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="bc-tel">Téléphone</label>
+              <input
+                type="tel"
+                id="bc-tel"
+                name="telephone"
+                placeholder="06 12 34 56 78"
+                autocomplete="tel"
+              >
+            </div>
+
+            <button type="button" class="btn-gold btn-next" id="btn-next-1">
+              Continuer →
+            </button>
+          </div>
+
+          <!-- ── Étape 2 — Formule + Date ── -->
+          <div class="form-step" data-step="2">
+            <h3>Votre cours</h3>
+
+            <div class="form-group">
+              <label for="bc-formule">Formule *</label>
+              <select id="bc-formule" name="formule" required>
+                <option value="">Choisissez votre formule</option>
+                <option value="cours1">Cours n°1 — 2h · 95 €</option>
+                <option value="cours2">Cours n°2 — 2h + dégustation · 125 €</option>
+                <option value="cours3">Cours n°3 Coup de cœur — Marché + cours + déjeuner · 155 €</option>
+                <option value="journee">Journée Chef Immersion · 299 €</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="bc-date">Date souhaitée *</label>
+              <input
+                type="date"
+                id="bc-date"
+                name="date"
+                required
+              >
+              <span class="form-hint">Cours disponibles : Mercredi &amp; Samedi · RV 9h30</span>
+            </div>
+
+            <div class="form-group">
+              <label for="bc-date-alt">Date alternative (si indisponible)</label>
+              <input type="date" id="bc-date-alt" name="date_alt">
+            </div>
+
+            <div class="form-group">
+              <label for="bc-accompagnant">Accompagnant ?</label>
+              <select id="bc-accompagnant" name="accompagnant">
+                <option value="non">Non, je viens seul(e)</option>
+                <option value="oui">Oui, 1 accompagnant déjeuner (+35 €)</option>
+                <option value="cours">Oui, 1 accompagnant participe au cours (+95 €)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="bc-message">Message / Intolérances alimentaires</label>
+              <textarea
+                id="bc-message"
+                name="message"
+                rows="3"
+                placeholder="Allergies, préférences, occasion spéciale..."
+              ></textarea>
+            </div>
+
+            <div class="form-nav">
+              <button type="button" class="btn-ghost-gold" id="btn-prev-2">← Retour</button>
+              <button type="submit" class="btn-gold">✓ Confirmer ma réservation</button>
+            </div>
+          </div>
+
+          <!-- ── Étape 3 — Confirmation ── -->
+          <div class="form-step" data-step="3" id="step-confirmation">
+            <div class="confirmation-icon" aria-hidden="true">✓</div>
+            <h3>Demande envoyée !</h3>
+            <p style="color:var(--color-ink-secondary); line-height:1.8; margin-top:0.75rem;">
+              Guillaume confirme votre réservation sous 24h par email. Aucun appel nécessaire.
+            </p>
+            <p class="confirmation-sub">
+              Vérifiez vos spams si vous ne recevez pas l'email de confirmation.
+            </p>
+          </div>
+
+        </form>
+
+        <!-- Lien discret -->
+        <p class="bc-fallback">
+          Un problème ?
+          <a href="mailto:contact@brisartculinaire.fr">contact@brisartculinaire.fr</a>
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</BaseLayout>
+
+<script is:inline>
+  /* ── Date minimum = demain ── */
+  var dateInput = document.getElementById('bc-date');
+  if (dateInput) {
+    dateInput.min = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+  }
+
+  /* ── Progress indicator ── */
+  function updateProgress(step) {
+    document.querySelectorAll('.form-progress-step').forEach(function(el) {
+      var n = parseInt(el.getAttribute('data-progress'));
+      el.classList.toggle('active', n <= step);
+      el.classList.toggle('done', n < step);
+    });
+  }
+
+  /* ── Navigation ── */
+  function goToStep(from, to) {
+    document.querySelector('[data-step="' + from + '"]').classList.remove('active');
+    document.querySelector('[data-step="' + to   + '"]').classList.add('active');
+    updateProgress(to);
+    window.scrollTo({ top: document.querySelector('.bc-form-section').offsetTop - 80, behavior: 'smooth' });
+  }
+
+  function validateStep(stepEl) {
+    var inputs = stepEl.querySelectorAll('[required]');
+    var valid = true;
+    inputs.forEach(function(i) {
+      i.classList.remove('error');
+      if (!i.value.trim()) {
+        valid = false;
+        i.classList.add('error');
+      }
+    });
+    return valid;
+  }
+
+  document.getElementById('btn-next-1').addEventListener('click', function() {
+    var step = document.querySelector('[data-step="1"]');
+    if (validateStep(step)) goToStep(1, 2);
+  });
+
+  document.getElementById('btn-prev-2').addEventListener('click', function() {
+    goToStep(2, 1);
+  });
+
+  /* ── Supprime classe error au focus ── */
+  document.querySelectorAll('.bon-cadeau-form input, .bon-cadeau-form select').forEach(function(el) {
+    el.addEventListener('focus', function() { el.classList.remove('error'); });
+  });
+
+  /* ── Soumission → webhook Make.com ── */
+  document.getElementById('bon-cadeau-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var step = document.querySelector('[data-step="2"]');
+    if (!validateStep(step)) return;
+
+    var data = {};
+    var fd = new FormData(e.target);
+    fd.forEach(function(val, key) { data[key] = val; });
+    data.source    = 'bon-cadeau-form';
+    data.timestamp = new Date().toISOString();
+
+    var btn = e.target.querySelector('[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Envoi en cours…';
+
+    fetch('https://hook.eu1.make.com/91zcd1r32bq291k47drd1y6plrj73qdk', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function() {
+      document.querySelectorAll('.form-step').forEach(function(s) { s.classList.remove('active'); });
+      document.getElementById('step-confirmation').classList.add('active');
+      updateProgress(3);
+    }).catch(function() {
+      btn.disabled = false;
+      btn.textContent = '✓ Confirmer ma réservation';
+      alert('Erreur réseau — contactez-nous : contact@brisartculinaire.fr');
+    });
+  });
+</script>
+
+<style>
+  /* ── Hero ── */
+  .bc-hero {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 9rem 0 4.5rem;
+    overflow: hidden;
+  }
+  .bc-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center 40%;
+    transform: scale(1.03);
+  }
+  .bc-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+      rgba(26,25,22,0.82) 0%,
+      rgba(26,25,22,0.52) 55%,
+      rgba(26,25,22,0.22) 100%
+    );
+  }
+  .bc-hero-content { position: relative; z-index: 1; }
+  .bc-label { color: rgba(245,240,232,0.55); }
+  .bc-hero-content h1 { color: white; margin: 0.75rem 0 0.5rem; }
+  .h1-gold { color: var(--gold-base); }
+  .bc-hero-sub {
+    color: rgba(245,240,232,0.6);
+    font-size: 1rem;
+    letter-spacing: 0.03em;
+    margin-top: 0.5rem;
+    max-width: 400px;
+  }
+
+  /* ── Progress ── */
+  .form-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 2.5rem;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .form-progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    opacity: 0.35;
+    transition: opacity 0.3s;
+  }
+  .form-progress-step.active { opacity: 1; }
+  .form-progress-step.done .fp-num {
+    background: var(--gold-base);
+    border-color: var(--gold-base);
+    color: #fff;
+  }
+  .fp-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-border);
+    background: white;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-steel);
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .form-progress-step.active .fp-num {
+    border-color: var(--gold-base);
+    color: var(--gold-base);
+  }
+  .fp-label {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-steel);
+    white-space: nowrap;
+  }
+  .form-progress-line {
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+    min-width: 40px;
+    margin: 0 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  /* ── Form card ── */
+  .bon-cadeau-form {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(26,25,22,0.08);
+  }
+
+  .form-step { display: none; }
+  .form-step.active { display: block; }
+
+  .form-step h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--color-ink);
+    margin-bottom: 1.75rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .form-group label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-steel);
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    font-family: var(--font-body);
+    font-size: 0.87rem;
+    color: var(--color-ink);
+    outline: none;
+    transition: border-color 0.2s;
+    border-radius: 2px;
+    width: 100%;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--color-gold); }
+  .form-group input.error,
+  .form-group select.error { border-color: #cc0000; box-shadow: 0 0 0 2px rgba(204,0,0,0.08); }
+
+  .form-hint {
+    font-size: 0.68rem;
+    color: var(--color-steel);
+    font-style: italic;
+  }
+
+  .form-nav {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .btn-next {
+    width: 100%;
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
+    /* override btn-gold to work as block */
+    display: block;
+    text-align: center;
+  }
+
+  /* ── Confirmation ── */
+  #step-confirmation { text-align: center; padding: 1rem 0; }
+  .confirmation-icon {
+    width: 60px; height: 60px;
+    background: var(--gold-base);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 1.5rem;
+  }
+  #step-confirmation h3 { border: none; padding: 0; }
+  .confirmation-sub {
+    font-size: 0.75rem;
+    color: var(--color-steel);
+    margin-top: 0.75rem;
+    font-style: italic;
+  }
+
+  /* ── Fallback link ── */
+  .bc-fallback {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.72rem;
+    color: var(--color-steel);
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
+  }
+  .bc-fallback a {
+    color: var(--color-steel);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .bc-fallback a:hover { color: var(--gold-base); }
+
+  /* ── Mobile ── */
+  @media (max-width: 600px) {
+    .bon-cadeau-form { padding: 1.75rem 1.25rem; }
+    .form-nav { flex-direction: column-reverse; }
+    .form-nav .btn-ghost-gold,
+    .form-nav .btn-gold { width: 100%; text-align: center; }
+  }
+</style>

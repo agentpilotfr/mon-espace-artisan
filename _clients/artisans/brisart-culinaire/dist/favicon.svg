@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="10" fill="#1c1a18"/>
+  <!-- Rosette florale — 6 pétales -->
+  <circle cx="32"    cy="18"   r="5.8" fill="#E1B149"/>
+  <circle cx="44.12" cy="25"   r="5.8" fill="#E1B149"/>
+  <circle cx="44.12" cy="39"   r="5.8" fill="#E1B149"/>
+  <circle cx="32"    cy="46"   r="5.8" fill="#E1B149"/>
+  <circle cx="19.88" cy="39"   r="5.8" fill="#E1B149"/>
+  <circle cx="19.88" cy="25"   r="5.8" fill="#E1B149"/>
+  <!-- Détail intérieur pétales -->
+  <circle cx="32"    cy="18"   r="2"   fill="#1c1a18" opacity="0.5"/>
+  <circle cx="44.12" cy="25"   r="2"   fill="#1c1a18" opacity="0.5"/>
+  <circle cx="44.12" cy="39"   r="2"   fill="#1c1a18" opacity="0.5"/>
+  <circle cx="32"    cy="46"   r="2"   fill="#1c1a18" opacity="0.5"/>
+  <circle cx="19.88" cy="39"   r="2"   fill="#1c1a18" opacity="0.5"/>
+  <circle cx="19.88" cy="25"   r="2"   fill="#1c1a18" opacity="0.5"/>
+  <!-- Cercle central -->
+  <circle cx="32"    cy="32"   r="7.5" fill="#E1B149"/>
+  <circle cx="32"    cy="32"   r="2.8" fill="#1c1a18" opacity="0.5"/>
+  <!-- Anneau décoratif externe -->
+  <circle cx="32"    cy="32"   r="17.5" fill="none" stroke="#E1B149" stroke-width="0.6" opacity="0.35"/>
+</svg>

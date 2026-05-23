@@ -1,0 +1,258 @@
+---
+// Données réelles Bris'Art Culinaire — scrape 2026-04-26
+const services = [
+  {
+    icon: `<svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#C9A44A" stroke-width="1.2" stroke-linecap="round">
+      <circle cx="18" cy="18" r="14" stroke-width="0.8"/>
+      <path d="M11 22 Q18 10 25 22"/>
+      <line x1="18" y1="22" x2="18" y2="28"/>
+      <line x1="13" y1="28" x2="23" y2="28"/>
+      <circle cx="18" cy="14" r="1.5" fill="#C9A44A" stroke="none"/>
+    </svg>`,
+    label:    'Déjeuner',
+    title:    'Menu du Marché',
+    description: 'Menu unique élaboré chaque jour selon les produits du marché et l\'inspiration du chef : entrée, plat et dessert. Une cuisine généreuse, précise et inspirée.',
+    detail:   'Mercredi — Samedi · 10h – 16h',
+    price:    '35 €',
+    unit:     'par personne',
+    featured: false,
+    href:     '/le-restaurant',
+  },
+  {
+    icon: `<svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#C9A44A" stroke-width="1.2" stroke-linecap="round">
+      <path d="M6 14 C6 10 9 8 13 10 C14 8 17 7 20 9 C22 7 26 8 27 12 C30 13 32 17 30 20 C28 24 23 24 21 22 C19 24 15 24 13 22 C9 23 5 20 6 14Z"/>
+      <line x1="18" y1="22" x2="18" y2="30"/>
+    </svg>`,
+    label:    'Le Dimanche',
+    title:    'Bar à Huîtres',
+    description: 'Huîtres et coquillages des claires de Mesquer, ouverts à la minute. Vins blancs de Loire, plateau iodé — chaque dimanche face à La Baule.',
+    detail:   'Dimanche · 11h – 16h',
+    price:    'Selon dégustation',
+    unit:     '',
+    featured: false,
+    href:     '/bar-a-huitres',
+  },
+  {
+    icon: `<svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#C9A44A" stroke-width="1.2" stroke-linecap="round">
+      <path d="M8 26 L18 8 L28 26 Z" stroke-width="0.9"/>
+      <line x1="12" y1="21" x2="24" y2="21"/>
+      <path d="M18 16 L19.5 17.5 L22 15"/>
+    </svg>`,
+    label:    'Dîner gastronomique',
+    title:    'Table du Chef',
+    description: 'Menu dégustation en 6 services. Une parenthèse intimiste, en quelques plats d\'exception, où vous serez les invités privilégiés d\'un moment rare.',
+    detail:   'Mercredi & Vendredi soir · Sur réservation',
+    price:    '125 €',
+    unit:     'par personne',
+    featured: true,
+    href:     '/le-restaurant',
+  },
+  {
+    icon: `<svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#C9A44A" stroke-width="1.2" stroke-linecap="round">
+      <circle cx="18" cy="10" r="5"/>
+      <path d="M8 30 C8 22 28 22 28 30"/>
+      <line x1="18" y1="15" x2="18" y2="21"/>
+    </svg>`,
+    label:    'Cours n°1',
+    title:    'Cours de Cuisine',
+    description: '2h30 de cours de cuisine au fourneau du restaurant. Guillaume partage ses trucs et astuces, peu importe votre niveau.',
+    detail:   'RV 9h30 au restaurant',
+    price:    '95 €',
+    unit:     'par personne',
+    featured: false,
+    href:     '/cours-de-cuisine',
+  },
+  {
+    icon: `<svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#C9A44A" stroke-width="1.2" stroke-linecap="round">
+      <circle cx="18" cy="10" r="5"/>
+      <path d="M8 30 C8 22 28 22 28 30"/>
+      <line x1="18" y1="15" x2="18" y2="21"/>
+      <path d="M26 18 L28 20 L31 17"/>
+    </svg>`,
+    label:    'Cours n°2',
+    title:    'Cours + Dégustation',
+    description: 'Deux heures de cours de cuisine suivies d\'une dégustation sur place. Mercredi et samedi, convivial et gourmand.',
+    detail:   'Mer & Sam · 9h30 – 14h30',
+    price:    '125 €',
+    unit:     'par personne',
+    featured: false,
+    href:     '/cours-de-cuisine',
+  },
+  {
+    icon: `<svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#C9A44A" stroke-width="1.2" stroke-linecap="round">
+      <path d="M6 14 C6 10 9 8 13 10 C14 8 17 7 20 9 C22 7 26 8 27 12 C30 13 32 17 30 20 C28 24 23 24 21 22 C19 24 15 24 13 22 C9 23 5 20 6 14Z"/>
+      <line x1="18" y1="22" x2="18" y2="30"/>
+      <line x1="13" y1="28" x2="23" y2="28"/>
+    </svg>`,
+    label:    'Cours n°3 ⭐ Coup de cœur',
+    title:    'Marché + Cours + Déjeuner',
+    description: 'Visite du marché de Pornichet pour la sélection des produits, puis 2h de cours de cuisine suivies du déjeuner sur place. L\'expérience complète.',
+    detail:   'Mer & Sam · 8h30 – 14h30',
+    price:    '155 €',
+    unit:     'par personne',
+    featured: false,
+    href:     '/cours-de-cuisine',
+  },
+  {
+    icon: `<svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#C9A44A" stroke-width="1.2" stroke-linecap="round">
+      <rect x="6" y="8" width="24" height="20" rx="2" stroke-width="0.9"/>
+      <line x1="6" y1="14" x2="30" y2="14"/>
+      <line x1="13" y1="8" x2="13" y2="4"/>
+      <line x1="23" y1="8" x2="23" y2="4"/>
+      <circle cx="18" cy="22" r="4" stroke-width="0.8"/>
+    </svg>`,
+    label:    'Immersion',
+    title:    'Journée Chef — Immersion en cuisine',
+    description: 'Vivez une journée entière en immersion dans la cuisine de Guillaume. De la sélection des produits à la mise en assiette, vous êtes dans la peau du chef du début jusqu\'au dressage final.',
+    detail:   'Sur réservation — journée complète',
+    price:    '299 €',
+    unit:     'par personne',
+    featured: false,
+    href:     '/cours-de-cuisine',
+  },
+];
+---
+
+<section id="services" class="services-section">
+  <div class="services-inner">
+  <div class="container">
+
+    <div class="services-header" data-reveal>
+      <span class="section-label">Nos Prestations</span>
+      <div class="gold-rule" style="margin:0.9rem 0;"></div>
+      <h2>Ce que nous <em style="color:var(--gold-base);">proposons</em></h2>
+      <p class="services-intro">
+        Du déjeuner du marché au dîner gastronomique, du bar à huîtres à l'immersion journée :
+        chaque prestation est pensée pour transmettre la passion de Guillaume Brisard.
+      </p>
+    </div>
+
+    <div class="services-rail-wrap" style="margin-top:3rem;">
+      <div class="services-rail">
+        {services.map((s) => (
+          <article class:list={['service-card card card-hover', { 'card-featured': s.featured }]} style="position:relative;">
+            {s.featured && <div class="featured-badge">Signature</div>}
+            <div class="service-card-inner">
+              <div class="service-icon" set:html={s.icon} />
+              <span class="section-label" style="margin-top:1.2rem; margin-bottom:0.4rem;">{s.label}</span>
+              <h3 class="service-title">{s.title}</h3>
+              <p class="service-description">{s.description}</p>
+              <div class="service-footer">
+                <span class="service-detail">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2" style="display:inline; vertical-align:middle; margin-right:0.35rem; margin-top:-1px; color:var(--gold-mat);" aria-hidden="true">
+                    <circle cx="6" cy="6" r="5"/><line x1="6" y1="3" x2="6" y2="6.5"/><line x1="6" y1="6.5" x2="8" y2="8"/>
+                  </svg>
+                  {s.detail}
+                </span>
+                <div class="service-price-wrap">
+                  <span class="service-price">{s.price}</span>
+                  <span class="service-price-unit">{s.unit}</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="services-cta" data-reveal>
+      <p class="font-accent" style="font-size:1.3rem; color:var(--stone-light); margin-bottom:1.5rem;">
+        Vous ne savez pas par où commencer ?
+      </p>
+      <a href="mailto:contact@brisartculinaire.fr"
+         class="text-sm font-mono text-[#C9A44A] underline underline-offset-4">
+        Une question ? contact@brisartculinaire.fr
+      </a>
+    </div>
+  </div>
+  </div>
+</section>
+
+<style>
+  /* ── Section background photo ── */
+  .services-section {
+    position: relative;
+    background-image: url('/images/guillaume/action-flambage-pro.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: clamp(4rem, 8vw, 7rem) 0;
+  }
+  .services-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(250,250,248,0.93);
+    z-index: 0;
+  }
+  .services-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .services-header {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem 2.5rem;
+  }
+  .services-intro { font-size: 1rem; color: var(--stone-light); max-width: 480px; margin-top: 1rem; line-height: 1.75; }
+
+  .services-rail {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 640px) {
+    .services-rail { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .services-rail {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: start;
+    }
+  }
+
+  .service-card-inner { padding: 1.25rem; display: flex; flex-direction: column; height: 100%; }
+  .service-icon {
+    width: 48px; height: 48px;
+    background: var(--parchment-bg);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    padding: 6px;
+  }
+  .service-title { font-size: 1.35rem; color: var(--ink); margin-bottom: 0.75rem; font-weight: 600; }
+  .service-description {
+    font-size: 0.78rem;
+    color: var(--stone-light);
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-footer {
+    border-top: 1px solid var(--parchment-bg);
+    padding-top: 1.5rem;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .service-detail { font-family: var(--font-mono); font-size: 0.65rem; color: var(--stone-light); letter-spacing: 0.08em; line-height: 1.4; }
+  .service-price-wrap { text-align: right; }
+  .service-price { display: block; font-family: var(--font-display); font-style: italic; font-size: 1.6rem; color: var(--gold-base); line-height: 1; }
+  .service-price-unit { display: block; font-family: var(--font-mono); font-size: 0.58rem; color: var(--stone-light); letter-spacing: 0.1em; margin-top: 0.2rem; }
+
+  .card-featured {
+    border: 2px solid var(--gold-base) !important;
+    box-shadow: 0 4px 24px rgba(201,164,74,0.12);
+  }
+
+  .featured-badge {
+    position: absolute; top: 0; right: 0;
+    background: var(--gold-base); color: var(--ink-deep);
+    font-family: var(--font-mono); font-size: 0.6rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 5px 13px; border-radius: 0 var(--radius-card) 0 8px;
+  }
+  .services-cta { text-align: center; margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--parchment-bg); }
+</style>

@@ -1,0 +1,144 @@
+---
+const diners = [
+  { date: "Vendredi 9 mai 2026",   places: "4 places restantes", theme: "Produits de la mer & Loire",           prix: "125 €" },
+  { date: "Vendredi 23 mai 2026",  places: "6 places restantes", theme: "Légumes du marché de Pornichet",       prix: "125 €" },
+  { date: "Vendredi 6 juin 2026",  places: "8 places restantes", theme: "Menu surprise du chef",                prix: "125 €" },
+  { date: "Vendredi 20 juin 2026", places: "Complet",            theme: "Soirée Solstice",                      prix: "125 €" },
+];
+---
+
+<section class="diners-calendar section" id="diners-gastronomiques">
+  <div class="container">
+    <div style="text-align:center; max-width:560px; margin:0 auto 2.5rem;" data-reveal>
+      <span class="section-label">Table du Chef</span>
+      <div class="gold-rule gold-rule-center" style="margin:1rem auto;"></div>
+      <h2>Prochains dîners<br><em style="color:var(--gold-base);">gastronomiques</em></h2>
+      <p class="diners-dates-note">Les dates sont mises à jour chaque mois</p>
+      <p class="diners-intro">
+        Mercredi &amp; Vendredi soir — Sur réservation uniquement<br>
+        Menu dégustation 6 services · 125 € par personne
+      </p>
+    </div>
+
+    <div class="diners-list">
+      {diners.map(d => (
+        <div class={`diner-row${d.places === 'Complet' ? ' diner-complet' : ''}`} data-reveal>
+          <div class="diner-date">{d.date}</div>
+          <div class="diner-theme">{d.theme}</div>
+          <div class="diner-prix">{d.prix}</div>
+          <div class="diner-places">{d.places}</div>
+          {d.places === 'Complet' ? (
+            <span class="btn-disabled">Complet</span>
+          ) : (
+            <a
+              href="https://reservation.laddition.com/booking/brisartculinaire"
+              class="btn-gold-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Réserver
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .diners-dates-note {
+    font-size: 0.75rem;
+    color: var(--color-steel, var(--stone-light));
+    font-style: italic;
+    margin-top: 0.75rem;
+    margin-bottom: 0.25rem;
+  }
+  .diners-intro {
+    color: var(--color-ink-secondary);
+    font-size: 0.88rem;
+    line-height: 1.7;
+    margin-top: 0.5rem;
+  }
+
+  .diners-list {
+    max-width: 800px;
+    margin: 2rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .diner-row {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 0.8fr 1.2fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    transition: background 0.2s;
+  }
+  .diner-row:hover:not(.diner-complet) {
+    background: rgba(201,164,74,0.04);
+  }
+  .diner-complet { opacity: 0.45; }
+
+  .diner-date {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--color-ink);
+  }
+  .diner-theme {
+    font-size: 0.78rem;
+    color: var(--color-ink-secondary);
+  }
+  .diner-prix {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--gold-base);
+  }
+  .diner-places {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--color-steel);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .btn-gold-sm {
+    background: var(--gold-base);
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+    border-radius: 2px;
+    display: inline-block;
+  }
+  .btn-gold-sm:hover { opacity: 0.85; }
+
+  .btn-disabled {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    color: var(--color-steel);
+    cursor: default;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 640px) {
+    .diner-row {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 0.4rem;
+      padding: 1rem;
+    }
+    .diner-theme { grid-column: 1 / -1; }
+    .diner-prix { order: -1; }
+  }
+</style>

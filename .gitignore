@@ -1,14 +1,15 @@
-# Dossier outils/plugins internes — ne pas versionner dans ce repo
-marketplaces/
-
 # Dépendances et artefacts de build
 node_modules/
 .astro/
 
+# Outils internes archivés
+_archive/
+
+# Tooling Claude (non versionnable dans ce repo)
 .claude/
-cedric-lucas-astro/public/sable.mp4
-cedric-lucas-astro/public/underwater.mp4
-cedric-lucas-astro/
-_clients/
-sites-artisans/
+
+# Vidéos lourdes
+_clients/liberaux/cedric-lucas/public/sable.mp4
+_clients/liberaux/cedric-lucas/public/underwater.mp4
+
 Backup-codes-contact.txt
