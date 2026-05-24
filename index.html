@@ -475,7 +475,7 @@ function Hero() {
 
         <div style={{ display: 'flex', gap: '0.8rem', marginTop: '2.25rem', flexWrap: 'wrap' }}>
           <a href="/#rdv" className="btn-primary">Caler un appel de 20 min <span>→</span></a>
-          <a href="https://mea-menuisier.pages.dev" target="_blank" rel="noopener noreferrer" className="btn-ghost" style={{ borderColor: 'var(--mea-cream)', color: 'var(--mea-cream)' }}>Voir un exemple →</a>
+          <a href="https://demo-menuisier.mon-espace-artisan.fr" target="_blank" rel="noopener noreferrer" className="btn-ghost" style={{ borderColor: 'var(--mea-cream)', color: 'var(--mea-cream)' }}>Voir un exemple →</a>
         </div>
 
         <div style={{ marginTop: '3rem', display: 'flex', gap: '2.5rem', flexWrap: 'nowrap', alignItems: 'baseline', paddingTop: '1.5rem', borderTop: '1.5px solid rgba(244,239,230,0.25)', maxWidth: 400 }}>
@@ -908,14 +908,14 @@ function ExemplesArtisans() {
   const PERPAGE = 3;
 
   const items = [
-    { metier: 'Menuisier',    icon: '🪚', bg: '#3d2b1f', accent: '#C8A96E', tags: ['Sur mesure', 'Galerie', 'Devis'],          url: 'https://mea-menuisier.pages.dev',    featured: true },
-    { metier: 'Plombier',     icon: '🔧', bg: '#1a2d45', accent: '#FF6B35', badge: '🚨 URGENCE 24/7', tags: ['Urgence 24/7', 'Devis', 'SEO local'],    url: 'https://mea-plombier.pages.dev' },
-    { metier: 'Électricien',  icon: '⚡', bg: '#1a1a2e', accent: '#FFD700', badge: '🚨 URGENCE 24/7', tags: ['Urgence 24/7', 'RGE', 'Dépannage'],       url: 'https://mea-electricien.pages.dev' },
-    { metier: 'Peintre',      icon: '🎨', bg: '#2d1f3d', accent: '#E63946', tags: ['Intérieur', 'Extérieur', 'Devis'],          url: 'https://mea-peintre.pages.dev' },
-    { metier: 'Couvreur',     icon: '🏠', bg: '#3d2a1a', accent: '#E74C3C', badge: '🚨 URGENCE 24/7', tags: ['Toiture', 'Zinguerie', 'Urgence'],         url: 'https://mea-couvreur.pages.dev' },
-    { metier: 'Maçon',        icon: '🏗️', bg: '#2a2a2a', accent: '#E67E22', tags: ['Gros œuvre', 'Extension', 'Devis'],         url: 'https://mea-macon.pages.dev' },
-    { metier: 'Paysagiste',   icon: '🌿', bg: '#1a3d1f', accent: '#95D5B2', tags: ['Entretien', 'Création', 'Terrasse'],         url: 'https://mea-paysagiste.pages.dev' },
-    { metier: 'Chauffagiste', icon: '🔥', bg: '#3d1a1a', accent: '#FF8C42', badge: '🚨 URGENCE 24/7', tags: ['Chaudière', 'PAC', 'Urgence'],              url: 'https://mea-chauffagiste.pages.dev' },
+    { metier: 'Menuisier',    icon: '🪚', bg: '#3d2b1f', accent: '#C8A96E', tags: ['Sur mesure', 'Galerie', 'Devis'],          url: 'https://demo-menuisier.mon-espace-artisan.fr',    featured: true },
+    { metier: 'Plombier',     icon: '🔧', bg: '#1a2d45', accent: '#FF6B35', badge: '🚨 URGENCE 24/7', tags: ['Urgence 24/7', 'Devis', 'SEO local'],    url: 'https://demo-plombier.mon-espace-artisan.fr' },
+    { metier: 'Électricien',  icon: '⚡', bg: '#1a1a2e', accent: '#FFD700', badge: '🚨 URGENCE 24/7', tags: ['Urgence 24/7', 'RGE', 'Dépannage'],       url: 'https://demo-electricien.mon-espace-artisan.fr' },
+    { metier: 'Peintre',      icon: '🎨', bg: '#2d1f3d', accent: '#E63946', tags: ['Intérieur', 'Extérieur', 'Devis'],          url: 'https://demo-peintre.mon-espace-artisan.fr' },
+    { metier: 'Couvreur',     icon: '🏠', bg: '#3d2a1a', accent: '#E74C3C', badge: '🚨 URGENCE 24/7', tags: ['Toiture', 'Zinguerie', 'Urgence'],         url: 'https://demo-couvreur.mon-espace-artisan.fr' },
+    { metier: 'Maçon',        icon: '🏗️', bg: '#2a2a2a', accent: '#E67E22', tags: ['Gros œuvre', 'Extension', 'Devis'],         url: 'https://demo-macon.mon-espace-artisan.fr' },
+    { metier: 'Paysagiste',   icon: '🌿', bg: '#1a3d1f', accent: '#95D5B2', tags: ['Entretien', 'Création', 'Terrasse'],         url: 'https://demo-paysagiste.mon-espace-artisan.fr' },
+    { metier: 'Chauffagiste', icon: '🔥', bg: '#3d1a1a', accent: '#FF8C42', badge: '🚨 URGENCE 24/7', tags: ['Chaudière', 'PAC', 'Urgence'],              url: 'https://demo-chauffagiste.mon-espace-artisan.fr' },
   ];
 
   const totalPages = Math.ceil(items.length / PERPAGE);
