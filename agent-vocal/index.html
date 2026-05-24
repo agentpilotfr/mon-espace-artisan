@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%231c1c1c'/><text x='16' y='22' font-family='Arial Black,Impact,sans-serif' font-size='16' font-weight='900' text-anchor='middle' letter-spacing='-1'><tspan fill='%23f4efe6'>M</tspan><tspan fill='%23dd8142'>E</tspan><tspan fill='%23f4efe6'>A</tspan></text></svg>" />
+
+<title>Agent vocal pour artisans : ne ratez plus un appel | MEA</title>
+<meta name="description" content="Un agent vocal qui décroche vos appels, qualifie la demande et prend vos rendez-vous pendant que vous êtes en intervention. Voix naturelle, en service en 48h." />
+<meta name="keywords" content="agent vocal artisan, standard téléphonique artisan, appel manqué artisan, prise de rendez-vous automatique, agent vocal IA français" />
+<link rel="canonical" href="https://mon-espace-artisan.fr/agent-vocal/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:title" content="Agent vocal pour artisans — ne ratez plus un appel" />
+<meta property="og:description" content="Il décroche, comprend la demande et prend le rendez-vous pendant que vous êtes sur le chantier. Voix naturelle, en service en 48h." />
+<meta property="og:url" content="https://mon-espace-artisan.fr/agent-vocal/" />
+<meta property="og:image" content="https://mon-espace-artisan.fr/agent-vocal/assets/og-agent-vocal.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Agent vocal pour artisans — ne ratez plus un appel" />
+<meta name="twitter:description" content="Il décroche et prend le rendez-vous pendant que vous travaillez. Voix naturelle, en service en 48h." />
+<meta name="twitter:image" content="https://mon-espace-artisan.fr/agent-vocal/assets/og-agent-vocal.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --mea-orange: #dd8142;
+    --mea-orange-deep: #b8632a;
+    --mea-dark: #1c1c1c;
+    --mea-dark-2: #2d2d2d;
+    --mea-gray: #5c5c5c;
+    --mea-gray-2: #a8a39b;
+    --mea-cream: #f4efe6;
+    --mea-paper: #eee7d8;
+    --mea-white: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  html, body {
+    background: var(--mea-cream); color: var(--mea-dark);
+    font-family: 'Archivo', system-ui, sans-serif; font-weight: 400;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  body { font-size: 16px; line-height: 1.6; }
+  h1, h2, h3, h4 { font-family: 'Archivo Black', 'Archivo', sans-serif; letter-spacing: -0.01em; line-height: 1.05; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  ::selection { background: var(--mea-orange); color: var(--mea-dark); }
+
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .uc { text-transform: uppercase; letter-spacing: 0.14em; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 1.75rem; }
+  .accent { color: var(--mea-orange); }
+  .em-orange { color: var(--mea-orange); font-style: italic; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--mea-orange); margin-bottom: 1.1rem; }
+  .paper-grid {
+    background-image:
+      linear-gradient(to right, rgba(28,28,28,0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(28,28,28,0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* ── Buttons ── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--mea-orange); color: var(--mea-dark);
+    padding: 0.95rem 1.5rem; border: 1.5px solid var(--mea-dark);
+    font-family: 'Archivo', sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.78rem;
+    box-shadow: 5px 5px 0 0 var(--mea-dark); cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 0 var(--mea-dark); }
+  .btn:active { transform: translate(2px,2px); box-shadow: 2px 2px 0 0 var(--mea-dark); }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.95rem 1.4rem; border: 1.5px solid currentColor;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.74rem;
+    text-transform: uppercase; letter-spacing: 0.12em; cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  /* ── Nav ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(244,239,230,0.92);
+    border-bottom: 1.5px solid var(--mea-dark);
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    padding: 0.85rem 1.75rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0.55rem; white-space: nowrap; flex-shrink: 0; }
+  .nav-logo-mea { font-family: 'Archivo Black', sans-serif; font-size: 1.85rem; line-height: 1; letter-spacing: -0.03em; }
+  .nav-logo-mea span { color: var(--mea-orange); }
+  .nav-logo-name { display: flex; flex-direction: column; line-height: 1.1; border-left: 1.5px solid var(--mea-dark); padding-left: 0.55rem; }
+  .nav-logo-name span { font-family: 'Archivo Black', sans-serif; font-size: 0.7rem; letter-spacing: 0.02em; }
+  .nav-links { display: flex; gap: 1.9rem; align-items: center; margin-left: auto; }
+  .nav-links a { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.13em; transition: color 0.15s; }
+  .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--mea-orange); }
+  .nav-right { display: flex; align-items: center; gap: 0.85rem; }
+  .nav-phone { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.08em; display: flex; align-items: center; gap: 0.35rem; }
+  .nav-cta { padding: 0.6rem 1rem; font-size: 0.7rem; box-shadow: 4px 4px 0 0 var(--mea-dark); }
+  .nav-cta:hover { box-shadow: 6px 6px 0 0 var(--mea-dark); }
+  .burger { display: none; flex-direction: column; justify-content: center; gap: 5px; padding: 0.35rem; background: none; border: none; cursor: pointer; flex-shrink: 0; }
+  .burger span { display: block; width: 24px; height: 2px; background: var(--mea-dark); transition: transform 0.2s, opacity 0.2s; }
+  .burger span:nth-child(2) { width: 18px; margin-left: auto; }
+  .mobile-menu { display: none; flex-direction: column; gap: 1.1rem; padding: 1.5rem 1.75rem; background: var(--mea-cream); border-bottom: 1.5px solid var(--mea-dark); box-shadow: 0 4px 0 0 var(--mea-dark); position: sticky; top: 60px; z-index: 99; }
+  .mobile-menu a { font-family: 'Archivo Black', sans-serif; font-size: 1.2rem; padding-bottom: 0.7rem; border-bottom: 1px solid rgba(28,28,28,0.1); }
+  .mobile-menu.open { display: flex; }
+
+  /* ── Hero ── */
+  .hero { background: var(--mea-dark); color: var(--mea-cream); border-bottom: 1.5px solid var(--mea-orange); padding: 5.5rem 0 0; position: relative; }
+  .hero .eyebrow { color: var(--mea-orange); }
+  .hero h1 { font-size: clamp(2.1rem, 6.2vw, 5.2rem); margin-bottom: 1.6rem; max-width: 16ch; overflow-wrap: break-word; }
+  .hero h1 em { font-style: italic; color: var(--mea-orange); }
+  .hero-sub { font-size: clamp(1.05rem, 2vw, 1.3rem); color: rgba(244,239,230,0.74); max-width: 46ch; line-height: 1.5; margin-bottom: 2.4rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; padding-bottom: 4rem; }
+  .hero .btn-ghost { color: rgba(244,239,230,0.85); }
+  .hero .btn-ghost:hover { background: rgba(244,239,230,0.1); }
+  .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(244,239,230,0.14); }
+  .hero-stat { padding: 1.6rem 0; }
+  .hero-stat + .hero-stat { border-left: 1px solid rgba(244,239,230,0.14); padding-left: 1.5rem; }
+  .hero-stat .num { font-family: 'Archivo Black', sans-serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--mea-orange); line-height: 1; }
+  .hero-stat .lbl { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--mea-gray-2); margin-top: 0.55rem; }
+
+  /* ── Sections ── */
+  .sec { padding: 5.5rem 0; }
+  .sec-dark { background: var(--mea-dark); color: var(--mea-cream); }
+  .sec h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); max-width: 20ch; margin-bottom: 1.2rem; }
+  .sec h2 em { font-style: italic; color: var(--mea-orange); }
+  .lede { font-size: 1.12rem; color: var(--mea-gray); max-width: 56ch; line-height: 1.6; }
+  .sec-dark .lede { color: var(--mea-gray-2); }
+
+  /* problème — scènes */
+  .scenes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3rem; }
+  .scene { border: 1.5px solid var(--mea-dark); background: var(--mea-white); padding: 1.6rem; box-shadow: 6px 6px 0 0 var(--mea-dark); }
+  .scene .tag { font-family: 'JetBrains Mono', monospace; font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--mea-orange); margin-bottom: 0.8rem; }
+  .scene p { font-size: 1rem; line-height: 1.5; }
+  .scene strong { font-weight: 800; }
+  .turn { margin-top: 2.8rem; font-family: 'Archivo Black', sans-serif; font-size: clamp(1.3rem, 3vw, 2rem); max-width: 24ch; }
+
+  /* solution — 4 blocs */
+  .feats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 3rem; }
+  .feat { border: 1.5px solid rgba(244,239,230,0.25); padding: 1.8rem; display: flex; gap: 1.1rem; align-items: flex-start; transition: border-color 0.2s, transform 0.2s; }
+  .feat:hover { border-color: var(--mea-orange); transform: translateY(-3px); }
+  .feat .ic { flex-shrink: 0; width: 44px; height: 44px; border: 1.5px solid var(--mea-orange); display: flex; align-items: center; justify-content: center; }
+  .feat .ic svg { width: 22px; height: 22px; stroke: var(--mea-orange); fill: none; stroke-width: 1.7; }
+  .feat h3 { font-size: 1.15rem; margin-bottom: 0.45rem; }
+  .feat p { font-size: 0.96rem; color: var(--mea-gray-2); line-height: 1.5; }
+
+  /* étapes */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .step { border-top: 3px solid var(--mea-orange); padding-top: 1.2rem; }
+  .step .n { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--mea-orange); letter-spacing: 0.12em; }
+  .step h3 { font-size: 1.2rem; margin: 0.5rem 0 0.6rem; }
+  .step p { color: var(--mea-gray); font-size: 0.98rem; line-height: 1.5; }
+  .reassure { margin-top: 3rem; display: flex; flex-wrap: wrap; gap: 0.7rem; }
+  .chip { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.06em; border: 1.5px solid var(--mea-dark); padding: 0.5rem 0.85rem; background: var(--mea-paper); }
+
+  /* pour qui */
+  .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 3rem; }
+  .card { border: 1.5px solid var(--mea-dark); padding: 1.9rem; }
+  .card.yes { background: var(--mea-white); box-shadow: 6px 6px 0 0 var(--mea-orange); }
+  .card.no { background: transparent; }
+  .card h3 { font-size: 1.05rem; margin-bottom: 1rem; }
+  .card ul { list-style: none; }
+  .card li { padding: 0.5rem 0; padding-left: 1.6rem; position: relative; font-size: 0.98rem; line-height: 1.4; border-bottom: 1px solid rgba(28,28,28,0.08); }
+  .card li:before { position: absolute; left: 0; font-family: 'Archivo Black'; }
+  .card.yes li:before { content: '✓'; color: var(--mea-orange); }
+  .card.no li:before { content: '✕'; color: var(--mea-gray); }
+
+  /* tarifs / positionnement */
+  .price-block { border: 1.5px solid var(--mea-dark); background: var(--mea-white); box-shadow: 8px 8px 0 0 var(--mea-dark); padding: 2.6rem; margin-top: 2.5rem; text-align: center; }
+  .price-block h3 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin-bottom: 1rem; }
+  .price-block p { color: var(--mea-gray); max-width: 50ch; margin: 0 auto 1.8rem; line-height: 1.6; }
+
+  /* FAQ */
+  .faq { margin-top: 3rem; border-top: 1.5px solid var(--mea-dark); }
+  .qa { border-bottom: 1.5px solid var(--mea-dark); }
+  .qa summary { cursor: pointer; list-style: none; padding: 1.4rem 0; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-family: 'Archivo Black', sans-serif; font-size: 1.08rem; }
+  .qa summary::-webkit-details-marker { display: none; }
+  .qa summary:after { content: '+'; font-family: 'Archivo Black'; color: var(--mea-orange); font-size: 1.5rem; transition: transform 0.2s; }
+  .qa[open] summary:after { transform: rotate(45deg); }
+  .qa p { padding: 0 0 1.5rem; color: var(--mea-gray); max-width: 64ch; line-height: 1.6; }
+
+  /* CTA final */
+  .final { background: var(--mea-orange); color: var(--mea-dark); border-top: 1.5px solid var(--mea-dark); border-bottom: 1.5px solid var(--mea-dark); padding: 5rem 0; }
+  .final h2 { font-size: clamp(2rem, 5vw, 3.4rem); max-width: 22ch; margin-bottom: 1.6rem; }
+  .final .btn { background: var(--mea-dark); color: var(--mea-cream); box-shadow: 6px 6px 0 0 rgba(28,28,28,0.35); }
+  .final .actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+  .final .btn-ghost { color: var(--mea-dark); }
+  .final .btn-ghost:hover { background: rgba(28,28,28,0.08); }
+
+  /* footer */
+  .ft { background: var(--mea-dark); color: var(--mea-cream); padding: 3.5rem 0 1.5rem; }
+  .ft-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2.5rem; }
+  .ft-logo { font-family: 'Archivo Black'; font-size: 3rem; line-height: 0.9; letter-spacing: -0.03em; }
+  .ft-logo span { color: var(--mea-orange); }
+  .ft-rule { height: 3px; width: 56px; background: var(--mea-orange); margin: 0.6rem 0 1rem; }
+  .ft p.tag { color: var(--mea-gray-2); font-size: 0.9rem; max-width: 30ch; line-height: 1.5; }
+  .ft-col .fh { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--mea-orange); margin-bottom: 1rem; }
+  .ft-col a, .ft-col span { display: block; color: rgba(244,239,230,0.7); font-size: 0.92rem; padding: 0.3rem 0; }
+  .ft-col a:hover { color: #fff; }
+  .ft-base { border-top: 1px solid rgba(244,239,230,0.12); padding-top: 1.25rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; font-family: 'JetBrains Mono', monospace; font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mea-gray-2); }
+
+  @media (max-width: 960px) {
+    .nav-links, .nav-phone, .nav-cta { display: none; }
+    .burger { display: flex; }
+    .feats, .scenes, .steps, .twocol { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .hero-stat:nth-child(3) { border-left: none; padding-left: 0; }
+    .ft-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .hero-stat { border-left: none !important; padding-left: 0 !important; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .ft-grid { grid-template-columns: 1fr; }
+    .sec { padding: 4rem 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Agent vocal pour artisans",
+  "serviceType": "Standard téléphonique automatique à voix naturelle",
+  "description": "Un agent vocal qui décroche les appels d'un artisan, qualifie la demande, prend les rendez-vous dans son agenda et lui envoie un récapitulatif par SMS — pendant qu'il est en intervention.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Mon Espace Artisan",
+    "url": "https://mon-espace-artisan.fr",
+    "telephone": "+33629817069",
+    "email": "contact@mon-espace-artisan.fr",
+    "areaServed": { "@type": "Country", "name": "France" }
+  },
+  "areaServed": { "@type": "Country", "name": "France" },
+  "audience": { "@type": "Audience", "audienceType": "Artisans du bâtiment et des services" },
+  "url": "https://mon-espace-artisan.fr/agent-vocal/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Et si je veux décrocher moi-même ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Vous gardez la priorité. L'agent vocal décroche quand vous ne pouvez pas — pas à votre place. Vous choisissez à quel moment vos appels basculent vers lui : tout le temps, le soir, le week-end, ou seulement quand vous êtes déjà en ligne." } },
+    { "@type": "Question", "name": "Mes clients vont savoir que c'est un robot ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "La voix est naturelle, en français, et l'agent reste transparent : il se présente comme l'accueil de votre entreprise. L'objectif n'est pas de tromper, mais de ne laisser personne tomber sur un répondeur vide." } },
+    { "@type": "Question", "name": "Combien de temps pour le mettre en place ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Comptez 48 heures entre le moment où on cale ensemble votre métier, vos horaires et vos zones d'intervention, et le premier appel décroché. Vous validez tout avant la mise en route." } },
+    { "@type": "Question", "name": "Je peux l'arrêter quand je veux ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Oui. Vous l'activez et le coupez quand vous voulez, sans préavis. C'est votre standard, vous en gardez la main de bout en bout." } },
+    { "@type": "Question", "name": "Vous gardez mes données et celles de mes clients ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Les coordonnées et les demandes captées vous appartiennent et vous reviennent — par SMS et dans votre espace. On ne les revend pas et on ne les utilise pas ailleurs." } },
+    { "@type": "Question", "name": "Compatible avec mon numéro actuel ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Oui. Vous gardez votre numéro. On met simplement en place le renvoi d'appel vers l'agent — rien à installer, aucune nouvelle ligne à retenir pour vos clients." } }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ─── NAV ─────────────────────────────────────────────── -->
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <span class="nav-logo-mea">M<span>E</span>A</span>
+    <span class="nav-logo-name"><span>Mon Espace</span><span>Artisan</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="/agent-vocal/" aria-current="page">Agent vocal</a>
+    <a href="#fonctionnement">Ce que ça fait</a>
+    <a href="#demarrage">Comment ça marche</a>
+    <a href="#faq">FAQ</a>
+    <a href="/nos-metiers.html">Nos métiers</a>
+  </div>
+  <div class="nav-right">
+    <a href="tel:+33629817069" class="nav-phone" aria-label="Appeler le 06 29 81 70 69">📞 06 29 81 70 69</a>
+    <a href="https://calendly.com/contact-mon-espace-artisan/appel-decouverte-gratuit-mea" class="btn nav-cta">Réservez un appel ↗</a>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/agent-vocal/">Agent vocal</a>
+  <a href="#fonctionnement">Ce que ça fait</a>
+  <a href="#demarrage">Comment ça marche</a>
+  <a href="#faq">FAQ</a>
+  <a href="/nos-metiers.html">Nos métiers</a>
+  <a href="https://calendly.com/contact-mon-espace-artisan/appel-decouverte-gratuit-mea" class="btn" style="align-self:flex-start;">Réservez un appel ↗</a>
+</div>
+
+<!-- ─── HERO ────────────────────────────────────────────── -->
+<main id="contenu">
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">/ Agent vocal</div>
+    <h1>Vous êtes en haut de l'échelle.<br /><em>Le téléphone, lui, est décroché.</em></h1>
+    <p class="hero-sub">Un client appelle pendant que vous avez les mains prises. Votre agent vocal répond, comprend ce qu'il veut, et pose le rendez-vous dans votre agenda. Vous rappelez quand vous redescendez.</p>
+    <div class="hero-actions">
+      <a href="https://calendly.com/contact-mon-espace-artisan/appel-decouverte-gratuit-mea" class="btn">Réservez un appel découverte ↗</a>
+      <a href="tel:+33629817069" class="btn-ghost">📞 06 29 81 70 69</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">24/7</div><div class="lbl">Toujours décroché</div></div>
+      <div class="hero-stat"><div class="num">FR</div><div class="lbl">Voix naturelle</div></div>
+      <div class="hero-stat"><div class="num">48h</div><div class="lbl">Mise en route</div></div>
+      <div class="hero-stat"><div class="num">0</div><div class="lbl">Logiciel à installer</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROBLÈME ────────────────────────────────────────── -->
+<section class="sec" id="probleme">
+  <div class="wrap">
+    <div class="eyebrow">/ Le constat</div>
+    <h2>Un appel manqué, <em>c'est un client qui appelle le suivant.</em></h2>
+    <p class="lede">Sur le terrain, vous ne pouvez pas répondre. Et la personne au bout du fil, elle, ne rappelle presque jamais : elle compose le numéro d'à côté.</p>
+    <div class="scenes">
+      <div class="scene">
+        <div class="tag">16h — sur un toit</div>
+        <p>Le couvreur entend son téléphone vibrer dans sa poche. Les <strong>deux mains sur l'ardoise</strong>, il le laisse sonner. Trois fois. Le devis de la semaine vient de partir ailleurs.</p>
+      </div>
+      <div class="scene">
+        <div class="tag">10h — sous un évier</div>
+        <p>Le plombier a les <strong>mains dans le siphon</strong>. Ça sonne, ça raccroche. Pas de message. Il ne saura jamais que c'était une fuite à réparer en urgence, à deux rues de là.</p>
+      </div>
+      <div class="scene">
+        <div class="tag">Samedi — moteur en marche</div>
+        <p>La <strong>tondeuse couvre la sonnerie</strong>. Le paysagiste rappellera ce soir, fatigué. Le client, lui, a déjà pris rendez-vous avec quelqu'un d'autre dans l'après-midi.</p>
+      </div>
+    </div>
+    <p class="turn">Ce ne sont pas des appels perdus. <span class="em-orange">Ce sont des chantiers perdus.</span></p>
+  </div>
+</section>
+
+<!-- ─── SOLUTION ────────────────────────────────────────── -->
+<section class="sec sec-dark" id="fonctionnement">
+  <div class="wrap">
+    <div class="eyebrow">/ Ce que fait votre agent vocal</div>
+    <h2>Léa décroche. <em>Vous, vous continuez de travailler.</em></h2>
+    <p class="lede">Léa, c'est la voix qui répond pour vous. Naturelle, en français, briefée sur votre métier. Voici ce qu'elle fait à chaque appel.</p>
+    <div class="feats">
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 5c0 9 7 16 16 16l2-3-4-2-2 2c-3-1.5-6-4.5-7.5-7.5l2-2-2-4z"/></svg></div>
+        <div><h3>Elle décroche, à chaque fois</h3><p>Jour, nuit, week-end, ou simplement quand vous êtes déjà en ligne. Personne ne tombe sur un répondeur, personne ne raccroche dans le vide.</p></div>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div><h3>Elle comprend la demande</h3><p>Nature des travaux, adresse, niveau d'urgence : elle pose les bonnes questions et trie ce qui mérite un rappel tout de suite de ce qui peut attendre.</p></div>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+        <div><h3>Elle pose le rendez-vous</h3><p>Quand c'est pertinent, elle propose un créneau et l'inscrit directement dans votre agenda. Vous arrivez le matin avec votre journée déjà calée.</p></div>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg></div>
+        <div><h3>Elle vous fait le récap</h3><p>Aussitôt l'appel terminé, vous recevez un SMS : qui a appelé, pour quoi, et ce qui a été convenu. Vous rappelez en connaissance de cause.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DÉMARRAGE ───────────────────────────────────────── -->
+<section class="sec paper-grid" id="demarrage">
+  <div class="wrap">
+    <div class="eyebrow">/ Comment ça se passe</div>
+    <h2>Trois étapes. <em>Et vous gardez la main.</em></h2>
+    <p class="lede">Pas de chantier informatique. On s'occupe de tout, vous validez, et vous restez maître de votre standard.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="n">01 — On vous écoute</div>
+        <h3>On brief Léa sur votre métier</h3>
+        <p>Vos prestations, vos horaires, vos zones, votre façon de parler à vos clients. On règle ce qu'elle doit dire et les rendez-vous qu'elle peut poser.</p>
+      </div>
+      <div class="step">
+        <div class="n">02 — On met en route</div>
+        <h3>Sur votre numéro actuel</h3>
+        <p>On active le renvoi d'appel depuis votre ligne existante. Rien à installer, aucun nouveau numéro à donner à vos clients. En service sous 48h.</p>
+      </div>
+      <div class="step">
+        <div class="n">03 — Vous reprenez la main</div>
+        <h3>Quand vous voulez, comme vous voulez</h3>
+        <p>Vous décidez quand vos appels basculent vers Léa et quand ils reviennent vers vous. Vous pouvez tout couper à tout moment, sans préavis.</p>
+      </div>
+    </div>
+    <div class="reassure">
+      <span class="chip">Voix naturelle — pas un robot</span>
+      <span class="chip">Votre numéro, conservé</span>
+      <span class="chip">Sans engagement</span>
+      <span class="chip">Vous gardez la priorité sur vos appels</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── POUR QUI ────────────────────────────────────────── -->
+<section class="sec" id="pour-qui">
+  <div class="wrap">
+    <div class="eyebrow">/ Pour qui c'est</div>
+    <h2>On préfère vous le dire <em>franchement.</em></h2>
+    <p class="lede">Un agent vocal n'a pas de sens pour tout le monde. Voici comment on voit les choses.</p>
+    <div class="twocol">
+      <div class="card yes">
+        <h3>C'est fait pour vous si…</h3>
+        <ul>
+          <li>Vous êtes seul ou à quelques-uns, et souvent en intervention</li>
+          <li>Vous ratez des appels parce que vous avez les mains prises</li>
+          <li>Vos clients appellent et n'attendent pas : ils passent au suivant</li>
+          <li>Vous voulez une journée déjà organisée quand vous arrivez le matin</li>
+        </ul>
+      </div>
+      <div class="card no">
+        <h3>Ce n'est pas pour vous si…</h3>
+        <ul>
+          <li>Vous avez déjà un secrétariat qui décroche en permanence</li>
+          <li>Vous recevez très peu d'appels et les gérez tous vous-même</li>
+          <li>Vous cherchez à remplacer le contact humain plutôt qu'à le préserver</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── POSITIONNEMENT PRIX ─────────────────────────────── -->
+<section class="sec sec-dark" id="tarifs">
+  <div class="wrap" style="text-align:center;">
+    <div class="eyebrow" style="text-align:center;">/ Combien ça coûte</div>
+    <div class="price-block" style="background:var(--mea-dark-2); border-color:var(--mea-orange); box-shadow:8px 8px 0 0 var(--mea-orange); color:var(--mea-cream);">
+      <h3>On regarde ensemble avant de parler chiffres.</h3>
+      <p style="color:var(--mea-gray-2);">Pas de prix caché, pas de devis à rallonge. On prend un appel, on regarde votre volume d'appels et votre métier, et on vous dit honnêtement si ça vaut le coup pour vous — et combien. Sans engagement.</p>
+      <a href="https://calendly.com/contact-mon-espace-artisan/appel-decouverte-gratuit-mea" class="btn" style="background:var(--mea-orange); color:var(--mea-dark);">Réservez un appel découverte ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─────────────────────────────────────────────── -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="eyebrow">/ Les questions qu'on nous pose</div>
+    <h2>Ce que vous vous demandez <em>sûrement.</em></h2>
+    <div class="faq">
+      <details class="qa"><summary>Et si je veux décrocher moi-même ?</summary><p>Vous gardez la priorité. L'agent vocal décroche quand vous ne pouvez pas — pas à votre place. Vous choisissez à quel moment vos appels basculent vers lui : tout le temps, le soir, le week-end, ou seulement quand vous êtes déjà en ligne.</p></details>
+      <details class="qa"><summary>Mes clients vont savoir que c'est un robot ?</summary><p>La voix est naturelle, en français, et l'agent reste transparent : il se présente comme l'accueil de votre entreprise. L'objectif n'est pas de tromper, mais de ne laisser personne tomber sur un répondeur vide.</p></details>
+      <details class="qa"><summary>Combien de temps pour le mettre en place ?</summary><p>Comptez 48 heures entre le moment où on cale ensemble votre métier, vos horaires et vos zones d'intervention, et le premier appel décroché. Vous validez tout avant la mise en route.</p></details>
+      <details class="qa"><summary>Je peux l'arrêter quand je veux ?</summary><p>Oui. Vous l'activez et le coupez quand vous voulez, sans préavis. C'est votre standard, vous en gardez la main de bout en bout.</p></details>
+      <details class="qa"><summary>Vous gardez mes données et celles de mes clients ?</summary><p>Les coordonnées et les demandes captées vous appartiennent et vous reviennent — par SMS et dans votre espace. On ne les revend pas et on ne les utilise pas ailleurs.</p></details>
+      <details class="qa"><summary>Compatible avec mon numéro actuel ?</summary><p>Oui. Vous gardez votre numéro. On met simplement en place le renvoi d'appel vers l'agent — rien à installer, aucune nouvelle ligne à retenir pour vos clients.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA FINAL ───────────────────────────────────────── -->
+<section class="final">
+  <div class="wrap">
+    <h2>Le prochain appel que vous ratez, <span style="font-style:italic;">c'est peut-être le chantier de l'année.</span></h2>
+    <div class="actions">
+      <a href="https://calendly.com/contact-mon-espace-artisan/appel-decouverte-gratuit-mea" class="btn">Réservez un appel découverte ↗</a>
+      <a href="tel:+33629817069" class="btn-ghost">📞 06 29 81 70 69</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ─── FOOTER ──────────────────────────────────────────── -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-logo">M<span>E</span>A</div>
+        <div class="ft-rule"></div>
+        <p class="tag">Mon Espace Artisan — sites web et agent vocal pour artisans. Basé en Normandie, on travaille partout en France.</p>
+      </div>
+      <div class="ft-col">
+        <div class="fh">Naviguer</div>
+        <a href="/">Accueil</a>
+        <a href="/agent-vocal/">Agent vocal</a>
+        <a href="/nos-metiers.html">Nos métiers</a>
+      </div>
+      <div class="ft-col">
+        <div class="fh">Contact &amp; légal</div>
+        <a href="tel:+33629817069">06 29 81 70 69</a>
+        <a href="mailto:contact@mon-espace-artisan.fr">contact@mon-espace-artisan.fr</a>
+        <a href="/cgv.html">CGV</a>
+        <a href="/confidentialite.html">Confidentialité</a>
+      </div>
+    </div>
+    <div class="ft-base">
+      <span>© 2026 Mon Espace Artisan · Votre Atelier Numérique ⚒</span>
+      <span>Assemblé à la main · hébergé sur Cloudflare</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* iOS Safari safe : var + function uniquement, aucun IntersectionObserver. */
+(function () {
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  if (burger && menu) {
+    burger.addEventListener('click', function () {
+      var open = menu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    });
+    var links = menu.getElementsByTagName('a');
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function () {
+        menu.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    }
+  }
+})();
+</script>
+
+</body>
+</html>

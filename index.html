@@ -330,6 +330,7 @@ function Navbar() {
   const links = [
     { href: '#exemples', label: 'Exemples' },
     { href: '#process', label: 'Process' },
+    { href: '/agent-vocal/', label: 'Agent vocal' },
     { href: '#offre', label: 'Offre' },
     { href: '#equipe', label: 'Équipe' },
     { href: '#faq', label: 'FAQ' },
@@ -1184,6 +1185,10 @@ function Offer() {
             Pack Essentiel dès 290€ · Pack Premium dès 790€{' '}
             <a href="#offre" style={{ color: 'var(--mea-orange-deep)', borderBottom: '1px solid var(--mea-orange-deep)' }}>→ voir tous les tarifs</a>
           </div>
+          <div className="mono" style={{ fontSize: '0.7rem', color: 'var(--mea-gray)' }}>
+            Le téléphone qui sonne pendant que vous êtes en intervention ?{' '}
+            <a href="/agent-vocal/" style={{ color: 'var(--mea-orange-deep)', borderBottom: '1px solid var(--mea-orange-deep)' }}>→ Découvrez l'agent vocal</a>
+          </div>
         </div>
       </div>
       <style>{`@media (max-width: 900px) { .offer-grid { grid-template-columns: 1fr !important; } .packs-grid { grid-template-columns: 1fr !important; } }`}</style>
@@ -1589,7 +1594,7 @@ function Footer() {
             <div className="mono uppercase" style={{ fontSize: '0.62rem', color: 'var(--mea-gray-2)', marginTop: 2 }}>Votre Atelier Numérique ⚒</div>
             <p style={{ marginTop: '1.25rem', fontSize: '0.88rem', color: 'var(--mea-gray-2)', maxWidth: 280, lineHeight: 1.5 }}>Votre site internet en 48h, créé par un humain. Sans jargon, sans engagement.</p>
           </div>
-          <FootCol title="Naviguer" links={[{ l: 'Accueil', h: '/' }, { l: 'Tarifs', h: '#offre' }, { l: 'Nos métiers', h: 'nos-metiers.html' }, { l: 'À propos', h: '#equipe' }, { l: 'Contact', h: '#rdv' }]}/>
+          <FootCol title="Naviguer" links={[{ l: 'Accueil', h: '/' }, { l: 'Agent vocal', h: '/agent-vocal/' }, { l: 'Tarifs', h: '#offre' }, { l: 'Nos métiers', h: 'nos-metiers.html' }, { l: 'À propos', h: '#equipe' }, { l: 'Contact', h: '#rdv' }]}/>
           <FootCol title="Nos métiers" links={[{ l: 'Plombier', h: 'nos-metiers.html#plombier' }, { l: 'Électricien', h: 'nos-metiers.html#electricien' }, { l: 'Peintre', h: 'nos-metiers.html#peintre' }, { l: 'Menuisier', h: 'nos-metiers.html#menuisier' }, { l: 'Couvreur', h: 'nos-metiers.html#couvreur' }, { l: 'Paysagiste', h: 'nos-metiers.html#paysagiste' }]}/>
           <FootCol title="Contact & légal" links={[{ l: '06 29 81 70 69', h: 'tel:+33629817069' }, { l: 'contact@mon-espace-artisan.fr', h: 'mailto:contact@mon-espace-artisan.fr' }, { l: 'Mentions légales', h: '/' }, { l: 'CGV', h: 'cgv.html' }, { l: 'Confidentialité', h: 'confidentialite.html' }]}/>
         </div>

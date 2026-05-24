@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1c1c1c"/>
+  <rect x="0" y="0" width="14" height="630" fill="#dd8142"/>
+  <!-- subtle grid -->
+  <g stroke="#ffffff" stroke-opacity="0.04">
+    <line x1="0" y1="157" x2="1200" y2="157"/><line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="472" x2="1200" y2="472"/>
+    <line x1="400" y1="0" x2="400" y2="630"/><line x1="800" y1="0" x2="800" y2="630"/>
+  </g>
+  <!-- logo -->
+  <g transform="translate(80,86)">
+    <rect x="0" y="-34" width="48" height="48" rx="7" fill="#dd8142"/>
+    <text x="24" y="2" font-family="Arial Black, Helvetica, sans-serif" font-size="26" font-weight="900" fill="#1c1c1c" text-anchor="middle">M·A</text>
+    <text x="66" y="-6" font-family="Arial Black, Helvetica, sans-serif" font-size="20" font-weight="900" fill="#f4efe6">Mon Espace Artisan</text>
+    <text x="66" y="16" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="3" fill="#a8a39b">AGENT VOCAL</text>
+  </g>
+  <!-- headline -->
+  <text x="80" y="300" font-family="Arial Black, Helvetica, sans-serif" font-size="74" font-weight="900" fill="#f4efe6" letter-spacing="-2">Le téléphone répond.</text>
+  <text x="80" y="392" font-family="Arial Black, Helvetica, sans-serif" font-size="74" font-weight="900" font-style="italic" fill="#dd8142" letter-spacing="-2">Même quand vous travaillez.</text>
+  <!-- sub -->
+  <text x="80" y="468" font-family="Helvetica, Arial, sans-serif" font-size="27" fill="#a8a39b">Un agent vocal qui décroche, qualifie la demande et prend vos rendez-vous.</text>
+  <!-- footer url -->
+  <text x="80" y="566" font-family="'JetBrains Mono', monospace" font-size="22" letter-spacing="1" fill="#dd8142">mon-espace-artisan.fr/agent-vocal</text>
+</svg>
